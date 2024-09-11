@@ -4,10 +4,97 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d210021f-245f-4440-8d3d-d3175e98dcd9" name="Changes" comment="initial_5">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/set.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.py" afterDir="false" />
+    <list default="true" id="d210021f-245f-4440-8d3d-d3175e98dcd9" name="Changes" comment="initial_6">
+      <change afterPath="$PROJECT_DIR$/Moneybox/tests/allure_results/33bc0d0b-610b-4fff-8629-93cf2f39e171-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Moneybox/tests/allure_results/7664a9ad-81b4-40e7-a75f-85a0fb1edba7-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/0088b77c-5bab-45e2-80c3-588da576e00b-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/00d1430a-d69b-4caf-a673-d3118f26ec54-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/06600a96-0cff-430e-a407-74d14168a1e8-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/088560d6-bbf3-4a8a-8ac2-f5c6f5586bbd-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/09a55d6d-a92d-4c1e-bc91-f808baff806f-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/0a226372-edd0-4a71-a6e3-48fe1ed68e5a-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/0a35de8f-73cb-49dc-ab91-5c1ad2b786c9-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/0c870c2b-30b9-41e6-9d55-824316d59ae2-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/0e6f99aa-af4b-4e0c-b785-b8f5c89a3b03-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/0ea526c7-c3c6-44d0-a694-dcbdb751ed2a-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/105474de-02b9-4d78-8c40-cea219af314d-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/12953d40-2a66-4411-aa8b-8026aa6f120c-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/1b923be9-8d4f-4725-a3e8-04f88d75d18e-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/22208953-0c11-4c12-9ff0-30d8831e193d-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/2e9cde56-c1b6-4ac9-9f4a-e7e604d721a1-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/34bb0ef6-e854-49d9-b2d7-3e6992bfa0f6-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/35a2b086-0576-4de7-8ad3-27debae619e8-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/3736e027-05e9-4843-afcf-95c30eeead61-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/373c09c1-6eb0-4b21-8c5e-8c38686241f7-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/381114b2-4248-4e71-853a-70ccb6936222-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/3f672118-5887-4787-bfbf-993f0ad368e2-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/401b15fa-cc3a-4e7c-ae1f-13e75fab93ed-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/44d5b0b0-f9d4-44d9-893c-a5c4b5245ec5-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/452df83e-2621-4eb8-9c13-0f759f218e36-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/46058635-fdd3-4ad1-868d-0dbf8f467417-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/4fa63404-09b5-4835-b376-438d01ccd0a4-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/517f0cd8-0046-4ba4-adb3-206baf2aee8c-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/571f186d-44f6-4da0-84bc-b1225c7cb249-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/58a967ad-7c56-40f2-a307-5627c4ffcff2-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/5e6452f9-0c67-44a2-a4c4-5496097d6c9b-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/65508a28-aa3c-496f-aea4-9033fcf9a60c-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/66c49d4f-0a4f-48bc-8374-2c5cc3c07d1e-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/67ef49ae-06b9-44a4-9a4c-6f48deeabecc-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/68a36222-ce20-42ec-ac8a-aab31dd46d3d-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/6ae81af3-f3b7-494e-8ec6-957607aa937d-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/6b60748e-73f1-4c0f-ba9b-b693695bd9fe-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/6c5aa650-d199-404b-b2a6-c64eac2b90d5-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/6cc3283c-72bf-46c1-b0ec-26941e83dbab-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/6eb84461-896d-48c5-98fe-2006abc70d87-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/721d0b8d-dc11-4412-bb84-39ec3e0bec26-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/72de452f-73e0-4188-a085-a318b2228bf9-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/72eef372-e639-4cf3-b3ef-7c43d13f9a6b-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/76fc9f0e-22cb-4470-833b-feb43fb47a73-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/7eb728c5-0209-4ec8-8be9-e04b9b54fa93-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/7fdb129e-60af-4697-b602-7bbd795e3255-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/8056921b-c2d0-498a-8198-dd8c8ddde284-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/82e16f2a-cc1c-4591-83f4-87cf326fabb2-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/834bc4de-6600-46a9-b296-1378335cc375-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/840f4718-005e-4ac4-a6ae-103a0f72ba5b-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/84b0337b-43d3-46ac-8c45-198bb6fdfaeb-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/8b36bcd8-e362-4e98-8394-0fd4f91cb5b6-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/95054532-601e-4110-92cf-fcc325ab34b1-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/973d5448-f3aa-446d-9e3a-7d96fd5195a5-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/978168ad-08e0-41e7-aaf1-0b70db463456-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/980e6a59-3c0f-4cb6-8ff3-487c9b829347-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/99b86d20-b0bb-4ed4-ad40-520af5ef462b-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/9a09abea-a63a-49fe-8bcb-3655ebc261df-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/a0affc73-7b76-4140-a77d-c481079967b1-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/a3b9ee1e-9064-4cca-a98a-9c17523d9892-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/ad8c3e0d-731a-49e2-a44c-2e74a29ae512-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/b11df8fb-c9b2-4a41-8184-336d080ec684-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/b1cb7ba2-5145-4da2-b3c7-ad15122867bf-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/b4982c55-c86d-41ce-b9b0-4142302e0859-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/bcdf68da-94bf-4ff0-9549-23dfc9abe38d-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/bd0be83c-226a-4cd1-8f62-322b85ded710-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/be859217-bb5d-4439-a2dc-c39a83c59124-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/c52430e0-3199-4983-b4f7-57844bb397bc-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/c530682f-439d-48db-b8e5-9e8c92a4feec-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/c6c4f06b-d8b5-4219-9d32-2b90c9fdf121-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/c8a817d0-5cf6-4d50-8c1a-036c59181c38-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/ca0d8b73-5566-4a11-93ad-7e77816c5f46-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/ccee6520-c3c1-4e87-9048-eac60655aeb7-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/cdf7b909-6b30-4b7f-a821-ae62bbb19028-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/ce1684ce-75a0-40c6-8a6b-8b43448e1eff-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/d18879f4-4f65-4e34-b9b3-ea687d1d1761-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/dd469332-88b1-4be4-a505-ba984b85993b-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/dd867500-da3a-4983-a259-086c8047420d-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/dfc57ffd-1938-4133-a575-a01417ee15e3-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/e0f805e4-be5a-4d03-b2c7-48e48b9e6635-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/e996c5a4-0870-4418-ba5d-adccd0fec3c4-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/ebe45058-7273-4bc9-aeb5-91e05dd6533d-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/ededce28-70ff-4638-844d-5ceb0b9b5c7a-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/f4e52fcc-c5ea-4da7-b130-e7f0e5747bf4-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/f71a07ce-ed74-460c-b57b-fcc7d8a7abbe-attachment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/f88faa7d-ddfc-449a-a8fd-14cc5bc29d72-result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/fadb72f7-c382-43fc-9987-6b247a1021c6-container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allure_results/fbfec9d9-a6a9-45de-8271-1fdb6da81165-attachment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/set.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/set.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,7 +179,7 @@
     &quot;Python tests.Python tests in tests.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
   }
 }</component>
@@ -105,7 +192,22 @@
       <recent name="C:\Users\Pavel\PycharmProjects\Budget_api\Moneybox\tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for test_is_archived_patch.TestIsArchivedPatch.test_01">
+  <component name="RunManager" selected="Python tests.Python tests for test_delete.TestDelete.test_01">
+    <configuration name="Python tests for test_delete.TestDelete.test_01" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Budget_api" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Moneybox/tests/DELETE" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_delete.TestDelete.test_01&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="Python tests for test_is_archived_patch.TestIsArchivedPatch.test_01" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Budget_api" />
       <option name="ENV_FILES" value="" />
@@ -134,21 +236,6 @@
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;test_name_field.TestName&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests in test_common_check.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="Budget_api" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Moneybox/tests/POST" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/Moneybox/tests/POST/test_common_check.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="Python tests in test_is_archived_patch.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
@@ -183,11 +270,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for test_delete.TestDelete.test_01" />
+        <item itemvalue="Python tests.Python tests in tests" />
         <item itemvalue="Python tests.Python tests for test_is_archived_patch.TestIsArchivedPatch.test_01" />
         <item itemvalue="Python tests.Python tests in test_is_archived_patch.py" />
-        <item itemvalue="Python tests.Python tests in tests" />
         <item itemvalue="Python tests.Python tests for test_name_field.TestName" />
-        <item itemvalue="Python tests.Python tests in test_common_check.py" />
       </list>
     </recent_temporary>
   </component>
@@ -255,7 +342,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725554840649</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="initial_6">
+      <option name="closed" value="true" />
+      <created>1725983345525</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1725983345525</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -266,6 +361,7 @@
     <MESSAGE value="initial_3" />
     <MESSAGE value="initial_4" />
     <MESSAGE value="initial_5" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial_5" />
+    <MESSAGE value="initial_6" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial_6" />
   </component>
 </project>

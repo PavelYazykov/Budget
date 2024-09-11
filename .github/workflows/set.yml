@@ -6,10 +6,10 @@ on:
       deployment-target:
         description: Chose target
         required: true
-        default:
-          type: choice
-          options:
-            - moneybox_test
+        default: all
+        type: choice
+        options:
+            - all
 
 permissions:
   contents: read
@@ -22,18 +22,20 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: setup python
+      - name: setup Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
       - name: Install Chrome
-        run:  sudo apt-get install google-chrome-stable
+        run: sudo apt-get install google-chrome-stable
       - name: install dependencies
         run: pip install -r requirements.txt
-      - name: Run test
-        run: pytest
-      - name: run all tests
-        run:  pytest --alluredir=allure-results
+      - name: Download all workflow run artifacts
+        uses: actions/download-artifact@v3
+      - name: all
+        # if: "github.event.inputs.deployment_target == 'all'"
+        run: pytest Moneybox/tests --alluredir=allure-results
+        continue-on-error: true
       - name: Store allure results
         uses: actions/upload-artifact@v3
         with:
@@ -47,10 +49,10 @@ jobs:
     needs: test
     name: Generate report
     steps:
-      - uses: actions/setup-java@v3
+      - uses: actions/setup-java@v4.3.0
         with:
-          description: 'microsoft'
-          java-version: '17'
+          distribution: 'sapmachine' # See 'Supported distributions' for available options
+          java-version: '21'
       - run: sudo wget https://github.com/allure-framework/allure2/releases/download/2.23.1/allure-2.23.1.tgz && sudo tar -zxvf allure-2.23.1.tgz -C /opt/ && sudo ln -s /opt/allure-2.23.1/bin/allure /usr/bin/allure
       - name: Download all workflow run artifacts
         uses: actions/download-artifact@v3
