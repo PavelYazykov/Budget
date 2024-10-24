@@ -4,73 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d210021f-245f-4440-8d3d-d3175e98dcd9" name="Changes" comment="initial_7">
-      <change afterPath="$PROJECT_DIR$/Auth/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/methods/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/methods/auth_methods.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/methods/payloads.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_change_password/test_change_password_common_check.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_change_password/test_new_password_field.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_change_password/test_old_password_field.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_code_check/test_check_code_field.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_code_check/test_check_email_field.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_code_check/test_check_phone_field.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_code_check/x.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_forgot_password/test_email_field.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_forgot_password/test_forgot_password_common_check.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_forgot_password/test_phone_field.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_login/test_check_device_id_field.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_login/test_check_pssword_field.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_login/test_check_username_field.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_login/test_login_common_check.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_logout/test_logout.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_refresh/test_refresh.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_register/test_registr_common_check.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_register/test_registr_date_of_birth.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_register/test_registr_email_field.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_register/test_registr_firstname_field.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_register/test_registr_lastname_field.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_register/test_registr_middlename_field.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_register/test_registr_password_field.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_register/test_registr_phone_field.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_request_verify_code/test_check_userid_field.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_request_verify_code/test_request_vc_common_check.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_request_verify_code/test_virify_type_field.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_reset_password/test_reset_password_check_email.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_reset_password/test_reset_password_check_phone.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_reset_password/test_reset_password_common_check.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_reset_password/test_reset_password_field_password.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_verify/test_code_from_user.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_verify/test_user_id_field.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/Post_verify/test_verify_type.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moneybox/methods/payloads.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moneybox/tests/Get_all_moneybox/test_is_archived_field.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common_methods/variables.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitlab-ci.py" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/methods/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/common_methods/auth.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/methods/checking.py" beforeDir="false" afterPath="$PROJECT_DIR$/common_methods/checking.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/methods/http_methods.py" beforeDir="false" afterPath="$PROJECT_DIR$/common_methods/http_methods.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/methods/moneybox_methods.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/methods/moneybox_methods.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/DELETE/test_delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/DELETE/test_delete.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/GET_ALL/test_get_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Get_all_moneybox/test_get_all.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/GET_BY_ID/test_get_by_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Get_by_id/test_get_by_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/PATCH/test_common_patch.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Patch_moneybox/test_common_patch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/PATCH/test_currency_id_patch.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Patch_moneybox/test_currency_id_patch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/PATCH/test_goal_patch.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Patch_moneybox/test_goal_patch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/PATCH/test_is_archived_patch.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Patch_moneybox/test_is_archived_patch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/PATCH/test_name_patch.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Patch_moneybox/test_name_patch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/PATCH/test_to_date_patch.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Patch_moneybox/test_to_date_patch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/POST/test_amount_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/test_amount_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/POST/test_common_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/test_common_check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/POST/test_currency_id_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/test_currency_id_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/POST/test_goal_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/test_goal_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/POST/test_name_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/test_name_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/POST/test_to_date_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/test_to_date_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pytest.ini" beforeDir="false" afterPath="$PROJECT_DIR$/pytest.ini" afterDir="false" />
-    </list>
+    <list default="true" id="d210021f-245f-4440-8d3d-d3175e98dcd9" name="Changes" comment="moneybox_changed_24_10" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -487,7 +421,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726066659691</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="moneybox_changed_24_10">
+      <option name="closed" value="true" />
+      <created>1729774018189</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1729774018189</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -500,6 +442,7 @@
     <MESSAGE value="initial_5" />
     <MESSAGE value="initial_6" />
     <MESSAGE value="initial_7" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial_7" />
+    <MESSAGE value="moneybox_changed_24_10" />
+    <option name="LAST_COMMIT_MESSAGE" value="moneybox_changed_24_10" />
   </component>
 </project>

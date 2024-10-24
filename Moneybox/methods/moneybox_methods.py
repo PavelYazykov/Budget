@@ -4,8 +4,8 @@ import allure
 from common_methods.http_methods import HttpMethods
 
 
-# base_url = 'https://budget-test.god-it.ru/api'
-base_url = 'http://localhost:8000'
+base_url = 'https://budget-test.god-it.ru/api'
+# base_url = 'http://localhost:8000'
 
 
 class MoneyboxMethods:
