@@ -1,7 +1,6 @@
 import allure
-from Moneybox.methods.auth import Auth
 from Moneybox.methods.moneybox_methods import MoneyboxMethods
-from Moneybox.methods.checking import Checking
+from common_methods.checking import Checking
 
 moneybox_id = 606
 
