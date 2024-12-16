@@ -5,6 +5,9 @@ import allure
 from common_methods.http_methods import HttpMethods
 from common_methods.checking import Checking
 from Auth.methods.auth_methods import AuthMethods
+from common_methods.variables import AuthVariables
+email = AuthVariables.email
+phone = AuthVariables.phone
 
 
 @allure.epic('Post_forgot_password Общие проверки')
@@ -14,7 +17,7 @@ class TestCommonCheck:
     # def test_01(self):
     #     for i in range(10):
     #         time.sleep(5)
-    #         result = AuthMethods.forgot_password(None, 'pawel_test_1@rambler.ru')
+    #         result = AuthMethods.forgot_password(None, email)
     #         print(result.text)
     #         Checking.check_statuscode(result, 200)
     #
@@ -23,18 +26,18 @@ class TestCommonCheck:
     #     time.sleep(10805)
     #     for i in range(10):
     #         time.sleep(5)
-    #         result = AuthMethods.forgot_password(None, 'pawel_test_1@rambler.ru')
+    #         result = AuthMethods.forgot_password(None, email)
     #         print(result.text)
     #         Checking.check_statuscode(result, 200)
     #
-    #     result = AuthMethods.forgot_password(None, 'pawel_test_1@rambler.ru')
+    #     result = AuthMethods.forgot_password(None, email)
     #     print(result.text)
     #     Checking.check_statuscode(result, 422)
 
     @allure.description('Запрос кода подтверждения с валидными данными')
     def test_03(self):
         time.sleep(62)
-        result = AuthMethods.forgot_password(None, 'pawel_test_1@rambler.ru')
+        result = AuthMethods.forgot_password(None, email)
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
@@ -42,7 +45,7 @@ class TestCommonCheck:
     @allure.description('Одновременно указана и почта и номер телефона')
     def test_04(self):
         time.sleep(62)
-        result = AuthMethods.forgot_password('89260000002', 'pawel_test_1@rambler.ru')
+        result = AuthMethods.forgot_password(phone, email)
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 422)
@@ -60,14 +63,14 @@ class TestCommonCheck:
 
         """Запрос кода подтверждения"""
         # time.sleep(62)
-        result = AuthMethods.forgot_password(None, 'pawel_test_1@rambler.ru')
+        result = AuthMethods.forgot_password(None, email)
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
 
         """Запрос нового кода подтверждения"""
         time.sleep(5)
-        result = AuthMethods.forgot_password(None, 'pawel_test_1@rambler.ru')
+        result = AuthMethods.forgot_password(None, email)
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 400)

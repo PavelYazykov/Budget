@@ -1,12 +1,11 @@
-import json
-
 import allure
-
-from common_methods.auth import Auth
+from Moneybox.methods.payloads import Payloads
 from Moneybox.methods.moneybox_methods import MoneyboxMethods
 from common_methods.checking import Checking
 from common_methods.variables import MoneyboxVariables
-# moneybox_id = 410
+from Personal_transaction.methods.personal_transaction_methods import PersonalTransactionMethods
+from Auth.methods.auth_methods import AuthMethods
+from common_methods.variables import AuthVariables
 to_date = MoneyboxVariables.to_date
 goal = MoneyboxVariables.goal
 name = MoneyboxVariables.name
@@ -19,12 +18,9 @@ amount = MoneyboxVariables.amount
 class TestCommonPatch:
 
     @allure.description('С существующим ID и валидными значениями в полях (авторизованный пользователь')
-    def test_01(self, auth_fixture, create_moneybox_and_delete):
+    def test_01(self, create_moneybox_and_delete):
         """Создание копилки"""
-        moneybox_id = create_moneybox_and_delete
-
-        """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Patch_moneybox запрос"""
         result_patch = MoneyboxMethods.change_moneybox(
@@ -33,39 +29,22 @@ class TestCommonPatch:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_patch, 200)
-
-        """Проверка наличия обязательных полей"""
-        with allure.step('Проверка наличия обязательных полей'):
-            result_text = result_patch.text
-            data = json.loads(result_text)
-            required_fields = {
-                "data": {
-                    "to_date": "2024-12-30",
-                    "goal": "1000.00",
-                    "wallet": {
-                        "name": "My Goal_2",
-                        "currency_id": 2,
-                        "amount": "0"
-                    }
-                }
-            }
-
-            for field in required_fields:
-                assert field in data, f"Отсутствует обязательное поле: {field}"
-                print(f'Обязательное поле {field} присутствует')
-
-            for field in required_fields['data']:
-                assert field in data['data'], f"Отсутствует обязательное поле: {field}"
-                print(f'Обязательное поле {field} присутствует')
-
-            for field in required_fields['data']['wallet']:
-                assert field in data['data']['wallet'], f"Отсутствует обязательное поле: {field}"
-                print(f'Обязательное поле {field} присутствует')
+        try:
+            """Проверка наличия обязательных полей"""
+            MoneyboxMethods.post_check_exist_req_fields(result_patch, Payloads.required_fields())
+        except AssertionError:
+            print(result_patch.text)
+            raise AssertionError
+        finally:
+            """Удаление копилки"""
+            with allure.step('Удаление копилки'):
+                moneybox_id = MoneyboxMethods.get_moneybox_id(result_patch)
+                MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
 
     @allure.description('С существующим ID и валидными значениями в полях (неавторизованный пользователь')
     def test_02(self, create_moneybox_and_delete):
         """Создание копилки"""
-        moneybox_id = create_moneybox_and_delete
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Patch_moneybox запрос"""
         result_patch = MoneyboxMethods.change_moneybox_without_auth(
@@ -76,12 +55,9 @@ class TestCommonPatch:
         Checking.check_statuscode(result_patch, 401)
 
     @allure.description('C пустым body')
-    def test_03(self, auth_fixture, create_moneybox_and_delete):
+    def test_03(self, create_moneybox_and_delete):
         """Создание копилки"""
-        moneybox_id = create_moneybox_and_delete
-
-        """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Patch_moneybox запрос"""
         result_patch = MoneyboxMethods.change_moneybox_without_body(moneybox_id, access_token)
@@ -221,8 +197,56 @@ class TestCommonPatch:
         """Авторизация"""
         access_token = auth_fixture
 
-        pass
+        """Создание копилки"""
+        result_create = MoneyboxMethods.create_moneybox(
+            to_date, 1000, 'name', 2, 0, access_token
+        )
+
+        """Получение moneybox_id и wallet_id"""
+        data = Checking.get_data(result_create)
+        moneybox_id = data['data']['id']
+        wallet_id = data['data']['wallet']['id']
+        try:
+            """Создание транзакции"""
+            result_income = PersonalTransactionMethods.create_personal_transaction(
+                1000, 'description', 'Income', '2024-12-12',
+                None, wallet_id, 156, None, access_token
+            )
+            Checking.check_statuscode(result_income, 201)
+            result_get = MoneyboxMethods.get_one_moneybox(moneybox_id, access_token)
+            Checking.check_statuscode(result_get, 200)
+
+            """Запрос на изменение копилки"""
+            result_change = MoneyboxMethods.change_moneybox(
+                moneybox_id, to_date, 2000, name, currency_id, None, access_token
+            )
+
+            """Проверка статус кода"""
+            Checking.check_statuscode(result_change, 400)
+        except AssertionError:
+            raise AssertionError
+        finally:
+            PersonalTransactionMethods.create_personal_transaction(
+                1000, 'name', 'Consumption', '2024-12-12',
+                None, wallet_id, 136, None, access_token
+            )
+            MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
 
     @allure.description('Редактирование чужой копилки')
-    def test_14(self, auth_fixture):
-        pass
+    def test_14(self, create_moneybox_and_delete):
+
+        """Создание копилки"""
+        moneybox_id, access_token = create_moneybox_and_delete
+
+        """Авторизация второго пользователя"""
+        result_auth = AuthMethods.login('000011', AuthVariables.auth_payloads_3)
+        Checking.check_statuscode(result_auth, 200)
+        data = Checking.get_data(result_auth)
+        access_token_2 = data['access_token']
+
+        """Запрос на редактирование чужой копилки"""
+        result_change = MoneyboxMethods.change_moneybox(
+            moneybox_id, '2030-12-12', 1000, 'name_2', 2, None, access_token
+        )
+        print(result_change.status_code)
+        print(result_change.text)

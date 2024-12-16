@@ -2,10 +2,10 @@ import time
 import allure
 from Auth.methods.auth_methods import AuthMethods
 from common_methods.checking import Checking
-
-email = 'pawel_test_1@rambler.ru'
-password = 'Ohranatruda@1'
-phone = '89260000002'
+from common_methods.variables import AuthVariables
+email = AuthVariables.email
+password = AuthVariables.password
+phone = AuthVariables.phone
 
 
 @allure.epic('Post/reset_password Проверка поля email')
@@ -80,7 +80,7 @@ class TestResetPasswordCheckEmail:
         Checking.check_statuscode(result_check, 200)
 
         """Изменение пароля"""
-        result_change = AuthMethods.reset_password(None, 'y.pawel_test1@mail.ru', password)
+        result_change = AuthMethods.reset_password(None, 'y.pawel_test1@yahoo.ru', password)
         Checking.check_statuscode(result_change, 404)
 
     @allure.description('Неверный формат email')

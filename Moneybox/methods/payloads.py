@@ -16,21 +16,20 @@ class Payloads:
                 }
             }
         }
+        return required_fields
 
     @staticmethod
-    def check_required_fields_value(result, date, goal, name, currency_id, amount):
-        result_text = result.text
-        data = json.loads(result_text)
-        required_fields_value = {
-            "data": {
-                "to_date": date,
-                "goal": goal,
-                "wallet": {
-                    "name": name,
-                    "currency_id": currency_id,
-                    "amount": amount
-                }
-            }
+    def post_required_fields_value(email, last_name, first_name, middle_name, phone, date_of_birth, data):
+        required_fields_values = {
+            "email": email,
+            "last_name": last_name,
+            "first_name": first_name,
+            "middle_name": middle_name,
+            "phone_number": phone,
+            "date_of_birth": date_of_birth
         }
-        for field, value in required_fields_value.items():
-            assert field, value in data
+        for field, value in required_fields_values.items():
+            assert field in data, f'отсутствует обязательное поле {field}'
+            assert data[field] == value, f'неверное значение {data[field]} ожидалось: {value}'
+            print(field, value)
+

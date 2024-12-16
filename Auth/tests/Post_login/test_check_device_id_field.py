@@ -2,6 +2,7 @@ from common_methods.http_methods import HttpMethods
 from common_methods.checking import Checking
 from Auth.methods.auth_methods import AuthMethods
 import allure
+from Auth.methods.payloads import Payloads
 
 
 @allure.epic('Post_reset_password/login Проверка поля device_id')
@@ -10,7 +11,7 @@ class TestCheckDeviceId:
     @allure.description('5 символов ')
     def test_01(self):
         result = AuthMethods.login(
-            '11111', 'username=y.pawel_test1%40mail.ru&password=Ohranatruda%401'
+            '11111', Payloads.auth_data
         )
 
         """Проверка статус кода"""
@@ -20,7 +21,7 @@ class TestCheckDeviceId:
     def test_02(self):
         result = AuthMethods.login(
             '1111111111111111111111111111111111111111111111111111111111111111',
-            'username=y.pawel_test1%40mail.ru&password=Ohranatruda%401'
+            Payloads.auth_data
         )
 
         """Проверка статус кода"""
@@ -29,7 +30,7 @@ class TestCheckDeviceId:
     @allure.description('4 символа')
     def test_03(self):
         result = AuthMethods.login(
-            '1111', 'username=y.pawel_test1%40mail.ru&password=Ohranatruda%401'
+            '1111', Payloads.auth_data
         )
 
         """Проверка статус кода"""
@@ -39,7 +40,7 @@ class TestCheckDeviceId:
     def test_05(self):
         result = AuthMethods.login(
             '11111111111111111111111111111111111111111111111111111111111111111',
-            'username=y.pawel_test1%40mail.ru&password=Ohranatruda%401'
+            Payloads.auth_data
         )
 
         """Проверка статус кода"""
@@ -49,7 +50,7 @@ class TestCheckDeviceId:
     def test_06(self):
 
         result = AuthMethods.login(
-            '', 'username=y.pawel_test1%40mail.ru&password=Ohranatruda%401'
+            '', Payloads.auth_data
         )
 
         """Проверка статус кода"""
@@ -58,7 +59,7 @@ class TestCheckDeviceId:
     @allure.description('Поле отсутствует')
     def test_07(self):
         result = AuthMethods.login_without_device_id(
-            'username=y.pawel_test1%40mail.ru&password=Ohranatruda%401'
+            Payloads.auth_data
         )
 
         """Проверка статус кода"""
@@ -67,7 +68,7 @@ class TestCheckDeviceId:
     @allure.description('Null')
     def test_08(self):
         result = AuthMethods.login(
-            None, 'username=y.pawel_test1%40mail.ru&password=Ohranatruda%401'
+            None, Payloads.auth_data
         )
 
         """Проверка статус кода"""

@@ -24,6 +24,16 @@ class HttpMethods:
         return result
 
     @staticmethod
+    def post_download_files(url, name, path_to_file, access_token):
+        headers = {"Authorization": f"Bearer {access_token}"}
+        payload = {}
+        files = [
+            ('file', (name, open(path_to_file, 'rb'), 'image/jpeg'))
+        ]
+        result = requests.post(url, headers=headers, data=payload, files=files)
+        return result
+
+    @staticmethod
     def post_without_auth(url, body):
         headers = {"Content-type": "application/json"}
         result = requests.post(url, json=body, headers=headers)
@@ -62,3 +72,10 @@ class HttpMethods:
                    "Authorization": f"Bearer {access_token}"}
         result = requests.delete(url, headers=headers)
         return result
+
+    @staticmethod
+    def delete_without_auth(url):
+        headers = {"Content-Type": "application/json"}
+        result = requests.delete(url, headers=headers)
+        return result
+

@@ -1,5 +1,7 @@
 
 class Payloads:
+    auth_data = 'username=y.pawel_test1%40mail.ru&password=Ohranatruda%401'
+
     @staticmethod
     def required_fields():
         required_fields = {
@@ -27,5 +29,8 @@ class Payloads:
             "phone_number": phone,
             "date_of_birth": date_of_birth
         }
-        for field, value in required_fields_values.items():
-            assert field, value in data
+        for field, exp in required_fields_values.items():
+            assert field in data, f'отсутствует обязательное поле {field}'
+            assert data[field] == exp, f'неверное значение {data[field]} ожидалось: {exp}'
+            print(field, exp)
+

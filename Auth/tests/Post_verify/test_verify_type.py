@@ -6,18 +6,20 @@ from Auth.methods.auth_methods import AuthMethods
 from common_methods.checking import Checking
 import psycopg2
 
-user_id_exist = '590faefa-472e-448a-a608-dd0c63a23458'
-user_id_not_exist = '590faefa-472e-448a-a608-dd0c63a99999'
-another_user_id = '061566ea-ac9e-477d-bbd2-6690f530e29d'
-verify_id = '7741e39b-a66a-45f3-a465-f7ca8e7c7eab'
+from common_methods.variables import AuthVariables
+user_id_not_exist = AuthVariables.user_id_not_exist
+another_user_id = '061566ea-ac9e-477d-bbd2-6690f530e29d'  #  Сделать автоматическое создание пользователя
+verify_id = AuthVariables.user_id_verify
 
 
-@allure.epic('Post_reset_password/verify роверка поля verify_type')
+@allure.epic('Post_reset_password/verify проверка поля verify_type')
 class TestVerifyType:
     """Проверка поля verify_type"""
 
     @allure.description('Существующее значение verify_type: ("email")')
-    def test_01(self):
+    def test_01(self, create_and_delete_users):
+        """Создание пользователя"""
+        user_id_exist = create_and_delete_users
 
         """Запрос кода для верификации"""
         time.sleep(61)
@@ -33,23 +35,10 @@ class TestVerifyType:
         """Проверка статус кода"""
         Checking.check_statuscode(result_check, 200)
 
-        """Подключение к БД"""
-        with allure.step('Подключение к БД Изменение статуса email на не верифицирован'):
-            with psycopg2.connect(
-                    host='82.97.248.83',
-                    user='postgres',
-                    password='postgres',
-                    dbname='budget',
-                    port=25432
-            ) as connection:
-                cursor = connection.cursor()
-                cursor.execute(
-                    """UPDATE users SET is_email_verified=False WHERE id = '590faefa-472e-448a-a608-dd0c63a23458'"""
-                )
-                connection.commit()
-
-    @allure.description('есуществующее значение verify_type: ("voice")')
-    def test_02(self):
+    @allure.description('несуществующее значение verify_type: ("voice")')
+    def test_02(self, create_and_delete_users):
+        """Создание пользователя"""
+        user_id_exist = create_and_delete_users
 
         """Запрос кода для верификации"""
         time.sleep(61)
@@ -66,7 +55,9 @@ class TestVerifyType:
         Checking.check_statuscode(result_check, 422)
 
     @allure.description('verify_type: Пуcтое поле')
-    def test_03(self):
+    def test_03(self, create_and_delete_users):
+        """Создание пользователя"""
+        user_id_exist = create_and_delete_users
 
         """Запрос кода для верификации"""
         time.sleep(61)
@@ -83,7 +74,9 @@ class TestVerifyType:
         Checking.check_statuscode(result_check, 422)
 
     @allure.description('verify_type: Поле отсутствует')
-    def test_04(self):
+    def test_04(self, create_and_delete_users):
+        """Создание пользователя"""
+        user_id_exist = create_and_delete_users
 
         """Запрос кода для верификации"""
         time.sleep(61)
@@ -100,7 +93,9 @@ class TestVerifyType:
         Checking.check_statuscode(result_check, 422)
 
     @allure.description('verify_type: Null')
-    def test_05(self):
+    def test_05(self, create_and_delete_users):
+        """Создание пользователя"""
+        user_id_exist = create_and_delete_users
 
         """Запрос кода для верификации"""
         time.sleep(61)

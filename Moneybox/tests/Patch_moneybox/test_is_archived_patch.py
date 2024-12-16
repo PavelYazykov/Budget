@@ -19,35 +19,29 @@ amount = MoneyboxVariables.amount
 class TestIsArchivedPatch:
 
     @allure.description('Перенос копилки в архив')
-    def test_01(self, auth_fixture, create_moneybox_and_delete):
+    def test_01(self, create_moneybox_and_delete):
         """Создание копилки"""
-        moneybox_id = create_moneybox_and_delete
-
-        """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Patch_moneybox запрос"""
-        result_patch = MoneyboxMethods.change_moneybox(
-            moneybox_id, to_date, goal, name, currency_id, True, access_token
-        )
+        with allure.step('Перенос копилки в архив'):
+            result_patch = MoneyboxMethods.change_moneybox(
+                moneybox_id, to_date, goal, name, currency_id, True, access_token
+            )
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_patch, 200)
 
         """Проверка значения в изменяемом поле"""
         with allure.step('Проверка значения в изменяемом поле'):
-            result_text = result_patch.text
-            data = json.loads(result_text)
+            data = Checking.get_data(result_patch)
             assert data['data']['wallet']['is_archived'] is True
             print('Значение соответствует введенному')
 
     @allure.description('Поле отсутствует')
-    def test_02(self, auth_fixture, create_moneybox_and_delete):
+    def test_02(self, create_moneybox_and_delete):
         """Создание копилки"""
-        moneybox_id = create_moneybox_and_delete
-
-        """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Patch_moneybox запрос"""
         result_patch = MoneyboxMethods.change_moneybox_without_is_archhived(
@@ -57,27 +51,96 @@ class TestIsArchivedPatch:
         """Проверка статус кода"""
         Checking.check_statuscode(result_patch, 200)
 
-    # @allure.description('Перенос копилки в архив с положительным amount')
-    # def test_03(self, auth_fixture):
-    #
-    #     """Авторизация"""
-    #     access_token = auth_fixture
-    #
-    #     """Создание копилки"""
-    #     create_result = MoneyboxMethods.create_moneybox(to_date, goal, name, currency_id, '100', access_token)
-    #     result_text = create_result.text
-    #     data = json.loads(result_text)
-    #     moneybox_id = data['data']['moneybox_id']
-    #     wallet_id = data
-    #
-    #     """Пополнение копилки"""
-    #     data = Checking.get_data()
-    #     income = MoneyboxMethods.income()
-    #
-    #     """Patch_moneybox запрос"""
-    #     result_patch = MoneyboxMethods.change_moneybox_without_is_archhived(
-    #         moneybox_id, to_date, goal, name, currency_id, access_token
-    #     )
-    #
-    #     """Проверка статус кода"""
-    #     Checking.check_statuscode(result_patch, 200)
+    @allure.description('Перенос копилки в архив с положительным amount') #Есть вероятность что нельзя удалить копилку с положительным amount
+    def test_03(self, auth_fixture):
+
+        """Авторизация"""
+        access_token = auth_fixture
+
+        """Создание копилки"""
+        create_result = MoneyboxMethods.create_moneybox(to_date, goal, name, currency_id, '100', access_token)
+        moneybox_id = MoneyboxMethods.get_moneybox_id(create_result)
+
+        """Patch_moneybox запрос"""
+        with allure.step('Перенос копилки в архив'):
+            result_patch = MoneyboxMethods.change_moneybox(
+                moneybox_id, to_date, goal, name, currency_id, True, access_token
+            )
+
+        """Проверка статус кода"""
+        Checking.check_statuscode(result_patch, 400)
+
+    @allure.description('Возврат копилки из архива')
+    def test_04(self, create_moneybox_and_delete):
+        """Создание копилки"""
+        moneybox_id, access_token = create_moneybox_and_delete
+
+        """Patch_moneybox запрос"""
+        with allure.step('Перенос копилки в архив'):
+            result_patch = MoneyboxMethods.change_moneybox(
+                moneybox_id, to_date, goal, name, currency_id, True, access_token
+            )
+
+        """Проверка статус кода"""
+        Checking.check_statuscode(result_patch, 200)
+
+        """Patch_moneybox запрос"""
+        with allure.step('Возврат копилки из архива'):
+            result_patch = MoneyboxMethods.change_moneybox(
+                moneybox_id, to_date, goal, name, currency_id, False, access_token
+            )
+
+        """Проверка статус кода"""
+        Checking.check_statuscode(result_patch, 400)
+
+    @allure.description('Неверный тип данных (string: "строка")')
+    def test_05(self, create_moneybox_and_delete):
+        """Создание копилки"""
+        moneybox_id, access_token = create_moneybox_and_delete
+
+        """Patch_moneybox запрос"""
+        result_patch = MoneyboxMethods.change_moneybox(
+            moneybox_id, to_date, goal, name, currency_id, 'string', access_token
+        )
+
+        """Проверка статус кода"""
+        Checking.check_statuscode(result_patch, 422)
+
+    @allure.description('Неверный тип данных (integer: 12345)')
+    def test_06(self, create_moneybox_and_delete):
+        """Создание копилки"""
+        moneybox_id, access_token = create_moneybox_and_delete
+
+        """Patch_moneybox запрос"""
+        result_patch = MoneyboxMethods.change_moneybox(
+            moneybox_id, to_date, goal, name, currency_id, 12345, access_token
+        )
+
+        """Проверка статус кода"""
+        Checking.check_statuscode(result_patch, 422)
+
+    @allure.description('Пустое поле')
+    def test_07(self, create_moneybox_and_delete):
+        """Создание копилки"""
+        moneybox_id, access_token = create_moneybox_and_delete
+
+        """Patch_moneybox запрос"""
+        result_patch = MoneyboxMethods.change_moneybox(
+            moneybox_id, to_date, goal, name, currency_id, '', access_token
+        )
+
+        """Проверка статус кода"""
+        Checking.check_statuscode(result_patch, 422)
+
+    @allure.description('Null')
+    def test_07(self, create_moneybox_and_delete):
+        """Создание копилки"""
+        moneybox_id, access_token = create_moneybox_and_delete
+
+        """Patch_moneybox запрос"""
+        result_patch = MoneyboxMethods.change_moneybox(
+            moneybox_id, to_date, goal, name, currency_id, None, access_token
+        )
+
+        """Проверка статус кода"""
+        Checking.check_statuscode(result_patch, 422)

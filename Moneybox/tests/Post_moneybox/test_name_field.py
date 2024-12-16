@@ -26,17 +26,20 @@ class TestName:
 
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
-
-        """Проверка значения поля name"""
-        with allure.step('Проверка значения поля name'):
-            data = Checking.get_data(post_result)
-            assert data['data']['wallet']['name'] == 'М'
-            print('Значение поля соответствует введенному')
-
-        """Удаление копилки"""
-        with allure.step('Удаление копилки'):
-            moneybox_id = data['data']['id']
-            MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+        try:
+            """Проверка значения поля name"""
+            with allure.step('Проверка значения поля name'):
+                data = Checking.get_data(post_result)
+                assert data['data']['wallet']['name'] == 'М'
+                print('Значение поля соответствует введенному')
+        except AssertionError:
+            print(post_result.text)
+            raise AssertionError
+        finally:
+            """Удаление копилки"""
+            with allure.step('Удаление копилки'):
+                moneybox_id = data['data']['id']
+                MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
 
     @allure.description('19 символов')
     def test_02(self, auth_fixture):
@@ -51,17 +54,20 @@ class TestName:
 
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
-
-        """Проверка значения поля name"""
-        with allure.step('Проверка значения поля name'):
-            data = Checking.get_data(post_result)
-            assert data['data']['wallet']['name'] == 'мумумумумумумумумум'
-            print('Значение поля соответствует введенному')
-
-        """Удаление копилки"""
-        with allure.step('Удаление копилки'):
-            moneybox_id = data['data']['id']
-            MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+        try:
+            """Проверка значения поля name"""
+            with allure.step('Проверка значения поля name'):
+                data = Checking.get_data(post_result)
+                assert data['data']['wallet']['name'] == 'мумумумумумумумумум'
+                print('Значение поля соответствует введенному')
+        except AssertionError:
+            print(post_result.text)
+            raise AssertionError
+        finally:
+            """Удаление копилки"""
+            with allure.step('Удаление копилки'):
+                moneybox_id = data['data']['id']
+                MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
 
     @allure.description('20 символов')
     def test_03(self, auth_fixture):
@@ -76,17 +82,20 @@ class TestName:
 
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
-
-        """Проверка значения поля name"""
-        with allure.step('Проверка значения поля name'):
-            data = Checking.get_data(post_result)
-            assert data['data']['wallet']['name'] == 'мумумумумумумумумуму'
-            print('Значение поля соответствует введенному')
-
-        """Удаление копилки"""
-        with allure.step('Удаление копилки'):
-            moneybox_id = data['data']['id']
-            MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+        try:
+            """Проверка значения поля name"""
+            with allure.step('Проверка значения поля name'):
+                data = Checking.get_data(post_result)
+                assert data['data']['wallet']['name'] == 'мумумумумумумумумуму'
+                print('Значение поля соответствует введенному')
+        except AssertionError:
+            print(post_result.text)
+            raise AssertionError
+        finally:
+            """Удаление копилки"""
+            with allure.step('Удаление копилки'):
+                moneybox_id = data['data']['id']
+                MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
 
     @allure.description('Цифры (0123456789)')
     def test_04(self, auth_fixture):
@@ -101,17 +110,20 @@ class TestName:
 
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
-
-        """Проверка значения поля name"""
-        with allure.step('Проверка значения поля name'):
-            data = Checking.get_data(post_result)
-            assert data['data']['wallet']['name'] == '0123456789'
-            print('Значение поля соответствует введенному')
-
-        """Удаление копилки"""
-        with allure.step('Удаление копилки'):
-            moneybox_id = data['data']['id']
-            MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+        try:
+            """Проверка значения поля name"""
+            with allure.step('Проверка значения поля name'):
+                data = Checking.get_data(post_result)
+                assert data['data']['wallet']['name'] == '0123456789'
+                print('Значение поля соответствует введенному')
+        except AssertionError:
+            print(post_result.text)
+            raise AssertionError
+        finally:
+            """Удаление копилки"""
+            with allure.step('Удаление копилки'):
+                moneybox_id = data['data']['id']
+                MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
 
     @allure.description('Кириллица (Счёт)')
     def test_05(self, auth_fixture):
@@ -126,17 +138,20 @@ class TestName:
 
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
-
-        """Проверка значения поля name"""
-        with allure.step('Проверка значения поля name'):
-            data = Checking.get_data(post_result)
-            assert data['data']['wallet']['name'] == 'Счёт'
-            print('Значение поля соответствует введенному')
-
-        """Удаление копилки"""
-        with allure.step('Удаление копилки'):
-            moneybox_id = data['data']['id']
-            MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+        try:
+            """Проверка значения поля name"""
+            with allure.step('Проверка значения поля name'):
+                data = Checking.get_data(post_result)
+                assert data['data']['wallet']['name'] == 'Счёт'
+                print('Значение поля соответствует введенному')
+        except AssertionError:
+            print(post_result.text)
+            raise AssertionError
+        finally:
+            """Удаление копилки"""
+            with allure.step('Удаление копилки'):
+                moneybox_id = data['data']['id']
+                MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
 
     @allure.description('Латиница (Moneybox)')
     def test_06(self, auth_fixture):
@@ -151,17 +166,20 @@ class TestName:
 
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
-
-        """Проверка значения поля name"""
-        with allure.step('Проверка значения поля name'):
-            data = Checking.get_data(post_result)
-            assert data['data']['wallet']['name'] == 'Moneybox'
-            print('Значение поля соответствует введенному')
-
-        """Удаление копилки"""
-        with allure.step('Удаление копилки'):
-            moneybox_id = data['data']['id']
-            MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+        try:
+            """Проверка значения поля name"""
+            with allure.step('Проверка значения поля name'):
+                data = Checking.get_data(post_result)
+                assert data['data']['wallet']['name'] == 'Moneybox'
+                print('Значение поля соответствует введенному')
+        except AssertionError:
+            print(post_result.text)
+            raise AssertionError
+        finally:
+            """Удаление копилки"""
+            with allure.step('Удаление копилки'):
+                moneybox_id = data['data']['id']
+                MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
 
     @allure.description('Пробел')
     def test_07(self, auth_fixture):
@@ -176,17 +194,20 @@ class TestName:
 
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
-
-        """Проверка значения поля name"""
-        with allure.step('Проверка значения поля name'):
-            data = Checking.get_data(post_result)
-            assert data['data']['wallet']['name'] == 'Мой счет'
-            print('Значение поля соответствует введенному')
-
-        """Удаление копилки"""
-        with allure.step('Удаление копилки'):
-            moneybox_id = data['data']['id']
-            MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+        try:
+            """Проверка значения поля name"""
+            with allure.step('Проверка значения поля name'):
+                data = Checking.get_data(post_result)
+                assert data['data']['wallet']['name'] == 'Мой счет'
+                print('Значение поля соответствует введенному')
+        except AssertionError:
+            print(post_result.text)
+            raise AssertionError
+        finally:
+            """Удаление копилки"""
+            with allure.step('Удаление копилки'):
+                moneybox_id = data['data']['id']
+                MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
 
     @allure.description('Нижнее подчеркивание')
     def test_08(self, auth_fixture):
@@ -201,17 +222,20 @@ class TestName:
 
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
-
-        """Проверка значения поля name"""
-        with allure.step('Проверка значения поля name'):
-            data = Checking.get_data(post_result)
-            assert data['data']['wallet']['name'] == 'Мой_счет'
-            print('Значение поля соответствует введенному')
-
-        """Удаление копилки"""
-        with allure.step('Удаление копилки'):
-            moneybox_id = data['data']['id']
-            MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+        try:
+            """Проверка значения поля name"""
+            with allure.step('Проверка значения поля name'):
+                data = Checking.get_data(post_result)
+                assert data['data']['wallet']['name'] == 'Мой_счет'
+                print('Значение поля соответствует введенному')
+        except AssertionError:
+            print(post_result.text)
+            raise AssertionError
+        finally:
+            """Удаление копилки"""
+            with allure.step('Удаление копилки'):
+                moneybox_id = data['data']['id']
+                MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
 
     @allure.description('Тире')
     def test_09(self, auth_fixture):
@@ -225,17 +249,20 @@ class TestName:
 
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
-
-        """Проверка значения поля name"""
-        with allure.step('Проверка значения поля name'):
-            data = Checking.get_data(post_result)
-            assert data['data']['wallet']['name'] == 'Мой-счет'
-            print('Значение поля соответствует введенному')
-
-        """Удаление копилки"""
-        with allure.step('Удаление копилки'):
-            moneybox_id = data['data']['id']
-            MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+        try:
+            """Проверка значения поля name"""
+            with allure.step('Проверка значения поля name'):
+                data = Checking.get_data(post_result)
+                assert data['data']['wallet']['name'] == 'Мой-счет'
+                print('Значение поля соответствует введенному')
+        except AssertionError:
+            print(post_result.text)
+            raise AssertionError
+        finally:
+            """Удаление копилки"""
+            with allure.step('Удаление копилки'):
+                moneybox_id = data['data']['id']
+                MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
 
     @allure.description('Точка')
     def test_10(self, auth_fixture):
@@ -249,17 +276,20 @@ class TestName:
 
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
-
-        """Проверка значения поля name"""
-        with allure.step('Проверка значения поля name'):
-            data = Checking.get_data(post_result)
-            assert data['data']['wallet']['name'] == 'Мой.счет'
-            print('Значение поля соответствует введенному')
-
-        """Удаление копилки"""
-        with allure.step('Удаление копилки'):
-            moneybox_id = data['data']['id']
-            MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+        try:
+            """Проверка значения поля name"""
+            with allure.step('Проверка значения поля name'):
+                data = Checking.get_data(post_result)
+                assert data['data']['wallet']['name'] == 'Мой.счет'
+                print('Значение поля соответствует введенному')
+        except AssertionError:
+            print(post_result.text)
+            raise AssertionError
+        finally:
+            """Удаление копилки"""
+            with allure.step('Удаление копилки'):
+                moneybox_id = data['data']['id']
+                MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
 
     @allure.description('Поле отсутствует')
     def test_11(self, auth_fixture):

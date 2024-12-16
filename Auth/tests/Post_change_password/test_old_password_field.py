@@ -3,17 +3,17 @@ import pytest
 
 from Auth.methods.auth_methods import AuthMethods
 from common_methods.checking import Checking
-
-old_password = 'Ohranatruda@2'
+from common_methods.variables import AuthVariables
+password = AuthVariables.password
 
 
 @allure.epic('Post_change_password Проверка поля old_password')
 class TestOldPasswordField:
 
     @allure.description('Старый пароль - неверный')
-    def test_01(self, auth_fixture_2):
+    def test_01(self, auth_fixture):
         """Авторизация"""
-        access_token = auth_fixture_2
+        access_token = auth_fixture
 
         """Запрос на смену пароля"""
         result_change = AuthMethods.change_password(
@@ -21,25 +21,27 @@ class TestOldPasswordField:
         )
 
         """Проверка статус кода"""
+        AuthMethods.change_password_back(result_change, 'Ohranatruda@1', password, access_token)
         Checking.check_statuscode(result_change, 400)
 
     @allure.description('Пустое поле')
-    def test_02(self, auth_fixture_2):
+    def test_02(self, auth_fixture):
         """Авторизация"""
-        access_token = auth_fixture_2
+        access_token = auth_fixture
 
         """Запрос на смену пароля"""
         result_change = AuthMethods.change_password(
-            '', 'Ohranatruda@1', access_token
+            '', 'Ohranatruda@2', access_token
         )
 
         """Проверка статус кода"""
+        AuthMethods.change_password_back(result_change, 'Ohranatruda@2', password, access_token)
         Checking.check_statuscode(result_change, 422)
 
     @allure.description('Поле отсутсвует')
-    def test_03(self, auth_fixture_2):
+    def test_03(self, auth_fixture):
         """Авторизация"""
-        access_token = auth_fixture_2
+        access_token = auth_fixture
 
         """Запрос на смену пароля"""
         result_change = AuthMethods.change_password_without_old_password(
@@ -50,9 +52,9 @@ class TestOldPasswordField:
         Checking.check_statuscode(result_change, 422)
 
     @allure.description('Null')
-    def test_04(self, auth_fixture_2):
+    def test_04(self, auth_fixture):
         """Авторизация"""
-        access_token = auth_fixture_2
+        access_token = auth_fixture
 
         """Запрос на смену пароля"""
         result_change = AuthMethods.change_password(

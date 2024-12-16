@@ -1,14 +1,15 @@
 import allure
 from Auth.methods.auth_methods import AuthMethods
 from common_methods.checking import Checking
-
-email = 'qa@mail.ru'
-password = 'Samsung@9@9@9'
-last_name = 'Иванов'
-first_name = 'Иван'
-middle_name = 'Иванович'
-phone = '89261111111'
-date_of_birth = '2000-01-01'
+from Auth.methods.payloads import Payloads
+from common_methods.variables import AuthVariables
+email = AuthVariables.email_for_create_user
+password = AuthVariables.password_for_create_user
+last_name = AuthVariables.last_name
+first_name = AuthVariables.first_name
+middle_name = AuthVariables.middle_name
+phone = AuthVariables.phone_for_create_user
+date_of_birth = AuthVariables.date_of_birth
 
 
 @allure.epic('Post/registration Проверка поля lastname')
@@ -26,43 +27,17 @@ class TestRegistrationLastnameField:
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            required_fields = {
-                "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                "email": "user@example.com",
-                "is_active": True,
-                "is_email_verified": False,
-                "is_phone_verified": False,
-                "last_name": "Иванов",
-                "first_name": "Иван",
-                "middle_name": "Иванович",
-                "phone_number": "88005555535",
-                "date_of_birth": "2024-10-09",
-                "avatar": "string"
-            }
-            data, user_id = AuthMethods.check_required_fields(result, required_fields)
+            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
-            required_fields_values = {
-                "email": email,
-                "last_name": 'Z',
-                "first_name": first_name,
-                "middle_name": middle_name,
-                "phone_number": phone,
-                "date_of_birth": date_of_birth
-            }
-            for field, value in required_fields_values.items():
-                assert field, value in data
+            Payloads.required_fields_value(
+                email, 'Z', first_name, middle_name, phone, date_of_birth, data
+            )
 
             """Проверка наличия пользователя в БД"""
-            cursor = AuthMethods.connect_db()
-            cursor.execute(f"""SELECT * FROM users WHERE id= '{user_id}'""")
-            result_db = cursor.fetchone()
-            print(result_db)
-            assert result_db[1] == 'Z', f'Неверное значение в поле last_name'
-            assert result_db[2] == first_name, f'Неверное значение в поле {first_name}'
-            assert result_db[3] == middle_name, f'Неверное значение в поле {middle_name}'
-            assert result_db[5] == phone, f'Неверное значение в поле {phone}'
-            assert result_db[6] == email, f'Неверное значение в поле {email}'
+            AuthMethods.connect_db_check_user(
+                user_id, 'Z', first_name, middle_name, phone, email, date_of_birth
+            )
         except AssertionError:
             print('Ошибка!')
             raise AssertionError
@@ -84,43 +59,17 @@ class TestRegistrationLastnameField:
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            required_fields = {
-                "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                "email": "user@example.com",
-                "is_active": True,
-                "is_email_verified": False,
-                "is_phone_verified": False,
-                "last_name": "Иванов",
-                "first_name": "Иван",
-                "middle_name": "Иванович",
-                "phone_number": "88005555535",
-                "date_of_birth": "2024-10-09",
-                "avatar": "string"
-            }
-            data, user_id = AuthMethods.check_required_fields(result, required_fields)
+            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
-            required_fields_values = {
-                "email": email,
-                "last_name": 'Zz',
-                "first_name": first_name,
-                "middle_name": middle_name,
-                "phone_number": phone,
-                "date_of_birth": date_of_birth
-            }
-            for field, value in required_fields_values.items():
-                assert field, value in data
+            Payloads.required_fields_value(
+                email, 'Zz', first_name, middle_name, phone, date_of_birth, data
+            )
 
             """Проверка наличия пользователя в БД"""
-            cursor = AuthMethods.connect_db()
-            cursor.execute(f"""SELECT * FROM users WHERE id= '{user_id}'""")
-            result_db = cursor.fetchone()
-            print(result_db)
-            assert result_db[1] == 'Zz', f'Неверное значение в поле last_name'
-            assert result_db[2] == first_name, f'Неверное значение в поле {first_name}'
-            assert result_db[3] == middle_name, f'Неверное значение в поле {middle_name}'
-            assert result_db[5] == phone, f'Неверное значение в поле {phone}'
-            assert result_db[6] == email, f'Неверное значение в поле {email}'
+            AuthMethods.connect_db_check_user(
+                user_id, 'Zz', first_name, middle_name, phone, email, date_of_birth
+            )
         except AssertionError:
             print('Ошибка!')
             raise AssertionError
@@ -142,43 +91,17 @@ class TestRegistrationLastnameField:
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            required_fields = {
-                "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                "email": "user@example.com",
-                "is_active": True,
-                "is_email_verified": False,
-                "is_phone_verified": False,
-                "last_name": "Иванов",
-                "first_name": "Иван",
-                "middle_name": "Иванович",
-                "phone_number": "88005555535",
-                "date_of_birth": "2024-10-09",
-                "avatar": "string"
-            }
-            data, user_id = AuthMethods.check_required_fields(result, required_fields)
+            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
-            required_fields_values = {
-                "email": email,
-                "last_name": 'Ффф',
-                "first_name": first_name,
-                "middle_name": middle_name,
-                "phone_number": phone,
-                "date_of_birth": date_of_birth
-            }
-            for field, value in required_fields_values.items():
-                assert field, value in data
+            Payloads.required_fields_value(
+                email, 'Ффф', first_name, middle_name, phone, date_of_birth, data
+            )
 
             """Проверка наличия пользователя в БД"""
-            cursor = AuthMethods.connect_db()
-            cursor.execute(f"""SELECT * FROM users WHERE id= '{user_id}'""")
-            result_db = cursor.fetchone()
-            print(result_db)
-            assert result_db[1] == 'Ффф', f'Неверное значение в поле last_name'
-            assert result_db[2] == first_name, f'Неверное значение в поле {first_name}'
-            assert result_db[3] == middle_name, f'Неверное значение в поле {middle_name}'
-            assert result_db[5] == phone, f'Неверное значение в поле {phone}'
-            assert result_db[6] == email, f'Неверное значение в поле {email}'
+            AuthMethods.connect_db_check_user(
+                user_id, 'Ффф', first_name, middle_name, phone, email, date_of_birth
+            )
         except AssertionError:
             print('Ошибка!')
             raise AssertionError
@@ -200,43 +123,17 @@ class TestRegistrationLastnameField:
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            required_fields = {
-                "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                "email": "user@example.com",
-                "is_active": True,
-                "is_email_verified": False,
-                "is_phone_verified": False,
-                "last_name": "Иванов",
-                "first_name": "Иван",
-                "middle_name": "Иванович",
-                "phone_number": "88005555535",
-                "date_of_birth": "2024-10-09",
-                "avatar": "string"
-            }
-            data, user_id = AuthMethods.check_required_fields(result, required_fields)
+            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
-            required_fields_values = {
-                "email": email,
-                "last_name": 'Aaa',
-                "first_name": first_name,
-                "middle_name": middle_name,
-                "phone_number": phone,
-                "date_of_birth": date_of_birth
-            }
-            for field, value in required_fields_values.items():
-                assert field, value in data
+            Payloads.required_fields_value(
+                email, 'Aaa', first_name, middle_name, phone, date_of_birth, data
+            )
 
             """Проверка наличия пользователя в БД"""
-            cursor = AuthMethods.connect_db()
-            cursor.execute(f"""SELECT * FROM users WHERE id= '{user_id}'""")
-            result_db = cursor.fetchone()
-            print(result_db)
-            assert result_db[1] == 'Aaa', f'Неверное значение в поле last_name'
-            assert result_db[2] == first_name, f'Неверное значение в поле {first_name}'
-            assert result_db[3] == middle_name, f'Неверное значение в поле {middle_name}'
-            assert result_db[5] == phone, f'Неверное значение в поле {phone}'
-            assert result_db[6] == email, f'Неверное значение в поле {email}'
+            AuthMethods.connect_db_check_user(
+                user_id, 'Aaa', first_name, middle_name, phone, email, date_of_birth
+            )
         except AssertionError:
             print('Ошибка!')
             raise AssertionError
@@ -264,44 +161,21 @@ class TestRegistrationLastnameField:
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            required_fields = {
-                "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                "email": "user@example.com",
-                "is_active": True,
-                "is_email_verified": False,
-                "is_phone_verified": False,
-                "last_name": "Иванов",
-                "first_name": "Иван",
-                "middle_name": "Иванович",
-                "phone_number": "88005555535",
-                "date_of_birth": "2024-10-09",
-                "avatar": "string"
-            }
-            data, user_id = AuthMethods.check_required_fields(result, required_fields)
+            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
-            required_fields_values = {
-                "email": email,
-                "last_name": 'Automationautomationautomationautomationautomationautomationasd',
-                "first_name": first_name,
-                "middle_name": middle_name,
-                "phone_number": phone,
-                "date_of_birth": date_of_birth
-            }
-            for field, value in required_fields_values.items():
-                assert field, value in data
+            Payloads.required_fields_value(
+                email,
+                'Automationautomationautomationautomationautomationautomationasd',
+                first_name, middle_name, phone, date_of_birth, data
+            )
 
             """Проверка наличия пользователя в БД"""
-            cursor = AuthMethods.connect_db()
-            cursor.execute(f"""SELECT * FROM users WHERE id= '{user_id}'""")
-            result_db = cursor.fetchone()
-            print(result_db)
-            assert result_db[1] == 'Automationautomationautomationautomationautomationautomationasd'\
-                , f'Неверное значение в поле last_name'
-            assert result_db[2] == first_name, f'Неверное значение в поле {first_name}'
-            assert result_db[3] == middle_name, f'Неверное значение в поле {middle_name}'
-            assert result_db[5] == phone, f'Неверное значение в поле {phone}'
-            assert result_db[6] == email, f'Неверное значение в поле {email}'
+            AuthMethods.connect_db_check_user(
+                user_id,
+                'Automationautomationautomationautomationautomationautomationasd',
+                first_name, middle_name, phone, email, date_of_birth
+            )
         except AssertionError:
             print('Ошибка!')
             raise AssertionError
@@ -330,44 +204,21 @@ class TestRegistrationLastnameField:
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            required_fields = {
-                "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                "email": "user@example.com",
-                "is_active": True,
-                "is_email_verified": False,
-                "is_phone_verified": False,
-                "last_name": "Иванов",
-                "first_name": "Иван",
-                "middle_name": "Иванович",
-                "phone_number": "88005555535",
-                "date_of_birth": "2024-10-09",
-                "avatar": "string"
-            }
-            data, user_id = AuthMethods.check_required_fields(result, required_fields)
+            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
-            required_fields_values = {
-                "email": email,
-                "last_name": 'Automationautomationautomationautomationautomationautomationasdd',
-                "first_name": first_name,
-                "middle_name": middle_name,
-                "phone_number": phone,
-                "date_of_birth": date_of_birth
-            }
-            for field, value in required_fields_values.items():
-                assert field, value in data
+            Payloads.required_fields_value(
+                email,
+                'Automationautomationautomationautomationautomationautomationasdd',
+                first_name, middle_name, phone, date_of_birth, data
+            )
 
             """Проверка наличия пользователя в БД"""
-            cursor = AuthMethods.connect_db()
-            cursor.execute(f"""SELECT * FROM users WHERE id= '{user_id}'""")
-            result_db = cursor.fetchone()
-            print(result_db)
-            assert result_db[1] == 'Automationautomationautomationautomationautomationautomationasdd' \
-                , f'Неверное значение в поле last_name'
-            assert result_db[2] == first_name, f'Неверное значение в поле {first_name}'
-            assert result_db[3] == middle_name, f'Неверное значение в поле {middle_name}'
-            assert result_db[5] == phone, f'Неверное значение в поле {phone}'
-            assert result_db[6] == email, f'Неверное значение в поле {email}'
+            AuthMethods.connect_db_check_user(
+                user_id,
+                'Automationautomationautomationautomationautomationautomationasdd',
+                first_name, middle_name, phone, email, date_of_birth
+            )
         except AssertionError:
             print('Ошибка!')
             raise AssertionError
@@ -396,43 +247,17 @@ class TestRegistrationLastnameField:
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            required_fields = {
-                "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                "email": "user@example.com",
-                "is_active": True,
-                "is_email_verified": False,
-                "is_phone_verified": False,
-                "last_name": "Иванов",
-                "first_name": "Иван",
-                "middle_name": "Иванович",
-                "phone_number": "88005555535",
-                "date_of_birth": "2024-10-09",
-                "avatar": "string"
-            }
-            data, user_id = AuthMethods.check_required_fields(result, required_fields)
+            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
-            required_fields_values = {
-                "email": email,
-                "last_name": 'Automation Aut',
-                "first_name": first_name,
-                "middle_name": middle_name,
-                "phone_number": phone,
-                "date_of_birth": date_of_birth
-            }
-            for field, value in required_fields_values.items():
-                assert field, value in data
+            Payloads.required_fields_value(
+                email, 'Automation Aut', first_name, middle_name, phone, date_of_birth, data
+            )
 
             """Проверка наличия пользователя в БД"""
-            cursor = AuthMethods.connect_db()
-            cursor.execute(f"""SELECT * FROM users WHERE id= '{user_id}'""")
-            result_db = cursor.fetchone()
-            print(result_db)
-            assert result_db[1] == 'Automation Aut', f'Неверное значение в поле last_name'
-            assert result_db[2] == first_name, f'Неверное значение в поле {first_name}'
-            assert result_db[3] == middle_name, f'Неверное значение в поле {middle_name}'
-            assert result_db[5] == phone, f'Неверное значение в поле {phone}'
-            assert result_db[6] == email, f'Неверное значение в поле {email}'
+            AuthMethods.connect_db_check_user(
+                user_id, 'Automation Aut', first_name, middle_name, phone, email, date_of_birth
+            )
         except AssertionError:
             print('Ошибка!')
             raise AssertionError
@@ -454,43 +279,17 @@ class TestRegistrationLastnameField:
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            required_fields = {
-                "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                "email": "user@example.com",
-                "is_active": True,
-                "is_email_verified": False,
-                "is_phone_verified": False,
-                "last_name": "Иванов",
-                "first_name": "Иван",
-                "middle_name": "Иванович",
-                "phone_number": "88005555535",
-                "date_of_birth": "2024-10-09",
-                "avatar": "string"
-            }
-            data, user_id = AuthMethods.check_required_fields(result, required_fields)
+            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
-            required_fields_values = {
-                "email": email,
-                "last_name": 'Фф-ф',
-                "first_name": first_name,
-                "middle_name": middle_name,
-                "phone_number": phone,
-                "date_of_birth": date_of_birth
-            }
-            for field, value in required_fields_values.items():
-                assert field, value in data
+            Payloads.required_fields_value(
+                email, 'Фф-Ф', first_name, middle_name, phone, date_of_birth, data
+            )
 
             """Проверка наличия пользователя в БД"""
-            cursor = AuthMethods.connect_db()
-            cursor.execute(f"""SELECT * FROM users WHERE id= '{user_id}'""")
-            result_db = cursor.fetchone()
-            print(result_db)
-            assert result_db[1] == 'Фф-ф', f'Неверное значение в поле last_name'
-            assert result_db[2] == first_name, f'Неверное значение в поле {first_name}'
-            assert result_db[3] == middle_name, f'Неверное значение в поле {middle_name}'
-            assert result_db[5] == phone, f'Неверное значение в поле {phone}'
-            assert result_db[6] == email, f'Неверное значение в поле {email}'
+            AuthMethods.connect_db_check_user(
+                user_id, 'Фф-Ф', first_name, middle_name, phone, email, date_of_birth
+            )
         except AssertionError:
             print('Ошибка!')
             raise AssertionError
@@ -512,43 +311,17 @@ class TestRegistrationLastnameField:
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            required_fields = {
-                "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                "email": "user@example.com",
-                "is_active": True,
-                "is_email_verified": False,
-                "is_phone_verified": False,
-                "last_name": "Иванов",
-                "first_name": "Иван",
-                "middle_name": "Иванович",
-                "phone_number": "88005555535",
-                "date_of_birth": "2024-10-09",
-                "avatar": "string"
-            }
-            data, user_id = AuthMethods.check_required_fields(result, required_fields)
+            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
-            required_fields_values = {
-                "email": email,
-                "last_name": 'QQQ',
-                "first_name": first_name,
-                "middle_name": middle_name,
-                "phone_number": phone,
-                "date_of_birth": date_of_birth
-            }
-            for field, value in required_fields_values.items():
-                assert field, value in data
+            Payloads.required_fields_value(
+                email, 'Qqq', first_name, middle_name, phone, date_of_birth, data
+            )
 
             """Проверка наличия пользователя в БД"""
-            cursor = AuthMethods.connect_db()
-            cursor.execute(f"""SELECT * FROM users WHERE id= '{user_id}'""")
-            result_db = cursor.fetchone()
-            print(result_db)
-            assert result_db[1] == 'QQQ', f'Неверное значение в поле last_name'
-            assert result_db[2] == first_name, f'Неверное значение в поле {first_name}'
-            assert result_db[3] == middle_name, f'Неверное значение в поле {middle_name}'
-            assert result_db[5] == phone, f'Неверное значение в поле {phone}'
-            assert result_db[6] == email, f'Неверное значение в поле {email}'
+            AuthMethods.connect_db_check_user(
+                user_id, 'Qqq', first_name, middle_name, phone, email, date_of_birth
+            )
         except AssertionError:
             print('Ошибка!')
             raise AssertionError
@@ -570,43 +343,17 @@ class TestRegistrationLastnameField:
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            required_fields = {
-                "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                "email": "user@example.com",
-                "is_active": True,
-                "is_email_verified": False,
-                "is_phone_verified": False,
-                "last_name": "Иванов",
-                "first_name": "Иван",
-                "middle_name": "Иванович",
-                "phone_number": "88005555535",
-                "date_of_birth": "2024-10-09",
-                "avatar": "string"
-            }
-            data, user_id = AuthMethods.check_required_fields(result, required_fields)
+            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
-            required_fields_values = {
-                "email": email,
-                "last_name": 'Йййй',
-                "first_name": first_name,
-                "middle_name": middle_name,
-                "phone_number": phone,
-                "date_of_birth": date_of_birth
-            }
-            for field, value in required_fields_values.items():
-                assert field, value in data
+            Payloads.required_fields_value(
+                email, 'Йййй', first_name, middle_name, phone, date_of_birth, data
+            )
 
             """Проверка наличия пользователя в БД"""
-            cursor = AuthMethods.connect_db()
-            cursor.execute(f"""SELECT * FROM users WHERE id= '{user_id}'""")
-            result_db = cursor.fetchone()
-            print(result_db)
-            assert result_db[1] == 'Йййй', f'Неверное значение в поле last_name'
-            assert result_db[2] == first_name, f'Неверное значение в поле {first_name}'
-            assert result_db[3] == middle_name, f'Неверное значение в поле {middle_name}'
-            assert result_db[5] == phone, f'Неверное значение в поле {phone}'
-            assert result_db[6] == email, f'Неверное значение в поле {email}'
+            AuthMethods.connect_db_check_user(
+                user_id, 'Йййй', first_name, middle_name, phone, email, date_of_birth
+            )
         except AssertionError:
             print('Ошибка!')
             raise AssertionError
@@ -628,43 +375,17 @@ class TestRegistrationLastnameField:
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            required_fields = {
-                "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                "email": "user@example.com",
-                "is_active": True,
-                "is_email_verified": False,
-                "is_phone_verified": False,
-                "last_name": "Иванов",
-                "first_name": "Иван",
-                "middle_name": "Иванович",
-                "phone_number": "88005555535",
-                "date_of_birth": "2024-10-09",
-                "avatar": "string"
-            }
-            data, user_id = AuthMethods.check_required_fields(result, required_fields)
+            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
-            required_fields_values = {
-                "email": email,
-                "last_name": 'Фйййй',
-                "first_name": first_name,
-                "middle_name": middle_name,
-                "phone_number": phone,
-                "date_of_birth": date_of_birth
-            }
-            for field, value in required_fields_values.items():
-                assert field, value in data
+            Payloads.required_fields_value(
+                email, 'Фйййй', first_name, middle_name, phone, date_of_birth, data
+            )
 
             """Проверка наличия пользователя в БД"""
-            cursor = AuthMethods.connect_db()
-            cursor.execute(f"""SELECT * FROM users WHERE id= '{user_id}'""")
-            result_db = cursor.fetchone()
-            print(result_db)
-            assert result_db[1] == 'Фйййй', f'Неверное значение в поле last_name'
-            assert result_db[2] == first_name, f'Неверное значение в поле {first_name}'
-            assert result_db[3] == middle_name, f'Неверное значение в поле {middle_name}'
-            assert result_db[5] == phone, f'Неверное значение в поле {phone}'
-            assert result_db[6] == email, f'Неверное значение в поле {email}'
+            AuthMethods.connect_db_check_user(
+                user_id, 'Фйййй', first_name, middle_name, phone, email, date_of_birth
+            )
         except AssertionError:
             print('Ошибка!')
             raise AssertionError
@@ -686,43 +407,17 @@ class TestRegistrationLastnameField:
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            required_fields = {
-                "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                "email": "user@example.com",
-                "is_active": True,
-                "is_email_verified": False,
-                "is_phone_verified": False,
-                "last_name": "Иванов",
-                "first_name": "Иван",
-                "middle_name": "Иванович",
-                "phone_number": "88005555535",
-                "date_of_birth": "2024-10-09",
-                "avatar": "string"
-            }
-            data, user_id = AuthMethods.check_required_fields(result, required_fields)
+            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
-            required_fields_values = {
-                "email": email,
-                "last_name": 'Фййй  Й',
-                "first_name": first_name,
-                "middle_name": middle_name,
-                "phone_number": phone,
-                "date_of_birth": date_of_birth
-            }
-            for field, value in required_fields_values.items():
-                assert field, value in data
+            Payloads.required_fields_value(
+                email, 'Фййй Й', first_name, middle_name, phone, date_of_birth, data
+            )
 
             """Проверка наличия пользователя в БД"""
-            cursor = AuthMethods.connect_db()
-            cursor.execute(f"""SELECT * FROM users WHERE id= '{user_id}'""")
-            result_db = cursor.fetchone()
-            print(result_db)
-            assert result_db[1] == 'Фййй  Й', f'Неверное значение в поле last_name'
-            assert result_db[2] == first_name, f'Неверное значение в поле {first_name}'
-            assert result_db[3] == middle_name, f'Неверное значение в поле {middle_name}'
-            assert result_db[5] == phone, f'Неверное значение в поле {phone}'
-            assert result_db[6] == email, f'Неверное значение в поле {email}'
+            AuthMethods.connect_db_check_user(
+                user_id, 'Фййй Й', first_name, middle_name, phone, email, date_of_birth
+            )
         except AssertionError:
             print('Ошибка!')
             raise AssertionError
@@ -744,43 +439,17 @@ class TestRegistrationLastnameField:
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            required_fields = {
-                "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                "email": "user@example.com",
-                "is_active": True,
-                "is_email_verified": False,
-                "is_phone_verified": False,
-                "last_name": "Иванов",
-                "first_name": "Иван",
-                "middle_name": "Иванович",
-                "phone_number": "88005555535",
-                "date_of_birth": "2024-10-09",
-                "avatar": "string"
-            }
-            data, user_id = AuthMethods.check_required_fields(result, required_fields)
+            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
-            required_fields_values = {
-                "email": email,
-                "last_name": 'Фййй-й',
-                "first_name": first_name,
-                "middle_name": middle_name,
-                "phone_number": phone,
-                "date_of_birth": date_of_birth
-            }
-            for field, value in required_fields_values.items():
-                assert field, value in data
+            Payloads.required_fields_value(
+                email, 'Фййй-Й', first_name, middle_name, phone, date_of_birth, data
+            )
 
             """Проверка наличия пользователя в БД"""
-            cursor = AuthMethods.connect_db()
-            cursor.execute(f"""SELECT * FROM users WHERE id= '{user_id}'""")
-            result_db = cursor.fetchone()
-            print(result_db)
-            assert result_db[1] == 'Фййй-й', f'Неверное значение в поле last_name'
-            assert result_db[2] == first_name, f'Неверное значение в поле {first_name}'
-            assert result_db[3] == middle_name, f'Неверное значение в поле {middle_name}'
-            assert result_db[5] == phone, f'Неверное значение в поле {phone}'
-            assert result_db[6] == email, f'Неверное значение в поле {email}'
+            AuthMethods.connect_db_check_user(
+                user_id, 'Фййй-Й', first_name, middle_name, phone, email, date_of_birth
+            )
         except AssertionError:
             print('Ошибка!')
             raise AssertionError
@@ -798,8 +467,7 @@ class TestRegistrationLastnameField:
         )
 
         """Проверка статус кода"""
-        result_code = result.status_code
-        if result_code == 201:
+        if result.status_code == 201:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(email)
         Checking.check_statuscode(result, 422)
@@ -818,8 +486,7 @@ class TestRegistrationLastnameField:
         )
 
         """Проверка статус кода"""
-        result_code = result.status_code
-        if result_code == 201:
+        if result.status_code == 201:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(email)
         Checking.check_statuscode(result, 422)
@@ -832,8 +499,7 @@ class TestRegistrationLastnameField:
         )
 
         """Проверка статус кода"""
-        result_code = result.status_code
-        if result_code == 201:
+        if result.status_code == 201:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(email)
         Checking.check_statuscode(result, 422)
@@ -850,43 +516,17 @@ class TestRegistrationLastnameField:
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            required_fields = {
-                "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                "email": "user@example.com",
-                "is_active": True,
-                "is_email_verified": False,
-                "is_phone_verified": False,
-                "last_name": "Иванов",
-                "first_name": "Иван",
-                "middle_name": "Иванович",
-                "phone_number": "88005555535",
-                "date_of_birth": "2024-10-09",
-                "avatar": "string"
-            }
-            data, user_id = AuthMethods.check_required_fields(result, required_fields)
+            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
-            required_fields_values = {
-                "email": email,
-                "last_name": 'Фййй   Й',
-                "first_name": first_name,
-                "middle_name": middle_name,
-                "phone_number": phone,
-                "date_of_birth": date_of_birth
-            }
-            for field, value in required_fields_values.items():
-                assert field, value in data
+            Payloads.required_fields_value(
+                email, 'Фййй Й', first_name, middle_name, phone, date_of_birth, data
+            )
 
             """Проверка наличия пользователя в БД"""
-            cursor = AuthMethods.connect_db()
-            cursor.execute(f"""SELECT * FROM users WHERE id= '{user_id}'""")
-            result_db = cursor.fetchone()
-            print(result_db)
-            assert result_db[1] == 'Фййй   й', f'Неверное значение в поле last_name'
-            assert result_db[2] == first_name, f'Неверное значение в поле {first_name}'
-            assert result_db[3] == middle_name, f'Неверное значение в поле {middle_name}'
-            assert result_db[5] == phone, f'Неверное значение в поле {phone}'
-            assert result_db[6] == email, f'Неверное значение в поле {email}'
+            AuthMethods.connect_db_check_user(
+                user_id, 'Фййй Й', first_name, middle_name, phone, email, date_of_birth
+            )
         except AssertionError:
             print('Ошибка!')
             raise AssertionError
@@ -908,43 +548,17 @@ class TestRegistrationLastnameField:
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            required_fields = {
-                "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                "email": "user@example.com",
-                "is_active": True,
-                "is_email_verified": False,
-                "is_phone_verified": False,
-                "last_name": "Иванов",
-                "first_name": "Иван",
-                "middle_name": "Иванович",
-                "phone_number": "88005555535",
-                "date_of_birth": "2024-10-09",
-                "avatar": "string"
-            }
-            data, user_id = AuthMethods.check_required_fields(result, required_fields)
+            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
-            required_fields_values = {
-                "email": email,
-                "last_name": 'Фййй-й',
-                "first_name": first_name,
-                "middle_name": middle_name,
-                "phone_number": phone,
-                "date_of_birth": date_of_birth
-            }
-            for field, value in required_fields_values.items():
-                assert field, value in data
+            Payloads.required_fields_value(
+                email, 'Фййй-Й', first_name, middle_name, phone, date_of_birth, data
+            )
 
             """Проверка наличия пользователя в БД"""
-            cursor = AuthMethods.connect_db()
-            cursor.execute(f"""SELECT * FROM users WHERE id= '{user_id}'""")
-            result_db = cursor.fetchone()
-            print(result_db)
-            assert result_db[1] == 'Фййй-й', f'Неверное значение в поле last_name'
-            assert result_db[2] == first_name, f'Неверное значение в поле {first_name}'
-            assert result_db[3] == middle_name, f'Неверное значение в поле {middle_name}'
-            assert result_db[5] == phone, f'Неверное значение в поле {phone}'
-            assert result_db[6] == email, f'Неверное значение в поле {email}'
+            AuthMethods.connect_db_check_user(
+                user_id, 'Фййй-Й', first_name, middle_name, phone, email, date_of_birth
+            )
         except AssertionError:
             print('Ошибка!')
             raise AssertionError
@@ -962,8 +576,7 @@ class TestRegistrationLastnameField:
         )
 
         """Проверка статус кода"""
-        result_code = result.status_code
-        if result_code == 201:
+        if result.status_code == 201:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(email)
         Checking.check_statuscode(result, 422)
@@ -976,8 +589,7 @@ class TestRegistrationLastnameField:
         )
 
         """Проверка статус кода"""
-        result_code = result.status_code
-        if result_code == 201:
+        if result.status_code == 201:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(email)
         Checking.check_statuscode(result, 422)
@@ -990,11 +602,29 @@ class TestRegistrationLastnameField:
         )
 
         """Проверка статус кода"""
-        result_code = result.status_code
-        if result_code == 201:
+        Checking.check_statuscode(result, 201)
+
+        """Проверка наличия обязательных полей в ответе"""
+        try:
+            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+
+            """Проверка значений обязательных полей"""
+            Payloads.required_fields_value(
+                email, 'Фывв', first_name, middle_name, phone, date_of_birth, data
+            )
+
+            """Проверка наличия пользователя в БД"""
+            AuthMethods.connect_db_check_user(
+                user_id, 'Фывв', first_name, middle_name, phone, email, date_of_birth
+            )
+        except AssertionError:
+            print('Ошибка!')
+            raise AssertionError
+        else:
+            print('Значения полей в БД соответствуют введенным')
+        finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(email)
-        Checking.check_statuscode(result, 422)
 
     @allure.description('Заканчивается пробелом')
     def test_22(self):
@@ -1004,11 +634,29 @@ class TestRegistrationLastnameField:
         )
 
         """Проверка статус кода"""
-        result_code = result.status_code
-        if result_code == 201:
+        Checking.check_statuscode(result, 201)
+
+        """Проверка наличия обязательных полей в ответе"""
+        try:
+            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+
+            """Проверка значений обязательных полей"""
+            Payloads.required_fields_value(
+                email, 'Фывв', first_name, middle_name, phone, date_of_birth, data
+            )
+
+            """Проверка наличия пользователя в БД"""
+            AuthMethods.connect_db_check_user(
+                user_id, 'Фывв', first_name, middle_name, phone, email, date_of_birth
+            )
+        except AssertionError:
+            print('Ошибка!')
+            raise AssertionError
+        else:
+            print('Значения полей в БД соответствуют введенным')
+        finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(email)
-        Checking.check_statuscode(result, 422)
 
     @allure.description('Начинается с "тире"')
     def test_23(self):
@@ -1018,36 +666,71 @@ class TestRegistrationLastnameField:
         )
 
         """Проверка статус кода"""
-        result_code = result.status_code
-        if result_code == 201:
+        Checking.check_statuscode(result, 201)
+
+        """Проверка наличия обязательных полей в ответе"""
+        try:
+            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+
+            """Проверка значений обязательных полей"""
+            Payloads.required_fields_value(
+                email, 'Фывв', first_name, middle_name, phone, date_of_birth, data
+            )
+
+            """Проверка наличия пользователя в БД"""
+            AuthMethods.connect_db_check_user(
+                user_id, 'Фывв', first_name, middle_name, phone, email, date_of_birth
+            )
+        except AssertionError:
+            print('Ошибка!')
+            raise AssertionError
+        else:
+            print('Значения полей в БД соответствуют введенным')
+        finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(email)
-        Checking.check_statuscode(result, 422)
 
     @allure.description('Заканчивается "тире"')
-    def test_23(self):
+    def test_24(self):
         """Регистрация"""
         result = AuthMethods.registration(
             email, password, 'Фывв-', first_name, middle_name, phone, date_of_birth
         )
 
         """Проверка статус кода"""
-        result_code = result.status_code
-        if result_code == 201:
+        Checking.check_statuscode(result, 201)
+
+        """Проверка наличия обязательных полей в ответе"""
+        try:
+            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+
+            """Проверка значений обязательных полей"""
+            Payloads.required_fields_value(
+                email, 'Фывв', first_name, middle_name, phone, date_of_birth, data
+            )
+
+            """Проверка наличия пользователя в БД"""
+            AuthMethods.connect_db_check_user(
+                user_id, 'Фывв', first_name, middle_name, phone, email, date_of_birth
+            )
+        except AssertionError:
+            print('Ошибка!')
+            raise AssertionError
+        else:
+            print('Значения полей в БД соответствуют введенным')
+        finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(email)
-        Checking.check_statuscode(result, 422)
 
     @allure.description('Null')
-    def test_23(self):
+    def test_25(self):
         """Регистрация"""
         result = AuthMethods.registration(
             email, password, None, first_name, middle_name, phone, date_of_birth
         )
 
         """Проверка статус кода"""
-        result_code = result.status_code
-        if result_code == 201:
+        if result.status_code == 201:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(email)
         Checking.check_statuscode(result, 422)

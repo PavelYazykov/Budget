@@ -11,7 +11,7 @@ class TestCheckUsernameField:
     @allure.description('Несуществующий username')
     def test_01(self):
         result = AuthMethods.login(
-            '11111', 'username=ya%40mail.ru&password=Ohranatruda%401'
+            '11111', 'username=ya%40mail.ru&password=Ohranatruda@1'
         )
 
         """Проверка статус кода"""
@@ -20,7 +20,7 @@ class TestCheckUsernameField:
     @allure.description('Пустое поле')
     def test_02(self):
         result = AuthMethods.login(
-            '11111', 'username=&password=Ohranatruda%401'
+            '11111', 'username=&password=Ohranatruda@1'
         )
 
         """Проверка статус кода"""
@@ -29,7 +29,7 @@ class TestCheckUsernameField:
     @allure.description('Поле отсутствует')
     def test_03(self):
         result = AuthMethods.login(
-            '11111', 'password=Ohranatruda%401'
+            '11111', 'password=Ohranatruda@1'
         )
 
         """Проверка статус кода"""
@@ -38,7 +38,7 @@ class TestCheckUsernameField:
     @allure.description('Null')
     def test_05(self):
         result = AuthMethods.login(
-            '11111', 'username=null&password=Ohranatruda%401'
+            '11111', 'username=null&password=Ohranatruda@1'
         )
 
         """Проверка статус кода"""

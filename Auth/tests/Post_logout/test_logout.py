@@ -1,10 +1,11 @@
 import json
 
 import allure
-
+from common_methods.variables import AuthVariables
 from Auth.methods.auth_methods import AuthMethods
 from common_methods.checking import Checking
 from common_methods.auth import Auth
+payloads = AuthVariables.auth_payloads
 
 
 @allure.epic('Post_reset_password/logout Отзвы refresh_token')
@@ -21,7 +22,7 @@ class TestLogout:
 
         """Запрос на отзыв refresh_token"""
         result = AuthMethods.logout(
-            refresh_token, 'username=y.pawel_test1%40mail.ru&password=Ohranatruda%401'
+            refresh_token, payloads
         )
 
         """Проверка статус кода"""
@@ -33,7 +34,7 @@ class TestLogout:
         """Запрос на отзыв refresh_token"""
         result = AuthMethods.logout(
             'jghkgkjrbgkbrkgbksbgkgbkjsbgjk',
-            'username=y.pawel_test1%40mail.ru&password=Ohranatruda%401'
+            payloads
         )
 
         """Проверка статус кода"""

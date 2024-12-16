@@ -1,7 +1,6 @@
 from Moneybox.methods.moneybox_methods import MoneyboxMethods
-from common_methods.checking import Checking, AuthUser
+from common_methods.checking import Checking
 import allure
-
 from common_methods.variables import MoneyboxVariables
 to_date = MoneyboxVariables.to_date
 goal = MoneyboxVariables.goal
@@ -19,44 +18,38 @@ class TestGetAll:
         """Авторизация"""
         access_token = auth_fixture
 
-        """Создание копилки"""
-        create_result = MoneyboxMethods.create_moneybox(to_date, goal, name, currency_id, amount, access_token)
-
         """Get запрос"""
         result_get = MoneyboxMethods.get_all_moneybox(access_token)
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_get, 200)
 
-        """Проверка наличия обязательных полей и типа данных в полях"""
-        with allure.step('Проверка наличия обязательных полей и типа данных в полях'):
-            check_fields = AuthUser()
-            print('Все обязательнные поля присутствуют, тип данных соответствует документации')
-
-        """Удаление копилки"""
-        data = Checking.get_data(create_result)
-        moneybox_id = data['data']['id']
-        result_delete = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
-        Checking.check_statuscode(result_delete, 204)
-
     @allure.description('Получение списка всех активных копилок')
-    def test_02(self, auth_fixture):
+    def test_02(self, create_moneybox_and_delete):
+
         """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Get запрос"""
-        result_get = MoneyboxMethods.get_all_moneybox_with_params(access_token, True)
+        result_get = MoneyboxMethods.get_all_moneybox_with_params(access_token, False)
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_get, 200)
 
     @allure.description('Получение списка всех архивных копилок')
-    def test_03(self, auth_fixture):
+    def test_03(self, create_moneybox_and_delete):
         """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
+
+        """Измение статуса копилки на 'архивная'"""
+        with allure.step('Перенос копилки в архив'):
+            result_patch = MoneyboxMethods.change_moneybox(
+                moneybox_id, to_date, goal, name, currency_id, True, access_token
+            )
+            Checking.check_statuscode(result_patch, 200)
 
         """Get запрос"""
-        result_get = MoneyboxMethods.get_all_moneybox_with_params(access_token, False)
+        result_get = MoneyboxMethods.get_all_moneybox_with_params(access_token, True)
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_get, 200)

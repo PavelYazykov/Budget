@@ -1,11 +1,9 @@
 import json
-
 import allure
 from common_methods.http_methods import HttpMethods
 
 
 base_url = 'https://budget-test.god-it.ru/api'
-# base_url = 'http://localhost:8000'
 
 
 class MoneyboxMethods:
@@ -172,9 +170,8 @@ class MoneyboxMethods:
     @staticmethod
     def get_one_moneybox(moneybox_id, access_token):
         with allure.step('Получение копилки по id'):
-            get_endpoint = '/api/v1/moneybox/'
-            id_moneybox = str(moneybox_id) + "/"
-            get_url = base_url + get_endpoint + id_moneybox
+            get_endpoint = f'/api/v1/moneybox/{moneybox_id}/'
+            get_url = base_url + get_endpoint
             print(get_url)
             get_response = HttpMethods.get(get_url, access_token)
             return get_response
@@ -191,13 +188,29 @@ class MoneyboxMethods:
     @staticmethod
     def change_moneybox(moneybox_id, to_date, goal,  name, currency_id, is_archived, access_token):
         with allure.step('Внесение изменений в копилку'):
+            patch_endpoint = f'/api/v1/moneybox/{moneybox_id}/'
+            body = {
+                "to_date": to_date,
+                "goal": goal,
+                "wallet": {
+                    "name": name,
+                    "currency_id": currency_id,
+                    "is_archived": is_archived}
+            }
+            patch_url = base_url + patch_endpoint
+            print(patch_url)
+            patch_response = HttpMethods.patch(patch_url, body, access_token)
+            return patch_response
+
+    @staticmethod
+    def change_moneybox_without_name(moneybox_id, to_date, goal, currency_id, is_archived, access_token):
+        with allure.step('Внесение изменений в копилку поле  name отсутствует'):
             patch_endpoint = '/api/v1/moneybox/'
             id_moneybox = str(moneybox_id) + "/"
             body = {
                 "to_date": to_date,
                 "goal": goal,
                 "wallet": {
-                    "name": name,
                     "currency_id": currency_id,
                     "is_archived": is_archived}
             }
@@ -339,11 +352,11 @@ class MoneyboxMethods:
     @staticmethod
     def delete_moneybox(moneybox_id, access_token):
         with allure.step('Удаление копилки'):
-            delete_endpoint = '/api/v1/moneybox/'
-            moneybox_id = str(moneybox_id) + '/'
-            delete_url = base_url + delete_endpoint + moneybox_id
+            endpoint = f'/api/v1/moneybox/{moneybox_id}/'
+            delete_url = base_url + endpoint
             delete_result = HttpMethods.delete(delete_url, access_token)
-            print(f'Копилка с {moneybox_id} удалена')
+            print(f'delete_result: {delete_result.text}')
+            print('Копилка удалена')
             return delete_result
 
     @staticmethod
@@ -386,4 +399,38 @@ class MoneyboxMethods:
             wallet_id = data['data']['wallet']['id']
             print(f'Wallet_id: {wallet_id}')
             return wallet_id
+
+    @staticmethod
+    def get_moneybox_id(result):
+        with allure.step("Получение moneybox_id"):
+            result_text = result.text
+            data = json.loads(result_text)
+            print(data)
+            moneybox_id = data['data']['id']
+            print(f'Moneybox_id: {moneybox_id}')
+            return moneybox_id
+
+    @staticmethod
+    def get_data(result):
+        result_text = result.text
+        data = json.loads(result_text)
+        return data
+
+    @staticmethod
+    def post_check_exist_req_fields(result, required_fields):
+        with allure.step('Проверка наличия обязательных полей'):
+            result_text = result.text
+            data = json.loads(result_text)
+
+            for field in required_fields:
+                assert field in data, f"Отсутствует обязательное поле: {field}"
+                print(f'Обязательное поле {field} присутствует')
+
+            for field in required_fields['data']:
+                assert field in data['data'], f"Отсутствует обязательное поле: {field}"
+                print(f'Обязательное поле {field} присутствует')
+
+            for field in required_fields['data']['wallet']:
+                assert field in data['data']['wallet'], f"Отсутствует обязательное поле: {field}"
+                print(f'Обязательное поле {field} присутствует')
 

@@ -8,15 +8,15 @@ from common_methods.http_methods import HttpMethods
 import requests
 
 
-# base_url = 'https://budget-test.god-it.ru/api' if os.environ['STAGE'] == 'qa' else 'https://budget-test.god-it.ru/api'
-base_url = 'http://localhost:8000'
+base_url = 'https://budget-test.god-it.ru/api'
+# base_url = 'http://localhost:8000'
 
 
 class AuthMethods:
 
     @staticmethod
     def connect_db():
-        with allure.step('Проверка наличия обязаткльных полей и значений'):
+        with allure.step('Подключение к БД'):
             with psycopg2.connect(
                 host='82.97.248.83',
                 user='postgres',
@@ -26,6 +26,27 @@ class AuthMethods:
             ) as connection:
                 cursor = connection.cursor()
                 return cursor
+
+    @staticmethod
+    def connect_db_check_user(user_id, last_name, first_name, middle_name, phone, email, date_of_birth):
+        with allure.step('Подключение к БД Проверка полей и значений'):
+            with psycopg2.connect(
+                    host='82.97.248.83',
+                    user='postgres',
+                    password='postgres',
+                    dbname='budget',
+                    port=25432
+            ) as connection:
+                cursor = connection.cursor()
+                cursor.execute(f"""SELECT * FROM users WHERE id= '{user_id}'""")
+                result_db = cursor.fetchone()
+                print(result_db)
+                assert result_db[1] == last_name, f'Неверное значение в поле last_name'
+                assert result_db[2] == first_name, f'Неверное значение в поле first_name'
+                assert result_db[3] == middle_name, f'Неверное значение в поле middle_name'
+                assert result_db[5] == phone, f'Неверное значение в поле phone'
+                assert result_db[6] == email, f'Неверное значение в поле email'
+                assert str(result_db[7]) == date_of_birth, f'Неверное значение в поле date_of_birth'
 
     @staticmethod
     def delete_user(email):
@@ -49,16 +70,16 @@ class AuthMethods:
 
     @staticmethod
     def check_required_fields(result, required_fields):  # Возможно не будет использоваться
-        """Проверка наличия всех полей"""
-        result_text = result.text
-        data = json.loads(result_text)
-        user_id = data['id']
-        print(f'User id: {user_id}')
-        required_fields = required_fields
-        for field in required_fields:
-            assert field in data, f'отсутствует обязательное поле {field}'
-            print(f'Обязательное поле {field} присутствует')
-        return data, user_id
+        with allure.step('Проверка наличия всех полей'):
+            result_text = result.text
+            data = json.loads(result_text)
+            user_id = data['id']
+            print(f'User id: {user_id}')
+            required_fields = required_fields
+            for field in required_fields:
+                assert field in data, f'отсутствует обязательное поле {field}'
+                print(f'Обязательное поле {field} присутствует')
+            return data, user_id
 
     @staticmethod
     def get_id(result):  # Добавить в тесты
@@ -68,18 +89,6 @@ class AuthMethods:
         user_id = data['id']
         print(f'User id: {user_id}')
         return data, user_id
-
-    @staticmethod
-    def check_required_fields_values(result, required_fields_values):
-        """Проверка значений обязательных полей"""
-        result_text = result.text
-        data = json.loads(result_text)
-        user_id = data['id']
-        print(f'User id: {user_id}')
-        required_fields_values = required_fields_values
-        for field, values in required_fields_values:
-            assert field, values in data
-            print(f'Обязательное поле {field} присутствует')
 
     @staticmethod
     def registration(email, password, last_name, first_name, middle_name, phone, date_of_birth):
@@ -444,3 +453,13 @@ class AuthMethods:
             code = data[-6:]
             print(f'Code: {code}')
             return code
+
+    @staticmethod
+    def change_password_back(result, old_password, new_password, access_token):
+        with allure.step('Восстановление предыдущего пароля'):
+            result_code = result.status_code
+            if result_code == 200:
+                result_change = AuthMethods.change_password(old_password, new_password, access_token)
+                assert result_change.status_code == 200
+                print('Предыдущий пароль восстановлен')
+

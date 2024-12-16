@@ -3,10 +3,11 @@ import time
 from Auth.methods.auth_methods import AuthMethods
 from common_methods.checking import Checking
 import psycopg2
-import  allure
-user_id_exist = '590faefa-472e-448a-a608-dd0c63a23458'
-user_id_not_exist = '590faefa-472e-448a-a608-dd0c63a99999'
-another_user_id = '061566ea-ac9e-477d-bbd2-6690f530e29d'
+import allure
+from common_methods.variables import AuthVariables
+user_id_exist = AuthVariables.user_id_exist
+user_id_not_exist = AuthVariables.user_id_not_exist
+another_user_id = '061566ea-ac9e-477d-bbd2-6690f530e29d'  #  Сделать автоматическое создание пользователя
 
 
 @allure.epic('Post_reset_password/verify Проверка поля user_id')

@@ -3,10 +3,11 @@ import time
 from Auth.methods.auth_methods import AuthMethods
 from common_methods.checking import Checking
 import allure
-user_id_not_verify = '590faefa-472e-448a-a608-dd0c63a23458'
-user_id_verify = '7741e39b-a66a-45f3-a465-f7ca8e7c7eab'
-not_verify_user_phone = '590faefa-472e-448a-a608-dd0c63a23458'
-verify_user_phone = '7741e39b-a66a-45f3-a465-f7ca8e7c7eab'
+from common_methods.variables import AuthVariables
+user_id_not_verify = AuthVariables.user_id_not_verify
+user_id_verify = AuthVariables.user_id_verify
+not_verify_user_phone = AuthVariables.not_verify_phone_user_id
+verify_user_phone = AuthVariables.verify_user_phone
 
 
 @allure.epic('Post_reset_password/request_verify_code Проверка поля verify_type')

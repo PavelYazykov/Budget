@@ -1,5 +1,5 @@
 import json
-
+from Personal_transaction.methods.personal_transaction_methods import PersonalTransactionMethods
 import allure
 
 from common_methods.auth import Auth
@@ -19,12 +19,9 @@ amount = MoneyboxVariables.amount
 class TestGoalPatch:
 
     @allure.description('Значение вещественное число = "400.5"')
-    def test_01(self, auth_fixture, create_moneybox_and_delete):
+    def test_01(self, create_moneybox_and_delete):
         """Создание копилки"""
-        moneybox_id = create_moneybox_and_delete
-
-        """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Patch_moneybox запрос"""
         result_patch = MoneyboxMethods.change_moneybox(
@@ -40,12 +37,9 @@ class TestGoalPatch:
         print('Значение соответствует введенному')
 
     @allure.description('Увеличение цели')
-    def test_02(self, auth_fixture, create_moneybox_and_delete):
+    def test_02(self, create_moneybox_and_delete):
         """Создание копилки"""
-        moneybox_id = create_moneybox_and_delete
-
-        """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Patch_moneybox запрос"""
         result_patch = MoneyboxMethods.change_moneybox(
@@ -61,12 +55,9 @@ class TestGoalPatch:
         print('Значение соответствует введенному')
 
     @allure.description('Уменьшение цели')
-    def test_03(self, auth_fixture, create_moneybox_and_delete):
+    def test_03(self, create_moneybox_and_delete):
         """Создание копилки"""
-        moneybox_id = create_moneybox_and_delete
-
-        """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Patch_moneybox запрос"""
         result_patch = MoneyboxMethods.change_moneybox(
@@ -82,12 +73,9 @@ class TestGoalPatch:
         print('Значение соответствует введенному')
 
     @allure.description('Поле отсутствует')
-    def test_04(self, auth_fixture, create_moneybox_and_delete):
+    def test_04(self, create_moneybox_and_delete):
         """Создание копилки"""
-        moneybox_id = create_moneybox_and_delete
-
-        """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Patch_moneybox запрос"""
         result_patch = MoneyboxMethods.change_moneybox_without_goal(
@@ -98,28 +86,36 @@ class TestGoalPatch:
         Checking.check_statuscode(result_patch, 200)
 
     @allure.description('Уменьшение цели ниже текущего баланса копилки')
-    def test_05(self, auth_fixture, create_moneybox_and_delete):
-        """Создание копилки"""
-        moneybox_id = create_moneybox_and_delete
+    def test_05(self, auth_fixture):
 
         """Авторизация"""
         access_token = auth_fixture
+
+        """Создание копилки"""
+        result_create = MoneyboxMethods.create_moneybox(
+            '2030-12-30', 1000, 'desc', 2, 10, access_token
+        )
+        moneybox_id = MoneyboxMethods.get_moneybox_id(result_create)
+        wallet_id = MoneyboxMethods.get_wallet_id(result_create)
 
         """Patch_moneybox запрос"""
         result_patch = MoneyboxMethods.change_moneybox(
             moneybox_id, to_date, 1, name, currency_id, is_archived, access_token
         )
 
+        """Обнуление баланса копилки"""
+        result_consumption = PersonalTransactionMethods.create_personal_transaction(
+            10, 'name', 'Consumption', '2024-10-10',
+            None, wallet_id, 136, None, access_token
+        )
         """Проверкра статус кода"""
+        Checking.delete_moneybox_if_bug(result_patch, 201, access_token)
         Checking.check_statuscode(result_patch, 400)
 
     @allure.description('Значение = 0')
-    def test_06(self, auth_fixture, create_moneybox_and_delete):
+    def test_06(self, create_moneybox_and_delete):
         """Создание копилки"""
-        moneybox_id = create_moneybox_and_delete
-
-        """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Patch_moneybox запрос"""
         result_patch = MoneyboxMethods.change_moneybox(
@@ -130,12 +126,9 @@ class TestGoalPatch:
         Checking.check_statuscode(result_patch, 422)
 
     @allure.description('Null')
-    def test_07(self, auth_fixture, create_moneybox_and_delete):
+    def test_07(self, create_moneybox_and_delete):
         """Создание копилки"""
-        moneybox_id = create_moneybox_and_delete
-
-        """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Patch_moneybox запрос"""
         result_patch = MoneyboxMethods.change_moneybox(
@@ -146,12 +139,9 @@ class TestGoalPatch:
         Checking.check_statuscode(result_patch, 422)
 
     @allure.description('Отрицательное значение')
-    def test_07(self, auth_fixture, create_moneybox_and_delete):
+    def test_07(self, create_moneybox_and_delete):
         """Создание копилки"""
-        moneybox_id = create_moneybox_and_delete
-
-        """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Patch_moneybox запрос"""
         result_patch = MoneyboxMethods.change_moneybox(
@@ -162,12 +152,9 @@ class TestGoalPatch:
         Checking.check_statuscode(result_patch, 422)
 
     @allure.description('Неверный тип данных (string: "цель")')
-    def test_07(self, auth_fixture, create_moneybox_and_delete):
+    def test_07(self, create_moneybox_and_delete):
         """Создание копилки"""
-        moneybox_id = create_moneybox_and_delete
-
-        """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Patch_moneybox запрос"""
         result_patch = MoneyboxMethods.change_moneybox(

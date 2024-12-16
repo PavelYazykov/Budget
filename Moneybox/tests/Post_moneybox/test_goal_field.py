@@ -29,17 +29,20 @@ class TestGoal:
 
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
-
-        """Проверка значения поля goal"""
-        with allure.step('Проверка значения поля goal'):
-            data = Checking.get_data(post_result)
-            assert data['data']['goal'] == '1.00'
-            print('Значение поля соответствует введенному')
-
-        """Удаление копилки"""
-        with allure.step('Удаление копилки'):
-            moneybox_id = data['data']['id']
-            MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+        try:
+            """Проверка значения поля goal"""
+            with allure.step('Проверка значения поля goal'):
+                data = Checking.get_data(post_result)
+                assert data['data']['goal'] == '1.00'
+                print('Значение поля соответствует введенному')
+        except AssertionError:
+            print(post_result.text)
+            raise AssertionError
+        finally:
+            """Удаление копилки"""
+            with allure.step('Удаление копилки'):
+                moneybox_id = data['data']['id']
+                MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
 
     @allure.description('Значение вещественное число = 0.01')
     def test_02(self, auth_fixture):
@@ -52,18 +55,21 @@ class TestGoal:
 
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
-
-        """Проверка значения поля goal"""
-        with allure.step('Проверка значения поля goal'):
-            data = Checking.get_data(post_result)
-            assert data['data']['goal'] == '0.01'
-            print('Значение поля соответствует введенному')
-
-        """Удаление копилки"""
-        with allure.step('Удаление копилки'):
-            moneybox_id = data['data']['id']
-            MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
-            print('Копилка удалена')
+        try:
+            """Проверка значения поля goal"""
+            with allure.step('Проверка значения поля goal'):
+                data = Checking.get_data(post_result)
+                assert data['data']['goal'] == '0.01'
+                print('Значение поля соответствует введенному')
+        except AssertionError:
+            print(post_result.text)
+            raise AssertionError
+        finally:
+            """Удаление копилки"""
+            with allure.step('Удаление копилки'):
+                moneybox_id = data['data']['id']
+                MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+                print('Копилка удалена')
 
     @allure.description('Значение = 0')
     def test_03(self, auth_fixture):
@@ -134,6 +140,5 @@ class TestGoal:
         post_result = MoneyboxMethods.create_moneybox(to_date, 'цель', name, currency_id, amount, access_token)
 
         """Проверка статус кода"""
-        moneybox_id = Checking.delete_moneybox_if_bug(post_result, 201)
-        MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+        moneybox_id = Checking.delete_moneybox_if_bug(post_result, 201, access_token)
         Checking.check_statuscode(post_result, 422)

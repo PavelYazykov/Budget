@@ -1,0 +1,90 @@
+services:
+  api_tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/Budget_api
+    command: /bin/sh -c "pytest -sv --alluredir=allure-results"
+    working_dir: /Budget_api
+
+  auth_tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/Budget_api
+    command: /bin/sh -c "pytest Auth/tests --alluredir=allure-results"
+    working_dir: /Budget_api
+
+  category_tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/Budget_api
+    command: /bin/sh -c "pytest Category/tests --alluredir=allure-results"
+    working_dir: /Budget_api
+
+  moneybox_tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/Budget_api
+    command: /bin/sh -c "pytest Moneybox/tests --alluredir=allure-results"
+    working_dir: /Budget_api
+
+  personal_transaction_tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/Budget_api
+    command: /bin/sh -c "pytest Personal_transaction/tests --alluredir=allure-results"
+    working_dir: /Budget_api
+
+  session_tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/Budget_api
+    command: /bin/sh -c "pytest Session/tests --alluredir=allure-results"
+    working_dir: /Budget_api
+
+  settings_tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/Budget_api
+    command: /bin/sh -c "pytest Settings/tests --alluredir=allure-results"
+    working_dir: /Budget_api
+
+  subcategory_tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/Budget_api
+    command: /bin/sh -c "pytest Subcategory/tests --alluredir=allure-results"
+    working_dir: /Budget_api
+
+  users_tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/Budget_api
+    command: /bin/sh -c "pytest Users/tests --alluredir=allure-results"
+    working_dir: /Budget_api
+
+  wallet_tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/Budget_api
+    command: /bin/sh -c "pytest Wallet/tests --alluredir=allure-results"
+    working_dir: /Budget_api

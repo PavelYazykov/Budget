@@ -19,12 +19,9 @@ amount = MoneyboxVariables.amount
 class TestCurrencyPatch:
 
     @allure.description('Существующий id')
-    def test_01(self, auth_fixture, create_moneybox_and_delete):
+    def test_01(self, create_moneybox_and_delete):
         """Создание копилки"""
-        moneybox_id = create_moneybox_and_delete
-
-        """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Patch_moneybox запрос"""
         result_patch = MoneyboxMethods.change_moneybox(
@@ -36,18 +33,14 @@ class TestCurrencyPatch:
 
         """Проверка значения в изменяемом поле"""
         with allure.step('Проверка значения в изменяемом поле"'):
-            result_text = result_patch.text
-            data = json.loads(result_text)
+            data = MoneyboxMethods.get_data(result_patch)
             assert data['data']['wallet']['currency_id'] == currency_id
             print('Значение поля currency_id сответствует введенному значению')
 
     @allure.description('Поле отсутствует')
-    def test_02(self, auth_fixture, create_moneybox_and_delete):
+    def test_02(self, create_moneybox_and_delete):
         """Создание копилки"""
-        moneybox_id = create_moneybox_and_delete
-
-        """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Patch_moneybox запрос"""
         result_patch = MoneyboxMethods.change_moneybox_without_currency_id(
@@ -55,15 +48,12 @@ class TestCurrencyPatch:
         )
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result_patch, 422)
+        Checking.check_statuscode(result_patch, 200)
 
     @allure.description('Null')
-    def test_03(self, auth_fixture, create_moneybox_and_delete):
+    def test_03(self, create_moneybox_and_delete):
         """Создание копилки"""
-        moneybox_id = create_moneybox_and_delete
-
-        """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Patch_moneybox запрос"""
         result_patch = MoneyboxMethods.change_moneybox(
@@ -71,15 +61,12 @@ class TestCurrencyPatch:
         )
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result_patch, 422)
+        Checking.check_statuscode(result_patch, 200)
 
     @allure.description('Несуществующий id')
-    def test_04(self, auth_fixture, create_moneybox_and_delete):
+    def test_04(self, create_moneybox_and_delete):
         """Создание копилки"""
-        moneybox_id = create_moneybox_and_delete
-
-        """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Patch_moneybox запрос"""
         result_patch = MoneyboxMethods.change_moneybox(
@@ -87,15 +74,12 @@ class TestCurrencyPatch:
         )
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result_patch, 422)
+        Checking.check_statuscode(result_patch, 404)
 
     @allure.description('id = 0')
-    def test_05(self, auth_fixture, create_moneybox_and_delete):
+    def test_05(self, create_moneybox_and_delete):
         """Создание копилки"""
-        moneybox_id = create_moneybox_and_delete
-
-        """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Patch_moneybox запрос"""
         result_patch = MoneyboxMethods.change_moneybox(
@@ -106,12 +90,9 @@ class TestCurrencyPatch:
         Checking.check_statuscode(result_patch, 422)
 
     @allure.description('Неверный тип данных (string: "строка")')
-    def test_06(self, auth_fixture, create_moneybox_and_delete):
+    def test_06(self, create_moneybox_and_delete):
         """Создание копилки"""
-        moneybox_id = create_moneybox_and_delete
-
-        """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Patch_moneybox запрос"""
         result_patch = MoneyboxMethods.change_moneybox(
@@ -122,12 +103,9 @@ class TestCurrencyPatch:
         Checking.check_statuscode(result_patch, 422)
 
     @allure.description('Вещественное число (id = 2,3)')
-    def test_07(self, auth_fixture, create_moneybox_and_delete):
+    def test_07(self, create_moneybox_and_delete):
         """Создание копилки"""
-        moneybox_id = create_moneybox_and_delete
-
-        """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Patch_moneybox запрос"""
         result_patch = MoneyboxMethods.change_moneybox(
@@ -138,28 +116,22 @@ class TestCurrencyPatch:
         Checking.check_statuscode(result_patch, 422)
 
     @allure.description('Отрицательный id')
-    def test_08(self, auth_fixture, create_moneybox_and_delete):
+    def test_08(self, create_moneybox_and_delete):
         """Создание копилки"""
-        moneybox_id = create_moneybox_and_delete
-
-        """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Patch_moneybox запрос"""
         result_patch = MoneyboxMethods.change_moneybox(
-            moneybox_id, to_date, goal, name, 2.5, is_archived, access_token
+            moneybox_id, to_date, goal, name, -2, is_archived, access_token
         )
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_patch, 422)
 
     @allure.description('Пустое поле')
-    def test_09(self, auth_fixture, create_moneybox_and_delete):
+    def test_09(self, create_moneybox_and_delete):
         """Создание копилки"""
-        moneybox_id = create_moneybox_and_delete
-
-        """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Patch_moneybox запрос"""
         result_patch = MoneyboxMethods.change_moneybox(

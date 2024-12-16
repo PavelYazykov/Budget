@@ -1,11 +1,6 @@
-import json
-
 import allure
-
-from common_methods.auth import Auth
 from Moneybox.methods.moneybox_methods import MoneyboxMethods
 from common_methods.checking import Checking
-
 from common_methods.variables import MoneyboxVariables
 to_date = MoneyboxVariables.to_date
 goal = MoneyboxVariables.goal
@@ -28,17 +23,20 @@ class TestCurrencyId:
 
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
-
-        """Проверка поля currency_id"""
-        with allure.step('Проверка значения поля currency_id'):
-            data = Checking.get_data(post_result)
-            assert data['data']['wallet']['currency_id'] == currency_id
-            print('Значение поля currency_id соответствует введенному')
-
-        """Удаление копилки"""
-        with allure.step('Удаление копилки'):
-            moneybox_id = data['data']['id']
-            MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+        try:
+            """Проверка поля currency_id"""
+            with allure.step('Проверка значения поля currency_id'):
+                data = Checking.get_data(post_result)
+                assert data['data']['wallet']['currency_id'] == currency_id
+                print('Значение поля currency_id соответствует введенному')
+        except AssertionError:
+            print(post_result.text)
+            raise AssertionError
+        finally:
+            """Удаление копилки"""
+            with allure.step('Удаление копилки'):
+                moneybox_id = data['data']['id']
+                MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
 
     @allure.description('Поле отсутствует')
     def test_02(self, auth_fixture):

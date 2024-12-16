@@ -1,4 +1,6 @@
 import datetime
+import json
+
 import allure
 from Moneybox.methods.moneybox_methods import MoneyboxMethods
 from common_methods.checking import Checking
@@ -9,6 +11,7 @@ goal = MoneyboxVariables.goal
 name = MoneyboxVariables.name
 currency_id = MoneyboxVariables.currency_id
 amount = MoneyboxVariables.amount
+
 
 @allure.epic('Post_moneybox /api/v1/moneybox/ Проверка поля to_date')
 class TestToDate:
@@ -26,17 +29,20 @@ class TestToDate:
 
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
-
-        """Проверка значения поля дата"""
-        with allure.step('Проверка значения поля to_date'):
-            data = Checking.get_data(post_result)
-            assert data['data']['to_date'] == '2024-12-30'
-            print('Значение поля соответствует введенному')
-
-        """Удаление копилки"""
-        with allure.step('Удаление копилки'):
-            moneybox_id = data['data']['id']
-            MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+        try:
+            """Проверка значения поля дата"""
+            with allure.step('Проверка значения поля to_date'):
+                data = Checking.get_data(post_result)
+                assert data['data']['to_date'] == to_date
+                print('Значение поля соответствует введенному')
+        except AssertionError:
+            print(post_result.text)
+            raise AssertionError
+        finally:
+            """Удаление копилки"""
+            with allure.step('Удаление копилки'):
+                moneybox_id = data['data']['id']
+                MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
 
     @allure.description('Поле отсутствует')
     def test_02(self, auth_fixture):
@@ -100,9 +106,9 @@ class TestToDate:
         access_token = auth_fixture
 
         """Post_moneybox запрос"""
-        current_day = datetime.date.today().isoformat()
+        transaction_date = datetime.date.today().isoformat()
         post_result = MoneyboxMethods.create_moneybox(
-            current_day, goal, name, currency_id, amount, access_token
+            transaction_date, goal, name, currency_id, amount, access_token
         )
 
         """Проверка статус кода"""
@@ -130,7 +136,7 @@ class TestToDate:
 
         """Post_moneybox запрос"""
         post_result = MoneyboxMethods.create_moneybox(
-            '2025-12-31', goal, name, currency_id, amount, access_token
+            '2025-12-32', goal, name, currency_id, amount, access_token
         )
 
         """Проверка статус кода"""

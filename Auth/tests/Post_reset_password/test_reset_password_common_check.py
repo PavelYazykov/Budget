@@ -2,10 +2,10 @@ import time
 import allure
 from Auth.methods.auth_methods import AuthMethods
 from common_methods.checking import Checking
-
-email = 'pawel_test_1@rambler.ru'
-password = 'Ohranatruda@1'
-phone = '89260000002'
+from common_methods.variables import AuthVariables
+email = AuthVariables.email
+password = AuthVariables.password
+phone = AuthVariables.phone
 
 
 @allure.epic('Post_reset_password/reset_password Общие проверки')

@@ -1,13 +1,9 @@
-import json
-
 import allure
 from Moneybox.methods.payloads import Payloads
-from common_methods.auth import Auth
 from Moneybox.methods.moneybox_methods import MoneyboxMethods
-from common_methods.checking import Checking, Moneybox
-from Auth.methods.auth_methods import AuthMethods
-
+from common_methods.checking import Checking
 from common_methods.variables import MoneyboxVariables
+from Personal_transaction.methods.personal_transaction_methods import PersonalTransactionMethods
 to_date = MoneyboxVariables.to_date
 goal = MoneyboxVariables.goal
 name = MoneyboxVariables.name
@@ -15,7 +11,7 @@ currency_id = MoneyboxVariables.currency_id
 amount = MoneyboxVariables.amount
 
 
-@allure.epic('Post_moneybox /api/v1/moneybox/ Создание персональных транзакций общие проверки')
+@allure.epic('Post_moneybox /api/v1/moneybox/ Создание копилок общие проверки')
 class TestCommon:
 
     @allure.description('Создание новой копилки с валидными значениями (авторизованный пользователь)')
@@ -31,47 +27,18 @@ class TestCommon:
 
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
+        try:
+            """Проверка наличия обязательных полей"""
+            MoneyboxMethods.post_check_exist_req_fields(post_result, Payloads.required_fields())
 
-        """Проверка наличия обязательных полей"""
-        with allure.step('Проверка наличия обязательных полей'):
-            # result_text = post_result.text
-            # data = json.loads(result_text)
-            # required_fields = {
-            #     "data": {
-            #         "to_date": "2024-12-30",
-            #         "goal": "1000.00",
-            #         "wallet": {
-            #             "name": "My Goal_2",
-            #             "currency_id": 2,
-            #             "amount": "0"
-            #         }
-            #     }
-            # }
-            #
-            # for field in required_fields:
-            #     assert field in data, f"Отсутствует обязательное поле: {field}"
-            #     print(f'Обязательное поле {field} присутствует')
-            #
-            # for field in required_fields['data']:
-            #     assert field in data['data'], f"Отсутствует обязательное поле: {field}"
-            #     print(f'Обязательное поле {field} присутствует')
-            #
-            # for field in required_fields['data']['wallet']:
-            #     assert field in data['data']['wallet'], f"Отсутствует обязательное поле: {field}"
-            #     print(f'Обязательное поле {field} присутствует')
-
-            check_fields = Moneybox()
-        """Проверка значений обязательных полей"""
-        get_data = Payloads.check_required_fields_value(
-            post_result, to_date, goal, name, currency_id, amount
-        )
-
-        """Удаление копилки"""
-        with allure.step('Удаление копилки'):
-            result_text = post_result.text
-            data = json.loads(result_text)
-            moneybox_id = data['data']['id']
-            MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+        except AssertionError:
+            print(post_result.text)
+            raise AssertionError
+        finally:
+            """Удаление копилки"""
+            with allure.step('Удаление копилки'):
+                moneybox_id = MoneyboxMethods.get_moneybox_id(post_result)
+                MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
 
     @allure.description('Создание новой копилки со значением goal меньше amount')
     def test_02(self, auth_fixture):
@@ -109,7 +76,47 @@ class TestCommon:
 
     @allure.description('Автоматическое архивирование после достижения цели и выводе средств')
     def test_05(self, auth_fixture):
-        pass
+        """Авторизация"""
+        access_token = auth_fixture
+
+        """Создание копилки"""
+        result_create = MoneyboxMethods.create_moneybox(
+            to_date, 1000, 'name', 2, 0, access_token
+        )
+
+        """Получение moneybox_id и wallet_id"""
+        data = Checking.get_data(result_create)
+        moneybox_id = data['data']['id']
+        wallet_id = data['data']['wallet']['id']
+        try:
+            """Создание транзакции"""
+            result_income = PersonalTransactionMethods.create_personal_transaction(
+                1000, 'description', 'Income', '2024-12-12',
+                None, wallet_id, 156, None, access_token
+            )
+            Checking.check_statuscode(result_income, 201)
+
+            """Списание средств с копилки"""
+            result_consumption = PersonalTransactionMethods.create_personal_transaction(
+                1000, 'name', 'Consumption', '2024-12-12',
+                None, wallet_id, 136, None, access_token
+            )
+
+            """Проверка статус кода"""
+            Checking.check_statuscode(result_consumption, 201)
+
+            """Проверка значения поля is_archived"""
+            result_get = MoneyboxMethods.get_one_moneybox(moneybox_id, access_token)
+            Checking.check_statuscode(result_get, 200)
+            print('ЗНАЧЕНИЕ: ', result_get)
+            print(data['data']['wallet']['is_archived'])
+            data = Checking.get_data(result_get)
+            assert data['data']['wallet']['is_archived'] is True
+
+        except AssertionError:
+            raise AssertionError
+        finally:
+            MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
 
 
 
