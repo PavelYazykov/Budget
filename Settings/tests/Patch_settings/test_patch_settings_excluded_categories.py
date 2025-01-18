@@ -23,7 +23,7 @@ class TestPatchSettingsExcludedCategories:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
 
-        """Проверка значения поля analytics"""
+        """Проверка значения поля excluded_categories"""
         data = Checking.get_data(result)
         assert data['data']['excluded_categories'][0] == 'Продукты и хозтовары'
 
@@ -42,7 +42,7 @@ class TestPatchSettingsExcludedCategories:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
 
-        """Проверка значения поля analytics"""
+        """Проверка значения поля excluded_categories"""
         data = Checking.get_data(result)
         print(data['data']['excluded_categories'])
         assert data['data']['excluded_categories'] == ['Продукты и хозтовары', 'Недвижимость']
@@ -92,7 +92,7 @@ class TestPatchSettingsExcludedCategories:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
 
-        """Проверка значения поля analytics"""
+        """Проверка значения поля excluded_categories"""
         data = Checking.get_data(result)
         assert data['data']['excluded_categories'] is None
 

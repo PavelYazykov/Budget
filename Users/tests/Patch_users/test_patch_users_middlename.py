@@ -1,6 +1,6 @@
 import allure
 from common_methods.checking import Checking
-from common_methods.variables import CommonVariables, AuthVariables
+from common_methods.variables import AuthVariables
 from Users.methods.users_methods import UsersMethods
 from Users.methods.user_payloads import UserResponse
 
@@ -510,6 +510,21 @@ class TestPatchUsersEmail:
 
         """Проверка наличия обязательных полей"""
         UserResponse.check_required_fields(result)
+
+    @allure.description(
+        'middlename - 2 буквы и 2 пробела -> один символ обрежется и появится ошибка так как мало символов'
+    )
+    def test_21(self, auth_fixture):
+        """Авторизация"""
+        access_token = auth_fixture
+
+        """Изменение информации"""
+        result = UsersMethods.change_user_info_without_email_phone(
+            AuthVariables.last_name, AuthVariables.first_name,
+            'A  A', AuthVariables.date_of_birth, access_token
+        )
+
+        Checking.check_statuscode(result, 422)
 
 
 

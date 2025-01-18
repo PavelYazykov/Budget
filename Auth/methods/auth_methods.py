@@ -1,15 +1,13 @@
 import json
-import os
 import allure
 import psycopg2
 import common_methods.http_methods
-from common_methods.auth import Auth
+from common_methods.variables import CommonVariables
 from common_methods.http_methods import HttpMethods
 import requests
 
 
-base_url = 'https://budget-test.god-it.ru/api'
-# base_url = 'http://localhost:8000'
+base_url = 'http://localhost:8000'
 
 
 class AuthMethods:
@@ -94,7 +92,7 @@ class AuthMethods:
     def registration(email, password, last_name, first_name, middle_name, phone, date_of_birth):
         with allure.step('Регистрация пользователя'):
             post_resource = '/auth/register'
-            post_url = base_url + post_resource
+            post_url = CommonVariables.base_url + post_resource
             body = {
                 "email": email,
                 "password": password,
@@ -111,7 +109,7 @@ class AuthMethods:
     def registration_without_body():
         with allure.step('Регистрация пользователя без тела запроса'):
             post_resource = '/auth/register'
-            post_url = base_url + post_resource
+            post_url = CommonVariables.base_url + post_resource
             result = requests.post(post_url)
             return result
 
@@ -120,7 +118,7 @@ class AuthMethods:
         with allure.step('Авторизация'):
             post_resource = '/auth/jwt/login'
             device_id = '?device_id=' + str(device_id)
-            post_url = base_url + post_resource + device_id
+            post_url = CommonVariables.base_url + post_resource + device_id
             headers = {
                 "Content-Type": "application/x-www-form-urlencoded",
             }
@@ -132,7 +130,7 @@ class AuthMethods:
     def login_without_device_id(payload):
         with allure.step('Авторизация без device_id'):
             post_resource = '/auth/jwt/login'
-            post_url = base_url + post_resource
+            post_url = CommonVariables.base_url + post_resource
             headers = {
                 "Content-Type": "application/x-www-form-urlencoded",
             }
@@ -144,7 +142,7 @@ class AuthMethods:
     def refresh(refresh_token, payload):
         with allure.step('Обновление access_token и refresh_token'):
             post_resource = '/auth/jwt/refresh'
-            post_url = base_url + post_resource
+            post_url = CommonVariables.base_url + post_resource
             headers = {
                 "Content-Type": "application/x-www-form-urlencoded",
                 "Authorization": f"Bearer {refresh_token}"
@@ -157,7 +155,7 @@ class AuthMethods:
     def refresh_without_refresh(payload):
         with allure.step('Обновление access_token и refresh_token'):
             post_resource = '/auth/jwt/refresh'
-            post_url = base_url + post_resource
+            post_url = CommonVariables.base_url + post_resource
             headers = {
                 "Content-Type": "application/x-www-form-urlencoded",
                 "Authorization": "Bearer"
@@ -170,7 +168,7 @@ class AuthMethods:
     def logout(refresh_token, payload):
         with allure.step('Отзыв refresh_token'):
             post_resource = '/auth/jwt/logout'
-            post_url = base_url + post_resource
+            post_url = CommonVariables.base_url + post_resource
             headers = {
                 "Content-type": "application/x-www-form-urlencoded",
                 "Authorization": f"Bearer {refresh_token}"
@@ -185,7 +183,7 @@ class AuthMethods:
             post_resource = '/auth/request-verify-code'
             verify_type = '?verify_type=' + verify_type
             user_id = '&user_id=' + user_id
-            post_url = base_url + post_resource + verify_type + user_id
+            post_url = CommonVariables.base_url + post_resource + verify_type + user_id
             print(post_url)
             result = requests.post(post_url)
             return result
@@ -195,7 +193,7 @@ class AuthMethods:
         with allure.step('Создание кода для верификации без указания типа верифкации'):
             post_resource = '/auth/request-verify-code'
             user_id = '?user_id=' + user_id
-            post_url = base_url + post_resource + user_id
+            post_url = CommonVariables.base_url + post_resource + user_id
             print(post_url)
             result = requests.post(post_url)
             return result
@@ -205,7 +203,7 @@ class AuthMethods:
         with allure.step('Создание кода для верификации без указания user_id'):
             post_resource = '/auth/request-verify-code'
             verify_type = '?verify_type=' + verify_type
-            post_url = base_url + post_resource + verify_type
+            post_url = CommonVariables.base_url + post_resource + verify_type
             print(post_url)
             result = requests.post(post_url)
             return result
@@ -217,7 +215,7 @@ class AuthMethods:
             user_id = '?user_id=' + user_id
             verify_type = '&verify_type=' + verify_type
             code_from_user = '&code_from_user=' + code_from_user
-            post_url = base_url + post_resource + user_id + verify_type + code_from_user
+            post_url = CommonVariables.base_url + post_resource + user_id + verify_type + code_from_user
             print(post_url)
             result = requests.post(post_url)
             return result
@@ -228,7 +226,7 @@ class AuthMethods:
             post_resource = '/auth/verify'
             verify_type = '?verify_type=' + verify_type
             code_from_user = '&code_from_user=' + code_from_user
-            post_url = base_url + post_resource + verify_type + code_from_user
+            post_url = CommonVariables.base_url + post_resource + verify_type + code_from_user
             print(post_url)
             result = requests.post(post_url)
             return result
@@ -239,7 +237,7 @@ class AuthMethods:
             post_resource = '/auth/verify'
             user_id = '?user_id=' + user_id
             code_from_user = '&code_from_user=' + code_from_user
-            post_url = base_url + post_resource + user_id + code_from_user
+            post_url = CommonVariables.base_url + post_resource + user_id + code_from_user
             print(post_url)
             result = requests.post(post_url)
             return result
@@ -250,7 +248,7 @@ class AuthMethods:
             post_resource = '/auth/verify'
             user_id = '?user_id=' + user_id
             verify_type = '&verify_type=' + verify_type
-            post_url = base_url + post_resource + user_id + verify_type
+            post_url = CommonVariables.base_url + post_resource + user_id + verify_type
             print(post_url)
             result = requests.post(post_url)
             return result
@@ -259,7 +257,7 @@ class AuthMethods:
     def change_password(old_password, new_password, access_token):
         with allure.step('Изменение пароля пользователя'):
             post_resource = '/auth/change_password'
-            post_url = base_url + post_resource
+            post_url = CommonVariables.base_url + post_resource
             body = {
                 "old_password": old_password,
                 "new_password": new_password
@@ -271,7 +269,7 @@ class AuthMethods:
     def change_password_without_old_password(new_password, access_token):
         with allure.step('Изменение пароля пользователя без старого парполя'):
             post_resource = '/auth/change_password'
-            post_url = base_url + post_resource
+            post_url = CommonVariables.base_url + post_resource
             body = {
                 "new_password": new_password
             }
@@ -282,7 +280,7 @@ class AuthMethods:
     def change_password_without_new_password(old_password, access_token):
         with allure.step('Изменение пароля пользователя без нового пароля'):
             post_resource = '/auth/change_password'
-            post_url = base_url + post_resource
+            post_url = CommonVariables.base_url + post_resource
             body = {
                 "old_password": old_password
             }
@@ -293,7 +291,7 @@ class AuthMethods:
     def forgot_password(phone, email):  # Указывается либо email либо phone, другой параметр - None
         with allure.step('Запрос одноразового кода для смены пароля'):
             post_resource = '/auth/forgot-password'
-            post_url = base_url + post_resource
+            post_url = CommonVariables.base_url + post_resource
             body = {
                 "phone": phone,
                 "email": email
@@ -305,7 +303,7 @@ class AuthMethods:
     def forgot_password_without_body():
         with allure.step('Запрос одноразового кода для смены пароля (без body)'):
             post_resource = '/auth/forgot-password'
-            post_url = base_url + post_resource
+            post_url = CommonVariables.base_url + post_resource
             headers = {"Content-type": "application/json"}
             result = requests.post(post_url, headers=headers)
             return result
@@ -314,7 +312,7 @@ class AuthMethods:
     def forgot_password_without_phone(email):
         with allure.step('Запрос одноразового кода для смены пароля без телефона'):
             post_resource = '/auth/forgot-password'
-            post_url = base_url + post_resource
+            post_url = CommonVariables.base_url + post_resource
             body = {
                 "email": email
             }
@@ -325,7 +323,7 @@ class AuthMethods:
     def forgot_password_without_email(phone):
         with allure.step('Запрос одноразового кода для смены пароля без почты'):
             post_resource = '/auth/forgot-password'
-            post_url = base_url + post_resource
+            post_url = CommonVariables.base_url + post_resource
             body = {
                 "phone": phone
             }
@@ -336,7 +334,7 @@ class AuthMethods:
     def code_check(phone, email, code):
         with allure.step('Проверка кода на смену забытого пароля'):
             post_resource = '/auth/code-check'
-            post_url = base_url + post_resource
+            post_url = CommonVariables.base_url + post_resource
             body = {
                 "phone": phone,
                 "email": email,
@@ -349,7 +347,7 @@ class AuthMethods:
     def code_check_without_code(phone, email):
         with allure.step('Проверка кода на смену забытого пароля без поля code'):
             post_resource = '/auth/code-check'
-            post_url = base_url + post_resource
+            post_url = CommonVariables.base_url + post_resource
             body = {
                 "phone": phone,
                 "email": email
@@ -361,7 +359,7 @@ class AuthMethods:
     def code_check_without_phone(email, code):
         with allure.step('Проверка кода на смену забытого пароля без поля phone'):
             post_resource = '/auth/code-check'
-            post_url = base_url + post_resource
+            post_url = CommonVariables.base_url + post_resource
             body = {
                 "email": email,
                 "code": code
@@ -373,7 +371,7 @@ class AuthMethods:
     def code_check_without_email(phone, code):
         with allure.step('Проверка кода на смену забытого пароля без поля email'):
             post_resource = '/auth/code-check'
-            post_url = base_url + post_resource
+            post_url = CommonVariables.base_url + post_resource
             body = {
                 "phone": phone,
                 "code": code
@@ -385,7 +383,7 @@ class AuthMethods:
     def reset_password(phone, email, new_password):
         with allure.step('Изменение пароля'):
             post_resource = '/auth/reset-password'
-            post_url = base_url + post_resource
+            post_url = CommonVariables.base_url + post_resource
             body = {
                 "phone": phone,
                 "email": email,
@@ -398,7 +396,7 @@ class AuthMethods:
     def reset_password_without_phone(email, new_password):
         with allure.step('Изменение пароля без поля phone'):
             post_resource = '/auth/reset-password'
-            post_url = base_url + post_resource
+            post_url = CommonVariables.base_url + post_resource
             body = {
                 "email": email,
                 "new_password": new_password
@@ -410,7 +408,7 @@ class AuthMethods:
     def reset_password_without_email(phone, new_password):
         with allure.step('Изменение пароля без роля email'):
             post_resource = '/auth/reset-password'
-            post_url = base_url + post_resource
+            post_url = CommonVariables.base_url + post_resource
             body = {
                 "phone": phone,
                 "new_password": new_password
@@ -422,7 +420,7 @@ class AuthMethods:
     def reset_password_without_body():
         with allure.step('Изменение пароля без body'):
             post_resource = '/auth/reset-password'
-            post_url = base_url + post_resource
+            post_url = CommonVariables.base_url + post_resource
             result = requests.post(post_url)
             return result
 
@@ -430,7 +428,7 @@ class AuthMethods:
     def reset_password_without_password(phone, email):
         with allure.step('Изменение пароля'):
             post_resource = '/auth/reset-password'
-            post_url = base_url + post_resource
+            post_url = CommonVariables.base_url + post_resource
             body = {
                 "phone": phone,
                 "email": email

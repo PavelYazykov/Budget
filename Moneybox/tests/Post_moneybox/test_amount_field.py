@@ -74,7 +74,7 @@ class TestAmount:
             """Проверка значения поля amount"""
             with allure.step('Проверка значения поля amount'):
                 data = Checking.get_data(post_result)
-                assert data['data']['wallet']['amount'] == '100'
+                assert data['data']['wallet']['amount'] == '100.00'
                 print('Значение поля amount соответствует введенному')
 
             """Списание средств с копилки"""
@@ -104,7 +104,7 @@ class TestAmount:
             """Проверка значения поля amount"""
             with allure.step('Проверка значения поля amount'):
                 data = Checking.get_data(post_result)
-                assert data['data']['wallet']['amount'] == '5.5'
+                assert data['data']['wallet']['amount'] == '5.50'
                 print('Значение поля amount соответствует введенному')
 
             """Списание средств с копилки"""

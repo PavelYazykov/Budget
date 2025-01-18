@@ -1,9 +1,8 @@
 import allure
 from common_methods.checking import Checking
-from common_methods.variables import CommonVariables, AuthVariables
+from common_methods.variables import AuthVariables
 from Users.methods.users_methods import UsersMethods
 from Users.methods.user_payloads import UserResponse
-from Auth.methods.auth_methods import Auth
 
 
 @allure.epic('Patch/users/me Проверка поля email')

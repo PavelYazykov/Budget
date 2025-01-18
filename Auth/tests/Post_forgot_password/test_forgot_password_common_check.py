@@ -15,12 +15,12 @@ class TestCommonCheck:
 
     # @allure.description('Запросить 10 кодов подтверждения за 1 час')
     # def test_01(self):
-    #     for i in range(10):
-    #         time.sleep(5)
+    #     for i in range(1):
+    #         time.sleep(61)
     #         result = AuthMethods.forgot_password(None, email)
     #         print(result.text)
     #         Checking.check_statuscode(result, 200)
-    #
+
     # @allure.description('Запросить 11 кодов подтверждения за 1 час')
     # def test_02(self):
     #     time.sleep(10805)

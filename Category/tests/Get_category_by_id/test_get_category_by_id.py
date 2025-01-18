@@ -50,7 +50,7 @@ class TestGetCategoryById:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 422)
 
-    @allure.description('Значение category_id = пустое поле')
+    @allure.description('Значение category_id = пустое поле -> отрабатывает как ручка get_all_categories')
     def test_05(self, auth_fixture):
         """Автризация"""
         access_token = auth_fixture

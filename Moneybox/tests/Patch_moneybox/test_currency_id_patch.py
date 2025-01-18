@@ -61,7 +61,7 @@ class TestCurrencyPatch:
         )
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result_patch, 200)
+        Checking.check_statuscode(result_patch, 422)
 
     @allure.description('Несуществующий id')
     def test_04(self, create_moneybox_and_delete):

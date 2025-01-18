@@ -1,8 +1,8 @@
 import allure
 from Personal_transaction.methods.personal_transaction_methods import PersonalTransactionMethods
-from common_methods.variables import PersonalTransactionVariables, AuthVariables
+from common_methods.variables import PersonalTransactionVariables
 from common_methods.checking import Checking
-from Auth.methods.auth_methods import Auth
+from common_methods.auth import Auth
 from common_methods.variables import AuthVariables
 from Moneybox.methods.moneybox_methods import MoneyboxMethods
 amount = PersonalTransactionVariables.amount
@@ -259,6 +259,7 @@ class TestPatchCommonCheck:
             """Проверка баланса копилки"""
             result_get = MoneyboxMethods.get_one_moneybox(moneybox_id, access_token)
             data = Checking.get_data(result_get)
+            print(data)
             assert data['data']['wallet']['amount'] == '200.00'
         except AssertionError:
             raise AssertionError
@@ -330,11 +331,12 @@ class TestPatchCommonCheck:
         """Авторизация"""
         access_token = auth_fixture
 
-        """Создание копилки"""
+        """Создание копилкок"""
         result_moneybox_1 = MoneyboxMethods.create_moneybox(
             '2030-12-31', 1000, 'moneybox', 2, 10, access_token
         )
         Checking.check_statuscode(result_moneybox_1, 201)
+
         result_moneybox_2 = MoneyboxMethods.create_moneybox(
             '2030-12-31', 1000, 'moneybox_2', 2, 0, access_token
         )
@@ -360,15 +362,15 @@ class TestPatchCommonCheck:
         try:
             """Перенос копилки в архив"""
             result_archived = MoneyboxMethods.change_moneybox(
-                moneybox_id_1, None, None, None, None, True, access_token
+                moneybox_id_1, '2030-12-12', 1000, 'None', 2, True, access_token
             )
-            Checking.check_statuscode(result_archived, 201)
+            Checking.check_statuscode(result_archived, 200)
 
             """Удаление транзакции"""
             result_delete = PersonalTransactionMethods.delete_personal_transaction(
                 personal_transaction_id, access_token
             )
-            Checking.check_statuscode(result_delete, 422)
+            Checking.check_statuscode(result_delete, 400)
 
         except AssertionError:
             raise AssertionError
@@ -436,7 +438,7 @@ class TestPatchCommonCheck:
         try:
             """Удаление транзакции перевод между счетами"""
             result_delete = PersonalTransactionMethods.delete_personal_transaction(personal_transaction_id, access_token)
-            Checking.check_statuscode(result_delete, 422)
+            Checking.check_statuscode(result_delete, 400)
         except AssertionError:
             raise AssertionError
         finally:
@@ -503,7 +505,7 @@ class TestPatchCommonCheck:
         try:
             """Удаление транзакции перевод между счетами"""
             result_delete = PersonalTransactionMethods.delete_personal_transaction(personal_transaction_id, access_token)
-            Checking.check_statuscode(result_delete, 422)
+            Checking.check_statuscode(result_delete, 400)
         except AssertionError:
             raise AssertionError
         finally:
@@ -520,17 +522,3 @@ class TestPatchCommonCheck:
 
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id_2, access_token)
             Checking.check_statuscode(result_delete, 204)
-
-
-
-
-
-
-
-
-
-
-
-
-
-

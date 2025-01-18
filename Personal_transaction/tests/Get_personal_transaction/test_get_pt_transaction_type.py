@@ -114,7 +114,7 @@ class TestGetAllPTTransactionType:
             """Списание средств с копилки"""
             PersonalTransactionMethods.writing_off_money(
                 result, description, transaction_type_consume, transaction_date, wallet_id_1, wallet_id_2,
-                category_id_consume, amount, access_token
+                category_id_consume, 10, access_token
             )
             """Проверка статус кода"""
             Checking.check_statuscode(result, 201)

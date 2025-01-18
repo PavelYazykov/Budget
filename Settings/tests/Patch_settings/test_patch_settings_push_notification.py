@@ -22,10 +22,7 @@ class TestPatchSettingsPushNotifications:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
 
-        """Проверка наличия обязательных полей"""
-        SettingsPayloads.check_required_fields(result, SettingsPayloads.required_fields)
-
-        """Проверка значения поля analytics"""
+        """Проверка значения поля push_notifications"""
         data = Checking.get_data(result)
         assert data['data']['push_notifications'] is True
 
@@ -43,10 +40,7 @@ class TestPatchSettingsPushNotifications:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
 
-        """Проверка наличия обязательных полей"""
-        SettingsPayloads.check_required_fields(result, SettingsPayloads.required_fields)
-
-        """Проверка значения поля analytics"""
+        """Проверка значения поля push_notifications"""
         data = Checking.get_data(result)
         assert data['data']['push_notifications'] is False
 

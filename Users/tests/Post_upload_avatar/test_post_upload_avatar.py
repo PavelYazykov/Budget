@@ -1,3 +1,5 @@
+import time
+
 import allure
 from common_methods.checking import Checking
 from Users.methods.users_methods import UsersMethods
@@ -5,6 +7,7 @@ from Users.methods.users_methods import UsersMethods
 
 @allure.epic('Post/users/upload_avatar Загрузка аватара')
 class TestPostUploadAvatar:
+    time.sleep(3)
 
     @allure.description('Загрузка изображения в формате jpg')
     def test_01(self, auth_fixture):

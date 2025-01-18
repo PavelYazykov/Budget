@@ -41,7 +41,7 @@ class TestUserIdField:
             ) as connection:
                 cursor = connection.cursor()
                 cursor.execute(
-                    """UPDATE users SET is_email_verified=False WHERE id = '590faefa-472e-448a-a608-dd0c63a23458'"""
+                    f"""UPDATE users SET is_email_verified=False WHERE id = '{user_id_exist}'"""
                 )
                 connection.commit()
 

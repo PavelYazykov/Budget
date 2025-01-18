@@ -1,6 +1,16 @@
+import json
+
+import allure
+
 
 class Payloads:
-    auth_data = 'username=y.pawel_test1%40mail.ru&password=Ohranatruda%401'
+    auth_data = 'username=y.pawel_test1@mail.ru&password=Ohranatruda@1'
+
+    required_fields_login = {
+        "access_token": "string",
+        "refresh_token": "string",
+        "token_type": "string"
+    }
 
     @staticmethod
     def required_fields():
@@ -34,3 +44,11 @@ class Payloads:
             assert data[field] == exp, f'неверное значение {data[field]} ожидалось: {exp}'
             print(field, exp)
 
+    @staticmethod
+    def check_required_fields(result, required_fields):
+        with allure.step('Проверка наличия обязательныхп полей'):
+            result_text = result.text
+            data = json.loads(result_text)
+            for field in required_fields:
+                assert field in data, f'отсутствует обязательное поле {field}'
+            print('Все поля присутствуют')

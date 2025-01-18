@@ -195,7 +195,20 @@ class MoneyboxMethods:
                 "wallet": {
                     "name": name,
                     "currency_id": currency_id,
-                    "is_archived": is_archived}
+                    "is_archived": is_archived
+                }
+            }
+            patch_url = base_url + patch_endpoint
+            print(patch_url)
+            patch_response = HttpMethods.patch(patch_url, body, access_token)
+            return patch_response
+
+    @staticmethod
+    def change_moneybox_only_goal(moneybox_id, goal, access_token):
+        with allure.step('Внесение изменений в копилку'):
+            patch_endpoint = f'/api/v1/moneybox/{moneybox_id}/'
+            body = {
+                "goal": goal
             }
             patch_url = base_url + patch_endpoint
             print(patch_url)
@@ -246,23 +259,6 @@ class MoneyboxMethods:
                 "goal": goal,
                 "wallet": {
                     "name": name,
-                    "is_archived": is_archived}
-            }
-            patch_url = base_url + patch_endpoint + id_moneybox
-            print(patch_url)
-            patch_response = HttpMethods.patch(patch_url, body, access_token)
-            return patch_response
-
-    @staticmethod
-    def change_moneybox_without_name(moneybox_id, to_date, goal, currency_id, is_archived, access_token):
-        with allure.step('Внесение изменений в копилку без поля name'):
-            patch_endpoint = '/api/v1/moneybox/'
-            id_moneybox = str(moneybox_id) + "/"
-            body = {
-                "to_date": to_date,
-                "goal": goal,
-                "wallet": {
-                    "currency_id": currency_id,
                     "is_archived": is_archived}
             }
             patch_url = base_url + patch_endpoint + id_moneybox
@@ -356,7 +352,15 @@ class MoneyboxMethods:
             delete_url = base_url + endpoint
             delete_result = HttpMethods.delete(delete_url, access_token)
             print(f'delete_result: {delete_result.text}')
-            print('Копилка удалена')
+            return delete_result
+
+    @staticmethod
+    def delete_moneybox_wo_access_token(moneybox_id):
+        with allure.step('Удаление копилки без access_token'):
+            endpoint = f'/api/v1/moneybox/{moneybox_id}/'
+            delete_url = base_url + endpoint
+            delete_result = HttpMethods.delete_without_auth(delete_url)
+            print(f'delete_result: {delete_result.text}')
             return delete_result
 
     @staticmethod

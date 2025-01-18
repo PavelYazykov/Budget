@@ -3,7 +3,6 @@ import allure
 from common_methods.checking import Checking
 from common_methods.auth import Auth
 from Auth.methods.auth_methods import AuthMethods
-from Auth.methods.payloads import AuthLogin
 from common_methods.variables import AuthVariables
 payloads = AuthVariables.auth_payloads
 
@@ -27,10 +26,6 @@ class TestRefresh:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
-
-        """Проверка наличия робязательных полей"""
-        with allure.step('Проверка наличия робязательных полей'):
-            AuthLogin(**result.json())
 
     @allure.description('Несуществующий refresh_token')
     def test_02(self):

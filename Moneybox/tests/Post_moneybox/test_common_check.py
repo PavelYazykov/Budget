@@ -1,3 +1,5 @@
+import time
+
 import allure
 from Moneybox.methods.payloads import Payloads
 from Moneybox.methods.moneybox_methods import MoneyboxMethods
@@ -95,6 +97,7 @@ class TestCommon:
                 None, wallet_id, 156, None, access_token
             )
             Checking.check_statuscode(result_income, 201)
+            time.sleep(5)
 
             """Списание средств с копилки"""
             result_consumption = PersonalTransactionMethods.create_personal_transaction(
@@ -108,7 +111,7 @@ class TestCommon:
             """Проверка значения поля is_archived"""
             result_get = MoneyboxMethods.get_one_moneybox(moneybox_id, access_token)
             Checking.check_statuscode(result_get, 200)
-            print('ЗНАЧЕНИЕ: ', result_get)
+            print('ЗНАЧЕНИЕ: ', result_get.text)
             print(data['data']['wallet']['is_archived'])
             data = Checking.get_data(result_get)
             assert data['data']['wallet']['is_archived'] is True

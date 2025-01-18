@@ -3,19 +3,20 @@ from common_methods.checking import Checking
 from Category.methods.category_methods import CategoryMethods
 from Category.methods.payloads import CategoryPayloads
 
+
 @allure.epic('Get/api/v1/category/ Получение списка категорий - проверка поля excluded')
 class TestGetCategoryExcluded:
 
     @allure.description('проверка поля excluded - Существующее название категории')
     def test_01(self, auth_fixture):
-        """Авторизацтя"""
+        """Авторизация"""
         access_token = auth_fixture
 
         """Запрос на получение категорий"""
         result = CategoryMethods.get_category_with_excluded('Недвижимость', access_token)
 
         """Проверка статус кода"""
-        # Checking.check_statuscode(result, 200)
+        Checking.check_statuscode(result, 200)
 
         """Проверка наличия исключенных категорий"""
         CategoryPayloads.check_excluded_category(result, 'Недвижимость')

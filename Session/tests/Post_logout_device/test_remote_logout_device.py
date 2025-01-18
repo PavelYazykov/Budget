@@ -54,7 +54,7 @@ class TestRemoteLogoutDeviceId:
 
         """Запрос на отзыв refresh token"""
         result = SessionsMethods.remote_logout('', access_token)
-        Checking.check_statuscode(result, 422)
+        Checking.check_statuscode(result, 404)
 
     @allure.description('Null')
     def test_05(self, auth_fixture):

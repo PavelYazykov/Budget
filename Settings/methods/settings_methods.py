@@ -45,6 +45,36 @@ class SettingsMethods:
             return result
 
     @staticmethod
+    def patch_settings_2(
+            personal_accounting, business_accounting, analytics, use_subcategories, use_quantity, push_notifications,
+            email_notifications, default_currency_id, excluded_categories, remind_in_days, telegram_notifications,
+            registration_consent, telegram_consent, access_token
+    ):
+        with allure.step(
+                'Изменение настроек пользователя с полем telegram_notifications, registration_consent,telegram_consent,'
+                'remind_in_days'
+        ):
+            endpoint = '/api/v1/settings/my/'
+            body = {
+                "personal_accounting": personal_accounting,
+                "business_accounting": business_accounting,
+                "analytics": analytics,
+                "use_subcategories": use_subcategories,
+                "use_quantity": use_quantity,
+                "push_notifications": push_notifications,
+                "email_notifications": email_notifications,
+                "default_currency_id": default_currency_id,
+                "excluded_categories": excluded_categories,
+                "remind_in_days": remind_in_days,
+                "telegram_notifications": telegram_notifications,
+                "registration_consent": registration_consent,
+                "telegram_consent": telegram_consent
+            }
+            patch_url = CommonVariables.base_url + endpoint
+            result = HttpMethods.patch(patch_url, body, access_token)
+            return result
+
+    @staticmethod
     def patch_settings_without_excluded_categories(
             personal_accounting, business_accounting, analytics, use_subcategories, use_quantity, push_notifications,
             email_notifications, default_currency_id, access_token

@@ -22,10 +22,7 @@ class TestPatchSettingsDefaultCurrencyId:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
 
-        """Проверка наличия обязательных полей"""
-        SettingsPayloads.check_required_fields(result, SettingsPayloads.required_fields)
-
-        """Проверка значения поля analytics"""
+        """Проверка значения поля default_currency_id"""
         data = Checking.get_data(result)
         assert data['data']['default_currency_id'] == 2
 

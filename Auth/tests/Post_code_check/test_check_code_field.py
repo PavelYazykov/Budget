@@ -64,10 +64,13 @@ class TestCheckCodeField:
         result = AuthMethods.forgot_password(None, email)
         Checking.check_statuscode(result, 200)
         result_code = AuthMethods.get_verify_code(result)
+        print('RESULT CODE:', result_code)
 
         """Проверка кода"""
         for _ in range(3):
             wrong_code = AuthMethods.code_check(None, email, '000000')
+            time.sleep(1)
+            print('ПРОВЕРКА НЕВЕРНОГО КОДА:', wrong_code.json())
             Checking.check_statuscode(wrong_code, 400)
         result_check = AuthMethods.code_check(None, email, result_code)
 

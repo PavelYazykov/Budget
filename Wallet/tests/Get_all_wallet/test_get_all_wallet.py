@@ -3,8 +3,6 @@ import json
 import allure
 from common_methods.checking import Checking
 from Wallet.methods.wallet_methods import WalletMethods
-from Wallet.methods.payloads import WalletPayloads
-from Auth.methods.auth_methods import Auth
 
 
 @allure.epic('GET/api/v1/wallet/  Получение списка всех счетов')

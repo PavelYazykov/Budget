@@ -93,24 +93,33 @@ class TestGoalPatch:
 
         """Создание копилки"""
         result_create = MoneyboxMethods.create_moneybox(
-            '2030-12-30', 1000, 'desc', 2, 10, access_token
+            '2030-12-30', 500, 'desc', 2, 100, access_token
         )
+        Checking.check_statuscode(result_create, 201)
         moneybox_id = MoneyboxMethods.get_moneybox_id(result_create)
         wallet_id = MoneyboxMethods.get_wallet_id(result_create)
+        try:
+            """Patch_moneybox запрос"""
+            result_patch = MoneyboxMethods.change_moneybox_only_goal(
+                moneybox_id, 50, access_token
+            )
 
-        """Patch_moneybox запрос"""
-        result_patch = MoneyboxMethods.change_moneybox(
-            moneybox_id, to_date, 1, name, currency_id, is_archived, access_token
-        )
+            """Проверкра статус кода"""
+            Checking.check_statuscode(result_patch, 400)
+        except AssertionError:
+            raise AssertionError
 
-        """Обнуление баланса копилки"""
-        result_consumption = PersonalTransactionMethods.create_personal_transaction(
-            10, 'name', 'Consumption', '2024-10-10',
-            None, wallet_id, 136, None, access_token
-        )
-        """Проверкра статус кода"""
-        Checking.delete_moneybox_if_bug(result_patch, 201, access_token)
-        Checking.check_statuscode(result_patch, 400)
+        finally:
+            """Обнуление баланса копилки"""
+            result_consumption = PersonalTransactionMethods.create_personal_transaction(
+                100, 'name', 'Consumption', '2024-10-10',
+                None, wallet_id, 136, None, access_token
+            )
+            Checking.check_statuscode(result_consumption, 201)
+
+            """Удаление копилки"""
+            result_delete = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+            Checking.check_statuscode(result_delete, 204)
 
     @allure.description('Значение = 0')
     def test_06(self, create_moneybox_and_delete):
@@ -139,7 +148,7 @@ class TestGoalPatch:
         Checking.check_statuscode(result_patch, 422)
 
     @allure.description('Отрицательное значение')
-    def test_07(self, create_moneybox_and_delete):
+    def test_08(self, create_moneybox_and_delete):
         """Создание копилки"""
         moneybox_id, access_token = create_moneybox_and_delete
 
@@ -152,7 +161,7 @@ class TestGoalPatch:
         Checking.check_statuscode(result_patch, 422)
 
     @allure.description('Неверный тип данных (string: "цель")')
-    def test_07(self, create_moneybox_and_delete):
+    def test_09(self, create_moneybox_and_delete):
         """Создание копилки"""
         moneybox_id, access_token = create_moneybox_and_delete
 
@@ -163,4 +172,37 @@ class TestGoalPatch:
 
         """Проверкра статус кода"""
         Checking.check_statuscode(result_patch, 422)
+
+    @allure.description('Уменьшить цель до текущего баланса копилки')
+    def test_10(self, auth_fixture):
+
+        """Авторизация"""
+        access_token = auth_fixture
+
+        """Создание копилки"""
+        result_create = MoneyboxMethods.create_moneybox(
+            '2030-12-30', 1000, 'desc', 2, 100, access_token
+        )
+        moneybox_id = MoneyboxMethods.get_moneybox_id(result_create)
+        wallet_id = MoneyboxMethods.get_wallet_id(result_create)
+        try:
+            """Patch_moneybox запрос"""
+            result_patch = MoneyboxMethods.change_moneybox_only_goal(
+                moneybox_id, 100, access_token
+            )
+
+            """Проверкра статус кода"""
+            Checking.check_statuscode(result_patch, 201)
+        except AssertionError:
+            raise AssertionError
+
+        finally:
+            """Обнуление баланса копилки"""
+            result_consumption = PersonalTransactionMethods.create_personal_transaction(
+                100, 'name', 'Consumption', '2024-10-10',
+                None, wallet_id, 136, None, access_token
+            )
+            Checking.check_statuscode(result_consumption, 201)
+            result_delete = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+            Checking.check_statuscode(result_delete, 204)
 

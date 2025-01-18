@@ -834,3 +834,24 @@ class TestRegistrationMiddlenameField:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(email)
         Checking.check_statuscode(result, 201)
+
+    @allure.description('2 буквы и 2 пробела -> один символ обрежется и появится ошибка так как мало символов')
+    def test_26(self):
+        """Регистрация"""
+        result = AuthMethods.registration(
+            email,
+            password,
+            last_name,
+            first_name,
+            'A  A',
+            phone,
+            date_of_birth
+        )
+        print(result.json())
+
+        """Проверка статус кода"""
+        if result.status_code == 201:
+            """Удаление пользователя из БД"""
+            AuthMethods.delete_user(email)
+        Checking.check_statuscode(result, 422)
+

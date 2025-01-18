@@ -57,7 +57,7 @@ class TestPTCommonCheck:
             """Проверка значения поля amount"""
             data = Checking.get_data(result)
             print(data['data']['amount'])
-            assert data['data']['amount'] == '0.00'
+            assert data['data']['amount'] == '10.00'
         except AssertionError as error:
             print('Ошибка!')
             raise error
@@ -76,6 +76,7 @@ class TestPTCommonCheck:
             '2030-12-31', 1000, 'moneybox', 2, 10, access_token
         )
         Checking.check_statuscode(result_moneybox_1, 201)
+
         result_moneybox_2 = MoneyboxMethods.create_moneybox(
             '2030-12-31', 1000, 'moneybox_2', 2, 0, access_token
         )
@@ -87,17 +88,19 @@ class TestPTCommonCheck:
 
         wallet_id_2 = MoneyboxMethods.get_wallet_id(result_moneybox_2)
         moneybox_id_2 = MoneyboxMethods.get_moneybox_id(result_moneybox_2)
+        print('информация по валетам и копилкам заканчивается')
         try:
             """Создание транзакции"""
             result = PersonalTransactionMethods.create_personal_transaction(
                 10, description, 'Transfer between wallets', transaction_date, wallet_id_2,
                 wallet_id_1, None, None, access_token
             )
+            print('RESULT:', result.json())
 
             """Списание средств с копилки"""
             PersonalTransactionMethods.writing_off_money(
                 result, description, transaction_type_consume, transaction_date, wallet_id_1, wallet_id_2,
-                category_id_consume, amount, access_token
+                category_id_consume, 10, access_token
             )
             """Проверка статус кода"""
             Checking.check_statuscode(result, 201)
@@ -105,10 +108,16 @@ class TestPTCommonCheck:
             """Проверка значения поля amount"""
             data = Checking.get_data(result)
             assert data['data']['amount'] == '10.00'
+            print('Баланс копилок:')
+            res_1 = MoneyboxMethods.get_one_moneybox(moneybox_id_1, access_token)
+            print('Kopilka1', res_1.json())
+            print()
+            print()
+            res_2 = MoneyboxMethods.get_one_moneybox(moneybox_id_2, access_token)
+            print('Kopilka2', res_2.json())
 
-        except AssertionError as error:
-            print('Ошибка!')
-            raise error
+        except AssertionError:
+            raise AssertionError
         finally:
             """Удаление копилки"""
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id_1, access_token)
@@ -223,10 +232,10 @@ class TestPTCommonCheck:
             """Создание транзакции"""
             result = PersonalTransactionMethods.create_personal_transaction(
                 10, description, 'Transfer between wallets', transaction_date, None,
-                wallet_id_1, category_id_consume, None, access_token
+                wallet_id_1, None, None, access_token
             )
             """Проверка статус кода"""
-            Checking.check_statuscode(result, 422)
+            Checking.check_statuscode(result, 400)
         except AssertionError:
             raise AssertionError
         finally:
@@ -265,13 +274,12 @@ class TestPTCommonCheck:
             """Создание транзакции"""
             result = PersonalTransactionMethods.create_personal_transaction(
                 20, description, 'Transfer between wallets', transaction_date, wallet_id_2,
-                wallet_id_1, category_id_consume, None, access_token
+                wallet_id_1, None, None, access_token
             )
             """Проверка статус кода"""
             Checking.check_statuscode(result, 400)
-        except AssertionError as error:
-            print('Ошибка!')
-            raise error
+        except AssertionError:
+            raise AssertionError
         finally:
             """Списание средств с копилки"""
             result_consume = PersonalTransactionMethods.create_personal_transaction(

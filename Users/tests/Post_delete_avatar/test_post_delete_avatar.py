@@ -1,3 +1,5 @@
+import time
+
 import allure
 from common_methods.checking import Checking
 from Users.methods.users_methods import UsersMethods
@@ -6,6 +8,7 @@ from Users.methods.user_payloads import UserResponse
 
 @allure.epic('Post/users/delete_avatar Удаление аватара')
 class TestPostDeleteAvatar:
+    time.sleep(3)
 
     @allure.description('Удалить существующий аватар')
     def test_01(self, auth_fixture):

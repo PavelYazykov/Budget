@@ -1,8 +1,7 @@
 import json
 
 import allure
-from Auth.methods.payloads import AuthLogin
-from common_methods.variables import AuthVariables
+from Auth.methods.payloads import Payloads
 from common_methods.checking import Checking
 from Auth.methods.auth_methods import AuthMethods
 from common_methods.variables import AuthVariables
@@ -49,7 +48,7 @@ class TestLoginCommonCheck:
 
             """Проверка наличия обязательных полей"""
             with allure.step('Проверка наличия обязательных полей'):
-                AuthLogin(**result_login.json())
+                Payloads.check_required_fields(result_login, Payloads.required_fields_login)
         except AssertionError:
             raise AssertionError
         finally:

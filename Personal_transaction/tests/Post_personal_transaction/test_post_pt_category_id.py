@@ -32,7 +32,7 @@ class TestPostPTCategoryId:
         """Проверка наличия обязательных  полей"""
         Payloads.check_required_fields_post(result, Payloads.post_payloads)
 
-    @allure.description('Поле отсутствует при тразакции Income')
+    @allure.description('Проверка поля category_id - Поле отсутствует при тразакции Income')
     def test_02(self, create_moneybox_and_delete_for_personal_transaction):
         """Создание копилки"""
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_personal_transaction
@@ -44,7 +44,7 @@ class TestPostPTCategoryId:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 400)
 
-    @allure.description('Поле отсутствует при тразакции Consumption')
+    @allure.description('Проверка поля category_id - Поле отсутствует при тразакции Consumption')
     def test_03(self, create_moneybox_and_delete_for_personal_transaction):
         """Создание копилки"""
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_personal_transaction
@@ -56,7 +56,7 @@ class TestPostPTCategoryId:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 400)
 
-    @allure.description('Поле отсутствует при тразакции TBW')
+    @allure.description('Проверка поля category_id - Поле отсутствует при тразакции TBW')
     def test_04(self, auth_fixture):
         """"Авторизация"""
         access_token = auth_fixture
@@ -81,8 +81,10 @@ class TestPostPTCategoryId:
             """Создание транзакции"""
             result = PersonalTransactionMethods.create_personal_transaction_without_category(
                 10, description, 'Transfer between wallets', transaction_date,
-                1, wallet_id_1, None, access_token
+                wallet_id_2, wallet_id_1, None, access_token
             )
+            Checking.check_statuscode(result, 201)
+
             """Списание средств с копилки"""
             PersonalTransactionMethods.writing_off_money(
                 result, description, transaction_type_consume, transaction_date, wallet_id_1, wallet_id_2,
@@ -90,8 +92,8 @@ class TestPostPTCategoryId:
             )
             """Проверка статус кода"""
             Checking.check_statuscode(result, 201)
-        except AssertionError as error:
-            raise error
+        except AssertionError:
+            raise AssertionError
         finally:
             """Удаление копилки"""
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id_1, access_token)
@@ -100,7 +102,7 @@ class TestPostPTCategoryId:
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id_2, access_token)
             Checking.check_statuscode(result_delete, 204)
 
-    @allure.description('Null - при тразакции Income')
+    @allure.description('Проверка поля category_id - Null - при тразакции Income')
     def test_05(self, create_moneybox_and_delete_for_personal_transaction):
         """Создание копилки"""
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_personal_transaction
@@ -112,7 +114,7 @@ class TestPostPTCategoryId:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 400)
 
-    @allure.description('Null - при тразакции Consumption')
+    @allure.description('Проверка поля category_id - Null - при тразакции Consumption')
     def test_06(self, create_moneybox_and_delete_for_personal_transaction):
         """Создание копилки"""
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_personal_transaction
@@ -124,7 +126,7 @@ class TestPostPTCategoryId:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 400)
 
-    @allure.description('Null - при тразакции TBW')
+    @allure.description('Проверка поля category_id - Null - при тразакции TBW')
     def test_07(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -154,7 +156,7 @@ class TestPostPTCategoryId:
             """Списание средств с копилки"""
             PersonalTransactionMethods.writing_off_money(
                 result, description, transaction_type_consume, transaction_date, wallet_id_1, wallet_id_2,
-                category_id_consume, amount, access_token
+                category_id_consume, 10, access_token
             )
             """Проверка статус кода"""
             Checking.check_statuscode(result, 201)
@@ -173,7 +175,7 @@ class TestPostPTCategoryId:
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id_2, access_token)
             Checking.check_statuscode(result_delete, 204)
 
-    @allure.description('Несуществующий id')
+    @allure.description('Проверка поля category_id - Несуществующий id')
     def test_08(self, create_moneybox_and_delete_for_personal_transaction):
         """Авторизация"""
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_personal_transaction
@@ -186,7 +188,7 @@ class TestPostPTCategoryId:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 404)
 
-    @allure.description('Значение id = 0')
+    @allure.description('Проверка поля category_id - Значение id = 0')
     def test_09(self, create_moneybox_and_delete_for_personal_transaction):
         """Авторизация"""
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_personal_transaction
@@ -199,7 +201,7 @@ class TestPostPTCategoryId:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 422)
 
-    @allure.description('Отрицательное значение (id = -1)')
+    @allure.description('Проверка поля category_id - Отрицательное значение (id = -1)')
     def test_10(self, create_moneybox_and_delete_for_personal_transaction):
         """Авторизация"""
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_personal_transaction
@@ -212,7 +214,7 @@ class TestPostPTCategoryId:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 422)
 
-    @allure.description('Пустое поле')
+    @allure.description('Проверка поля category_id - Пустое поле')
     def test_11(self, create_moneybox_and_delete_for_personal_transaction):
         """Авторизация"""
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_personal_transaction
@@ -225,7 +227,7 @@ class TestPostPTCategoryId:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 422)
 
-    @allure.description('Неверный тип данных string (id = "string")')
+    @allure.description('Проверка поля category_id - Неверный тип данных string (id = "string")')
     def test_12(self, create_moneybox_and_delete_for_personal_transaction):
         """Авторизация"""
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_personal_transaction
@@ -238,7 +240,7 @@ class TestPostPTCategoryId:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 422)
 
-    @allure.description('Вещественное число (id = 1,1)')
+    @allure.description('Проверка поля category_id - Вещественное число (id = 1,1)')
     def test_13(self, create_moneybox_and_delete_for_personal_transaction):
         """Авторизация"""
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_personal_transaction

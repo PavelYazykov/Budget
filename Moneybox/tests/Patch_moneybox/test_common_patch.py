@@ -161,7 +161,7 @@ class TestCommonPatch:
         )
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result_patch, 422)
+        Checking.check_statuscode(result_patch, 405)
 
     @allure.description('Отсутствует id')
     def test_11(self, auth_fixture):
@@ -175,7 +175,7 @@ class TestCommonPatch:
         )
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result_patch, 422)
+        Checking.check_statuscode(result_patch, 405)
 
     @allure.description('Null')
     def test_12(self, auth_fixture):

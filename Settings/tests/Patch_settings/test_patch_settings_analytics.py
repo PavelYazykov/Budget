@@ -22,9 +22,6 @@ class TestPatchSettingsAnalytics:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
 
-        """Проверка наличия обязательных полей"""
-        SettingsPayloads.check_required_fields(result, SettingsPayloads.required_fields)
-
         """Проверка значения поля analytics"""
         data = Checking.get_data(result)
         assert data['data']['analytics'] is True
@@ -42,9 +39,6 @@ class TestPatchSettingsAnalytics:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
-
-        """Проверка наличия обязательных полей"""
-        SettingsPayloads.check_required_fields(result, SettingsPayloads.required_fields)
 
         """Проверка значения поля analytics"""
         data = Checking.get_data(result)

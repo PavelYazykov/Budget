@@ -2,7 +2,7 @@ import allure
 from Personal_transaction.methods.personal_transaction_methods import PersonalTransactionMethods
 from common_methods.variables import PersonalTransactionVariables
 from common_methods.checking import Checking
-from Auth.methods.auth_methods import Auth
+from common_methods.auth import Auth
 from common_methods.variables import AuthVariables
 amount = PersonalTransactionVariables.amount
 description = PersonalTransactionVariables.description

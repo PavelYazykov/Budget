@@ -16,6 +16,14 @@ class SubcategoryMethods:
             return result
 
     @staticmethod
+    def get_subcategory_without_auth():
+        with allure.step('Получение списка подкатегорий доходов и расходов без авторизации'):
+            endpoint = '/api/v1/subcategory/'
+            get_url = CommonVariables.base_url + endpoint
+            result = HttpMethods.get_without_auth(get_url)
+            return result
+
+    @staticmethod
     def get_subcategory_with_category_id(category, access_token):
         with allure.step('Получение списка подкатегорий доходов и расходов по id категории'):
             endpoint = '/api/v1/subcategory/'
@@ -34,6 +42,36 @@ class SubcategoryMethods:
                 "title": title
             }
             result = HttpMethods.post(post_url, body, access_token)
+            return result
+
+    @staticmethod
+    def create_subcategory_without_title(category_id, access_token):
+        with allure.step('Создание подкатегории'):
+            endpoint = '/api/v1/subcategory/'
+            post_url = base_url + endpoint
+            body = {
+                "category_id": category_id
+            }
+            result = HttpMethods.post(post_url, body, access_token)
+            return result
+
+    @staticmethod
+    def create_subcategory_without_category_id(title, access_token):
+        with allure.step('Создание подкатегории без поля category_id'):
+            endpoint = '/api/v1/subcategory/'
+            post_url = base_url + endpoint
+            body = {
+                "title": title
+            }
+            result = HttpMethods.post(post_url, body, access_token)
+            return result
+
+    @staticmethod
+    def create_subcategory_without_body(access_token):
+        with allure.step('Создание подкатегории без body'):
+            endpoint = '/api/v1/subcategory/'
+            post_url = base_url + endpoint
+            result = HttpMethods.post_without_body(post_url, access_token)
             return result
 
     @staticmethod
@@ -57,11 +95,42 @@ class SubcategoryMethods:
             return result
 
     @staticmethod
+    def change_subcategory_without_is_archived(subcategory_id, title, access_token):
+        with allure.step('Изменение информации подкатегории без поля is_archived'):
+            endpoint = f'/api/v1/subcategory/{subcategory_id}/'
+            body = {
+                "title": title
+            }
+            patch_url = CommonVariables.base_url + endpoint
+            result = HttpMethods.patch(patch_url, body, access_token)
+            return result
+
+    @staticmethod
+    def change_subcategory_without_title(subcategory_id, is_archived, access_token):
+        with allure.step('Изменение информации подкатегории без поля title'):
+            endpoint = f'/api/v1/subcategory/{subcategory_id}/'
+            body = {
+                "is_archived": is_archived
+            }
+            patch_url = CommonVariables.base_url + endpoint
+            result = HttpMethods.patch(patch_url, body, access_token)
+            return result
+
+    @staticmethod
+    def change_subcategory_without_body(subcategory_id, access_token):
+        with allure.step('Изменение информации подкатегории без body'):
+            endpoint = f'/api/v1/subcategory/{subcategory_id}/'
+            patch_url = CommonVariables.base_url + endpoint
+            result = HttpMethods.patch_without_body(patch_url, access_token)
+            return result
+
+    @staticmethod
     def delete_subcategory(subcategory_id, access_token):
         endpoint = f'/api/v1/subcategory/{subcategory_id}/'
         delete_url = base_url + endpoint
         result = HttpMethods.delete(delete_url, access_token)
         return result
+
 
     @staticmethod
     def get_subcategory_id(result):

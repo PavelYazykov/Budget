@@ -1,8 +1,7 @@
 import allure
 from Auth.methods.auth_methods import AuthMethods
-from common_methods.checking import Checking, AuthUser
+from common_methods.checking import Checking
 from Auth.methods.payloads import Payloads
-
 from common_methods.variables import AuthVariables
 email = AuthVariables.email_for_create_user
 password = AuthVariables.password_for_create_user

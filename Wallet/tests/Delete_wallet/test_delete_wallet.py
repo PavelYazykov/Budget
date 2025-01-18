@@ -126,13 +126,13 @@ class TestDeleteWallet:
         """Проверка статус кода"""
         Checking.check_statuscode(result_delete, 422)
 
-    @allure.description('Удаление кошелька - Путое поле')
+    @allure.description('Удаление кошелька - Пуcтое поле')
     def test_07(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
         """Удаление кошелька"""
-        result_delete = WalletMethods.delete_wallet_by_id(-11, access_token)
+        result_delete = WalletMethods.delete_wallet_by_id('', access_token)
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_delete, 422)

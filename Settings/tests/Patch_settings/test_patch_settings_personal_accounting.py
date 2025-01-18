@@ -25,7 +25,7 @@ class TestPatchSettingsPersonalAccount:
         """Проверка наличия обязательных полей"""
         SettingsPayloads.check_required_fields(result, SettingsPayloads.required_fields)
 
-        """Проверка значения поля analytics"""
+        """Проверка значения поля personal_accounting"""
         data = Checking.get_data(result)
         assert data['data']['personal_accounting'] is True
 
@@ -46,7 +46,7 @@ class TestPatchSettingsPersonalAccount:
         """Проверка наличия обязательных полей"""
         SettingsPayloads.check_required_fields(result, SettingsPayloads.required_fields)
 
-        """Проверка значения поля analytics"""
+        """Проверка значения поля personal_accounting"""
         data = Checking.get_data(result)
         assert data['data']['personal_accounting'] is False
 

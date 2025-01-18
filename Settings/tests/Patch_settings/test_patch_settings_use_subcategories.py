@@ -25,7 +25,7 @@ class TestPatchSettingsUseSubcategories:
         """Проверка наличия обязательных полей"""
         SettingsPayloads.check_required_fields(result, SettingsPayloads.required_fields)
 
-        """Проверка значения поля analytics"""
+        """Проверка значения поля use_subcategories"""
         data = Checking.get_data(result)
         assert data['data']['use_subcategories'] is True
 
@@ -46,7 +46,7 @@ class TestPatchSettingsUseSubcategories:
         """Проверка наличия обязательных полей"""
         SettingsPayloads.check_required_fields(result, SettingsPayloads.required_fields)
 
-        """Проверка значения поля analytics"""
+        """Проверка значения поля use_subcategories"""
         data = Checking.get_data(result)
         assert data['data']['use_subcategories'] is False
 
