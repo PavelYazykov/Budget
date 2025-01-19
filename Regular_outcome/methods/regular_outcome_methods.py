@@ -26,6 +26,87 @@ class RegularOutcomeMethods:
             return result
 
     @staticmethod
+    def create_regular_outcome_without_subcategory(
+            title, category_id, period, amount, is_paid_off, date_of_next_pay, access_token
+    ):
+        with allure.step('Создание объекта регулярных списаний без поля subcategory_id'):
+            endpoint = '/api/v1/regular_outcome/'
+            body = {
+                "title": title,
+                "category_id": category_id,
+                "period": period,
+                "amount": amount,
+                "is_paid_off": is_paid_off,
+                "date_of_next_pay": date_of_next_pay
+            }
+            post_url = CommonVariables.base_url + endpoint
+            result = HttpMethods.post(post_url, body, access_token)
+            return result
+
+    @staticmethod
+    def create_regular_outcome_without_category_id(
+            title, subcategory_id, period, amount, is_paid_off, date_of_next_pay, access_token
+    ):
+        with allure.step('Создание объекта регулярных списаний без поля category_id'):
+            endpoint = '/api/v1/regular_outcome/'
+            body = {
+                "title": title,
+                "subcategory_id": subcategory_id,
+                "period": period,
+                "amount": amount,
+                "is_paid_off": is_paid_off,
+                "date_of_next_pay": date_of_next_pay
+            }
+            post_url = CommonVariables.base_url + endpoint
+            result = HttpMethods.post(post_url, body, access_token)
+            return result
+
+    @staticmethod
+    def create_regular_outcome_without_title(
+            category_id, subcategory_id, period, amount, is_paid_off, date_of_next_pay, access_token
+    ):
+        with allure.step('Создание объекта регулярных списаний без поля title'):
+            endpoint = '/api/v1/regular_outcome/'
+            body = {
+                "category_id": category_id,
+                "subcategory_id": subcategory_id,
+                "period": period,
+                "amount": amount,
+                "is_paid_off": is_paid_off,
+                "date_of_next_pay": date_of_next_pay
+            }
+            post_url = CommonVariables.base_url + endpoint
+            result = HttpMethods.post(post_url, body, access_token)
+            return result
+
+    @staticmethod
+    def create_regular_outcome_without_body(access_token):
+        with allure.step('Создание объекта регулярных списаний без body'):
+            endpoint = '/api/v1/regular_outcome/'
+            post_url = CommonVariables.base_url + endpoint
+            result = HttpMethods.post_without_body(post_url, access_token)
+            return result
+
+    @staticmethod
+    def create_regular_outcome_without_access_token(
+            title, category_id, subcategory_id, period, amount, is_paid_off, date_of_next_pay
+    ):
+        with allure.step('Создание объекта регулярных списаний без access_token'):
+            endpoint = '/api/v1/regular_outcome/'
+            body = {
+                "title": title,
+                "category_id": category_id,
+                "subcategory_id": subcategory_id,
+                "period": period,
+                "amount": amount,
+                "is_paid_off": is_paid_off,
+                "date_of_next_pay": date_of_next_pay
+            }
+            post_url = CommonVariables.base_url + endpoint
+            result = HttpMethods.post_without_auth(post_url, body)
+            return result
+
+    @staticmethod
     def get_regular_outcome(access_token):
         with allure.step('Получение списка всех регулярных списаний'):
             endpoint = 'access_token'

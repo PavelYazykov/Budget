@@ -26,7 +26,7 @@ class TestContactAdminEmail:
         data = Checking.get_data(result)
         assert data['message'] == 'Request sent successfully'
 
-    @allure.description('Связь с администратором - несуществующий email')
+    @allure.description('Связь с администратором - несуществующий в БД email')
     def test_02(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture

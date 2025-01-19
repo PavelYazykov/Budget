@@ -57,6 +57,22 @@ class UsersMethods:
             return result
 
     @staticmethod
+    def get_telegram_link(access_token):
+        with allure.step('Получение ссылки на телеграм-бота, напоминающего пользователю о предстоящих платежах'):
+            endpoint = '/users/get_telegram_link'
+            get_url = CommonVariables.base_url + endpoint
+            result = HttpMethods.get(get_url, access_token)
+            return result
+
+    @staticmethod
+    def get_telegram_link_without_access_token():
+        with allure.step('Получение ссылки на телеграм-бота, без access_token'):
+            endpoint = '/users/get_telegram_link'
+            get_url = CommonVariables.base_url + endpoint
+            result = HttpMethods.get_without_auth(get_url)
+            return result
+
+    @staticmethod
     def change_user_info(email, last_name, first_name, middle_name, phone_number, date_of_birth, access_token):
         with allure.step('Изменение информации о текущем пользователе'):
             endpoint = '/users/me'

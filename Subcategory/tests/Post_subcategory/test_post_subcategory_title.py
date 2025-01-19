@@ -283,14 +283,14 @@ class TestCreateSubcategoriesTitle:
 
         """Создание подкатегорий"""
         result_create_1 = SubcategoryMethods.create_subcategory(
-            category_id, 'фыва.фыва', access_token
+            category_id, 'Категория_1', access_token
         )
         Checking.check_statuscode(result_create_1, 201)
         data = Checking.get_data(result_create_1)
         subcategory_id = data['data']['id']
 
         result_create_2 = SubcategoryMethods.create_subcategory(
-            category_id, 'фыва.фыва', access_token
+            category_id, 'Категория_1', access_token
         )
         Checking.check_statuscode(result_create_2, 201)
         data_2 = Checking.get_data(result_create_2)
