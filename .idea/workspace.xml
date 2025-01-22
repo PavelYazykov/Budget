@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d210021f-245f-4440-8d3d-d3175e98dcd9" name="Changes" comment="commit_22_01_2025" />
+    <list default="true" id="d210021f-245f-4440-8d3d-d3175e98dcd9" name="Changes" comment="commit_22_01_2025">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/set.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/set.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -919,7 +922,7 @@
       <recent name="C:\Users\Pavel\PycharmProjects\Budget_api\Moneybox\tests\POST создание копилок" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for Regular_outcome.tests.Get_regular_outcome.test_get_regular_outcome_common.TestGetRegularOutcomeCommon.test_01">
+  <component name="RunManager" selected="Python tests.Python tests for test_get_all.TestGetAll.test_01">
     <configuration name="Python tests for Regular_outcome.tests.Get_regular_outcome.test_get_regular_outcome_common.TestGetRegularOutcomeCommon.test_01" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Budget_api" />
       <option name="ENV_FILES" value="" />
@@ -935,18 +938,18 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_post_regular_outcome_date_next_pay.TestRegularOutcomeAmount.test_04" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_get_all.TestGetAll.test_01" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Budget_api" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Regular_outcome/tests/Post_regular_outcome" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Moneybox/tests/Get_all_moneybox" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_post_regular_outcome_date_next_pay.TestRegularOutcomeAmount.test_04&quot;" />
+      <option name="_new_target" value="&quot;test_get_all.TestGetAll.test_01&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -997,11 +1000,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for test_get_all.TestGetAll.test_01" />
         <item itemvalue="Python tests.Python tests for Regular_outcome.tests.Get_regular_outcome.test_get_regular_outcome_common.TestGetRegularOutcomeCommon.test_01" />
         <item itemvalue="Python tests.Python tests for test_post_regular_outcome_date_next_pay.TestRegularOutcomeDateNextPay" />
         <item itemvalue="Python tests.Python tests for test_post_regular_outcome_date_next_pay.TestRegularOutcomeAmount.test_12" />
         <item itemvalue="Python tests.Python tests for test_post_regular_outcome_date_next_pay.TestRegularOutcomeAmount.test_07" />
-        <item itemvalue="Python tests.Python tests for test_post_regular_outcome_date_next_pay.TestRegularOutcomeAmount.test_04" />
       </list>
     </recent_temporary>
   </component>
@@ -1165,7 +1168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737561068089</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="commit_22_01_2025">
+      <option name="closed" value="true" />
+      <created>1737561660644</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1737561660644</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
