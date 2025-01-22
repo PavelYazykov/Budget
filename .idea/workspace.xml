@@ -4,152 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d210021f-245f-4440-8d3d-d3175e98dcd9" name="Changes" comment="commit_19_01_2025">
-      <change afterPath="$PROJECT_DIR$/Regular_outcome/tests/Get_regular_outcome/test_get_regular_outcome_common.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Regular_outcome/tests/Post_regular_outcome/test_post_regular_outcome_amount.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Regular_outcome/tests/Post_regular_outcome/test_post_regular_outcome_date_next_pay.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Regular_outcome/tests/Post_regular_outcome/test_post_regular_outcome_paid_off.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Regular_outcome/tests/Post_regular_outcome/test_post_regular_outcome_period.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_change_password/test_change_password_common_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_change_password/test_change_password_common_check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_change_password/test_new_password_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_change_password/test_new_password_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_change_password/test_old_password_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_change_password/test_old_password_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_code_check/test_check_code_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_code_check/test_check_code_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_code_check/test_check_email_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_code_check/test_check_email_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_code_check/test_check_phone_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_code_check/test_check_phone_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_forgot_password/test_email_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_forgot_password/test_email_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_forgot_password/test_forgot_password_common_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_forgot_password/test_forgot_password_common_check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_forgot_password/test_phone_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_forgot_password/test_phone_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_login/test_check_device_id_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_login/test_check_device_id_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_login/test_check_password_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_login/test_check_password_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_login/test_check_username_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_login/test_check_username_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_login/test_login_common_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_login/test_login_common_check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_logout/test_logout.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_logout/test_logout.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_refresh/test_refresh.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_refresh/test_refresh.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_register/test_registr_common_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_register/test_registr_common_check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_register/test_registr_date_of_birth.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_register/test_registr_date_of_birth.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_register/test_registr_email_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_register/test_registr_email_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_register/test_registr_firstname_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_register/test_registr_firstname_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_register/test_registr_lastname_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_register/test_registr_lastname_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_register/test_registr_middlename_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_register/test_registr_middlename_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_register/test_registr_password_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_register/test_registr_password_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_register/test_registr_phone_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_register/test_registr_phone_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_request_verify_code/test_check_userid_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_request_verify_code/test_check_userid_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_request_verify_code/test_request_vc_common_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_request_verify_code/test_request_vc_common_check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_request_verify_code/test_virify_type_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_request_verify_code/test_virify_type_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_reset_password/test_reset_password_check_email.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_reset_password/test_reset_password_check_email.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_reset_password/test_reset_password_check_phone.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_reset_password/test_reset_password_check_phone.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_reset_password/test_reset_password_common_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_reset_password/test_reset_password_common_check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_reset_password/test_reset_password_field_password.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_reset_password/test_reset_password_field_password.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_verify/test_code_from_user.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_verify/test_code_from_user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_verify/test_user_id_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_verify/test_user_id_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_verify/test_verify_type.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_verify/test_verify_type.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Category/tests/Get_category/test_get_category_common.py" beforeDir="false" afterPath="$PROJECT_DIR$/Category/tests/Get_category/test_get_category_common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Category/tests/Get_category/test_get_category_excluded_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Category/tests/Get_category/test_get_category_excluded_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Category/tests/Get_category/test_get_category_transaction_type.py" beforeDir="false" afterPath="$PROJECT_DIR$/Category/tests/Get_category/test_get_category_transaction_type.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Category/tests/Get_category_by_id/test_get_category_by_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Category/tests/Get_category_by_id/test_get_category_by_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Currency/tests/Delete_currency/test_delete_currency.py" beforeDir="false" afterPath="$PROJECT_DIR$/Currency/tests/Delete_currency/test_delete_currency.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Currency/tests/Get_currency/test_get_currency.py" beforeDir="false" afterPath="$PROJECT_DIR$/Currency/tests/Get_currency/test_get_currency.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Currency/tests/Get_currency_by_id/test_get_currency_by_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Currency/tests/Get_currency_by_id/test_get_currency_by_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Currency/tests/Patch_currency/test_patch_currency_code_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Currency/tests/Patch_currency/test_patch_currency_code_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Currency/tests/Patch_currency/test_patch_currency_common.py" beforeDir="false" afterPath="$PROJECT_DIR$/Currency/tests/Patch_currency/test_patch_currency_common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Currency/tests/Patch_currency/test_patch_currency_full_title.py" beforeDir="false" afterPath="$PROJECT_DIR$/Currency/tests/Patch_currency/test_patch_currency_full_title.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Currency/tests/Patch_currency/test_patch_currency_short_title.py" beforeDir="false" afterPath="$PROJECT_DIR$/Currency/tests/Patch_currency/test_patch_currency_short_title.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Currency/tests/Post_currency/test_post_currency_code_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Currency/tests/Post_currency/test_post_currency_code_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Currency/tests/Post_currency/test_post_currency_common.py" beforeDir="false" afterPath="$PROJECT_DIR$/Currency/tests/Post_currency/test_post_currency_common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Currency/tests/Post_currency/test_post_currency_full_title.py" beforeDir="false" afterPath="$PROJECT_DIR$/Currency/tests/Post_currency/test_post_currency_full_title.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Currency/tests/Post_currency/test_post_currency_short_title.py" beforeDir="false" afterPath="$PROJECT_DIR$/Currency/tests/Post_currency/test_post_currency_short_title.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/DELETE/test_delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/DELETE/test_delete.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/Get_all_moneybox/test_get_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Get_all_moneybox/test_get_all.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/Get_all_moneybox/test_is_archived_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Get_all_moneybox/test_is_archived_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/Get_by_id/test_get_by_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Get_by_id/test_get_by_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/Patch_moneybox/test_common_patch.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Patch_moneybox/test_common_patch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/Patch_moneybox/test_currency_id_patch.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Patch_moneybox/test_currency_id_patch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/Patch_moneybox/test_goal_patch.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Patch_moneybox/test_goal_patch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/Patch_moneybox/test_is_archived_patch.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Patch_moneybox/test_is_archived_patch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/Patch_moneybox/test_name_patch.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Patch_moneybox/test_name_patch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/Patch_moneybox/test_to_date_patch.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Patch_moneybox/test_to_date_patch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/tests/Delete_personal_transaction/test_delete_pt.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/tests/Delete_personal_transaction/test_delete_pt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/tests/Get_personal_transaction/test_get_linked_to_regular_outcome.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/tests/Get_personal_transaction/test_get_linked_to_regular_outcome.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/tests/Get_personal_transaction/test_get_pt_common_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/tests/Get_personal_transaction/test_get_pt_common_check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/tests/Get_personal_transaction/test_get_pt_day.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/tests/Get_personal_transaction/test_get_pt_day.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/tests/Get_personal_transaction/test_get_pt_month.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/tests/Get_personal_transaction/test_get_pt_month.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/tests/Get_personal_transaction/test_get_pt_transaction_type.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/tests/Get_personal_transaction/test_get_pt_transaction_type.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/tests/Get_personal_transaction/test_get_pt_year.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/tests/Get_personal_transaction/test_get_pt_year.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/tests/Get_personal_transaction_by_id/test_get_pt_by_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/tests/Get_personal_transaction_by_id/test_get_pt_by_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/tests/Patch_personal_transaction/test_patch_pt_common_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/tests/Patch_personal_transaction/test_patch_pt_common_check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/tests/Patch_personal_transaction/test_patch_pt_description.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/tests/Patch_personal_transaction/test_patch_pt_description.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/tests/Post_personal_transaction/test_post_pt_amount.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/tests/Post_personal_transaction/test_post_pt_amount.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/tests/Post_personal_transaction/test_post_pt_category_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/tests/Post_personal_transaction/test_post_pt_category_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/tests/Post_personal_transaction/test_post_pt_description.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/tests/Post_personal_transaction/test_post_pt_description.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/tests/Post_personal_transaction/test_post_pt_id_wallet_for_transfer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/tests/Post_personal_transaction/test_post_pt_id_wallet_for_transfer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/tests/Post_personal_transaction/test_post_pt_regular_outcome.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/tests/Post_personal_transaction/test_post_pt_regular_outcome.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/tests/Post_personal_transaction/test_post_pt_subcategory_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/tests/Post_personal_transaction/test_post_pt_subcategory_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/tests/Post_personal_transaction/test_post_pt_transaction_type.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/tests/Post_personal_transaction/test_post_pt_transaction_type.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/tests/Post_personal_transaction/test_post_pt_wallet_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/tests/Post_personal_transaction/test_post_pt_wallet_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/tests/Post_personal_transaction/test_pt_common_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/tests/Post_personal_transaction/test_pt_common_check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Regular_outcome/methods/regular_outcome_methods.py" beforeDir="false" afterPath="$PROJECT_DIR$/Regular_outcome/methods/regular_outcome_methods.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Regular_outcome/tests/Post_regular_outcome/test_post_regular_outcome_category_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Regular_outcome/tests/Post_regular_outcome/test_post_regular_outcome_category_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Regular_outcome/tests/Post_regular_outcome/test_post_regular_outcome_common.py" beforeDir="false" afterPath="$PROJECT_DIR$/Regular_outcome/tests/Post_regular_outcome/test_post_regular_outcome_common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Regular_outcome/tests/Post_regular_outcome/test_post_regular_outcome_subcategory_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Regular_outcome/tests/Post_regular_outcome/test_post_regular_outcome_subcategory_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Regular_outcome/tests/Post_regular_outcome/test_post_regular_outcome_title.py" beforeDir="false" afterPath="$PROJECT_DIR$/Regular_outcome/tests/Post_regular_outcome/test_post_regular_outcome_title.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Session/tests/Get_active_sessions/test_get_active_sessions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Session/tests/Get_active_sessions/test_get_active_sessions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Session/tests/Post_logout_all/test_logout_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/Session/tests/Post_logout_all/test_logout_all.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Session/tests/Post_logout_device/test_remote_logout_device.py" beforeDir="false" afterPath="$PROJECT_DIR$/Session/tests/Post_logout_device/test_remote_logout_device.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/tests/Get_settings/test_get_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/tests/Get_settings/test_get_settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_analytics.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_analytics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_business_accounting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_business_accounting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_common.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_default_currency_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_default_currency_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_email_notifications.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_email_notifications.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_excluded_categories.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_excluded_categories.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_personal_accounting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_personal_accounting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_push_notification.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_push_notification.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_registration_consent.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_registration_consent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_remind_in_days.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_remind_in_days.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_telegram_consent.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_telegram_consent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_telegram_notifications.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_telegram_notifications.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_use_quantity.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_use_quantity.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_use_subcategories.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_use_subcategories.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/tests/Post_contact_to_admin/test_contact_to_admin_common.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/tests/Post_contact_to_admin/test_contact_to_admin_common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/tests/Post_contact_to_admin/test_contact_to_admin_email.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/tests/Post_contact_to_admin/test_contact_to_admin_email.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/tests/Post_contact_to_admin/test_contact_to_admin_message.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/tests/Post_contact_to_admin/test_contact_to_admin_message.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/tests/Post_contact_to_admin/test_contact_to_admin_message_topic.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/tests/Post_contact_to_admin/test_contact_to_admin_message_topic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Subcategory/tests/Delete_subcategory/test_delete_subcategory_check_sc_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Subcategory/tests/Delete_subcategory/test_delete_subcategory_check_sc_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Subcategory/tests/Delete_subcategory/test_delete_subcategory_common.py" beforeDir="false" afterPath="$PROJECT_DIR$/Subcategory/tests/Delete_subcategory/test_delete_subcategory_common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Subcategory/tests/Get_subcategory/test_get_subcategory_category_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Subcategory/tests/Get_subcategory/test_get_subcategory_category_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Subcategory/tests/Get_subcategory/test_get_subcategoty_common.py" beforeDir="false" afterPath="$PROJECT_DIR$/Subcategory/tests/Get_subcategory/test_get_subcategoty_common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Subcategory/tests/Get_subcategory_by_id/test_subcategory_by_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Subcategory/tests/Get_subcategory_by_id/test_subcategory_by_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Subcategory/tests/Patch_subcategory/test_patch_subcategory_common.py" beforeDir="false" afterPath="$PROJECT_DIR$/Subcategory/tests/Patch_subcategory/test_patch_subcategory_common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Subcategory/tests/Patch_subcategory/test_patch_subcategory_is_archived.py" beforeDir="false" afterPath="$PROJECT_DIR$/Subcategory/tests/Patch_subcategory/test_patch_subcategory_is_archived.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Subcategory/tests/Patch_subcategory/test_patch_subcategory_title.py" beforeDir="false" afterPath="$PROJECT_DIR$/Subcategory/tests/Patch_subcategory/test_patch_subcategory_title.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Subcategory/tests/Post_subcategory/test_post_subcategory_category_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Subcategory/tests/Post_subcategory/test_post_subcategory_category_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Subcategory/tests/Post_subcategory/test_post_subcategory_common.py" beforeDir="false" afterPath="$PROJECT_DIR$/Subcategory/tests/Post_subcategory/test_post_subcategory_common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Subcategory/tests/Post_subcategory/test_post_subcategory_title.py" beforeDir="false" afterPath="$PROJECT_DIR$/Subcategory/tests/Post_subcategory/test_post_subcategory_title.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/tests/Get_telegram_link/test_get_telegram_link.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/tests/Get_telegram_link/test_get_telegram_link.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/tests/Get_users/test_get_users.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/tests/Get_users/test_get_users.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/tests/Patch_users/test_patch_users_common.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/tests/Patch_users/test_patch_users_common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/tests/Patch_users/test_patch_users_date_of_birth.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/tests/Patch_users/test_patch_users_date_of_birth.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/tests/Patch_users/test_patch_users_email.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/tests/Patch_users/test_patch_users_email.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/tests/Patch_users/test_patch_users_firstname.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/tests/Patch_users/test_patch_users_firstname.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/tests/Patch_users/test_patch_users_lastname.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/tests/Patch_users/test_patch_users_lastname.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/tests/Patch_users/test_patch_users_middlename.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/tests/Patch_users/test_patch_users_middlename.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/tests/Patch_users/test_patch_users_phone.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/tests/Patch_users/test_patch_users_phone.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/tests/Post_delete_avatar/test_post_delete_avatar.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/tests/Post_delete_avatar/test_post_delete_avatar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/tests/Post_upload_avatar/test_post_upload_avatar.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/tests/Post_upload_avatar/test_post_upload_avatar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wallet/tests/Delete_wallet/test_delete_wallet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/tests/Delete_wallet/test_delete_wallet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wallet/tests/Get_all_wallet/test_get_all_wallet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/tests/Get_all_wallet/test_get_all_wallet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wallet/tests/Get_wallet_by_id/test_get_wallet_by_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/tests/Get_wallet_by_id/test_get_wallet_by_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wallet/tests/Patch_wallet/test_patch_wallet_common.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/tests/Patch_wallet/test_patch_wallet_common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wallet/tests/Patch_wallet/test_patch_wallet_currency_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/tests/Patch_wallet/test_patch_wallet_currency_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wallet/tests/Patch_wallet/test_patch_wallet_id_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/tests/Patch_wallet/test_patch_wallet_id_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wallet/tests/Patch_wallet/test_patch_wallet_isarchived_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/tests/Patch_wallet/test_patch_wallet_isarchived_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wallet/tests/Patch_wallet/test_patch_wallet_name_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/tests/Patch_wallet/test_patch_wallet_name_field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wallet/tests/Post_create_wallet/test_post_wallet_amount.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/tests/Post_create_wallet/test_post_wallet_amount.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wallet/tests/Post_create_wallet/test_post_wallet_common_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/tests/Post_create_wallet/test_post_wallet_common_check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wallet/tests/Post_create_wallet/test_post_wallet_currency_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/tests/Post_create_wallet/test_post_wallet_currency_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wallet/tests/Post_create_wallet/test_post_wallet_name.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/tests/Post_create_wallet/test_post_wallet_name.py" afterDir="false" />
-    </list>
+    <list default="true" id="d210021f-245f-4440-8d3d-d3175e98dcd9" name="Changes" comment="commit_22_01_2025" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -1278,7 +1133,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737294443389</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="commit_22_01_2025">
+      <option name="closed" value="true" />
+      <created>1737558975840</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1737558975840</updated>
+    </task>
+    <task id="LOCAL-00016" summary="commit_22_01_2025">
+      <option name="closed" value="true" />
+      <created>1737559741506</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1737559741506</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -1308,6 +1179,7 @@
     <MESSAGE value="commit_16_12_2024" />
     <MESSAGE value="commit_18_01_2025" />
     <MESSAGE value="commit_19_01_2025" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit_19_01_2025" />
+    <MESSAGE value="commit_22_01_2025" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit_22_01_2025" />
   </component>
 </project>
