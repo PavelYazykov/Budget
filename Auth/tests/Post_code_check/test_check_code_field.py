@@ -1,5 +1,7 @@
 import time
 import allure
+import pytest
+
 from Auth.methods.auth_methods import AuthMethods
 from common_methods.checking import Checking
 from common_methods.variables import AuthVariables
@@ -7,6 +9,7 @@ email = AuthVariables.email
 password = AuthVariables.password
 
 
+@pytest.mark.Auth
 @allure.epic('Post_reset_password/code/check Проверка поля code')
 class TestCheckCodeField:
 

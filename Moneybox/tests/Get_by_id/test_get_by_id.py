@@ -1,3 +1,5 @@
+import pytest
+
 from Moneybox.methods.moneybox_methods import MoneyboxMethods
 from common_methods.auth import Auth
 from common_methods.checking import Checking
@@ -11,6 +13,8 @@ amount = MoneyboxVariables.amount
 payloads_second_user = 'username=pawel_test_1@rambler.ru&password=Ohranatruda@2'
 
 
+@pytest.mark.get_moneybox_by_id
+@pytest.mark.Moneybox
 @allure.epic('GET /api/v1/moneybox/{moneybox_id}/ Получение списка копилок по id')
 class TestGetById:
 

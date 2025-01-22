@@ -1,5 +1,7 @@
 import time
 import allure
+import pytest
+
 from Auth.methods.auth_methods import AuthMethods
 from common_methods.checking import Checking
 from common_methods.variables import AuthVariables
@@ -8,6 +10,7 @@ password = AuthVariables.password
 phone = AuthVariables.phone
 
 
+@pytest.mark.Auth
 @allure.epic('Post_reset_password/reset_password Общие проверки')
 class TestResetPasswordCommonCheck:
 

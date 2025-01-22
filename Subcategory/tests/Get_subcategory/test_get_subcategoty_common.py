@@ -1,8 +1,11 @@
 import allure
+import pytest
+
 from Subcategory.methods.subcategory_methods import SubcategoryMethods
 from common_methods.checking import Checking
 
 
+@pytest.mark.Subcategory
 @allure.epic('Get/api/v1/subcategory/ - Получение списка всех подкатегорий без параметров')
 class TestGetAllSubcategoriesCommon:
 

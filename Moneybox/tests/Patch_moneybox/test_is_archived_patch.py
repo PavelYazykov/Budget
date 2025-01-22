@@ -1,6 +1,7 @@
 import json
 
 import allure
+import pytest
 
 from common_methods.auth import Auth
 from Moneybox.methods.moneybox_methods import MoneyboxMethods
@@ -15,6 +16,8 @@ is_archived = MoneyboxVariables.is_archived
 amount = MoneyboxVariables.amount
 
 
+@pytest.mark.patch_moneybox
+@pytest.mark.Moneybox
 @allure.epic('Patch_moneybox /api/v1/moneybox/{moneybox_id}/ Проверка поля is_archived')
 class TestIsArchivedPatch:
 

@@ -1,10 +1,13 @@
 import allure
+import pytest
+
 from Subcategory.methods.subcategory_methods import SubcategoryMethods
 from common_methods.checking import Checking
 from Subcategory.methods.payloads import SubcategoryPayloads
 category_id = 156
 
 
+@pytest.mark.Subcategory
 @allure.epic('Post/api/v1/subcategory/ - Создание новой подкатеогии - Проверка поля title')
 class TestCreateSubcategoriesTitle:
 

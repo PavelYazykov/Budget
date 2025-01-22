@@ -14,8 +14,8 @@ category_id_consume = PersonalTransactionVariables.category_id_consume
 transaction_type_tbw = PersonalTransactionVariables.transaction_type_tbw
 
 
-@pytest.mark.personal_transaction
-@pytest.mark.get_personal_transaction
+@pytest.mark.Personal_transaction
+@pytest.mark.get_Personal_transaction
 @allure.epic('GET/api/v1/personal_budget/ Получение списка всех транзакций - проверка поля linked_regular_outcome')
 class TestGetAllPTlinkedRegularOutcome:
 

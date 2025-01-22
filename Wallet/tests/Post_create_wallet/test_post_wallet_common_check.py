@@ -1,11 +1,14 @@
 import json
 
 import allure
+import pytest
+
 from common_methods.checking import Checking
 from Wallet.methods.wallet_methods import WalletMethods
 from Wallet.methods.payloads import WalletPayloads
 
 
+@pytest.mark.Wallet
 @allure.epic('Post/api/v1/wallet/  Создание счета')
 class TestCreateWalletCommonCheck:
 

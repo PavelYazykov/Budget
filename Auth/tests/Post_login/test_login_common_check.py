@@ -1,6 +1,8 @@
 import json
 
 import allure
+import pytest
+
 from Auth.methods.payloads import Payloads
 from common_methods.checking import Checking
 from Auth.methods.auth_methods import AuthMethods
@@ -15,6 +17,7 @@ date_of_birth = AuthVariables.date_of_birth
 payloads = AuthVariables.auth_payloads
 
 
+@pytest.mark.Auth
 @allure.epic('Post_reset_password/login Общие проверки')
 class TestLoginCommonCheck:
 

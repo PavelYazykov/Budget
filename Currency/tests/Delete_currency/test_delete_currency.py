@@ -1,9 +1,12 @@
 import allure
+import pytest
+
 from Currency.methods.payloads import CurrencyPayloads
 from Currency.methods.currency_methods import CurrencyMethods
 from common_methods.checking import Checking
 
 
+@pytest.mark.Currency
 @allure.epic('Delete/api/v1/currency - Удаление валюты')
 class TestDeleteCurrency:
 

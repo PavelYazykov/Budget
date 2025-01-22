@@ -1,4 +1,6 @@
 import allure
+import pytest
+
 from Auth.methods.auth_methods import AuthMethods
 from common_methods.checking import Checking
 from Auth.methods.payloads import Payloads
@@ -12,6 +14,7 @@ phone = AuthVariables.phone_for_create_user
 date_of_birth = AuthVariables.date_of_birth
 
 
+@pytest.mark.Auth
 @allure.epic('Post/registration Проверка поля middle name')
 class TestRegistrationMiddlenameField:
 

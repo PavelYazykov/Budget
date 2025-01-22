@@ -6,7 +6,7 @@ from common_methods.checking import Checking
 from Regular_outcome.methods.payloads import RegularOutcomePayloads
 
 
-@pytest.mark.regular_outcome_id
+@pytest.mark.Regular_outcome
 @allure.epic('Post/api/v1/regular_outcome/ - Создание нового объекта регулярных списаний - общие проверки')
 class TestRegularOutcomeCommon:
 
@@ -17,7 +17,7 @@ class TestRegularOutcomeCommon:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'День', 100, False,
+            'title', 156, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -39,7 +39,7 @@ class TestRegularOutcomeCommon:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome_without_access_token(
-            'title', 156, None, 'День', 100, False,
+            'title', 156, None, 'day', 100, False,
             '2030-12-12'
         )
 

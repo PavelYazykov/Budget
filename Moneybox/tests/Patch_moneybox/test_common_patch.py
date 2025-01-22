@@ -1,4 +1,6 @@
 import allure
+import pytest
+
 from Moneybox.methods.payloads import Payloads
 from Moneybox.methods.moneybox_methods import MoneyboxMethods
 from common_methods.checking import Checking
@@ -14,6 +16,8 @@ is_archived = MoneyboxVariables.is_archived
 amount = MoneyboxVariables.amount
 
 
+@pytest.mark.patch_moneybox
+@pytest.mark.Moneybox
 @allure.epic('Patch_moneybox /api/v1/moneybox/{moneybox_id}/ Редактирование копилок, общие проверки')
 class TestCommonPatch:
 

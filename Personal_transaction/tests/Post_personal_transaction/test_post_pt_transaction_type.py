@@ -1,4 +1,6 @@
 import allure
+import pytest
+
 from Personal_transaction.methods.personal_transaction_methods import PersonalTransactionMethods
 from common_methods.variables import PersonalTransactionVariables
 from common_methods.checking import Checking
@@ -11,6 +13,7 @@ category_id_income = PersonalTransactionVariables.category_id_income
 category_id_consume = PersonalTransactionVariables.category_id_consume
 
 
+@pytest.mark.Personal_transaction
 @allure.epic(
     'Post/api/v1/personal_transaction/ Создание персональной транзакции Проверка поля transaction_type'
 )

@@ -1,4 +1,5 @@
 import allure
+import pytest
 
 from Settings.methods.settings_methods import SettingsMethods
 from common_methods.checking import Checking
@@ -6,6 +7,7 @@ from Settings.methods.payloads import SettingsPayloads
 from common_methods.variables import AuthVariables
 
 
+@pytest.mark.Settings
 @allure.epic('Post/api/v1/settings/contact_to_admin/ Связь с администратором проверка поля email')
 class TestContactAdminEmail:
 

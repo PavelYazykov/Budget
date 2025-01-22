@@ -1,9 +1,12 @@
 import allure
+import pytest
+
 from common_methods.checking import Checking
 from Category.methods.category_methods import CategoryMethods
 from Category.methods.payloads import CategoryPayloads
 
 
+@pytest.mark.Category
 @allure.epic('Get/api/v1/category/ Получение списка категорий - проверка поля excluded')
 class TestGetCategoryExcluded:
 

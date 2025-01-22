@@ -1,11 +1,14 @@
 import time
 
 import allure
+import pytest
+
 from common_methods.checking import Checking
 from Users.methods.users_methods import UsersMethods
 from Users.methods.user_payloads import UserResponse
 
 
+@pytest.mark.User
 @allure.epic('Post/users/delete_avatar Удаление аватара')
 class TestPostDeleteAvatar:
     time.sleep(3)

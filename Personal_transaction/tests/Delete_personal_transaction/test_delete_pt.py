@@ -1,4 +1,6 @@
 import allure
+import pytest
+
 from Personal_transaction.methods.personal_transaction_methods import PersonalTransactionMethods
 from common_methods.variables import PersonalTransactionVariables
 from common_methods.checking import Checking
@@ -16,6 +18,7 @@ transaction_type_tbw = PersonalTransactionVariables.transaction_type_tbw
 payloads = AuthVariables.auth_payloads_2
 
 
+@pytest.mark.Personal_transaction
 @allure.epic('Delete /api/v1/personal_transaction/{personal_transaction_id}/ Редактирование транзакций, общие проверки')
 class TestPatchCommonCheck:
 

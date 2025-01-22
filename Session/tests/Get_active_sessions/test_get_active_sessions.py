@@ -1,9 +1,12 @@
 import allure
+import pytest
+
 from common_methods.checking import Checking
 from Session.methods.sessions_methods import SessionsMethods
 from Session.methods.payloads import SessionPayloads
 
 
+@pytest.mark.Session
 @allure.epic('Get/active_sessions/ Получение списка активных сессий пользователя')
 class TestGetActiveSessions:
 

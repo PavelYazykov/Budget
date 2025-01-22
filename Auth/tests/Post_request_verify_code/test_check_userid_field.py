@@ -1,11 +1,14 @@
 import time
 import allure
+import pytest
+
 from Auth.methods.auth_methods import AuthMethods
 from common_methods.checking import Checking
 from common_methods.variables import AuthVariables
 user_id_not_exist = AuthVariables.user_id_not_exist
 
 
+@pytest.mark.Auth
 @allure.epic('Post_reset_password/request_verify_code Проверка поля user_id')
 class TestCheckUserID:
 

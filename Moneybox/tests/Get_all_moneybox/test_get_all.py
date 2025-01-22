@@ -1,3 +1,5 @@
+import pytest
+
 from Moneybox.methods.moneybox_methods import MoneyboxMethods
 from common_methods.checking import Checking
 import allure
@@ -9,6 +11,8 @@ currency_id = MoneyboxVariables.currency_id
 amount = MoneyboxVariables.amount
 
 
+@pytest.mark.get_moneybox
+@pytest.mark.Moneybox
 @allure.epic('GET /api/v1/moneybox/ Получение списка всех копилок')
 class TestGetAll:
 

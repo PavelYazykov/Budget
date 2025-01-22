@@ -1,10 +1,12 @@
 import allure
+import pytest
 
 from Settings.methods.settings_methods import SettingsMethods
 from common_methods.checking import Checking
 from Settings.methods.payloads import SettingsPayloads
 
 
+@pytest.mark.Settings
 @allure.epic('Get/api/v1/settings/my/ Настройки авторизованного пользователя')
 class TestGetSettings:
 

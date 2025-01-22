@@ -1,4 +1,6 @@
 import allure
+import pytest
+
 from Subcategory.methods.subcategory_methods import SubcategoryMethods
 from common_methods.checking import Checking
 from Subcategory.methods.payloads import SubcategoryPayloads
@@ -14,6 +16,7 @@ category_id_income = PersonalTransactionVariables.category_id_income
 category_id_consume = PersonalTransactionVariables.category_id_consume
 
 
+@pytest.mark.Subcategory
 @allure.epic('Delete/api/v1/subcategory/ - Удаление подкатегории - общие проверки')
 class TestDeleteSubcategoryCommon:
 

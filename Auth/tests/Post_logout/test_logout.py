@@ -1,6 +1,8 @@
 import json
 
 import allure
+import pytest
+
 from common_methods.variables import AuthVariables
 from Auth.methods.auth_methods import AuthMethods
 from common_methods.checking import Checking
@@ -8,6 +10,7 @@ from common_methods.auth import Auth
 payloads = AuthVariables.auth_payloads
 
 
+@pytest.mark.Auth
 @allure.epic('Post_reset_password/logout Отзвы refresh_token')
 class TestLogout:
 

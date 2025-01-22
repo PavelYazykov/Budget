@@ -1,6 +1,7 @@
 import time
 
 import allure
+import pytest
 
 from common_methods.http_methods import HttpMethods
 from common_methods.checking import Checking
@@ -10,6 +11,7 @@ email = AuthVariables.email
 phone = AuthVariables.phone
 
 
+@pytest.mark.Auth
 @allure.epic('Post_forgot_password Общие проверки')
 class TestCommonCheck:
 

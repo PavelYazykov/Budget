@@ -1,6 +1,8 @@
 import json
 
 import allure
+import pytest
+
 from common_methods.variables import MoneyboxVariables
 from common_methods.auth import Auth
 from Moneybox.methods.moneybox_methods import MoneyboxMethods
@@ -12,6 +14,8 @@ currency_id = MoneyboxVariables.currency_id
 is_archived = MoneyboxVariables.is_archived
 
 
+@pytest.mark.patch_moneybox
+@pytest.mark.Moneybox
 @allure.epic('Patch_moneybox /api/v1/moneybox/{moneybox_id}/ Проверка поля name')
 class TestNamePatch:
 

@@ -1,10 +1,12 @@
 import allure
+import pytest
 
 from common_methods.http_methods import HttpMethods
 from common_methods.checking import Checking
 from Auth.methods.auth_methods import AuthMethods
 
 
+@pytest.mark.Auth
 @allure.epic('Post_reset_password/login Проверка поля username')
 class TestCheckUsernameField:
 

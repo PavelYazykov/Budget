@@ -1,5 +1,7 @@
 import time
 
+import pytest
+
 from Auth.methods.auth_methods import AuthMethods
 from common_methods.checking import Checking
 import psycopg2
@@ -10,6 +12,7 @@ user_id_not_exist = AuthVariables.user_id_not_exist
 another_user_id = '061566ea-ac9e-477d-bbd2-6690f530e29d'  #  Сделать автоматическое создание пользователя
 
 
+@pytest.mark.Auth
 @allure.epic('Post_reset_password/verify Проверка поля user_id')
 class TestUserIdField:
 

@@ -1,9 +1,11 @@
 import allure
+import pytest
 
 from Users.methods.users_methods import UsersMethods
 from common_methods.checking import Checking
 
 
+@pytest.mark.User
 @allure.epic(
     'Get/users/get_telegram_link - ссылка на телеграм-бота, напоминающего пользователю о предстоящих платежах'
 )

@@ -1,9 +1,12 @@
 import allure
+import pytest
+
 from common_methods.auth import Auth
 from common_methods.checking import Checking
 from Session.methods.sessions_methods import SessionsMethods
 
 
+@pytest.mark.Session
 @allure.description('Отзыв всех refresh_token, кроме переданного устройства')
 class TestLogoutAll:
 

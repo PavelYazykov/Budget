@@ -1,5 +1,7 @@
 import json
 import allure
+import pytest
+
 from common_methods.checking import Checking
 from common_methods.auth import Auth
 from Auth.methods.auth_methods import AuthMethods
@@ -7,6 +9,7 @@ from common_methods.variables import AuthVariables
 payloads = AuthVariables.auth_payloads
 
 
+@pytest.mark.Auth
 @allure.epic('Post_reset_password/refresh Обновление рефреш токена')
 class TestRefresh:
 

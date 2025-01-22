@@ -7,7 +7,7 @@ from Subcategory.methods.subcategory_methods import SubcategoryMethods
 from Regular_outcome.methods.payloads import RegularOutcomePayloads
 
 
-@pytest.mark.regular_outcome_id
+@pytest.mark.Regular_outcome
 @allure.epic('Post/api/v1/regular_outcome/ - Создание нового объекта регулярных списаний - проверка поля subcategory_id')
 class TestRegularOutcomeSubcategoryId:
 
@@ -26,7 +26,7 @@ class TestRegularOutcomeSubcategoryId:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', 156, subcategory_id, 'День', 100, False,
+            'ttt', 156, subcategory_id, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -53,7 +53,7 @@ class TestRegularOutcomeSubcategoryId:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome_without_subcategory(
-            'ttt', 156, 'День', 100, False,
+            'ttt', 156, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -77,7 +77,7 @@ class TestRegularOutcomeSubcategoryId:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', 156, None, 'День', 100, False,
+            'ttt', 156, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -101,7 +101,7 @@ class TestRegularOutcomeSubcategoryId:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', 156, 1000, 'День', 100, False,
+            'ttt', 156, 1000, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -120,7 +120,7 @@ class TestRegularOutcomeSubcategoryId:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', 156, 0, 'День', 100, False,
+            'ttt', 156, 0, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -139,7 +139,7 @@ class TestRegularOutcomeSubcategoryId:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', 156, -5, 'День', 100, False,
+            'ttt', 156, -5, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -158,7 +158,7 @@ class TestRegularOutcomeSubcategoryId:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', 156, '', 'День', 100, False,
+            'ttt', 156, '', 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -177,7 +177,7 @@ class TestRegularOutcomeSubcategoryId:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', 156, 'string', 'День', 100, False,
+            'ttt', 156, 'string', 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -196,7 +196,7 @@ class TestRegularOutcomeSubcategoryId:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', 156, 1.1, 'День', 100, False,
+            'ttt', 156, 1.1, 'day', 100, False,
             '2030-12-12', access_token,
         )
 

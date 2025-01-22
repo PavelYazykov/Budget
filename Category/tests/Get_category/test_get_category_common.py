@@ -1,10 +1,14 @@
 import json
+
+import pytest
+
 from Category.methods.payloads import CategoryPayloads
 import allure
 from common_methods.checking import Checking
 from Category.methods.category_methods import CategoryMethods
 
 
+@pytest.mark.Category
 @allure.epic('Get/api/v1/category/ Получение списка категорий - общие проверки')
 class TestGetCategoryCommon:
 

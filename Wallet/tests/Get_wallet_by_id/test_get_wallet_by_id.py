@@ -1,10 +1,13 @@
 import json
 import allure
+import pytest
+
 from common_methods.checking import Checking
 from Wallet.methods.wallet_methods import WalletMethods
 from Wallet.methods.payloads import WalletPayloads
 
 
+@pytest.mark.Wallet
 @allure.epic('Get/api/v1/wallet/  Получение информации о кошельке по id')
 class TestGetWalletById:
 

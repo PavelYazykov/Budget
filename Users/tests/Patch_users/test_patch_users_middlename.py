@@ -1,10 +1,13 @@
 import allure
+import pytest
+
 from common_methods.checking import Checking
 from common_methods.variables import AuthVariables
 from Users.methods.users_methods import UsersMethods
 from Users.methods.user_payloads import UserResponse
 
 
+@pytest.mark.User
 @allure.epic('Patch/users/me Проверка поля middlename')
 class TestPatchUsersEmail:
 

@@ -1,4 +1,6 @@
 import allure
+import pytest
+
 from common_methods.checking import Checking
 from Wallet.methods.wallet_methods import WalletMethods
 from Wallet.methods.payloads import WalletPayloads
@@ -7,6 +9,7 @@ from Auth.methods.auth_methods import AuthMethods
 from common_methods.variables import AuthVariables
 
 
+@pytest.mark.Wallet
 @allure.epic('Patch/api/v1/wallet/{wallet_id}/ Редактирование кошелька')
 class TestPatchWalletCommon:
 

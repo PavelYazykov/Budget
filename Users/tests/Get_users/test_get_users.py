@@ -1,10 +1,13 @@
 import allure
+import pytest
+
 from common_methods.checking import Checking
 from common_methods.variables import CommonVariables
 from Users.methods.users_methods import UsersMethods
 from Users.methods.user_payloads import UserResponse
 
 
+@pytest.mark.User
 @allure.epic('Get/users/me Получение информации о текущем пользователе')
 class TestGetUsers:
 

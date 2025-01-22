@@ -1,10 +1,13 @@
 import allure
+import pytest
+
 from common_methods.http_methods import HttpMethods
 from Session.methods.sessions_methods import SessionsMethods
 from common_methods.auth import Auth
 from common_methods.checking import Checking
 
 
+@pytest.mark.Session
 @allure.epic('Post/ remote_logout/device_id Отзыв refresh_token по device_id')
 class TestRemoteLogoutDeviceId:
 

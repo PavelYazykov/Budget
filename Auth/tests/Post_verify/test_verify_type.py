@@ -1,6 +1,7 @@
 import time
 
 import allure
+import pytest
 
 from Auth.methods.auth_methods import AuthMethods
 from common_methods.checking import Checking
@@ -12,6 +13,7 @@ another_user_id = '061566ea-ac9e-477d-bbd2-6690f530e29d'  #  Сделать ав
 verify_id = AuthVariables.user_id_verify
 
 
+@pytest.mark.Auth
 @allure.epic('Post_reset_password/verify проверка поля verify_type')
 class TestVerifyType:
     """Проверка поля verify_type"""

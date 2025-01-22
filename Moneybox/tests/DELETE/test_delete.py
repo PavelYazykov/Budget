@@ -1,4 +1,6 @@
 import allure
+import pytest
+
 from Moneybox.methods.moneybox_methods import MoneyboxMethods
 from common_methods.checking import Checking
 from common_methods.variables import MoneyboxVariables
@@ -11,6 +13,8 @@ currency_id = MoneyboxVariables.currency_id
 amount = MoneyboxVariables.amount
 
 
+@pytest.mark.delete_moneybox
+@pytest.mark.Moneybox
 @allure.epic("DELETE /api/v1/moneybox/{moneybox_id}/ Удаление копилок")
 class TestDelete:
 

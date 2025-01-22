@@ -6,17 +6,17 @@ from common_methods.checking import Checking
 
 
 @pytest.mark.Regular_outcome
-@allure.epic('Post/api/v1/regular_outcome/ - Создание нового объекта регулярных списаний - проверка поля category_id')
-class TestRegularOutcomeCategoryId:
+@allure.epic('Post/api/v1/regular_outcome/ - Создание нового объекта регулярных списаний - проверка поля period')
+class TestRegularOutcomePeriod:
 
-    @allure.description('проверка поля category_id - Существующий id')
+    @allure.description('проверка поля period - day')
     def test_01(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', 156, None, 'day', 100, False,
+            'title', 156, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -25,98 +25,118 @@ class TestRegularOutcomeCategoryId:
         data = Checking.get_data(result)
         regular_outcome_id = data['data']['id']
         try:
-            """Проверка значения поля category_id"""
-            assert data['data']['category_id'] == 156
+            """Проверка значения поля period"""
+            assert data['data']['period'] == 'day'
         except AssertionError:
             raise AssertionError
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
 
-    @allure.description('проверка поля category_id - Поле отсутствует')
+    @allure.description('проверка поля period - week')
     def test_02(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
         """Запрос на создание regular_outcome"""
-        result = RegularOutcomeMethods.create_regular_outcome_without_category_id(
-            'ttt',  None, 'day', 100, False,
+        result = RegularOutcomeMethods.create_regular_outcome(
+            'title', 156, None, 'week', 100, False,
             '2030-12-12', access_token,
         )
 
         """Проверка статус кода"""
-        if result.status_code == 201:
-            data = Checking.get_data(result)
-            regular_outcome_id = data['data']['id']
+        Checking.check_statuscode(result, 201)
+        data = Checking.get_data(result)
+        regular_outcome_id = data['data']['id']
+        try:
+            """Проверка значения поля period"""
+            assert data['data']['period'] == 'week'
+        except AssertionError:
+            raise AssertionError
+        finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
-        Checking.check_statuscode(result, 422)
 
-    @allure.description('проверка поля category_id - Null')
+    @allure.description('проверка поля period - month')
     def test_03(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', None, None, 'day', 100, False,
+            'title', 156, None, 'month', 100, False,
             '2030-12-12', access_token,
         )
 
         """Проверка статус кода"""
-        if result.status_code == 201:
-            data = Checking.get_data(result)
-            regular_outcome_id = data['data']['id']
+        Checking.check_statuscode(result, 201)
+        data = Checking.get_data(result)
+        regular_outcome_id = data['data']['id']
+        try:
+            """Проверка значения поля period"""
+            assert data['data']['period'] == 'month'
+        except AssertionError:
+            raise AssertionError
+        finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
-        Checking.check_statuscode(result, 422)
 
-    @allure.description('проверка поля category_id - Несуществующий id')
+    @allure.description('проверка поля period - year')
     def test_04(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', 1010, None, 'day', 100, False,
+            'title', 156, None, 'year', 100, False,
             '2030-12-12', access_token,
         )
 
         """Проверка статус кода"""
-        if result.status_code == 201:
-            data = Checking.get_data(result)
-            regular_outcome_id = data['data']['id']
+        Checking.check_statuscode(result, 201)
+        data = Checking.get_data(result)
+        regular_outcome_id = data['data']['id']
+        try:
+            """Проверка значения поля period"""
+            assert data['data']['period'] == 'year'
+        except AssertionError:
+            raise AssertionError
+        finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
-        Checking.check_statuscode(result, 404)
 
-    @allure.description('проверка поля category_id - Значение id = 0')
+    @allure.description('проверка поля period - onetime')
     def test_05(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', 0, None, 'day', 100, False,
+            'title', 156, None, 'onetime', 100, False,
             '2030-12-12', access_token,
         )
 
         """Проверка статус кода"""
-        if result.status_code == 201:
-            data = Checking.get_data(result)
-            regular_outcome_id = data['data']['id']
+        Checking.check_statuscode(result, 201)
+        data = Checking.get_data(result)
+        regular_outcome_id = data['data']['id']
+        try:
+            """Проверка значения поля period"""
+            assert data['data']['period'] == 'onetime'
+        except AssertionError:
+            raise AssertionError
+        finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
-        Checking.check_statuscode(result, 422)
 
-    @allure.description('проверка поля category_id - Отрицательное значение')
+    @allure.description('проверка поля period - Несуществующее значение')
     def test_06(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', -156, None, 'day', 100, False,
+            'title', 156, None, 'string', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -128,14 +148,14 @@ class TestRegularOutcomeCategoryId:
             Checking.check_statuscode(result_delete, 204)
         Checking.check_statuscode(result, 422)
 
-    @allure.description('проверка поля category_id - Пустое поле')
+    @allure.description('проверка поля period -  Пуcтое поле')
     def test_07(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', '', None, 'day', 100, False,
+            'title', 156, None, '', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -147,14 +167,14 @@ class TestRegularOutcomeCategoryId:
             Checking.check_statuscode(result_delete, 204)
         Checking.check_statuscode(result, 422)
 
-    @allure.description('проверка поля category_id - Неверный тип данных string')
+    @allure.description('проверка поля period -  Поле отсутствует')
     def test_08(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
         """Запрос на создание regular_outcome"""
-        result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', 'string', None, 'day', 100, False,
+        result = RegularOutcomeMethods.create_regular_outcome_without_period(
+            'title', 156, None, 100, False,
             '2030-12-12', access_token,
         )
 
@@ -166,14 +186,14 @@ class TestRegularOutcomeCategoryId:
             Checking.check_statuscode(result_delete, 204)
         Checking.check_statuscode(result, 422)
 
-    @allure.description('проверка поля category_id - Вещественное число')
+    @allure.description('проверка поля period -  Null')
     def test_09(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
         """Запрос на создание regular_outcome"""
-        result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', 1.1, None, 'day', 100, False,
+        result = RegularOutcomeMethods.create_regular_outcome_without_period(
+            'title', 156, None, 100, False,
             '2030-12-12', access_token,
         )
 

@@ -1,4 +1,5 @@
 import allure
+import pytest
 
 from common_methods.checking import Checking
 from Auth.methods.auth_methods import AuthMethods
@@ -15,6 +16,7 @@ not_verify_phone = AuthVariables.phone_for_create_user
 date_of_birth = AuthVariables.date_of_birth
 
 
+@pytest.mark.Auth
 @allure.epic('Post_forgot_password Проверка поля email')
 class TestEmailField:
 

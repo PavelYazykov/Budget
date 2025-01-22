@@ -1,4 +1,7 @@
 import json
+
+import pytest
+
 from Personal_transaction.methods.personal_transaction_methods import PersonalTransactionMethods
 import allure
 
@@ -15,6 +18,8 @@ is_archived = MoneyboxVariables.is_archived
 amount = MoneyboxVariables.amount
 
 
+@pytest.mark.patch_moneybox
+@pytest.mark.Moneybox
 @allure.epic('Patch_moneybox /api/v1/moneybox/{moneybox_id}/ Проверка поля goal')
 class TestGoalPatch:
 

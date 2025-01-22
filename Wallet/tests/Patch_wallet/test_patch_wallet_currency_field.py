@@ -1,8 +1,10 @@
 import allure
+import pytest
+
 from common_methods.checking import Checking
 from Wallet.methods.wallet_methods import WalletMethods
 
-
+@pytest.mark.Wallet
 @allure.epic('Patch/api/v1/wallet/{wallet_id}/ Редактирование кошелька - Проверка поля currency_id')
 class TestPatchWalletCurrencyId:
 

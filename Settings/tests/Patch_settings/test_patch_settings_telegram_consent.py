@@ -1,9 +1,11 @@
 import allure
+import pytest
 
 from Settings.methods.settings_methods import SettingsMethods
 from common_methods.checking import Checking
 
 
+@pytest.mark.Settings
 @allure.epic('Patch/api/v1/settings/my/ Настройки пользователя - Проверка поля telegram_consent')
 class TestPatchSettingsTelegramConsent:
 

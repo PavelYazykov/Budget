@@ -1,5 +1,7 @@
 import time
 import allure
+import pytest
+
 from Auth.methods.auth_methods import AuthMethods
 from common_methods.checking import Checking
 import psycopg2
@@ -17,6 +19,7 @@ middle_name = AuthVariables.middle_name
 date_of_birth = AuthVariables.date_of_birth
 
 
+@pytest.mark.Auth
 @allure.epic('Post_reset_password/verify Проверка поля code_from_user')
 class TestCodeFromUser:
 

@@ -1,5 +1,7 @@
 import time
 
+import pytest
+
 from Auth.methods.auth_methods import AuthMethods
 from common_methods.checking import Checking
 import allure
@@ -10,6 +12,7 @@ not_verify_user_phone = AuthVariables.not_verify_phone_user_id
 verify_user_phone = AuthVariables.verify_user_phone
 
 
+@pytest.mark.Auth
 @allure.epic('Post_reset_password/request_verify_code Проверка поля verify_type')
 class TestVerifyType:
 

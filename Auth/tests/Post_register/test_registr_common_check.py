@@ -1,6 +1,8 @@
 import json
 import time
 import allure
+import pytest
+
 from Auth.methods.auth_methods import AuthMethods
 from common_methods.checking import Checking
 from common_methods.variables import AuthVariables
@@ -14,6 +16,7 @@ phone = AuthVariables.phone_for_create_user
 date_of_birth = AuthVariables.date_of_birth
 
 
+@pytest.mark.Auth
 @allure.epic('Post/registration Общие проверки')
 class TestRegistrationCommonCheck:
 

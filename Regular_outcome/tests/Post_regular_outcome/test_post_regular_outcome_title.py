@@ -5,7 +5,7 @@ from Regular_outcome.methods.regular_outcome_methods import RegularOutcomeMethod
 from common_methods.checking import Checking
 
 
-@pytest.mark.regular_outcome_id
+@pytest.mark.Regular_outcome
 @allure.epic('Post/api/v1/regular_outcome/ - Создание нового объекта регулярных списаний - проверка поля title')
 class TestRegularOutcomeTitle:
 
@@ -16,7 +16,7 @@ class TestRegularOutcomeTitle:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            't', 156, None, 'День', 100, False,
+            't', 156, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -40,7 +40,7 @@ class TestRegularOutcomeTitle:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'tttttttttttttttttttt', 156, None, 'День', 100, False,
+            'tttttttttttttttttttt', 156, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -64,7 +64,7 @@ class TestRegularOutcomeTitle:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            '123', 156, None, 'День', 100, False,
+            '123', 156, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -88,7 +88,7 @@ class TestRegularOutcomeTitle:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'йцу', 156, None, 'День', 100, False,
+            'йцу', 156, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -112,7 +112,7 @@ class TestRegularOutcomeTitle:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'qwe', 156, None, 'День', 100, False,
+            'qwe', 156, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -136,7 +136,7 @@ class TestRegularOutcomeTitle:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'qwe r', 156, None, 'День', 100, False,
+            'qwe r', 156, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -160,7 +160,7 @@ class TestRegularOutcomeTitle:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'qwe_r', 156, None, 'День', 100, False,
+            'qwe_r', 156, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -184,7 +184,7 @@ class TestRegularOutcomeTitle:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'qwe-r', 156, None, 'День', 100, False,
+            'qwe-r', 156, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -208,7 +208,7 @@ class TestRegularOutcomeTitle:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'qwe.r', 156, None, 'День', 100, False,
+            'qwe.r', 156, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -232,7 +232,7 @@ class TestRegularOutcomeTitle:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            None, 156, None, 'День', 100, False,
+            None, 156, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -251,7 +251,7 @@ class TestRegularOutcomeTitle:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttttttttttttttttttttq', 156, None, 'День', 100, False,
+            'ttttttttttttttttttttq', 156, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -270,7 +270,7 @@ class TestRegularOutcomeTitle:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            '', 156, None, 'День', 100, False,
+            '', 156, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -289,7 +289,7 @@ class TestRegularOutcomeTitle:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            1234, 156, None, 'День', 100, False,
+            1234, 156, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -308,7 +308,7 @@ class TestRegularOutcomeTitle:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            '!@#$%', 156, None, 'День', 100, False,
+            '!@#$%', 156, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -327,7 +327,7 @@ class TestRegularOutcomeTitle:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome_without_title(
-            156, None, 'День', 100, False,
+            156, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 

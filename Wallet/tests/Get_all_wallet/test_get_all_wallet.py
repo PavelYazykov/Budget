@@ -1,10 +1,13 @@
 import json
 
 import allure
+import pytest
+
 from common_methods.checking import Checking
 from Wallet.methods.wallet_methods import WalletMethods
 
 
+@pytest.mark.Wallet
 @allure.epic('GET/api/v1/wallet/  Получение списка всех счетов')
 class TestGetAllWallet:
 

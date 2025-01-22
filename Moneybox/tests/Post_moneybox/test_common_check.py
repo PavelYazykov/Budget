@@ -1,6 +1,8 @@
 import time
 
 import allure
+import pytest
+
 from Moneybox.methods.payloads import Payloads
 from Moneybox.methods.moneybox_methods import MoneyboxMethods
 from common_methods.checking import Checking
@@ -13,6 +15,7 @@ currency_id = MoneyboxVariables.currency_id
 amount = MoneyboxVariables.amount
 
 
+@pytest.mark.post_moneybox
 @allure.epic('Post_moneybox /api/v1/moneybox/ Создание копилок общие проверки')
 class TestCommon:
 
