@@ -1,4 +1,4 @@
-name: Moneybox test
+name: Budget_tests
 
 on:
   workflow_dispatch:
@@ -6,10 +6,12 @@ on:
       deployment-target:
         description: Chose target
         required: true
-        default: all
+        default: moneybox_tests
         type: choice
         options:
-            - all
+            - moneybox_tests
+            - get_moneybox_tests
+            - delete_moneybox_tests
 
 permissions:
   contents: read
@@ -32,9 +34,15 @@ jobs:
         run: pip install -r requirements.txt
       - name: Download all workflow run artifacts
         uses: actions/download-artifact@v3
-      - name: all
-        # if: "github.event.inputs.deployment_target == 'all'"
-        run: pytest Moneybox/tests --alluredir=allure-results
+      - name: moneybox_tests
+        if: "github.event.inputs.deployment_target == 'moneybox_tests'"
+        run: pytest -sv -m Moneybox/tests --alluredir=allure-results
+      - name: get_moneybox_tests
+        if: "github.event.inputs.deployment_target == 'get_moneybox_tests'"
+        run: pytest -sv -m get_moneybox --alluredir=allure-results
+      - name: delete_moneybox_tests
+        if: "github.event.inputs.deployment_target == 'delete_moneybox_tests'"
+        run: pytest -sv -m delete_moneybox --alluredir=allure-results
         continue-on-error: true
       - name: Store allure results
         uses: actions/upload-artifact@v3
@@ -46,7 +54,7 @@ jobs:
 
   generate-report:
     runs-on: ubuntu-latest
-    needs: test
+    needs: Budget_tests
     name: Generate report
     steps:
       - uses: actions/setup-java@v4.3.0
