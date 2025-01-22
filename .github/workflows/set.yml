@@ -12,20 +12,6 @@ on:
             - moneybox_tests
             - get_moneybox_tests
             - delete_moneybox_tests
-#on:
-#  workflow_dispatch:
-#    inputs:
-#      input1:
-#        type: boolean
-#        description: input 1 desc
-#        default: true
-#      input2:
-#        type: boolean
-#        description: input 2 desc
-#        default: false
-#      input3:
-#        type: string
-#        description: input 3 desc
 
 permissions:
   contents: read
@@ -53,7 +39,7 @@ jobs:
         run: pytest -sv -m Moneybox/tests --alluredir=allure-results
         continue-on-error: true
       - name: get_moneybox_tests
-        if: ${{github.event.inputs.deployment_target == 'get_moneybox_tests'}}
+        if: contains(github.event.inputs.deployment-target, 'get_moneybox_tests')
         run: pytest -sv -m get_moneybox --alluredir=allure-results
         continue-on-error: true
       - name: delete_moneybox_tests
