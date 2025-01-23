@@ -32,6 +32,8 @@ jobs:
         run: sudo apt-get install google-chrome-stable
       - name: install dependencies
         run: pip install -r requirements.txt
+      - name: Download all workflow run artifacts
+        uses: actions/download-artifact@v3
       - name: moneybox_tests
         if: contains(github.event.inputs.deployment-target, 'moneybox_tests')
         run: pytest -sv -m Moneybox --alluredir=allure-results
@@ -45,7 +47,7 @@ jobs:
         run: pytest -sv -m delete_moneybox --alluredir=allure-results
         continue-on-error: true
       - name: Store allure results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: allure-results
           path:
@@ -66,7 +68,7 @@ jobs:
         uses: actions/download-artifact@v3
       - run: allure generate -c allure-results -o _site
       - name: Store generated report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: _site
           path:
