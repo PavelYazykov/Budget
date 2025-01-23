@@ -2,7 +2,7 @@ name: Budget
 
 on:
   schedule:
-    - cron 30 16 * * 1
+    - cron 31 16 * * 1
 
 permissions:
   contents: read
