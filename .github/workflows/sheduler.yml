@@ -1,8 +1,8 @@
 name: Budget
 
 on:
-  schedule:
-    - cron 32 16 * * 1
+     schedule:
+       - cron: '36 16 * * *'
 
 permissions:
   contents: read
