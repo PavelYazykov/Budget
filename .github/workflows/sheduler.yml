@@ -2,7 +2,7 @@ name: Budget
 
 on:
   schedule:
-    - cron: '43 19 * * *'
+    - cron: '48 15 * * *'
 
 permissions:
   contents: read
@@ -23,8 +23,6 @@ jobs:
         run: sudo apt-get install google-chrome-stable
       - name: install dependencies
         run: pip install -r requirements.txt
-      - name: Download all workflow run artifacts
-        uses: actions/download-artifact@v4
       - name: moneybox_tests
         run: pytest -sv -m get_moneybox
         continue-on-error: true
