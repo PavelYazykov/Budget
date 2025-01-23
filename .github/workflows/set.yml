@@ -35,15 +35,15 @@ jobs:
       - name: Download all workflow run artifacts
         uses: actions/download-artifact@v4
       - name: moneybox_tests
-        if: contains(github.event.inputs.deployment-target, 'moneybox_tests')
+        if: github.event.inputs.deployment-target == 'moneybox_tests'
         run: pytest -sv -m Moneybox --alluredir=allure-results
         continue-on-error: true
       - name: get_moneybox_tests
-        if: contains(github.event.inputs.deployment-target, 'get_moneybox_tests')
+        if: github.event.inputs.deployment-target == 'get_moneybox_tests'
         run: pytest -sv -m get_moneybox --alluredir=allure-results
         continue-on-error: true
       - name: delete_moneybox_tests
-        if: contains(github.event.inputs.deployment-target, 'delete_moneybox_tests')
+        if: github.event.inputs.deployment-target == 'delete_moneybox_tests'
         run: pytest -sv -m delete_moneybox --alluredir=allure-results
         continue-on-error: true
       - name: Store allure results
