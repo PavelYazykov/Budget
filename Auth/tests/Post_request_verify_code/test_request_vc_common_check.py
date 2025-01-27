@@ -11,18 +11,18 @@ from common_methods.variables import AuthVariables
 
 @pytest.mark.Auth
 @allure.epic('Post_reset_password/request_verify_code Создание кода для верификации')
-class TestCommonCheck:
+class TestResetPasswordCommonCheck:
 
     @allure.description('Запрос с валидными данными')
     def test_01(self, create_and_delete_users):
         """Создание пользователя"""
         user_id = create_and_delete_users
+        print(user_id)
 
         """Отправка запроса на получение кода верификации"""
         time.sleep(61)
-        result = AuthMethods.request_verify_code(
-            'email', user_id
-        )
+        result = AuthMethods.request_verify_code(user_id)
+        print(result.text)
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
@@ -42,9 +42,7 @@ class TestCommonCheck:
 
         """Отправка запроса на получение кода верификации"""
         time.sleep(61)
-        result = AuthMethods.request_verify_code(
-            'email', user_id
-        )
+        result = AuthMethods.request_verify_code(user_id)
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
@@ -55,9 +53,7 @@ class TestCommonCheck:
         user_id = create_and_delete_users
 
         """Отправка запроса на получение кода верификации"""
-        result = AuthMethods.request_verify_code(
-            'email', user_id
-        )
+        result = AuthMethods.request_verify_code(user_id)
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 400)

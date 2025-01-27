@@ -18,12 +18,12 @@ date_of_birth = AuthVariables.date_of_birth
 
 @pytest.mark.Auth
 @allure.epic('Post_forgot_password Проверка поля email')
-class TestEmailField:
+class TestForgotPasswordEmailField:
 
     @allure.description('Проверка поля email - Запрос на верифицированную почту')
     def test_01(self):
         time.sleep(62)
-        result = AuthMethods.forgot_password(None, verify_email)
+        result = AuthMethods.forgot_password(verify_email)
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
@@ -31,18 +31,18 @@ class TestEmailField:
     @allure.description('Проверка поля email - Поле отсутствует')
     def test_02(self):
         time.sleep(62)
-        result = AuthMethods.forgot_password_without_email(verify_phone)
+        result = AuthMethods.forgot_password_without_body()
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result, 200)
+        Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля email - Null')
     def test_03(self):
         time.sleep(62)
-        result = AuthMethods.forgot_password(verify_phone, None)
+        result = AuthMethods.forgot_password(None)
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result, 200)
+        Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля email - Запрос на неверифицированную почту')
     def test_04(self):
@@ -53,7 +53,7 @@ class TestEmailField:
         Checking.check_statuscode(create_result, 201)
         try:
             """Запрос кода"""
-            result = AuthMethods.forgot_password(None, not_verify_email)
+            result = AuthMethods.forgot_password(not_verify_email)
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 403)
@@ -64,21 +64,21 @@ class TestEmailField:
 
     @allure.description('Проверка поля email- Запрос на несуществующую почту')
     def test_05(self):
-        result = AuthMethods.forgot_password(None, 'qwertyzxcvbasdfg123@gmail.ru')
+        result = AuthMethods.forgot_password('qwertyzxcvbasdfg123@gmail.ru')
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 404)
 
     @allure.description('Проверка поля email - Невалидная почта')
     def test_06(self):
-        result = AuthMethods.forgot_password(None, 'qwertyu.ru')
+        result = AuthMethods.forgot_password('qwertyu.ru')
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля email - Пустое поле')
     def test_07(self):
-        result = AuthMethods.forgot_password(None, '')
+        result = AuthMethods.forgot_password('')
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 422)

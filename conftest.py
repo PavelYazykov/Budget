@@ -35,10 +35,10 @@ def auth_fixture_for_users_check_email():
         'y.pawel_test1@mail.ru',
         access_token
     )
-    result_get_code = AuthMethods.request_verify_code('email', AuthVariables.user_id_verify)
+    result_get_code = AuthMethods.request_verify_code(AuthVariables.user_id_verify)
     Checking.check_statuscode(result_get_code, 200)
     code = AuthMethods.get_verify_code(result_get_code)
-    result_verify = AuthMethods.verify(AuthVariables.user_id_verify, 'email', code)
+    result_verify = AuthMethods.verify(AuthVariables.user_id_verify, code)
     Checking.check_statuscode(result_verify, 200)
 
 
