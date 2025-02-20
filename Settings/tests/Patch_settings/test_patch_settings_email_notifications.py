@@ -17,7 +17,7 @@ class TestPatchSettingsEmailNotifications:
 
         """Отправка запроса"""
         result = SettingsMethods.patch_settings(
-            None, True, True, True, True,
+            False, True, True, True, True,
             True, True, 2, None, access_token
         )
 

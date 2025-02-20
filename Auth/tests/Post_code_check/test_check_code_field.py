@@ -40,7 +40,7 @@ class TestCheckCodeField:
 
         """Проверка кода"""
         for _ in range(2):
-            time.sleep(1)
+            time.sleep(3)
             print('цикл - 1')
             check_code = AuthMethods.code_check(email, '000000')
             Checking.check_statuscode(check_code, 400)
@@ -74,7 +74,7 @@ class TestCheckCodeField:
 
         """Проверка кода"""
         for _ in range(3):
-            time.sleep(1)
+            time.sleep(3)
             print('цикл - 1')
             check_code = AuthMethods.code_check(email, '000000')
             Checking.check_statuscode(check_code, 400)

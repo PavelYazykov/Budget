@@ -24,20 +24,16 @@ class TestGetCategoryExcluded:
         """Проверка наличия исключенных категорий"""
         CategoryPayloads.check_excluded_category(result, 'Недвижимость')
 
-    @allure.description('проверка поля excluded - Список существующих названий категорий')
+    @allure.description('проверка поля excluded - Список существующих названий категорий') # 'Покупки,Недвижимость' без квадратных скоюок и кавычек
     def test_02(self, auth_fixture):
         """Авторизацтя"""
         access_token = auth_fixture
 
         """Запрос на получение категорий"""
-        result = CategoryMethods.get_category_with_excluded(['Покупки', 'Недвижимость'], access_token)
+        result = CategoryMethods.get_category_with_excluded('Покупки,Недвижимость', access_token)
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
-        # data = Checking.get_data(result)
-        # for i in data['data']:
-        #     print(i['title'])
-        #
         """Проверка наличия исключенных категорий"""
         CategoryPayloads.check_excluded_category_list(result, ['Покупки', 'Недвижимость'])
 
@@ -61,7 +57,7 @@ class TestGetCategoryExcluded:
         access_token = auth_fixture
 
         """Запрос на получение категорий"""
-        result = CategoryMethods.get_category_with_excluded(136, access_token)
+        result = CategoryMethods.get_category_with_excluded(20, access_token)
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)

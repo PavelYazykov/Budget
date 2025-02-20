@@ -1,10 +1,11 @@
 import pytest
-
+from common_methods.variables import AuthVariables
 from Moneybox.methods.moneybox_methods import MoneyboxMethods
 from common_methods.auth import Auth
 from common_methods.checking import Checking
 import allure
 from common_methods.variables import MoneyboxVariables
+from Auth.methods.auth_methods import AuthMethods
 to_date = MoneyboxVariables.to_date
 goal = MoneyboxVariables.goal
 name = MoneyboxVariables.name
@@ -33,6 +34,7 @@ class TestGetById:
 
         """Проверка id копилки"""
         data = Checking.get_data(result_get)
+        print('DATA', data)
         assert data['data']['id'] == moneybox_id
         print('id копилки соответствует введенному')
 

@@ -16,7 +16,7 @@ class TestCheckEmailField:
 
     @allure.description('Проверка поля email - email адрес запроса и проверки кода совпадают')
     def test_01(self):
-
+        time.sleep(61)
         """Запрос кода"""
         result = AuthMethods.forgot_password(email)
         Checking.check_statuscode(result, 200)
@@ -34,6 +34,7 @@ class TestCheckEmailField:
 
     @allure.description('Проверка поля email - Поле отсутствует')
     def test_02(self):
+        time.sleep(61)
         """Запрос кода"""
         result = AuthMethods.forgot_password(email)
         Checking.check_statuscode(result, 200)
@@ -43,11 +44,7 @@ class TestCheckEmailField:
         result_check = AuthMethods.code_check_without_email(result_code)
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result_check, 200)
-
-        """Изменение пароля"""
-        result_change = AuthMethods.reset_password(None, password)
-        Checking.check_statuscode(result_change, 422)
+        Checking.check_statuscode(result_check, 422)
 
     @allure.description('Проверка поля email - Null')
     def test_03(self):

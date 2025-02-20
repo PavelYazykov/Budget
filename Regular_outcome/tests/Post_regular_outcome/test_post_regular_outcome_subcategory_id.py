@@ -18,7 +18,7 @@ class TestRegularOutcomeSubcategoryId:
 
         """Запрос на создание подкатегории"""
         subcategory_result = SubcategoryMethods.create_subcategory(
-            156, 'desr', access_token
+            20, 'desr', access_token
         )
         Checking.check_statuscode(subcategory_result, 201)
         data = Checking.get_data(subcategory_result)
@@ -26,7 +26,7 @@ class TestRegularOutcomeSubcategoryId:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', 156, subcategory_id, 'day', 100, False,
+            'ttt', 20, subcategory_id, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -53,7 +53,7 @@ class TestRegularOutcomeSubcategoryId:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome_without_subcategory(
-            'ttt', 156, 'day', 100, False,
+            'ttt', 20, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -77,7 +77,7 @@ class TestRegularOutcomeSubcategoryId:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', 156, None, 'day', 100, False,
+            'ttt', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -101,7 +101,7 @@ class TestRegularOutcomeSubcategoryId:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', 156, 1000, 'day', 100, False,
+            'ttt', 20, 1000, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -120,7 +120,7 @@ class TestRegularOutcomeSubcategoryId:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', 156, 0, 'day', 100, False,
+            'ttt', 20, 0, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -139,7 +139,7 @@ class TestRegularOutcomeSubcategoryId:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', 156, -5, 'day', 100, False,
+            'ttt', 20, -5, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -158,7 +158,7 @@ class TestRegularOutcomeSubcategoryId:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', 156, '', 'day', 100, False,
+            'ttt', 20, '', 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -177,7 +177,7 @@ class TestRegularOutcomeSubcategoryId:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', 156, 'string', 'day', 100, False,
+            'ttt', 20, 'string', 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -196,7 +196,7 @@ class TestRegularOutcomeSubcategoryId:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', 156, 1.1, 'day', 100, False,
+            'ttt', 20, 1.1, 'day', 100, False,
             '2030-12-12', access_token,
         )
 

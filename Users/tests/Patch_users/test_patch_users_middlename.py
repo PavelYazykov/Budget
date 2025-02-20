@@ -11,7 +11,7 @@ from Users.methods.user_payloads import UserResponse
 @allure.epic('Patch/users/me Проверка поля middlename')
 class TestPatchUsersEmail:
 
-    @allure.description('middlename - 4 символa')
+    @allure.description('middlename - 1 символ')
     def test_01(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -19,7 +19,7 @@ class TestPatchUsersEmail:
         """Изменение информации"""
         result = UsersMethods.change_user_info_without_email_phone(
             AuthVariables.last_name, AuthVariables.first_name,
-            'Aaaa', AuthVariables.date_of_birth, access_token
+            'A', AuthVariables.date_of_birth, access_token
         )
 
         """Проверка статус кода"""
@@ -30,9 +30,9 @@ class TestPatchUsersEmail:
 
         """Проверка значения поля middlename"""
         data = Checking.get_data(result)
-        assert data['middle_name'] == 'Aaaa'
+        assert data['middle_name'] == 'A'
 
-    @allure.description('middlename - 5 символов')
+    @allure.description('middlename - 2 символа')
     def test_02(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -40,7 +40,7 @@ class TestPatchUsersEmail:
         """Изменение информации"""
         result = UsersMethods.change_user_info_without_email_phone(
             AuthVariables.last_name, AuthVariables.first_name,
-            'Aaaaa', AuthVariables.date_of_birth, access_token
+            'Aa', AuthVariables.date_of_birth, access_token
         )
 
         """Проверка статус кода"""
@@ -51,7 +51,7 @@ class TestPatchUsersEmail:
 
         """Проверка значения поля middlename"""
         data = Checking.get_data(result)
-        assert data['middle_name'] == 'Aaaaa'
+        assert data['middle_name'] == 'Aa'
 
     @allure.description('middlename - Кириллица')
     def test_03(self, auth_fixture):

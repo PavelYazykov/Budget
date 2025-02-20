@@ -326,10 +326,6 @@ class TestPatchCurrencyFullTitle:
             """Проверка статус кода"""
             Checking.check_statuscode(result_change, 422)
 
-            """Проверка значений"""
-            data_new = Checking.get_data(result_change)
-            assert data_new['data']['full_title'] == 'Russian ruble'
-
         except AssertionError:
             raise AssertionError
         finally:

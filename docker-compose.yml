@@ -1,5 +1,5 @@
 services:
-  api_tests:
+  all_api_tests:
     build:
       context: .
       dockerfile: Dockerfile
@@ -32,7 +32,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./:/Budget_api
-    command: /bin/sh -c "pytest Moneybox/tests --alluredir=allure-results"
+    command: /bin/sh -c "pytest Moneybox/tests/Get_all_moneybox -sv --alluredir=allure-results"
     working_dir: /Budget_api
 
   personal_transaction_tests:

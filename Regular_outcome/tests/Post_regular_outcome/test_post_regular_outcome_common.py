@@ -17,7 +17,7 @@ class TestRegularOutcomeCommon:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -39,7 +39,7 @@ class TestRegularOutcomeCommon:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome_without_access_token(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12'
         )
 

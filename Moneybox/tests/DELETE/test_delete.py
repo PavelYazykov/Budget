@@ -118,7 +118,7 @@ class TestDelete:
         result_delete = MoneyboxMethods.delete_moneybox('', access_token)
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result_delete, 422)
+        Checking.check_statuscode(result_delete, 405)
 
     @allure.description("Удаление копилки - id = Null")
     def test_09(self, auth_fixture):
@@ -169,7 +169,7 @@ class TestDelete:
             """Списание средств с копилки"""
             consume_result = PersonalTransactionMethods.create_personal_transaction(
                 10, 'descr', PersonalTransactionVariables.transaction_type_consume,
-                '2025-01-16', None, wallet_id, 136, None,
+                '2025-01-16', None, wallet_id, 20, None,
                 access_token
             )
             Checking.check_statuscode(consume_result, 201)

@@ -41,7 +41,7 @@ class TestPatchUsersEmail:
             UsersMethods.connect_db('y.pawel_test1@mail.ru', user_id)
             print('информация о пользлвателе восстановлена')
 
-    @allure.description('email - 64 символа в локальной')
+    @allure.description('email - 64 символа в локальной -> Mail use not real domain')
     def test_02(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -51,7 +51,7 @@ class TestPatchUsersEmail:
 
         """Изменение информации"""
         result = UsersMethods.change_user_info_without_phone(
-            'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@nowni.com',
+            'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@mail.ru',
             AuthVariables.last_name, AuthVariables.first_name,
             AuthVariables.middle_name, AuthVariables.date_of_birth, access_token
         )
@@ -64,7 +64,7 @@ class TestPatchUsersEmail:
 
             """Проверка значения поля email"""
             data = Checking.get_data(result)
-            assert data['email'] == 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@nowni.com'
+            assert data['email'] == 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@mail.ru'
         except AssertionError:
             raise AssertionError
         finally:
@@ -222,7 +222,7 @@ class TestPatchUsersEmail:
             UsersMethods.connect_db('y.pawel_test1@mail.ru', user_id)
             print('информация о пользлвателе восстановлена')
 
-    @allure.description('254 символа общая длина email')
+    @allure.description('254 символа общая длина email -> Mail use not real domain')
     def test_08(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -296,7 +296,7 @@ class TestPatchUsersEmail:
         )
         Checking.check_statuscode(result, 422)
 
-    @allure.description('255 символов общая длина email')
+    @allure.description('255 символов общая длина email -> Mail use not real domain')
     def test_11(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture

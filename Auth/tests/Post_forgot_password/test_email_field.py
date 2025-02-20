@@ -82,3 +82,5 @@ class TestForgotPasswordEmailField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 422)
+
+

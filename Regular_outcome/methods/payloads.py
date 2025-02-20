@@ -6,15 +6,32 @@ class RegularOutcomePayloads:
         "meta": {},
         "data":
             {
-                "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
                 "title": "Title or description",
                 "category_id": 1,
                 "subcategory_id": 1,
-                "period": "День",
+                "period": "day",
                 "amount": 100.55,
                 "is_paid_off": False,
-                "id": 1,
-                "date_of_next_pay": "2025-01-19"
+                "date_of_next_pay": "2025-01-19",
+                "id": 1
+
+            }
+    }
+
+    pay_regular_outcome = {
+        "meta": {},
+        "data":
+            {
+                "amount": 100.55,
+                "description": "Title or description",
+                "transaction_type": "Income",
+                "transaction_date": "2025-02-02",
+                "id_wallet_for_transfer": 1,
+                "wallet_id": 1,
+                "category_id": 1,
+                "subcategory_id": 1,
+                "regular_outcome_id": 1,
+                "id": 1
             }
     }
 

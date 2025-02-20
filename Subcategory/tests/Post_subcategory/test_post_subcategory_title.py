@@ -4,7 +4,7 @@ import pytest
 from Subcategory.methods.subcategory_methods import SubcategoryMethods
 from common_methods.checking import Checking
 from Subcategory.methods.payloads import SubcategoryPayloads
-category_id = 156
+category_id = 30
 
 
 @pytest.mark.Subcategory
@@ -284,7 +284,7 @@ class TestCreateSubcategoriesTitle:
         """Авторизация"""
         access_token = auth_fixture
 
-        """Создание подкатегорий"""
+        """Создание подкатегорий_1"""
         result_create_1 = SubcategoryMethods.create_subcategory(
             category_id, 'Категория_1', access_token
         )
@@ -292,24 +292,17 @@ class TestCreateSubcategoriesTitle:
         data = Checking.get_data(result_create_1)
         subcategory_id = data['data']['id']
 
-        result_create_2 = SubcategoryMethods.create_subcategory(
-            category_id, 'Категория_1', access_token
-        )
-        Checking.check_statuscode(result_create_2, 201)
-        data_2 = Checking.get_data(result_create_2)
-        subcategory_id_2 = data_2['data']['id']
-
         try:
-            """Проверка наличия обязательных полей"""
-            SubcategoryPayloads.check_required_fields_post(result_create_1, SubcategoryPayloads.post_payloads)
-
-            SubcategoryPayloads.check_required_fields_post(result_create_2, SubcategoryPayloads.post_payloads)
+            """Создание подкатегорий_2"""
+            result_create_2 = SubcategoryMethods.create_subcategory(
+                category_id, 'Категория_1', access_token
+            )
+            Checking.check_statuscode(result_create_2, 400)
 
         except AssertionError:
             raise AssertionError
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
-            SubcategoryMethods.delete_subcategory(subcategory_id_2, access_token)
 
     @allure.description('Проверка поля title - Null')
     def test_12(self, auth_fixture):

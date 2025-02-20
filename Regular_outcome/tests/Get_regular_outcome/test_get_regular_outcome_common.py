@@ -9,14 +9,14 @@ from common_methods.checking import Checking
 @allure.epic('Get/api/v1/regular_outcome/ - Получение всех регулярных списаний - Общие проверки')
 class TestGetRegularOutcomeCommon:
 
-    @allure.description('Проверка поля is_paid_off - Значение True')
+    @allure.description('Получение списка регулярных списаний с валидными данными')
     def test_01(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
         """Запрос на создание regular_outcome"""
         result_create = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
         Checking.check_statuscode(result_create, 201)
@@ -42,7 +42,7 @@ class TestGetRegularOutcomeCommon:
 
         """Запрос на создание regular_outcome"""
         result_create = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
         Checking.check_statuscode(result_create, 201)

@@ -16,7 +16,7 @@ class TestGetRegularOutcomePage:
 
         """Запрос на создание regular_outcome"""
         result_create = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
         Checking.check_statuscode(result_create, 201)
@@ -42,7 +42,7 @@ class TestGetRegularOutcomePage:
 
         """Запрос на создание regular_outcome"""
         result_create = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
         Checking.check_statuscode(result_create, 201)
@@ -68,7 +68,7 @@ class TestGetRegularOutcomePage:
 
         """Запрос на создание regular_outcome"""
         result_create = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
         Checking.check_statuscode(result_create, 201)
@@ -94,7 +94,7 @@ class TestGetRegularOutcomePage:
 
         """Запрос на создание regular_outcome"""
         result_create = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
         Checking.check_statuscode(result_create, 201)
@@ -120,7 +120,7 @@ class TestGetRegularOutcomePage:
 
         """Запрос на создание regular_outcome"""
         result_create = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
         Checking.check_statuscode(result_create, 201)
@@ -146,7 +146,7 @@ class TestGetRegularOutcomePage:
 
         """Запрос на создание regular_outcome"""
         result_create = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
         Checking.check_statuscode(result_create, 201)
@@ -172,7 +172,7 @@ class TestGetRegularOutcomePage:
 
         """Запрос на создание regular_outcome"""
         result_create = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
         Checking.check_statuscode(result_create, 201)
@@ -198,7 +198,7 @@ class TestGetRegularOutcomePage:
 
         """Запрос на создание regular_outcome"""
         result_create = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
         Checking.check_statuscode(result_create, 201)
@@ -224,7 +224,7 @@ class TestGetRegularOutcomePage:
 
         """Запрос на создание regular_outcome"""
         result_create = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
         Checking.check_statuscode(result_create, 201)
@@ -250,7 +250,7 @@ class TestGetRegularOutcomePage:
 
         """Запрос на создание regular_outcome"""
         result_create = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
         Checking.check_statuscode(result_create, 201)

@@ -2,8 +2,6 @@ import json
 
 import allure
 import pytest
-
-from common_methods.auth import Auth
 from Moneybox.methods.moneybox_methods import MoneyboxMethods
 from common_methods.checking import Checking
 from common_methods.variables import MoneyboxVariables
@@ -38,6 +36,7 @@ class TestIsArchivedPatch:
         """Проверка значения в изменяемом поле"""
         with allure.step('Проверка значения в изменяемом поле'):
             data = Checking.get_data(result_patch)
+            print('Data', data)
             assert data['data']['wallet']['is_archived'] is True
             print('Значение соответствует введенному')
 

@@ -17,7 +17,7 @@ class TestPatchRegularOutcomeAmount:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -28,8 +28,8 @@ class TestPatchRegularOutcomeAmount:
         try:
             """Запрос на изменение платежа"""
             result_patch = RegularOutcomeMethods.change_regular_outcome_wt_subcategory_id(
-                regular_outcome_id, 'title', 156, 'day', 100,
-                False, access_token
+                regular_outcome_id, 'title', 20, 'day', 100,
+                access_token
             )
 
             """Проверка статус кода"""
@@ -52,7 +52,7 @@ class TestPatchRegularOutcomeAmount:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -63,8 +63,8 @@ class TestPatchRegularOutcomeAmount:
         try:
             """Запрос на изменение платежа"""
             result_patch = RegularOutcomeMethods.change_regular_outcome_wt_subcategory_id(
-                regular_outcome_id, 'title', 156, 'day', 100.01,
-                False, access_token
+                regular_outcome_id, 'title', 20, 'day', 100.01,
+                access_token
             )
 
             """Проверка статус кода"""
@@ -87,7 +87,7 @@ class TestPatchRegularOutcomeAmount:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -98,8 +98,8 @@ class TestPatchRegularOutcomeAmount:
         try:
             """Запрос на изменение платежа"""
             result_patch = RegularOutcomeMethods.change_regular_outcome_wt_subcategory_id(
-                regular_outcome_id, 'title', 156, 'day', 9999999999.99,
-                False, access_token
+                regular_outcome_id, 'title', 20, 'day', 9999999999.99,
+                access_token
             )
 
             """Проверка статус кода"""
@@ -122,7 +122,7 @@ class TestPatchRegularOutcomeAmount:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -133,8 +133,8 @@ class TestPatchRegularOutcomeAmount:
         try:
             """Запрос на изменение платежа"""
             result_patch = RegularOutcomeMethods.change_regular_outcome_wt_subcategory_id(
-                regular_outcome_id, 'title', 156, 'day', 0,
-                False, access_token
+                regular_outcome_id, 'title', 20, 'day', 0,
+                access_token
             )
 
             """Проверка статус кода"""
@@ -157,7 +157,7 @@ class TestPatchRegularOutcomeAmount:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -168,8 +168,8 @@ class TestPatchRegularOutcomeAmount:
         try:
             """Запрос на изменение платежа"""
             result_patch = RegularOutcomeMethods.change_regular_outcome_wt_subcategory_id_and_amount(
-                regular_outcome_id, 'title', 156, 'day',
-                False, access_token
+                regular_outcome_id, 'title', 20, 'day',
+                access_token
             )
 
             """Проверка статус кода"""
@@ -189,7 +189,7 @@ class TestPatchRegularOutcomeAmount:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -200,8 +200,8 @@ class TestPatchRegularOutcomeAmount:
         try:
             """Запрос на изменение платежа"""
             result_patch = RegularOutcomeMethods.change_regular_outcome_wt_subcategory_id_and_amount(
-                regular_outcome_id, 'title', 156, 'day',
-                False, access_token
+                regular_outcome_id, 'title', 20, 'day',
+                access_token
             )
 
             """Проверка статус кода"""
@@ -221,7 +221,7 @@ class TestPatchRegularOutcomeAmount:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -232,8 +232,8 @@ class TestPatchRegularOutcomeAmount:
         try:
             """Запрос на изменение платежа"""
             result_patch = RegularOutcomeMethods.change_regular_outcome_wt_subcategory_id(
-                regular_outcome_id, 'title', 156, 'day', 9999999999.101,
-                False, access_token
+                regular_outcome_id, 'title', 20, 'day', 9999999999.101,
+                access_token
             )
 
             """Проверка статус кода"""
@@ -253,7 +253,7 @@ class TestPatchRegularOutcomeAmount:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -264,8 +264,8 @@ class TestPatchRegularOutcomeAmount:
         try:
             """Запрос на изменение платежа"""
             result_patch = RegularOutcomeMethods.change_regular_outcome_wt_subcategory_id(
-                regular_outcome_id, 'title', 156, 'day', 10000000000,
-                False, access_token
+                regular_outcome_id, 'title', 20, 'day', 10000000000,
+                access_token
             )
 
             """Проверка статус кода"""
@@ -285,7 +285,7 @@ class TestPatchRegularOutcomeAmount:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -296,8 +296,8 @@ class TestPatchRegularOutcomeAmount:
         try:
             """Запрос на изменение платежа"""
             result_patch = RegularOutcomeMethods.change_regular_outcome_wt_subcategory_id(
-                regular_outcome_id, 'title', 156, 'day', -200,
-                False, access_token
+                regular_outcome_id, 'title', 20, 'day', -200,
+                access_token
             )
 
             """Проверка статус кода"""
@@ -317,7 +317,7 @@ class TestPatchRegularOutcomeAmount:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -328,8 +328,8 @@ class TestPatchRegularOutcomeAmount:
         try:
             """Запрос на изменение платежа"""
             result_patch = RegularOutcomeMethods.change_regular_outcome_wt_subcategory_id(
-                regular_outcome_id, 'title', 156, 'day', -200,
-                False, access_token
+                regular_outcome_id, 'title', 20, 'day', -200,
+                access_token
             )
 
             """Проверка статус кода"""
@@ -349,7 +349,7 @@ class TestPatchRegularOutcomeAmount:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -360,8 +360,8 @@ class TestPatchRegularOutcomeAmount:
         try:
             """Запрос на изменение платежа"""
             result_patch = RegularOutcomeMethods.change_regular_outcome_wt_subcategory_id(
-                regular_outcome_id, 'title', 156, 'day', None,
-                False, access_token
+                regular_outcome_id, 'title', 20, 'day', None,
+                access_token
             )
 
             """Проверка статус кода"""
@@ -381,7 +381,7 @@ class TestPatchRegularOutcomeAmount:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -392,8 +392,8 @@ class TestPatchRegularOutcomeAmount:
         try:
             """Запрос на изменение платежа"""
             result_patch = RegularOutcomeMethods.change_regular_outcome_wt_subcategory_id(
-                regular_outcome_id, 'title', 156, 'day', 'string',
-                False, access_token
+                regular_outcome_id, 'title', 20, 'day', 'string',
+                access_token
             )
 
             """Проверка статус кода"""

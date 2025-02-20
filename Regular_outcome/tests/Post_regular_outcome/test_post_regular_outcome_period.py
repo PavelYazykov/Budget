@@ -16,7 +16,7 @@ class TestRegularOutcomePeriod:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -40,7 +40,7 @@ class TestRegularOutcomePeriod:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'week', 100, False,
+            'title', 20, None, 'week', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -64,7 +64,7 @@ class TestRegularOutcomePeriod:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'month', 100, False,
+            'title', 20, None, 'month', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -88,7 +88,7 @@ class TestRegularOutcomePeriod:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'year', 100, False,
+            'title', 20, None, 'year', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -112,7 +112,7 @@ class TestRegularOutcomePeriod:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'onetime', 100, False,
+            'title', 20, None, 'onetime', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -136,7 +136,7 @@ class TestRegularOutcomePeriod:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'string', 100, False,
+            'title', 20, None, 'string', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -155,7 +155,7 @@ class TestRegularOutcomePeriod:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, '', 100, False,
+            'title', 20, None, '', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -174,7 +174,7 @@ class TestRegularOutcomePeriod:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome_without_period(
-            'title', 156, None, 100, False,
+            'title', 20, None, 100, False,
             '2030-12-12', access_token,
         )
 
@@ -193,7 +193,7 @@ class TestRegularOutcomePeriod:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome_without_period(
-            'title', 156, None, 100, False,
+            'title', 20, None, 100, False,
             '2030-12-12', access_token,
         )
 

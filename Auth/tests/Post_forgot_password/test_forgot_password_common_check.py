@@ -45,7 +45,7 @@ class TestForgotPasswordCommonCheck:
         Checking.check_statuscode(result, 200)
 
     @allure.description('Отсутствует body')
-    def test_05(self):
+    def test_04(self):
         time.sleep(62)
         result = AuthMethods.forgot_password_without_body()
 
@@ -53,10 +53,10 @@ class TestForgotPasswordCommonCheck:
         Checking.check_statuscode(result, 422)
 
     @allure.description('Запросить новый код подтверждения до истечения старого')
-    def test_06(self):
+    def test_05(self):
 
         """Запрос кода подтверждения"""
-        # time.sleep(62)
+        time.sleep(62)
         result = AuthMethods.forgot_password(email)
 
         """Проверка статус кода"""

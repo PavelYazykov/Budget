@@ -3,6 +3,7 @@ import datetime
 
 class CommonVariables:
     base_url = 'https://budget-test.god-it.ru/api'
+    # base_url = 'http://localhost:8000'
 
 
 class AuthVariables:
@@ -15,14 +16,14 @@ class AuthVariables:
     email = 'y.pawel_test1@mail.ru'
     password = 'Ohranatruda@1'
     phone = '89260000002'
-    user_id_verify = '942ffa16-1790-453c-8663-92a2559a8654'
-    verify_user_phone = '7741e39b-a66a-45f3-a465-f7ca8e7c7eab'  # id верифицированного пользователя
+    user_id_verify = '9c05de04-7059-49bc-9bf8-fcc869835245'
+    verify_user_phone = '9c05de04-7059-49bc-9bf8-fcc869835245'  # id верифицированного пользователя
 
     """Верифицированный пользователь_2"""
     email_2 = 'pawel_test_1@rambler.ru'
     password_2 = 'Ohranatruda@2'
     phone_2 = '89260000004'
-    user_id_verify_2 = '9e7f47bc-f3f0-43eb-aa83-090406e4480d'
+    user_id_verify_2 = 'e896a34b-36ec-4eb4-ba9a-09af22e41863'
 
     """Неверифицированный пользователь"""
     not_verify_email = 'bmk20284@nowni.com'
@@ -39,14 +40,13 @@ class AuthVariables:
     phone_for_create_user = '89280000000'
     date_of_birth = '2000-01-01'
 
-    user_id_exist = '590faefa-472e-448a-a608-dd0c63a23458'
-    user_id_not_exist = '590faefa-472e-448a-a608-dd0c63a99999'
+    user_id_not_exist = '590faefa-472e-448a-a608-dd0c63a23458'
 
 
 class MoneyboxVariables:
     to_date = '2030-12-30'
     goal = 1000
-    name = 'name'
+    name = 'Pavel'
     currency_id = 2
     is_archived = False
     amount = 0
@@ -60,5 +60,5 @@ class PersonalTransactionVariables:
     transaction_type_consume = 'Consumption'
     transaction_type_tbw = 'Transfer between wallets'
     transaction_date = transaction_date
-    category_id_income = 156
-    category_id_consume = 136
+    category_id_income = 30
+    category_id_consume = 20

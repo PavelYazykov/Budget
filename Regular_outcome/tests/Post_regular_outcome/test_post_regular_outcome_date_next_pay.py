@@ -16,7 +16,7 @@ class TestRegularOutcomeDateNextPay:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -40,7 +40,7 @@ class TestRegularOutcomeDateNextPay:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             None, access_token,
         )
 
@@ -64,7 +64,7 @@ class TestRegularOutcomeDateNextPay:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome_without_next_pay(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             access_token,
         )
 
@@ -83,7 +83,7 @@ class TestRegularOutcomeDateNextPay:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             2030-12-12, access_token,
         )
 
@@ -102,7 +102,7 @@ class TestRegularOutcomeDateNextPay:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             'gfhgfh', access_token,
         )
 
@@ -121,7 +121,7 @@ class TestRegularOutcomeDateNextPay:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '25-12-12', access_token,
         )
 
@@ -140,7 +140,7 @@ class TestRegularOutcomeDateNextPay:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '25-1-12', access_token,
         )
 
@@ -159,7 +159,7 @@ class TestRegularOutcomeDateNextPay:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '25-12-2', access_token,
         )
 
@@ -178,7 +178,7 @@ class TestRegularOutcomeDateNextPay:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '25-01-2030', access_token,
         )
 
@@ -197,7 +197,7 @@ class TestRegularOutcomeDateNextPay:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030.12.12', access_token,
         )
 
@@ -216,7 +216,7 @@ class TestRegularOutcomeDateNextPay:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '', access_token,
         )
 
@@ -235,7 +235,7 @@ class TestRegularOutcomeDateNextPay:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12.0-12', access_token,
         )
 

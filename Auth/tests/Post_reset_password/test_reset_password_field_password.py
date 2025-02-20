@@ -208,7 +208,7 @@ class TestResetPasswordCheckPassword:
             result_change = AuthMethods.reset_password(
                 email, 'zxcvbnmghqwertyu'
             )
-            Checking.check_statuscode(result_change, 422)
+            Checking.check_statuscode(result_change, 400)
         except AssertionError:
             raise AssertionError
         finally:

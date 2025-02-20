@@ -214,7 +214,7 @@ class TestCommonPatch:
             """Создание транзакции"""
             result_income = PersonalTransactionMethods.create_personal_transaction(
                 1000, 'description', 'Income', '2024-12-12',
-                None, wallet_id, 156, None, access_token
+                None, wallet_id, 30, None, access_token
             )
             Checking.check_statuscode(result_income, 201)
             result_get = MoneyboxMethods.get_one_moneybox(moneybox_id, access_token)
@@ -222,7 +222,7 @@ class TestCommonPatch:
 
             """Запрос на изменение копилки"""
             result_change = MoneyboxMethods.change_moneybox(
-                moneybox_id, to_date, 2000, name, currency_id, None, access_token
+                moneybox_id, to_date, 2000, name, currency_id, False, access_token
             )
 
             """Проверка статус кода"""
@@ -232,7 +232,7 @@ class TestCommonPatch:
         finally:
             PersonalTransactionMethods.create_personal_transaction(
                 1000, 'name', 'Consumption', '2024-12-12',
-                None, wallet_id, 136, None, access_token
+                None, wallet_id, 20, None, access_token
             )
             MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
 

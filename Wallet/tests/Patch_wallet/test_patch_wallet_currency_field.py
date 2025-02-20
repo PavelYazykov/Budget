@@ -1,8 +1,11 @@
+import time
+
 import allure
 import pytest
 
 from common_methods.checking import Checking
 from Wallet.methods.wallet_methods import WalletMethods
+
 
 @pytest.mark.Wallet
 @allure.epic('Patch/api/v1/wallet/{wallet_id}/ Редактирование кошелька - Проверка поля currency_id')
@@ -17,6 +20,7 @@ class TestPatchWalletCurrencyId:
         result = WalletMethods.change_wallet_by_id_only_currency_field(
             wallet_id, 90, access_token
         )
+        time.sleep(70)
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 404)
@@ -140,4 +144,4 @@ class TestPatchWalletCurrencyId:
         )
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result, 405)
+        Checking.check_statuscode(result, 422)

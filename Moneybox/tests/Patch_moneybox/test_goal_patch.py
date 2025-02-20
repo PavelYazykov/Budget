@@ -118,7 +118,7 @@ class TestGoalPatch:
             """Обнуление баланса копилки"""
             result_consumption = PersonalTransactionMethods.create_personal_transaction(
                 100, 'name', 'Consumption', '2024-10-10',
-                None, wallet_id, 136, None, access_token
+                None, wallet_id, 20, None, access_token
             )
             Checking.check_statuscode(result_consumption, 201)
 
@@ -197,7 +197,7 @@ class TestGoalPatch:
             )
 
             """Проверкра статус кода"""
-            Checking.check_statuscode(result_patch, 201)
+            Checking.check_statuscode(result_patch, 400)
         except AssertionError:
             raise AssertionError
 
@@ -205,7 +205,7 @@ class TestGoalPatch:
             """Обнуление баланса копилки"""
             result_consumption = PersonalTransactionMethods.create_personal_transaction(
                 100, 'name', 'Consumption', '2024-10-10',
-                None, wallet_id, 136, None, access_token
+                None, wallet_id, 20, None, access_token
             )
             Checking.check_statuscode(result_consumption, 201)
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)

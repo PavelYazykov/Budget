@@ -9,7 +9,6 @@ from common_methods.variables import AuthVariables
 from faker import Faker
 import random
 fake = Faker()
-user_id_not_exist = AuthVariables.user_id_not_exist
 email = str(random.randint(1111111111, 9999999999)) + '@mail.ru'
 phone = '8' + str(random.randint(1111111111, 9999999999))
 password = AuthVariables.password
@@ -34,14 +33,14 @@ class TestCodeFromUser:
         data, user_id = AuthMethods.get_id(create_result)
         try:
             """Запрос кода для верификации"""
-            result = AuthMethods.request_verify_code('email', user_id)
+            result = AuthMethods.request_verify_code(user_id)
             Checking.check_statuscode(result, 200)
 
             """Получение кода"""
             result_code = AuthMethods.get_verify_code(result)
 
             """Проверка кода"""
-            result_check = AuthMethods.verify(user_id, 'email', result_code)
+            result_check = AuthMethods.verify(user_id, result_code)
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_check, 200)
@@ -61,10 +60,10 @@ class TestCodeFromUser:
         data, user_id = AuthMethods.get_id(create_result)
         try:
             """Проверка кода"""
-            result_check = AuthMethods.verify(user_id, 'email', '000000')
+            result_check = AuthMethods.verify(user_id, '000000')
 
             """Проверка статус кода"""
-            Checking.check_statuscode(result_check, 404)
+            Checking.check_statuscode(result_check, 400)
         except AssertionError:
             raise AssertionError
         finally:
@@ -74,6 +73,7 @@ class TestCodeFromUser:
     @allure.description('Истекший код')
     def test_03(self):
         """Создание пользователя"""
+        time.sleep(301)
         create_result = AuthMethods.registration(
             email, password, last_name, first_name, middle_name, phone, date_of_birth
         )
@@ -81,8 +81,7 @@ class TestCodeFromUser:
         data, user_id = AuthMethods.get_id(create_result)
         try:
             """Запрос кода для верификации"""
-            time.sleep(62)
-            result = AuthMethods.request_verify_code('email', user_id)
+            result = AuthMethods.request_verify_code(user_id)
             Checking.check_statuscode(result, 200)
 
             """Получение кода"""
@@ -90,7 +89,7 @@ class TestCodeFromUser:
 
             """Проверка кода"""
             time.sleep(62)
-            result_check = AuthMethods.verify(user_id, 'email', result_code)
+            result_check = AuthMethods.verify(user_id, result_code)
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_check, 404)
@@ -110,7 +109,7 @@ class TestCodeFromUser:
         data, user_id = AuthMethods.get_id(create_result)
         try:
             """Ввод невалидного кода для верификации"""
-            result_check = AuthMethods.verify(user_id, 'email', '12345')
+            result_check = AuthMethods.verify(user_id, '12345')
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_check, 422)
@@ -130,7 +129,7 @@ class TestCodeFromUser:
         data, user_id = AuthMethods.get_id(create_result)
         try:
             """Ввод невалидного кода для верификации"""
-            result_check = AuthMethods.verify(user_id, 'email', '1234567')
+            result_check = AuthMethods.verify(user_id, '1234567')
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_check, 422)
@@ -150,7 +149,7 @@ class TestCodeFromUser:
         data, user_id = AuthMethods.get_id(create_result)
         try:
             """Ввод невалидного кода для верификации"""
-            result_check = AuthMethods.verify(user_id, 'email', '')
+            result_check = AuthMethods.verify(user_id, '')
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_check, 422)
@@ -170,7 +169,7 @@ class TestCodeFromUser:
         data, user_id = AuthMethods.get_id(create_result)
         try:
             """Ввод невалидного кода для верификации"""
-            result_check = AuthMethods.verify_without_code(user_id, 'email')
+            result_check = AuthMethods.verify_without_code(user_id)
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_check, 422)
@@ -190,7 +189,7 @@ class TestCodeFromUser:
         data, user_id = AuthMethods.get_id(create_result)
         try:
             """Ввод невалидного кода для верификации"""
-            result_check = AuthMethods.verify(user_id, 'email', 'null')
+            result_check = AuthMethods.verify(user_id, 'null')
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_check, 422)

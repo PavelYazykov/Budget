@@ -16,7 +16,7 @@ class TestRegularOutcomeCategoryId:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', 156, None, 'day', 100, False,
+            'ttt', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -26,7 +26,7 @@ class TestRegularOutcomeCategoryId:
         regular_outcome_id = data['data']['id']
         try:
             """Проверка значения поля category_id"""
-            assert data['data']['category_id'] == 156
+            assert data['data']['category_id'] == 20
         except AssertionError:
             raise AssertionError
         finally:
@@ -116,7 +116,7 @@ class TestRegularOutcomeCategoryId:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'ttt', -156, None, 'day', 100, False,
+            'ttt', -20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 

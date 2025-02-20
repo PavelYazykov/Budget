@@ -1,8 +1,7 @@
 import allure
 import pytest
-
 from common_methods.checking import Checking
-from common_methods.variables import CommonVariables, AuthVariables
+from common_methods.variables import AuthVariables
 from Users.methods.users_methods import UsersMethods
 from Users.methods.user_payloads import UserResponse
 
@@ -517,4 +516,11 @@ class TestPatchUsersEmail:
         )
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result, 422)
+        Checking.check_statuscode(result, 200)
+
+        """Проверка наличия обязательных полей"""
+        UserResponse.check_required_fields(result)
+
+        """Проверка значения поля firstname"""
+        data = Checking.get_data(result)
+        assert data['first_name'] == 'M'

@@ -17,7 +17,7 @@ class TestPatchSettingsTelegramConsent:
         """Отправка запроса"""
         result = SettingsMethods.patch_settings_2(
             False, True, True, True, True,
-            True, True, 2, None, 1,
+            True, True, 2, None, [1],
             True, True, True, access_token
         )
 
@@ -36,8 +36,8 @@ class TestPatchSettingsTelegramConsent:
         """Отправка запроса"""
         result = SettingsMethods.patch_settings_2(
             False, True, True, True, True,
-            True, True, 2, None, 1,
-            True, False, True, access_token
+            True, True, 2, None, [1],
+            True, False, False, access_token
         )
 
         """Проверка статус кода"""
@@ -47,7 +47,7 @@ class TestPatchSettingsTelegramConsent:
         data = Checking.get_data(result)
         assert data['data']['telegram_consent'] is False
 
-    @allure.description('поле telegram_consent - Пустое отсутствует')
+    @allure.description('поле telegram_consent - Поле отсутствует')
     def test_03(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -70,15 +70,11 @@ class TestPatchSettingsTelegramConsent:
         result = SettingsMethods.patch_settings_2(
             False, True, True, True, True,
             True, True, 2, None, 1,
-            True, None, True, access_token
+            True, True, None, access_token
         )
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result, 200)
-
-        """Проверка значения поля telegram_consent"""
-        data = Checking.get_data(result)
-        assert data['data']['telegram_consent'] is None
+        Checking.check_statuscode(result, 422)
 
     @allure.description('поле telegram_consent - Неверный тип данных integer')
     def test_05(self, auth_fixture):
@@ -89,7 +85,7 @@ class TestPatchSettingsTelegramConsent:
         result = SettingsMethods.patch_settings_2(
             False, True, True, True, True,
             True, True, 2, None, 1,
-            True, 123, True, access_token
+            True, True, 123, access_token
         )
 
         """Проверка статус кода"""
@@ -104,7 +100,7 @@ class TestPatchSettingsTelegramConsent:
         result = SettingsMethods.patch_settings_2(
             False, True, True, True, True,
             True, True, 2, None, 1,
-            True, 'string', True, access_token
+            True, True, 'string', access_token
         )
 
         """Проверка статус кода"""
@@ -119,7 +115,7 @@ class TestPatchSettingsTelegramConsent:
         result = SettingsMethods.patch_settings_2(
             False, True, True, True, True,
             True, True, 2, None, 1,
-            True, '', True, access_token
+            True, True, '', access_token
         )
 
         """Проверка статус кода"""

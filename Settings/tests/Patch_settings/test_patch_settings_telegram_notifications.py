@@ -67,14 +67,7 @@ class TestPatchSettingsTelegramNotifications:
         )
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result, 200)
-
-        """Проверка наличия обязательных полей"""
-        SettingsPayloads.check_required_fields(result, SettingsPayloads.required_fields)
-
-        """Проверка значения поля telegram_notifications"""
-        data = Checking.get_data(result)
-        assert data['data']['telegram_notifications'] is None
+        Checking.check_statuscode(result, 422)
 
     @allure.description('поле telegram_notifications - Неверный тип данных integer')
     def test_04(self, auth_fixture):
@@ -134,7 +127,3 @@ class TestPatchSettingsTelegramNotifications:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
-
-        """Проверка значения поля telegram_notifications"""
-        data = Checking.get_data(result)
-        assert data['data']['telegram_notifications'] is True

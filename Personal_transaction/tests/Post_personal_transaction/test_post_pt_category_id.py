@@ -189,7 +189,7 @@ class TestPostPTCategoryId:
             1, None, access_token
         )
         """Проверка статус кода"""
-        Checking.check_statuscode(result, 404)
+        Checking.check_statuscode(result, 400)
 
     @allure.description('Проверка поля category_id - Значение id = 0')
     def test_09(self, create_moneybox_and_delete_for_personal_transaction):

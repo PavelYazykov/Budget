@@ -10,13 +10,10 @@ class WalletPayloads:
             {
               "name": "Title or description",
               "currency_id": 1,
-              "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
               "is_archived": True,
               "amount": 100.55,
               "id": 1,
               "goal_is_achieved": True,
-              "created_at": "2024-11-27T15:10:39.557Z",
-              "updated_at": "2024-11-27T15:10:39.557Z"
             }
     }
 

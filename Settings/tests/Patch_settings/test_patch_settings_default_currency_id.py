@@ -40,7 +40,11 @@ class TestPatchSettingsDefaultCurrencyId:
         )
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result, 422)
+        Checking.check_statuscode(result, 200)
+
+        """Проверка значения поля default_currency_id"""
+        data = Checking.get_data(result)
+        assert data['data']['default_currency_id'] is None
 
     @allure.description('поле default_currency_id - Несуществующее значение')
     def test_03(self, auth_fixture):

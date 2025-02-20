@@ -17,7 +17,7 @@ class TestPatchSettingsRemindDays:
         """Отправка запроса"""
         result = SettingsMethods.patch_settings_2(
             False, True, True, True, True,
-            True, True, 2, None, 1,
+            True, True, 2, None, [1],
             True, True, True, access_token
         )
 
@@ -26,7 +26,7 @@ class TestPatchSettingsRemindDays:
 
         """Проверка значения поля remind_in_days"""
         data = Checking.get_data(result)
-        assert data['data']['remind_in_days'] == 1
+        assert data['data']['remind_in_days'] == [1]
 
     @allure.description('поле remind_in_days - значение массив целых чисел')
     def test_02(self, auth_fixture):

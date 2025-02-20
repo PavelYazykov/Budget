@@ -4,7 +4,7 @@ import pytest
 from Subcategory.methods.subcategory_methods import SubcategoryMethods
 from common_methods.checking import Checking
 from Subcategory.methods.payloads import SubcategoryPayloads
-category_id = 156
+category_id = 30
 
 
 @pytest.mark.Subcategory
@@ -78,7 +78,7 @@ class TestGetSubcategoriesById:
         access_token = auth_fixture
 
         """Запрос на получение информации о подкатегории"""
-        result_get = SubcategoryMethods.get_subcategory_by_id(-156, access_token)
+        result_get = SubcategoryMethods.get_subcategory_by_id(-30, access_token)
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_get, 422)

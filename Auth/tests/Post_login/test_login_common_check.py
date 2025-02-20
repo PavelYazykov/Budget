@@ -34,11 +34,11 @@ class TestLoginCommonCheck:
             user_id = data['id']
 
             """Верификация пользователя"""
-            request_code = AuthMethods.request_verify_code('email', user_id)
+            request_code = AuthMethods.request_verify_code(user_id)
             Checking.check_statuscode(request_code, 200)
             code = AuthMethods.get_verify_code(request_code)
 
-            verify = AuthMethods.verify(user_id, 'email', code)
+            verify = AuthMethods.verify(user_id, code)
             Checking.check_statuscode(verify, 200)
 
             """Авторизация"""

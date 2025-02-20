@@ -2,8 +2,8 @@ import json
 import allure
 from common_methods.http_methods import HttpMethods
 
-
-base_url = 'https://budget-test.god-it.ru/api'
+from common_methods.variables import CommonVariables
+base_url = CommonVariables.base_url
 
 
 class MoneyboxMethods:
@@ -373,7 +373,7 @@ class MoneyboxMethods:
                 "description": "consumption",
                 "transaction_type": "Consumption",
                 "wallet_id": wallet_id,
-                "category_id": 136
+                "category_id": 20
             }
             result = HttpMethods.post(post_url, body, access_token)
             print(result.text)
@@ -389,7 +389,7 @@ class MoneyboxMethods:
                 "description": "Income",
                 "transaction_type": "Income",
                 "wallet_id": wallet_id,
-                "category_id": 156
+                "category_id": 30
             }
             result = HttpMethods.post(post_url, body, access_token)
             print(result.text)

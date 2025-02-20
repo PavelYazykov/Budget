@@ -16,7 +16,7 @@ class TestRegularOutcomeIsPaidOff:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, True,
+            'title', 20, None, 'day', 100, True,
             '2030-12-12', access_token,
         )
 
@@ -41,7 +41,7 @@ class TestRegularOutcomeIsPaidOff:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, True,
+            'title', 20, None, 'day', 100, True,
             '2030-12-12', access_token,
         )
 
@@ -66,7 +66,7 @@ class TestRegularOutcomeIsPaidOff:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome_without_is_paid_off(
-            'title', 156, None, 'day', 100,
+            'title', 20, None, 'day', 100,
             '2030-12-12', access_token,
         )
 
@@ -85,7 +85,7 @@ class TestRegularOutcomeIsPaidOff:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, None,
+            'title', 20, None, 'day', 100, None,
             '2030-12-12', access_token,
         )
 
@@ -99,7 +99,7 @@ class TestRegularOutcomeIsPaidOff:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, '',
+            'title', 20, None, 'day', 100, '',
             '2030-12-12', access_token,
         )
 
@@ -113,7 +113,7 @@ class TestRegularOutcomeIsPaidOff:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, 1234,
+            'title', 20, None, 'day', 100, 1234,
             '2030-12-12', access_token,
         )
 
@@ -127,7 +127,7 @@ class TestRegularOutcomeIsPaidOff:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, 'string',
+            'title', 20, None, 'day', 100, 'string',
             '2030-12-12', access_token,
         )
 

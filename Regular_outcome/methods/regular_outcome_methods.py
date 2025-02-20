@@ -238,7 +238,7 @@ class RegularOutcomeMethods:
 
     @staticmethod
     def change_regular_outcome(
-            regular_outcome_id, title, category_id, subcategory_id, period, amount, is_paid_off, access_token
+            regular_outcome_id, title, category_id, subcategory_id, period, amount, access_token
     ):
         with allure.step('Измение регулярного списания по id'):
             endpoint = f'/api/v1/regular_outcome/{regular_outcome_id}/'
@@ -247,8 +247,7 @@ class RegularOutcomeMethods:
                 "category_id": category_id,
                 "subcategory_id": subcategory_id,
                 "period": period,
-                "amount": amount,
-                "is_paid_off": is_paid_off
+                "amount": amount
             }
             patch_url = CommonVariables.base_url + endpoint
             result = HttpMethods.patch(patch_url, body, access_token)
@@ -256,26 +255,9 @@ class RegularOutcomeMethods:
 
     @staticmethod
     def change_regular_outcome_wt_subcategory_id(
-            regular_outcome_id, title, category_id , period, amount, is_paid_off, access_token
+            regular_outcome_id, title, category_id , period, amount, access_token
     ):
         with allure.step('Измение регулярного списания по id без поля subcategory_id'):
-            endpoint = f'/api/v1/regular_outcome/{regular_outcome_id}/'
-            body = {
-                "title": title,
-                "category_id": category_id,
-                "period": period,
-                "amount": amount,
-                "is_paid_off": is_paid_off
-            }
-            patch_url = CommonVariables.base_url + endpoint
-            result = HttpMethods.patch(patch_url, body, access_token)
-            return result
-
-    @staticmethod
-    def change_regular_outcome_wt_subcategory_id_and_is_paid_off(
-            regular_outcome_id, title, category_id, period, amount, access_token
-    ):
-        with allure.step('Измение регулярного списания по id без поля subcategory_id, is_paid_off'):
             endpoint = f'/api/v1/regular_outcome/{regular_outcome_id}/'
             body = {
                 "title": title,
@@ -289,15 +271,14 @@ class RegularOutcomeMethods:
 
     @staticmethod
     def change_regular_outcome_wt_subcategory_id_and_amount(
-            regular_outcome_id, title, category_id, period, is_paid_off, access_token
+            regular_outcome_id, title, category_id, period, access_token
     ):
         with allure.step('Измение регулярного списания по id без поля subcategory_id, amount'):
             endpoint = f'/api/v1/regular_outcome/{regular_outcome_id}/'
             body = {
                 "title": title,
                 "category_id": category_id,
-                "period": period,
-                "is_paid_off": is_paid_off
+                "period": period
             }
             patch_url = CommonVariables.base_url + endpoint
             result = HttpMethods.patch(patch_url, body, access_token)
@@ -305,15 +286,14 @@ class RegularOutcomeMethods:
 
     @staticmethod
     def change_regular_outcome_wt_subcategory_id_and_period(
-            regular_outcome_id, title, category_id, amount, is_paid_off, access_token
+            regular_outcome_id, title, category_id, amount, access_token
     ):
         with allure.step('Измение регулярного списания по id без поля subcategory_id, period'):
             endpoint = f'/api/v1/regular_outcome/{regular_outcome_id}/'
             body = {
                 "title": title,
                 "category_id": category_id,
-                "amount": amount,
-                "is_paid_off": is_paid_off
+                "amount": amount
             }
             patch_url = CommonVariables.base_url + endpoint
             result = HttpMethods.patch(patch_url, body, access_token)
@@ -321,7 +301,7 @@ class RegularOutcomeMethods:
 
     @staticmethod
     def change_regular_outcome_wt_subcategory_id_and_category_id(
-            regular_outcome_id, title, period, amount, is_paid_off, access_token
+            regular_outcome_id, title, period, amount, access_token
     ):
         with allure.step('Измение регулярного списания по id без поля subcategory_id, category_id'):
             endpoint = f'/api/v1/regular_outcome/{regular_outcome_id}/'
@@ -329,7 +309,6 @@ class RegularOutcomeMethods:
                 "title": title,
                 "period": period,
                 "amount": amount,
-                "is_paid_off": is_paid_off
             }
             patch_url = CommonVariables.base_url + endpoint
             result = HttpMethods.patch(patch_url, body, access_token)
@@ -337,15 +316,14 @@ class RegularOutcomeMethods:
 
     @staticmethod
     def change_regular_outcome_wt_subcategory_id_and_title(
-            regular_outcome_id, category_id, period, amount, is_paid_off, access_token
+            regular_outcome_id, category_id, period, amount, access_token
     ):
         with allure.step('Измение регулярного списания по id без поля subcategory_id и title'):
             endpoint = f'/api/v1/regular_outcome/{regular_outcome_id}/'
             body = {
                 "category_id": category_id,
                 "period": period,
-                "amount": amount,
-                "is_paid_off": is_paid_off
+                "amount": amount
             }
             patch_url = CommonVariables.base_url + endpoint
             result = HttpMethods.patch(patch_url, body, access_token)
@@ -384,5 +362,35 @@ class RegularOutcomeMethods:
             }
             post_url = CommonVariables.base_url + endpoint
             result = HttpMethods.post(post_url, body, access_token)
+            return result
+
+    @staticmethod
+    def post_pay_regular_outcome(regular_outcome_id, wallet_id, access_token):
+        with allure.step('Списание средств по регулярному платежу'):
+            endpoint = f'/api/v1/regular_outcome/pay_regular_outcome/{regular_outcome_id}/'
+            body = {
+                "wallet_id": wallet_id
+            }
+            post_url = CommonVariables.base_url + endpoint
+            result = HttpMethods.post(post_url, body, access_token)
+            return result
+
+    @staticmethod
+    def post_pay_regular_outcome_without_regular_outcome_id(wallet_id, access_token):
+        with allure.step('Списание средств по регулярному платежу без поля regular_outcome_id'):
+            endpoint = f'/api/v1/regular_outcome/pay_regular_outcome/'
+            body = {
+                "wallet_id": wallet_id
+            }
+            post_url = CommonVariables.base_url + endpoint
+            result = HttpMethods.post(post_url, body, access_token)
+            return result
+
+    @staticmethod
+    def post_pay_regular_outcome_without_wallet_id(regular_outcome_id, access_token):
+        with allure.step('Списание средств по регулярному платежу'):
+            endpoint = f'/api/v1/regular_outcome/pay_regular_outcome/{regular_outcome_id}/'
+            post_url = CommonVariables.base_url + endpoint
+            result = HttpMethods.post_without_body(post_url, access_token)
             return result
 

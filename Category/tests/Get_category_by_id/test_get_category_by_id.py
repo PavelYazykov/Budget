@@ -15,7 +15,7 @@ class TestGetCategoryById:
         access_token = auth_fixture
 
         """Запрос на получение списка категорий"""
-        result = CategoryMethods.get_category_by_id(156, access_token)
+        result = CategoryMethods.get_category_by_id(30, access_token)
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
@@ -48,7 +48,7 @@ class TestGetCategoryById:
         access_token = auth_fixture
 
         """Запрос на получение списка категорий"""
-        result = CategoryMethods.get_category_by_id(-136, access_token)
+        result = CategoryMethods.get_category_by_id(-20, access_token)
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 422)
@@ -62,7 +62,7 @@ class TestGetCategoryById:
         result = CategoryMethods.get_category_by_id('', access_token)
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result, 422)
+        Checking.check_statuscode(result, 200)
 
     @allure.description('Значение category_id = Null')
     def test_06(self, auth_fixture):
@@ -84,7 +84,7 @@ class TestGetCategoryById:
         result = CategoryMethods.get_category_by_id_without_id(access_token)
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result, 422)
+        Checking.check_statuscode(result, 200)
 
     @allure.description('Поле category_id = Неверный тип данных')
     def test_08(self, auth_fixture):

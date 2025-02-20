@@ -75,7 +75,7 @@ class TestPatchCommonCheck:
         result_delete = PersonalTransactionMethods.delete_personal_transaction(1, access_token)
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result_delete, 404)
+        Checking.check_statuscode(result_delete, 400)
 
     @allure.description('Удаление транзакции с id = 0')
     def test_04(self, auth_fixture):

@@ -18,8 +18,40 @@ date_of_birth = AuthVariables.date_of_birth
 @allure.epic('Post/registration Проверка поля firstname')
 class TestRegistrationFirstnameField:
 
-    @allure.description('Проверка поля firstname - 2 символа')
+    @allure.description('Проверка поля firstname - 1 символ')
     def test_01(self):
+        """Регистрация"""
+        result = AuthMethods.registration(
+            email, password, last_name, 'A', middle_name, phone, date_of_birth
+        )
+
+        """Проверка статус кода"""
+        Checking.check_statuscode(result, 201)
+
+        """Проверка наличия обязательных полей в ответе"""
+        try:
+            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+
+            """Проверка значений обязательных полей"""
+            Payloads.required_fields_value(
+                email, last_name, 'A', middle_name, phone, date_of_birth, data
+            )
+
+            """Проверка наличия пользователя в БД"""
+            AuthMethods.connect_db_check_user(
+                user_id, last_name, 'A', middle_name, phone, email, date_of_birth
+            )
+        except AssertionError:
+            print('Ошибка!')
+            raise AssertionError
+        else:
+            print('Значения полей в БД соответствуют введенным')
+        finally:
+            """Удаление пользователя из БД"""
+            AuthMethods.delete_user(email)
+
+    @allure.description('Проверка поля firstname - 2 символa')
+    def test_02(self):
         """Регистрация"""
         result = AuthMethods.registration(
             email, password, last_name, 'Aa', middle_name, phone, date_of_birth
@@ -40,38 +72,6 @@ class TestRegistrationFirstnameField:
             """Проверка наличия пользователя в БД"""
             AuthMethods.connect_db_check_user(
                 user_id, last_name, 'Aa', middle_name, phone, email, date_of_birth
-            )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
-        finally:
-            """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
-
-    @allure.description('Проверка поля firstname - 3 символa')
-    def test_02(self):
-        """Регистрация"""
-        result = AuthMethods.registration(
-            email, password, last_name, 'Aaa', middle_name, phone, date_of_birth
-        )
-
-        """Проверка статус кода"""
-        Checking.check_statuscode(result, 201)
-
-        """Проверка наличия обязательных полей в ответе"""
-        try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
-
-            """Проверка значений обязательных полей"""
-            Payloads.required_fields_value(
-                email, last_name, 'Aaa', middle_name, phone, date_of_birth, data
-            )
-
-            """Проверка наличия пользователя в БД"""
-            AuthMethods.connect_db_check_user(
-                user_id, last_name, 'Aaa', middle_name, phone, email, date_of_birth
             )
         except AssertionError:
             print('Ошибка!')

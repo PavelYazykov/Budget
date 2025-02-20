@@ -23,7 +23,7 @@ class TestPatchCurrencyShortTitle:
         try:
             """Запрос на редактрование информации о валюте"""
             result_change = CurrencyMethods.change_currency(
-                currency_id, 6, 'Name_currency', 'R', access_token
+                currency_id, 6, 'Name_curren', 'R', access_token
             )
 
             """Проверка статус кода"""
@@ -53,7 +53,7 @@ class TestPatchCurrencyShortTitle:
         try:
             """Запрос на редактрование информации о валюте"""
             result_change = CurrencyMethods.change_currency(
-                currency_id, 6, 'Name_currency', 'Rrrrr', access_token
+                currency_id, 6, 'Name_curren', 'Rrrrr', access_token
             )
 
             """Проверка статус кода"""
@@ -83,7 +83,7 @@ class TestPatchCurrencyShortTitle:
         try:
             """Запрос на редактрование информации о валюте"""
             result_change = CurrencyMethods.change_currency(
-                currency_id, 6, 'Name_currency', '123', access_token
+                currency_id, 6, 'Name_curren', '123', access_token
             )
 
             """Проверка статус кода"""
@@ -113,7 +113,7 @@ class TestPatchCurrencyShortTitle:
         try:
             """Запрос на редактрование информации о валюте"""
             result_change = CurrencyMethods.change_currency(
-                currency_id, 6, 'Name_currency', 'К', access_token
+                currency_id, 6, 'Name_curren', 'К', access_token
             )
 
             """Проверка статус кода"""
@@ -143,7 +143,7 @@ class TestPatchCurrencyShortTitle:
         try:
             """Запрос на редактрование информации о валюте"""
             result_change = CurrencyMethods.change_currency(
-                currency_id, 6, 'Name_currency', 'R', access_token
+                currency_id, 6, 'Name_curren', 'R', access_token
             )
 
             """Проверка статус кода"""
@@ -173,7 +173,7 @@ class TestPatchCurrencyShortTitle:
         try:
             """Запрос на редактрование информации о валюте"""
             result_change = CurrencyMethods.change_currency(
-                currency_id, 6, 'Name_currency', 'R r', access_token
+                currency_id, 6, 'Name_curren', 'R r', access_token
             )
 
             """Проверка статус кода"""
@@ -200,7 +200,7 @@ class TestPatchCurrencyShortTitle:
         try:
             """Запрос на редактрование информации о валюте"""
             result_change = CurrencyMethods.change_currency(
-                currency_id, 6, 'Name_currency', 'R_r', access_token
+                currency_id, 6, 'Name_curren', 'R_r', access_token
             )
 
             """Проверка статус кода"""
@@ -230,7 +230,7 @@ class TestPatchCurrencyShortTitle:
         try:
             """Запрос на редактрование информации о валюте"""
             result_change = CurrencyMethods.change_currency(
-                currency_id, 6, 'Name_currency', 'Rк1', access_token
+                currency_id, 6, 'Name_curren', 'Rк1', access_token
             )
 
             """Проверка статус кода"""
@@ -260,7 +260,7 @@ class TestPatchCurrencyShortTitle:
         try:
             """Запрос на редактрование информации о валюте"""
             result_change = CurrencyMethods.change_currency(
-                currency_id, 6, 'Name_currency', 'R.r', access_token
+                currency_id, 6, 'Name_curren', 'R.r', access_token
             )
 
             """Проверка статус кода"""
@@ -320,7 +320,7 @@ class TestPatchCurrencyShortTitle:
         try:
             """Запрос на редактрование информации о валюте"""
             result_change = CurrencyMethods.change_currency(
-                currency_id, 6, 'Name_currency', None, access_token
+                currency_id, 6, 'Name_curren', None, access_token
             )
 
             """Проверка статус кода"""
@@ -347,7 +347,7 @@ class TestPatchCurrencyShortTitle:
         try:
             """Запрос на редактрование информации о валюте"""
             result_change = CurrencyMethods.change_currency(
-                currency_id, 6, 'Name_currency', 'RUB', access_token
+                currency_id, 6, 'Name_curren', 'RUB', access_token
             )
 
             """Проверка статус кода"""
@@ -374,7 +374,7 @@ class TestPatchCurrencyShortTitle:
         try:
             """Запрос на редактрование информации о валюте"""
             result_change = CurrencyMethods.change_currency(
-                currency_id, 6, 'Name_currency', 'RUBRUB', access_token
+                currency_id, 6, 'Name_curren', 'RUBRUB', access_token
             )
 
             """Проверка статус кода"""
@@ -401,7 +401,7 @@ class TestPatchCurrencyShortTitle:
         try:
             """Запрос на редактрование информации о валюте"""
             result_change = CurrencyMethods.change_currency(
-                currency_id, 6, 'Name_currency', '@#$%', access_token
+                currency_id, 6, 'Name_curren', '@#$%', access_token
             )
 
             """Проверка статус кода"""
@@ -428,7 +428,7 @@ class TestPatchCurrencyShortTitle:
         try:
             """Запрос на редактрование информации о валюте"""
             result_change = CurrencyMethods.change_currency(
-                currency_id, 6, 'Name_currency', '', access_token
+                currency_id, 6, 'Name_curren', '', access_token
             )
 
             """Проверка статус кода"""
@@ -455,7 +455,7 @@ class TestPatchCurrencyShortTitle:
         try:
             """Запрос на редактрование информации о валюте"""
             result_change = CurrencyMethods.change_currency(
-                currency_id, 6, 'Name_currency', 123, access_token
+                currency_id, 6, 'Name_curren', 123, access_token
             )
 
             """Проверка статус кода"""

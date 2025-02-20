@@ -4,7 +4,7 @@ import pytest
 from Subcategory.methods.subcategory_methods import SubcategoryMethods
 from common_methods.checking import Checking
 from Subcategory.methods.payloads import SubcategoryPayloads
-category_id = 156
+category_id = 30
 
 
 @pytest.mark.Subcategory

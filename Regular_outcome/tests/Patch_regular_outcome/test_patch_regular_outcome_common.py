@@ -16,7 +16,7 @@ class TestPatchRegularOutcomeCommon:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -27,8 +27,8 @@ class TestPatchRegularOutcomeCommon:
         try:
             """Запрос на изменение платежа"""
             result_patch = RegularOutcomeMethods.change_regular_outcome(
-                regular_outcome_id, 'title_name', 156, None, 'week', 100,
-                False, access_token
+                regular_outcome_id, 'title_name', 20, None, 'week', 100,
+                access_token
             )
 
             """Проверка статус кода"""
@@ -47,7 +47,7 @@ class TestPatchRegularOutcomeCommon:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 156, None, 'day', 100, False,
+            'title', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 

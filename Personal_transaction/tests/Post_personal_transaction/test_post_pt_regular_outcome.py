@@ -27,7 +27,7 @@ class TestPTPostRegularOutcome:
 
         """Создание regular_outcome"""
         regular_outcome_result = RegularOutcomeMethods.create_regular_outcome(
-            'title_desc', 156, None, 'День', 10, False,
+            'title_desc', 20, None, 'day', 10, False,
             '2030-12-12', access_token
         )
         Checking.check_statuscode(regular_outcome_result, 201)
@@ -92,7 +92,7 @@ class TestPTPostRegularOutcome:
 
         """Создание regular_outcome"""
         regular_outcome_result = RegularOutcomeMethods.create_regular_outcome(
-            'title_desc', 156, None, 'День', 10, False,
+            'title_desc', 20, None, 'day', 10, False,
             '2030-12-12', access_token
         )
         Checking.check_statuscode(regular_outcome_result, 201)

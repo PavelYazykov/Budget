@@ -97,7 +97,7 @@ class TestCommon:
             """Создание транзакции"""
             result_income = PersonalTransactionMethods.create_personal_transaction(
                 1000, 'description', 'Income', '2024-12-12',
-                None, wallet_id, 156, None, access_token
+                None, wallet_id, 30, None, access_token
             )
             Checking.check_statuscode(result_income, 201)
             time.sleep(5)
@@ -105,7 +105,7 @@ class TestCommon:
             """Списание средств с копилки"""
             result_consumption = PersonalTransactionMethods.create_personal_transaction(
                 1000, 'name', 'Consumption', '2024-12-12',
-                None, wallet_id, 136, None, access_token
+                None, wallet_id, 20, None, access_token
             )
 
             """Проверка статус кода"""

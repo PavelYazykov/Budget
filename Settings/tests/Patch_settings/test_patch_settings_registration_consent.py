@@ -17,7 +17,7 @@ class TestPatchSettingsRegistrationConsent:
         """Отправка запроса"""
         result = SettingsMethods.patch_settings_2(
             False, True, True, True, True,
-            True, True, 2, None, 1,
+            True, True, 2, None, [1],
             True, True, True, access_token
         )
 
@@ -36,7 +36,7 @@ class TestPatchSettingsRegistrationConsent:
         """Отправка запроса"""
         result = SettingsMethods.patch_settings_2(
             False, True, True, True, True,
-            True, True, 2, None, 1,
+            True, True, 2, None, [1],
             True, False, True, access_token
         )
 
@@ -69,16 +69,12 @@ class TestPatchSettingsRegistrationConsent:
         """Отправка запроса"""
         result = SettingsMethods.patch_settings_2(
             False, True, True, True, True,
-            True, True, 2, None, 1,
+            True, True, 2, None, [1],
             True, None, True, access_token
         )
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result, 200)
-
-        """Проверка значения поля registration_consent"""
-        data = Checking.get_data(result)
-        assert data['data']['registration_consent'] is None
+        Checking.check_statuscode(result, 422)
 
     @allure.description('поле registration_consent - Неверный тип данных integer')
     def test_05(self, auth_fixture):

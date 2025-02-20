@@ -97,6 +97,21 @@ def create_moneybox_and_delete_for_personal_transaction():
 
 
 @pytest.fixture()
+def create_moneybox_and_delete_for_analytics():
+    result = Auth.auth()
+    Checking.check_statuscode(result, 200)
+    check = result.json()
+    access_token = check.get('access_token')
+    create_result = MoneyboxMethods.create_moneybox(to_date, goal, name, 2, 100, access_token)
+    Checking.check_statuscode(create_result, 201)
+    data = Checking.get_data(create_result)
+    moneybox_id = data['data']['id']
+    wallet_id = data['data']['wallet']['id']
+    yield moneybox_id, wallet_id, access_token
+    MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+
+
+@pytest.fixture()
 def create_moneybox():
     result = Auth.auth()
     Checking.check_statuscode(result, 200)
@@ -114,7 +129,7 @@ def create_and_delete_wallet():
     result_auth = Auth.auth()
     access_token = result_auth.json().get('access_token')
     result_create = WalletMethods.create_wallet(
-        'wallet', 2, 0, access_token
+        'wallet_Pavel', 2, 0, access_token
     )
     print(result_create.text)
     result_text = result_create.text

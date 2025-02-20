@@ -4,7 +4,7 @@ import pytest
 from Subcategory.methods.subcategory_methods import SubcategoryMethods
 from common_methods.checking import Checking
 from Subcategory.methods.payloads import SubcategoryPayloads
-category_id = 156
+category_id = 30
 
 
 @pytest.mark.Subcategory
@@ -41,7 +41,7 @@ class TestGetAllSubcategoriesCategoryId:
             Checking.check_statuscode(result_delete, 204)
 
     @allure.description('Проверка поля category_id - список подкатегорий по несуществующей категории')
-    def test_02(self, auth_fixture):
+    def test_02(self, auth_fixture):  # Решено оставить возврат пустого списка, отрабатывает со статус кодом 200
         """Авторизация"""
         access_token = auth_fixture
 
@@ -49,7 +49,8 @@ class TestGetAllSubcategoriesCategoryId:
         result_get = SubcategoryMethods.get_subcategory_with_category_id(1000, access_token)
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result_get, 404)
+        Checking.check_statuscode(result_get, 200)
+
 
     @allure.description('Проверка поля category_id - Значение category_id = 0')
     def test_03(self, auth_fixture):
