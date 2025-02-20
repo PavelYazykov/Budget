@@ -1,0 +1,4 @@
+Успешно статус код: 200
+ {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5YzA1ZGUwNC03MDU5LTQ5YmMtOWJmOC1mY2M4Njk4MzUyNDUiLCJhdWQiOlsiZmFzdGFwaS11c2VyczphdXRoIl0sImV4cCI6MTc0MDA3Mjk3OX0.ZaCuCBSz87GMzQNr6S_omHkiMQUfUm4ZCbParNuTMfA","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5YzA1ZGUwNC03MDU5LTQ5YmMtOWJmOC1mY2M4Njk4MzUyNDUiLCJleHAiOjE3NDA5MzMzNzksImp0aSI6ImI5YWRmNTcwLTdmMWItNGY0Ny04YTE0LTdkZGU5Nzg4ZWQxMCIsImRldmljZSI6IjExMTExIn0.tnaX21PqzP-QnsPdIOWQJgSpOp-L1oWwRvVt9XFHzFo","token_type":"bearer"}
+Успешно статус код: 422
+ {"detail":[{"type":"greater_than_equal","loc":["path","subcategory_id"],"msg":"Input should be greater than or equal to 1","input":"0","ctx":{"ge":1},"url":"https://errors.pydantic.dev/2.10/v/greater_than_equal"}]}

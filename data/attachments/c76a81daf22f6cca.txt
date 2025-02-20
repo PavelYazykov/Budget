@@ -1,0 +1,6 @@
+Успешно статус код: 200
+ {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5YzA1ZGUwNC03MDU5LTQ5YmMtOWJmOC1mY2M4Njk4MzUyNDUiLCJhdWQiOlsiZmFzdGFwaS11c2VyczphdXRoIl0sImV4cCI6MTc0MDA3Mjk3M30.498b9zsMxZ_FO08Kkmi1jOAWvnFBcJTe5HHIj3DpDBA","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5YzA1ZGUwNC03MDU5LTQ5YmMtOWJmOC1mY2M4Njk4MzUyNDUiLCJleHAiOjE3NDA5MzMzNzIsImp0aSI6IjEwOGFjYWU1LTE1MGItNDkyMi05NWMzLTU5Yzk4Nzk3NWVmNyIsImRldmljZSI6IjExMTExIn0.cUrMyOVWGk0-cPRI1iZAjru7bRaJZMmUcrfY3iktTWE","token_type":"bearer"}
+Успешно статус код: 201
+ {"meta":{},"data":{"category_id":30,"title":"name","id":195,"is_archived":false}}
+Успешно статус код: 204
+ 

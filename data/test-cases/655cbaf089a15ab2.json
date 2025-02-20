@@ -1,0 +1,171 @@
+{
+  "uid" : "655cbaf089a15ab2",
+  "name" : "test_01",
+  "fullName" : "Users.tests.Get_telegram_link.test_get_telegram_link.TestGetTelegramLink#test_01",
+  "historyId" : "d785b1bd01d56315ca4b04d503f16a79",
+  "time" : {
+    "start" : 1740069378381,
+    "stop" : 1740069378784,
+    "duration" : 403
+  },
+  "description" : "get_telegram_link - Запрос ссылки авторизованный пользователь",
+  "descriptionHtml" : "<p>get_telegram_link - Запрос ссылки авторизованный пользователь</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "auth_fixture",
+    "time" : {
+      "start" : 1740069376989,
+      "stop" : 1740069378380,
+      "duration" : 1391
+    },
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Авторизация",
+      "time" : {
+        "start" : 1740069376989,
+        "stop" : 1740069378380,
+        "duration" : 1391
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Проверка статус кода",
+      "time" : {
+        "start" : 1740069378380,
+        "stop" : 1740069378380,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 2,
+    "hasContent" : true
+  } ],
+  "testStage" : {
+    "description" : "get_telegram_link - Запрос ссылки авторизованный пользователь",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Получение ссылки на телеграм-бота, напоминающего пользователю о предстоящих платежах",
+      "time" : {
+        "start" : 1740069378381,
+        "stop" : 1740069378783,
+        "duration" : 402
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Проверка статус кода",
+      "time" : {
+        "start" : 1740069378783,
+        "stop" : 1740069378783,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Получение данных",
+      "time" : {
+        "start" : 1740069378783,
+        "stop" : 1740069378783,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "432745173d17b9bd",
+      "name" : "stdout",
+      "source" : "432745173d17b9bd.txt",
+      "type" : "text/plain",
+      "size" : 685
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 3,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Get/users/get_telegram_link - ссылка на телеграм-бота, напоминающего пользователю о предстоящих платежах"
+  }, {
+    "name" : "tag",
+    "value" : "User"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Users.tests.Get_telegram_link"
+  }, {
+    "name" : "suite",
+    "value" : "test_get_telegram_link"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestGetTelegramLink"
+  }, {
+    "name" : "host",
+    "value" : "942e224497fe"
+  }, {
+    "name" : "thread",
+    "value" : "1-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "Users.tests.Get_telegram_link.test_get_telegram_link"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "User" ]
+  },
+  "source" : "655cbaf089a15ab2.json",
+  "parameterValues" : [ ]
+}

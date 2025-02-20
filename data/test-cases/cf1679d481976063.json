@@ -1,0 +1,116 @@
+{
+  "uid" : "cf1679d481976063",
+  "name" : "test_05",
+  "fullName" : "Analytics.tests.Get_analytics_payment_analytics.test_get_payment_analytics_common.TestGetPaymentAnalyticsCommon#test_05",
+  "historyId" : "428e77e39be9acd52d0d03297ea6e56b",
+  "time" : {
+    "start" : 1740069399933,
+    "stop" : 1740069399933,
+    "duration" : 0
+  },
+  "description" : "Общие проверки - Запросить аналитику по единоразовым платежам с  параметрами авторизованный пользователь",
+  "descriptionHtml" : "<p>Общие проверки - Запросить аналитику по единоразовым платежам с  параметрами авторизованный пользователь</p>\n",
+  "status" : "failed",
+  "statusMessage" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+  "statusTrace" : "@pytest.fixture()\n    def create_moneybox_and_delete_for_analytics():\n        result = Auth.auth()\n>       Checking.check_statuscode(result, 200)\n\nconftest.py:102: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nresult = <Response [404]>, status_code = 200\n\n    @staticmethod\n    def check_statuscode(result, status_code):\n        with allure.step('Проверка статус кода'):\n>           assert result.status_code == status_code, f\"Ошибка {result.text}\"\nE           AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}\n\ncommon_methods/checking.py:13: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "create_moneybox_and_delete_for_analytics",
+    "time" : {
+      "start" : 1740069399934,
+      "stop" : 1740069402000,
+      "duration" : 2066
+    },
+    "status" : "failed",
+    "statusMessage" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}\n",
+    "statusTrace" : "  File \"/usr/local/lib/python3.12/site-packages/pluggy/_callers.py\", line 167, in _multicall\n    teardown.throw(outcome._exception)\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/setuponly.py\", line 36, in pytest_fixture_setup\n    return (yield)\n            ^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/pluggy/_callers.py\", line 103, in _multicall\n    res = hook_impl.function(*args)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py\", line 1139, in pytest_fixture_setup\n    result = call_fixture_func(fixturefunc, request, kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py\", line 890, in call_fixture_func\n    fixture_result = next(generator)\n                     ^^^^^^^^^^^^^^^\n  File \"/Budget_api/conftest.py\", line 102, in create_moneybox_and_delete_for_analytics\n    Checking.check_statuscode(result, 200)\n  File \"/Budget_api/common_methods/checking.py\", line 13, in check_statuscode\n    assert result.status_code == status_code, f\"Ошибка {result.text}\"\n",
+    "steps" : [ {
+      "name" : "Авторизация",
+      "time" : {
+        "start" : 1740069399934,
+        "stop" : 1740069402000,
+        "duration" : 2066
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Проверка статус кода",
+      "time" : {
+        "start" : 1740069402000,
+        "stop" : 1740069402000,
+        "duration" : 0
+      },
+      "status" : "failed",
+      "statusMessage" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}\n",
+      "statusTrace" : "  File \"/Budget_api/common_methods/checking.py\", line 13, in check_statuscode\n    assert result.status_code == status_code, f\"Ошибка {result.text}\"\n",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : true,
+      "stepsCount" : 0,
+      "hasContent" : true
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 2,
+    "hasContent" : true
+  } ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Get/api/v1/analytics/payments_analytics - аналитика исполненных и пропущенных регулярных платежей - общие проверки"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Analytics.tests.Get_analytics_payment_analytics"
+  }, {
+    "name" : "suite",
+    "value" : "test_get_payment_analytics_common"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestGetPaymentAnalyticsCommon"
+  }, {
+    "name" : "host",
+    "value" : "a641db391f9a"
+  }, {
+    "name" : "thread",
+    "value" : "1-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "Analytics.tests.Get_analytics_payment_analytics.test_get_payment_analytics_common"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ ]
+  },
+  "source" : "cf1679d481976063.json",
+  "parameterValues" : [ ]
+}

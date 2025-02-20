@@ -1,0 +1,1895 @@
+{
+  "0e2a74bcfa66817ff5e1ca434553a121" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "af7c728b1a37394a",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069390772,
+        "stop" : 1740069390772,
+        "duration" : 0
+      }
+    } ]
+  },
+  "73b316054b698e8c1271c40121e01df1" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "599919a6f564dae6",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069381379,
+        "stop" : 1740069390855,
+        "duration" : 9476
+      }
+    } ]
+  },
+  "18ded1dfcf9ff3b0b92b1a06b9acfe80" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "fa4c80fa55cdc388",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069397643,
+        "stop" : 1740069397643,
+        "duration" : 0
+      }
+    } ]
+  },
+  "aecb28cdec473b713f6f42c67f14f7fc" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "c58a6b691599029",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069399930,
+        "stop" : 1740069399930,
+        "duration" : 0
+      }
+    } ]
+  },
+  "58518a1787aa7f8ad6b6d5c0f4953495" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "3c4fde02d20abb11",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069387287,
+        "stop" : 1740069387287,
+        "duration" : 0
+      }
+    } ]
+  },
+  "1c48ecdf3b4de34496909895c3a7d8aa" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "c862f19b9fd1c305",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069394321,
+        "stop" : 1740069394321,
+        "duration" : 0
+      }
+    } ]
+  },
+  "595358bff27c4f1cf8a5055cc64ffd5b" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "a572d29e7e5f1e21",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069390772,
+        "stop" : 1740069390772,
+        "duration" : 0
+      }
+    } ]
+  },
+  "689e762c12465ba1f851b4af0f8a9a64" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "3ad67baac11df589",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069385562,
+        "stop" : 1740069385562,
+        "duration" : 0
+      }
+    } ]
+  },
+  "66b1fed4c74acbbe1dd3306d7ba7f9ce" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "cc0ad039c9dbc330",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069385562,
+        "stop" : 1740069385562,
+        "duration" : 0
+      }
+    } ]
+  },
+  "90feaace7f5dc2eb51da4600c12c52d7" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "58315464433c5022",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069380971,
+        "stop" : 1740069381843,
+        "duration" : 872
+      }
+    } ]
+  },
+  "43eca4c157932a805e7f26194c655890" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "1dc816ea87445321",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069381409,
+        "stop" : 1740069381779,
+        "duration" : 370
+      }
+    } ]
+  },
+  "6e5c6312e2ac2610f6ec9d35f3c94e3b" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "c59a8f88233ea3b3",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069384414,
+        "stop" : 1740069384414,
+        "duration" : 0
+      }
+    } ]
+  },
+  "7c31bb42e036708caad745a881234c5d" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "93118fac3ffb3223",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069394217,
+        "stop" : 1740069394217,
+        "duration" : 0
+      }
+    } ]
+  },
+  "00364a49e887a40098e7d616142eb243" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "ee6b67415181fd85",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069382321,
+        "stop" : 1740069382321,
+        "duration" : 0
+      }
+    } ]
+  },
+  "58f19485da6523dc6cd3f0864eda4886" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "46bcfc0b483af6aa",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069374187,
+        "stop" : 1740069375531,
+        "duration" : 1344
+      }
+    } ]
+  },
+  "9d5b6f90cdf6b4cc13ba61aee69a7c6d" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "86878014f5c07503",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069377685,
+        "stop" : 1740069378441,
+        "duration" : 756
+      }
+    } ]
+  },
+  "a81e8db6cc7e57c9eb3e2d65f3d61b31" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "28b2209edf2bdec7",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069381780,
+        "stop" : 1740069381780,
+        "duration" : 0
+      }
+    } ]
+  },
+  "61e31a9f4c3d793b305ee193cb1762f4" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "e7d4319c1aa024b2",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069385548,
+        "stop" : 1740069386430,
+        "duration" : 882
+      }
+    } ]
+  },
+  "abac3d46b4677dcf5d1c1e740f5bb2a8" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "bd611ff26aac7090",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069391925,
+        "stop" : 1740069391925,
+        "duration" : 0
+      }
+    } ]
+  },
+  "dcbe5d6033b9f3a600de171e74956c21" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "545532e69d570d4e",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069395386,
+        "stop" : 1740069395386,
+        "duration" : 0
+      }
+    } ]
+  },
+  "fa6db933e8cf68e71f928da4e49fa72e" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "35edf3b790f5ff3a",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069374648,
+        "stop" : 1740069377681,
+        "duration" : 3033
+      }
+    } ]
+  },
+  "fcf8128eeaf0557adb587dd455157c44" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "a59cb08a72fa4bf5",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069388483,
+        "stop" : 1740069388483,
+        "duration" : 0
+      }
+    } ]
+  },
+  "d4bcdb9d053e8bd443768a41212b1652" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "653d9114849d8714",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069382160,
+        "stop" : 1740069383424,
+        "duration" : 1264
+      }
+    } ]
+  },
+  "4c398def5865126784918bcb56aaf66c" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "962a430078b6b733",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069397652,
+        "stop" : 1740069397652,
+        "duration" : 0
+      }
+    } ]
+  },
+  "a955e51f382706f6638dc597d862692b" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "a7c1530ef8e5314d",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069384413,
+        "stop" : 1740069384413,
+        "duration" : 0
+      }
+    } ]
+  },
+  "33449bfd04df4f4c11512c594b7dfb36" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "ea90de78a5ac5cf7",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069389611,
+        "stop" : 1740069389611,
+        "duration" : 0
+      }
+    } ]
+  },
+  "d0351c95a0c7cd5c25a04b9417365926" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "3ce6f8e2530814fe",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069377679,
+        "stop" : 1740069378392,
+        "duration" : 713
+      }
+    } ]
+  },
+  "4c2b275879fa6575ae6ffc5cf5072748" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "a9c1ba0dee620ea7",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069378443,
+        "stop" : 1740069381784,
+        "duration" : 3341
+      }
+    } ]
+  },
+  "65646a404507e2381414a2d63f640067" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "8e0067e9d16aaec8",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069398894,
+        "stop" : 1740069398894,
+        "duration" : 0
+      }
+    } ]
+  },
+  "9a42a5a25d31140f6368421fd3b80b79" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "4cb06dd47941960e",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069393059,
+        "stop" : 1740069393059,
+        "duration" : 0
+      }
+    } ]
+  },
+  "bf2e33288f74ccdeab75eb1f47b8e781" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "2b6b4610527056b8",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":403,\"detail\":\"The device does not exist or is occupied by another user\"}}",
+      "time" : {
+        "start" : 1740069377374,
+        "stop" : 1740069381449,
+        "duration" : 4075
+      }
+    } ]
+  },
+  "000ea96d31e895772337c1e8ac6aba56" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "5178cb4cdfbcb05b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069378786,
+        "stop" : 1740069379387,
+        "duration" : 601
+      }
+    } ]
+  },
+  "444b977c9ca39415a2c20a15d1336243" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "d3a9cdc5fbff9d14",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069382102,
+        "stop" : 1740069382102,
+        "duration" : 0
+      }
+    } ]
+  },
+  "dea1a1da200601b3feee9d4261fe6a1a" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "3f8120dbffd5f520",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069374075,
+        "stop" : 1740069375256,
+        "duration" : 1181
+      }
+    } ]
+  },
+  "2e38769ce8d180059d7e810314adb04f" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "8582b8fbab0212f6",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069386430,
+        "stop" : 1740069386430,
+        "duration" : 0
+      }
+    } ]
+  },
+  "5c01ff87a4b85d06d8d7613229080cd4" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "c12041f76274da46",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069396506,
+        "stop" : 1740069396506,
+        "duration" : 0
+      }
+    } ]
+  },
+  "3451be8d31515f0a0933bdc06bce2311" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "67e524ed33e09b63",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069391915,
+        "stop" : 1740069391915,
+        "duration" : 0
+      }
+    } ]
+  },
+  "3557cd721ed2f7440a35d661b7fe77b7" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "81b15bb3c018b295",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069393060,
+        "stop" : 1740069393060,
+        "duration" : 0
+      }
+    } ]
+  },
+  "26002f19a022d0b7bde0fd4bc352aab1" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "ec66b340527cad2",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069381135,
+        "stop" : 1740069384372,
+        "duration" : 3237
+      }
+    } ]
+  },
+  "c4227f8c65fb2f036fbed1952e337f56" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "5ddeaa1791c6eca6",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069389602,
+        "stop" : 1740069389602,
+        "duration" : 0
+      }
+    } ]
+  },
+  "cb188e7a96e2272298057c837cc3775d" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "79e8dfef183cf1fe",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069386436,
+        "stop" : 1740069386436,
+        "duration" : 0
+      }
+    } ]
+  },
+  "1d7c651d1f2d7409d7a5522477dcbc00" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "80bae0a6160be339",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069393062,
+        "stop" : 1740069393062,
+        "duration" : 0
+      }
+    } ]
+  },
+  "11cc23b7060b35d2853cbaa691593f6b" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "249d7f35c3d90675",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069374072,
+        "stop" : 1740069375430,
+        "duration" : 1358
+      }
+    } ]
+  },
+  "690b6aceb87cee75a8f04af1728b96f4" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "3079e76901b66ef2",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069375533,
+        "stop" : 1740069376349,
+        "duration" : 816
+      }
+    } ]
+  },
+  "ba89e250756a3712ce1f30970cd2874a" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "e58208ce5020dd23",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069383471,
+        "stop" : 1740069383471,
+        "duration" : 0
+      }
+    } ]
+  },
+  "e8c39d5caa9b0a592dae064f0bd4e6ea" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "9354e47c9c50920",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069380655,
+        "stop" : 1740069382320,
+        "duration" : 1665
+      }
+    } ]
+  },
+  "3eff130e179932d909949aef0b012669" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "d6ea86f91215c29d",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069398885,
+        "stop" : 1740069398885,
+        "duration" : 0
+      }
+    } ]
+  },
+  "1bf791ba4f27cc2c3b5c5ea873c54c76" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "37879a99f7a09453",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069392007,
+        "stop" : 1740069392007,
+        "duration" : 0
+      }
+    } ]
+  },
+  "e3ae436735cc2ebeb2988d9b7524c0f9" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "e5023a6c1ff44cf6",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069384430,
+        "stop" : 1740069384430,
+        "duration" : 0
+      }
+    } ]
+  },
+  "60e7c55a9dc7bd0cce9b951ee49ba5f1" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "8cac05c33b672185",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069390765,
+        "stop" : 1740069390765,
+        "duration" : 0
+      }
+    } ]
+  },
+  "48e3014586894917811b6f3fde20219b" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "a56f223f62fd8149",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069374725,
+        "stop" : 1740069375375,
+        "duration" : 650
+      }
+    } ]
+  },
+  "407ba7f39a47de97197d2b5dd4a07adb" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "252ef93ebcea2c65",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069391908,
+        "stop" : 1740069391908,
+        "duration" : 0
+      }
+    } ]
+  },
+  "eff6ee63a31c09279a3f1619f6ade4c9" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "b7d983fe0835670c",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069385567,
+        "stop" : 1740069385567,
+        "duration" : 0
+      }
+    } ]
+  },
+  "76bc1b97e2ec63ee9bf215a1514f1fc9" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "60ca088daa579f96",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069395455,
+        "stop" : 1740069395455,
+        "duration" : 0
+      }
+    } ]
+  },
+  "c8d16fc3eb8e783bd837b6b6266ffb10" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "e8af65a8d31129a4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069382107,
+        "stop" : 1740069383470,
+        "duration" : 1363
+      }
+    } ]
+  },
+  "71cb2b2251bf0baa054b4ddf06f71d71" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "8304ad11aae65b2b",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069389612,
+        "stop" : 1740069389612,
+        "duration" : 0
+      }
+    } ]
+  },
+  "2bc3bd5240ded305184fd2230a2b9e92" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "e4d4e79b2d936d00",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069387300,
+        "stop" : 1740069387300,
+        "duration" : 0
+      }
+    } ]
+  },
+  "ef9a38e0abbb10305f8f4329bbe22a46" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "2436eff5165ed565",
+      "status" : "failed",
+      "statusDetails" : "AssertionError",
+      "time" : {
+        "start" : 1740069374102,
+        "stop" : 1740069374694,
+        "duration" : 592
+      }
+    } ]
+  },
+  "36cc5966de27a077d95871a251e32b62" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "48154535151209d2",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069395356,
+        "stop" : 1740069395356,
+        "duration" : 0
+      }
+    } ]
+  },
+  "d72a2f4f314cd38118b5581b8b5abefd" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "99eea9ef00460010",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069379977,
+        "stop" : 1740069380712,
+        "duration" : 735
+      }
+    } ]
+  },
+  "d0d670ec7e7151ba8c58957e4961ff69" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "28c6b8ad2ef504e0",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069394218,
+        "stop" : 1740069394218,
+        "duration" : 0
+      }
+    } ]
+  },
+  "180be81da9f47b0e8765c20b1e94c8d4" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "3fb7c46a0f771e53",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069394212,
+        "stop" : 1740069394212,
+        "duration" : 0
+      }
+    } ]
+  },
+  "b69a38bb015627869e96c4ce0eb7eaa3" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "74ec87ffc21a6870",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069390761,
+        "stop" : 1740069390761,
+        "duration" : 0
+      }
+    } ]
+  },
+  "da4b563019a2e7f2be93806e3379cc37" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "8fa01697c8261764",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069393070,
+        "stop" : 1740069393070,
+        "duration" : 0
+      }
+    } ]
+  },
+  "8747b524fdbd4ea36f836db3109480ed" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "beb68072997342dc",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069387313,
+        "stop" : 1740069387313,
+        "duration" : 0
+      }
+    } ]
+  },
+  "1fdc9af4a2e672320987d78a1f0fa1f6" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "186323dbe0dca8eb",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069388452,
+        "stop" : 1740069388452,
+        "duration" : 0
+      }
+    } ]
+  },
+  "107e7dca00036ef8469e3676f03aac62" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "56328f1c6b1feb02",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069383511,
+        "stop" : 1740069383511,
+        "duration" : 0
+      }
+    } ]
+  },
+  "b5d9d29a222188c83a31b3d36c56abd0" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "387e680b2e0ef5ae",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069389630,
+        "stop" : 1740069389630,
+        "duration" : 0
+      }
+    } ]
+  },
+  "389ee58f27067b2f28daa15df48c4e0c" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "4680c9384f47a006",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069381785,
+        "stop" : 1740069381785,
+        "duration" : 0
+      }
+    } ]
+  },
+  "ff6cba2f5d7f1115dce72ceba889b8a6" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "91acd2d5a3c93d80",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069377700,
+        "stop" : 1740069379461,
+        "duration" : 1761
+      }
+    } ]
+  },
+  "dcdfa2031b90acc1c806d15e2dfa1d07" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "79ebffb827e1dc29",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069386432,
+        "stop" : 1740069386432,
+        "duration" : 0
+      }
+    } ]
+  },
+  "644a5881004d1063a48cb890e9c00fd6" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "feb7c842892c6526",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069396504,
+        "stop" : 1740069396504,
+        "duration" : 0
+      }
+    } ]
+  },
+  "d785b1bd01d56315ca4b04d503f16a79" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "655cbaf089a15ab2",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069378381,
+        "stop" : 1740069378784,
+        "duration" : 403
+      }
+    } ]
+  },
+  "759289d5d0105e35439f18953e737d9b" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "8ae8e91a40d22dea",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069381460,
+        "stop" : 1740069382100,
+        "duration" : 640
+      }
+    } ]
+  },
+  "75cad7f1b31ffac50291aa64a663119a" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "fcb2df9867a2edc",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069374112,
+        "stop" : 1740069374764,
+        "duration" : 652
+      }
+    } ]
+  },
+  "5aab5a174a2b79153f4b4a5e4942ce69" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "6a3ed060d834558f",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069398791,
+        "stop" : 1740069398791,
+        "duration" : 0
+      }
+    } ]
+  },
+  "2545c7dfc554625bfcf3d87e9339e033" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "ad987a020f0a42fc",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069396506,
+        "stop" : 1740069396506,
+        "duration" : 0
+      }
+    } ]
+  },
+  "428e77e39be9acd52d0d03297ea6e56b" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "cf1679d481976063",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069399933,
+        "stop" : 1740069399933,
+        "duration" : 0
+      }
+    } ]
+  },
+  "6aa7a56810548aa388d60aab92cb8c4f" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "2d8513e2b9da7233",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069387320,
+        "stop" : 1740069387320,
+        "duration" : 0
+      }
+    } ]
+  },
+  "1b427be86b915cb280b45bd288535325" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "ec92cab0dc4bfd2e",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069395368,
+        "stop" : 1740069395368,
+        "duration" : 0
+      }
+    } ]
+  },
+  "cc2dd027384f36ac00aa15850749ec4b" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "be0b9fd97158bec9",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069396496,
+        "stop" : 1740069396496,
+        "duration" : 0
+      }
+    } ]
+  },
+  "24bda58b68a13efef6da60fdd2d6aedd" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "bcafafa6aebc3183",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069383514,
+        "stop" : 1740069383514,
+        "duration" : 0
+      }
+    } ]
+  },
+  "50e35df0c0ed719d85035ef93cf247bb" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "a5dad48594713e7c",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069397647,
+        "stop" : 1740069397647,
+        "duration" : 0
+      }
+    } ]
+  },
+  "ad04f9fc7e9b25b43a9aabb7ff7fa791" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "9d00495333f92001",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069381845,
+        "stop" : 1740069381845,
+        "duration" : 0
+      }
+    } ]
+  },
+  "63600962ca3d39d0dfef67fbf070e1cc" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "8142493c56046633",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069399929,
+        "stop" : 1740069399929,
+        "duration" : 0
+      }
+    } ]
+  },
+  "b4a0df2ec709561d4b2b4de8ebec8234" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "e8a1dd37c606150d",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069380986,
+        "stop" : 1740069381407,
+        "duration" : 421
+      }
+    } ]
+  },
+  "ee654461e3a459ea190f285e0bce8fad" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "b3797aa6d6cb3942",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069399940,
+        "stop" : 1740069399940,
+        "duration" : 0
+      }
+    } ]
+  },
+  "cc6a5632e8fe75a67c9b37c5bcde816b" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "31f3c64b4ed17189",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069374183,
+        "stop" : 1740069377358,
+        "duration" : 3175
+      }
+    } ]
+  },
+  "e4764cd7893ef5cd88276ac007d29562" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "74877dd0171cba46",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069397646,
+        "stop" : 1740069397646,
+        "duration" : 0
+      }
+    } ]
+  },
+  "00694527296fa78c802becaef3fa59d0" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "4bf933f85a7562f2",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069388544,
+        "stop" : 1740069388544,
+        "duration" : 0
+      }
+    } ]
+  },
+  "367639153e6c3837b6c5b81ccd42e556" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "85055445239a8231",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069377704,
+        "stop" : 1740069379166,
+        "duration" : 1462
+      }
+    } ]
+  },
+  "83c7f6a3561930430e6a8636d3180c48" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "d920970b53a490b7",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069386525,
+        "stop" : 1740069386525,
+        "duration" : 0
+      }
+    } ]
+  },
+  "bb518c3504c7592deb61dabed0939057" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "37235b370afa2c45",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069401070,
+        "stop" : 1740069401070,
+        "duration" : 0
+      }
+    } ]
+  },
+  "7c121fa7a791d5caaed225a8e68b6544" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "ea5913426e6c2560",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069374766,
+        "stop" : 1740069375367,
+        "duration" : 601
+      }
+    } ]
+  },
+  "6aa59f6b31180b72883d04de920fabd7" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "bf5318604c9021e6",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069388455,
+        "stop" : 1740069388455,
+        "duration" : 0
+      }
+    } ]
+  },
+  "5629391ca3cc02c421e81bc50baa4a51" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "5ade94ed7aafdfd0",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+      "time" : {
+        "start" : 1740069398789,
+        "stop" : 1740069398789,
+        "duration" : 0
+      }
+    } ]
+  }
+}

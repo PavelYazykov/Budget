@@ -1,0 +1,231 @@
+{
+  "uid" : "31f3c64b4ed17189",
+  "name" : "test_01",
+  "fullName" : "Wallet.tests.Delete_wallet.test_delete_wallet.TestDeleteWallet#test_01",
+  "historyId" : "cc6a5632e8fe75a67c9b37c5bcde816b",
+  "time" : {
+    "start" : 1740069374183,
+    "stop" : 1740069377358,
+    "duration" : 3175
+  },
+  "description" : "Удаление кошелька - Удаление существующего счета",
+  "descriptionHtml" : "<p>Удаление кошелька - Удаление существующего счета</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "auth_fixture",
+    "time" : {
+      "start" : 1740069370539,
+      "stop" : 1740069374182,
+      "duration" : 3643
+    },
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Авторизация",
+      "time" : {
+        "start" : 1740069370539,
+        "stop" : 1740069374182,
+        "duration" : 3643
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Проверка статус кода",
+      "time" : {
+        "start" : 1740069374182,
+        "stop" : 1740069374182,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 2,
+    "hasContent" : true
+  } ],
+  "testStage" : {
+    "description" : "Удаление кошелька - Удаление существующего счета",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Создание счета",
+      "time" : {
+        "start" : 1740069374183,
+        "stop" : 1740069375160,
+        "duration" : 977
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Проверка статус кода",
+      "time" : {
+        "start" : 1740069375160,
+        "stop" : 1740069375160,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Получение данных",
+      "time" : {
+        "start" : 1740069375160,
+        "stop" : 1740069375161,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Удаление выбранного кошелька",
+      "time" : {
+        "start" : 1740069375161,
+        "stop" : 1740069375834,
+        "duration" : 673
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Проверка статус кода",
+      "time" : {
+        "start" : 1740069375834,
+        "stop" : 1740069375834,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Получение счета по id",
+      "time" : {
+        "start" : 1740069375834,
+        "stop" : 1740069377357,
+        "duration" : 1523
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Проверка статус кода",
+      "time" : {
+        "start" : 1740069377357,
+        "stop" : 1740069377357,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "815d5715aa497a0",
+      "name" : "stdout",
+      "source" : "815d5715aa497a0.txt",
+      "type" : "text/plain",
+      "size" : 927
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 7,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Delete/api/v1/wallet/{wallet_id}/ Удаление кошелька"
+  }, {
+    "name" : "tag",
+    "value" : "Wallet"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Wallet.tests.Delete_wallet"
+  }, {
+    "name" : "suite",
+    "value" : "test_delete_wallet"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestDeleteWallet"
+  }, {
+    "name" : "host",
+    "value" : "5c5b97069e41"
+  }, {
+    "name" : "thread",
+    "value" : "1-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "Wallet.tests.Delete_wallet.test_delete_wallet"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "Wallet" ]
+  },
+  "source" : "31f3c64b4ed17189.json",
+  "parameterValues" : [ ]
+}

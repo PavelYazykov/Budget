@@ -1,0 +1,114 @@
+{
+  "total" : 15,
+  "items" : [ {
+    "uid" : "2a4fb41c48a21cdc1d939b31dc1bcc19",
+    "name" : "Settings.tests.Patch_settings",
+    "statistic" : {
+      "failed" : 10,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 12
+    }
+  }, {
+    "uid" : "871c7bfe7923739674a9ddfc24ae8d72",
+    "name" : "Category.tests.Get_category",
+    "statistic" : {
+      "failed" : 9,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 4,
+      "unknown" : 0,
+      "total" : 13
+    }
+  }, {
+    "uid" : "1e4b9023fd60f60044ff8677d12fb57c",
+    "name" : "Wallet.tests.Delete_wallet",
+    "statistic" : {
+      "failed" : 9,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 11
+    }
+  }, {
+    "uid" : "81e1184aacd3ecd0e90c5cb0db4f2a68",
+    "name" : "Users.tests.Patch_users",
+    "statistic" : {
+      "failed" : 9,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 9
+    }
+  }, {
+    "uid" : "ff35e8ee4b4c5fd0b66dc89252b25102",
+    "name" : "Personal_transaction.tests.Delete_personal_transaction",
+    "statistic" : {
+      "failed" : 6,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 8
+    }
+  }, {
+    "uid" : "25ffff36543b2b416eb83e0f801ea3dc",
+    "name" : "Subcategory.tests.Delete_subcategory",
+    "statistic" : {
+      "failed" : 5,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 4,
+      "unknown" : 0,
+      "total" : 9
+    }
+  }, {
+    "uid" : "b9a75afcbc4481222522e17985a8b06d",
+    "name" : "Session.tests.Post_logout_device",
+    "statistic" : {
+      "failed" : 5,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 5
+    }
+  }, {
+    "uid" : "45614aa251be6fffbf22ec5772ab5f08",
+    "name" : "Session.tests.Post_logout_all",
+    "statistic" : {
+      "failed" : 4,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 5
+    }
+  }, {
+    "uid" : "743ae7e87f33df4a97d9a0489acd6d8e",
+    "name" : "Analytics.tests.Get_analytics_payment_analytics",
+    "statistic" : {
+      "failed" : 4,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 5
+    }
+  }, {
+    "uid" : "9f7fabcb7544ff142a766b59d787c37e",
+    "name" : "Subcategory.tests.Get_subcategory",
+    "statistic" : {
+      "failed" : 4,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 4
+    }
+  } ]
+}

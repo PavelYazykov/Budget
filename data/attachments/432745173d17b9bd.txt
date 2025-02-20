@@ -1,0 +1,4 @@
+Успешно статус код: 200
+ {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5YzA1ZGUwNC03MDU5LTQ5YmMtOWJmOC1mY2M4Njk4MzUyNDUiLCJhdWQiOlsiZmFzdGFwaS11c2VyczphdXRoIl0sImV4cCI6MTc0MDA3Mjk3N30.mE_Cm_mvvWBsRl115zbV4QHSLW-bnSe8CONs6KADezY","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5YzA1ZGUwNC03MDU5LTQ5YmMtOWJmOC1mY2M4Njk4MzUyNDUiLCJleHAiOjE3NDA5MzMzNzcsImp0aSI6IjQyNjZkODQwLTNmYzQtNDljZS1hOWIzLTJjZjQxODM2YTZiMCIsImRldmljZSI6IjExMTExIn0.LhJ3I3nqcq1p_ym1lr4RKNR1dAusiCX33C7pZqK41cE","token_type":"bearer"}
+Успешно статус код: 200
+ {"telegram_link":"https://t.me/GoD_notif_bot?start=9c05de04-7059-49bc-9bf8-fcc869835245"}

@@ -1,0 +1,171 @@
+{
+  "uid" : "fcb2df9867a2edc",
+  "name" : "test_01",
+  "fullName" : "Settings.tests.Get_settings.test_get_settings.TestGetSettings#test_01",
+  "historyId" : "75cad7f1b31ffac50291aa64a663119a",
+  "time" : {
+    "start" : 1740069374112,
+    "stop" : 1740069374764,
+    "duration" : 652
+  },
+  "description" : "Запрос настроек (авторизованный пользователь)",
+  "descriptionHtml" : "<p>Запрос настроек (авторизованный пользователь)</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "auth_fixture",
+    "time" : {
+      "start" : 1740069370981,
+      "stop" : 1740069374111,
+      "duration" : 3130
+    },
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Авторизация",
+      "time" : {
+        "start" : 1740069370981,
+        "stop" : 1740069374111,
+        "duration" : 3130
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Проверка статус кода",
+      "time" : {
+        "start" : 1740069374111,
+        "stop" : 1740069374111,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 2,
+    "hasContent" : true
+  } ],
+  "testStage" : {
+    "description" : "Запрос настроек (авторизованный пользователь)",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Получение настроек пользователя",
+      "time" : {
+        "start" : 1740069374112,
+        "stop" : 1740069374764,
+        "duration" : 652
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Проверка статус кода",
+      "time" : {
+        "start" : 1740069374764,
+        "stop" : 1740069374764,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Проверка наличия обязательных полей",
+      "time" : {
+        "start" : 1740069374764,
+        "stop" : 1740069374764,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "f461254a97759097",
+      "name" : "stdout",
+      "source" : "f461254a97759097.txt",
+      "type" : "text/plain",
+      "size" : 1039
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 3,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Get/api/v1/settings/my/ Настройки авторизованного пользователя"
+  }, {
+    "name" : "tag",
+    "value" : "Settings"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Settings.tests.Get_settings"
+  }, {
+    "name" : "suite",
+    "value" : "test_get_settings"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestGetSettings"
+  }, {
+    "name" : "host",
+    "value" : "e06d3cba00e5"
+  }, {
+    "name" : "thread",
+    "value" : "1-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "Settings.tests.Get_settings.test_get_settings"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "Settings" ]
+  },
+  "source" : "fcb2df9867a2edc.json",
+  "parameterValues" : [ ]
+}

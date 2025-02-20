@@ -1,0 +1,119 @@
+{
+  "uid" : "c862f19b9fd1c305",
+  "name" : "test_06",
+  "fullName" : "Personal_transaction.tests.Delete_personal_transaction.test_delete_pt.TestPatchCommonCheck#test_06",
+  "historyId" : "1c48ecdf3b4de34496909895c3a7d8aa",
+  "time" : {
+    "start" : 1740069394321,
+    "stop" : 1740069394321,
+    "duration" : 0
+  },
+  "description" : "Удаление транзакции с id - Поле отсутствует",
+  "descriptionHtml" : "<p>Удаление транзакции с id - Поле отсутствует</p>\n",
+  "status" : "failed",
+  "statusMessage" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+  "statusTrace" : "@pytest.fixture()\n    def auth_fixture():\n        result = Auth.auth()\n>       Checking.check_statuscode(result, 200)\n\nconftest.py:21: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nresult = <Response [404]>, status_code = 200\n\n    @staticmethod\n    def check_statuscode(result, status_code):\n        with allure.step('Проверка статус кода'):\n>           assert result.status_code == status_code, f\"Ошибка {result.text}\"\nE           AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}\n\ncommon_methods/checking.py:13: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "auth_fixture",
+    "time" : {
+      "start" : 1740069394321,
+      "stop" : 1740069396495,
+      "duration" : 2174
+    },
+    "status" : "failed",
+    "statusMessage" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}\n",
+    "statusTrace" : "  File \"/usr/local/lib/python3.12/site-packages/pluggy/_callers.py\", line 167, in _multicall\n    teardown.throw(outcome._exception)\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/setuponly.py\", line 36, in pytest_fixture_setup\n    return (yield)\n            ^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/pluggy/_callers.py\", line 103, in _multicall\n    res = hook_impl.function(*args)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py\", line 1139, in pytest_fixture_setup\n    result = call_fixture_func(fixturefunc, request, kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py\", line 897, in call_fixture_func\n    fixture_result = fixturefunc(**kwargs)\n                     ^^^^^^^^^^^^^^^^^^^^^\n  File \"/Budget_api/conftest.py\", line 21, in auth_fixture\n    Checking.check_statuscode(result, 200)\n  File \"/Budget_api/common_methods/checking.py\", line 13, in check_statuscode\n    assert result.status_code == status_code, f\"Ошибка {result.text}\"\n",
+    "steps" : [ {
+      "name" : "Авторизация",
+      "time" : {
+        "start" : 1740069394321,
+        "stop" : 1740069396494,
+        "duration" : 2173
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Проверка статус кода",
+      "time" : {
+        "start" : 1740069396495,
+        "stop" : 1740069396495,
+        "duration" : 0
+      },
+      "status" : "failed",
+      "statusMessage" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}\n",
+      "statusTrace" : "  File \"/Budget_api/common_methods/checking.py\", line 13, in check_statuscode\n    assert result.status_code == status_code, f\"Ошибка {result.text}\"\n",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : true,
+      "stepsCount" : 0,
+      "hasContent" : true
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 2,
+    "hasContent" : true
+  } ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Delete /api/v1/personal_transaction/{personal_transaction_id}/ Редактирование транзакций, общие проверки"
+  }, {
+    "name" : "tag",
+    "value" : "Personal_transaction"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Personal_transaction.tests.Delete_personal_transaction"
+  }, {
+    "name" : "suite",
+    "value" : "test_delete_pt"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPatchCommonCheck"
+  }, {
+    "name" : "host",
+    "value" : "791fd2eee5f8"
+  }, {
+    "name" : "thread",
+    "value" : "1-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "Personal_transaction.tests.Delete_personal_transaction.test_delete_pt"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ "Personal_transaction" ]
+  },
+  "source" : "c862f19b9fd1c305.json",
+  "parameterValues" : [ ]
+}

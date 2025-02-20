@@ -1,0 +1,171 @@
+{
+  "uid" : "9354e47c9c50920",
+  "name" : "test_02",
+  "fullName" : "Settings.tests.Patch_settings.test_patch_settings_analytics.TestPatchSettingsAnalytics#test_02",
+  "historyId" : "e8c39d5caa9b0a592dae064f0bd4e6ea",
+  "time" : {
+    "start" : 1740069380655,
+    "stop" : 1740069382320,
+    "duration" : 1665
+  },
+  "description" : "поле analytics - значение False",
+  "descriptionHtml" : "<p>поле analytics - значение False</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "auth_fixture",
+    "time" : {
+      "start" : 1740069378443,
+      "stop" : 1740069380655,
+      "duration" : 2212
+    },
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Авторизация",
+      "time" : {
+        "start" : 1740069378443,
+        "stop" : 1740069380654,
+        "duration" : 2211
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Проверка статус кода",
+      "time" : {
+        "start" : 1740069380654,
+        "stop" : 1740069380654,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 2,
+    "hasContent" : true
+  } ],
+  "testStage" : {
+    "description" : "поле analytics - значение False",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Изменение настроек пользователя",
+      "time" : {
+        "start" : 1740069380655,
+        "stop" : 1740069382320,
+        "duration" : 1665
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Проверка статус кода",
+      "time" : {
+        "start" : 1740069382320,
+        "stop" : 1740069382320,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Получение данных",
+      "time" : {
+        "start" : 1740069382320,
+        "stop" : 1740069382320,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "e8404fc03e4da431",
+      "name" : "stdout",
+      "source" : "e8404fc03e4da431.txt",
+      "type" : "text/plain",
+      "size" : 999
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 3,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Patch/api/v1/settings/my/ Настройки пользователя - Проверка поля analytics"
+  }, {
+    "name" : "tag",
+    "value" : "Settings"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Settings.tests.Patch_settings"
+  }, {
+    "name" : "suite",
+    "value" : "test_patch_settings_analytics"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPatchSettingsAnalytics"
+  }, {
+    "name" : "host",
+    "value" : "e06d3cba00e5"
+  }, {
+    "name" : "thread",
+    "value" : "1-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "Settings.tests.Patch_settings.test_patch_settings_analytics"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "Settings" ]
+  },
+  "source" : "9354e47c9c50920.json",
+  "parameterValues" : [ ]
+}

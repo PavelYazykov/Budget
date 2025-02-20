@@ -1,0 +1,4 @@
+Успешно статус код: 200
+ {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5YzA1ZGUwNC03MDU5LTQ5YmMtOWJmOC1mY2M4Njk4MzUyNDUiLCJhdWQiOlsiZmFzdGFwaS11c2VyczphdXRoIl0sImV4cCI6MTc0MDA3Mjk3N30.mE_Cm_mvvWBsRl115zbV4QHSLW-bnSe8CONs6KADezY","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5YzA1ZGUwNC03MDU5LTQ5YmMtOWJmOC1mY2M4Njk4MzUyNDUiLCJleHAiOjE3NDA5MzMzNzcsImp0aSI6IjlkNGM2NGZjLTVmYjMtNDkyNS1hMTRjLWE2MjdkNzU2MTU5ZCIsImRldmljZSI6IjExMTExIn0.-HGvxXT8C0jMPPSw1fj2e07SWengkRLf5-GgYas03UM","token_type":"bearer"}
+Успешно статус код: 404
+ {"detail":"Subcategory is not found"}

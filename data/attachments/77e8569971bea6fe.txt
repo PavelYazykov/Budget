@@ -1,0 +1,13 @@
+Успешно статус код: 200
+ {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5YzA1ZGUwNC03MDU5LTQ5YmMtOWJmOC1mY2M4Njk4MzUyNDUiLCJhdWQiOlsiZmFzdGFwaS11c2VyczphdXRoIl0sImV4cCI6MTc0MDA3Mjk3OH0.Z90AJHt6vRXzjgUtgJMNwOgjnYWJx4u6nR5Da-KDm_E","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5YzA1ZGUwNC03MDU5LTQ5YmMtOWJmOC1mY2M4Njk4MzUyNDUiLCJleHAiOjE3NDA5MzMzNzgsImp0aSI6IjlhYzc5NmFiLWNhYzQtNDU2Zi1iMTljLTNhOTJmYjZjZDg0YiIsImRldmljZSI6IjExMTExIn0.iIvt3RMFoyjARBUB9VlVh3Aodu63TcxVphLyLD5z7D0","token_type":"bearer"}
+Успешно статус код: 201
+ {"meta":{},"data":{"name":"w_2","currency_id":2,"id":833,"goal_is_achieved":false,"amount":"0.00","is_archived":false}}
+Успешно статус код: 200
+ {"meta":{},"data":{"name":"w_2","currency_id":2,"id":833,"goal_is_achieved":false,"amount":"0.00","is_archived":true}}
+{'meta': {}, 'data': {'name': 'w_2', 'currency_id': 2, 'id': 833, 'goal_is_achieved': False, 'amount': '0.00', 'is_archived': True}}
+False
+Wallet c id 833 удален
+Успешно статус код: 204
+ 
+Успешно статус код: 403
+ {"errors":{"status":403,"detail":"This record does not exist/this record belongs to another user"}}

@@ -1,0 +1,119 @@
+{
+  "uid" : "60ca088daa579f96",
+  "name" : "test_06",
+  "fullName" : "Users.tests.Patch_users.test_patch_users_date_of_birth.TestPatchUsersEmail#test_06",
+  "historyId" : "76bc1b97e2ec63ee9bf215a1514f1fc9",
+  "time" : {
+    "start" : 1740069395455,
+    "stop" : 1740069395455,
+    "duration" : 0
+  },
+  "description" : "date of birth - Неверный порядок формата даты (дд-мм-гггг)",
+  "descriptionHtml" : "<p>date of birth - Неверный порядок формата даты (дд-мм-гггг)</p>\n",
+  "status" : "failed",
+  "statusMessage" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}",
+  "statusTrace" : "@pytest.fixture()\n    def auth_fixture():\n        result = Auth.auth()\n>       Checking.check_statuscode(result, 200)\n\nconftest.py:21: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nresult = <Response [404]>, status_code = 200\n\n    @staticmethod\n    def check_statuscode(result, status_code):\n        with allure.step('Проверка статус кода'):\n>           assert result.status_code == status_code, f\"Ошибка {result.text}\"\nE           AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}\n\ncommon_methods/checking.py:13: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "auth_fixture",
+    "time" : {
+      "start" : 1740069395455,
+      "stop" : 1740069397632,
+      "duration" : 2177
+    },
+    "status" : "failed",
+    "statusMessage" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}\n",
+    "statusTrace" : "  File \"/usr/local/lib/python3.12/site-packages/pluggy/_callers.py\", line 167, in _multicall\n    teardown.throw(outcome._exception)\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/setuponly.py\", line 36, in pytest_fixture_setup\n    return (yield)\n            ^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/pluggy/_callers.py\", line 103, in _multicall\n    res = hook_impl.function(*args)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py\", line 1139, in pytest_fixture_setup\n    result = call_fixture_func(fixturefunc, request, kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py\", line 897, in call_fixture_func\n    fixture_result = fixturefunc(**kwargs)\n                     ^^^^^^^^^^^^^^^^^^^^^\n  File \"/Budget_api/conftest.py\", line 21, in auth_fixture\n    Checking.check_statuscode(result, 200)\n  File \"/Budget_api/common_methods/checking.py\", line 13, in check_statuscode\n    assert result.status_code == status_code, f\"Ошибка {result.text}\"\n",
+    "steps" : [ {
+      "name" : "Авторизация",
+      "time" : {
+        "start" : 1740069395455,
+        "stop" : 1740069397631,
+        "duration" : 2176
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Проверка статус кода",
+      "time" : {
+        "start" : 1740069397631,
+        "stop" : 1740069397632,
+        "duration" : 1
+      },
+      "status" : "failed",
+      "statusMessage" : "AssertionError: Ошибка {\"errors\":{\"status\":404,\"detail\":\"User does not exist\"}}\n",
+      "statusTrace" : "  File \"/Budget_api/common_methods/checking.py\", line 13, in check_statuscode\n    assert result.status_code == status_code, f\"Ошибка {result.text}\"\n",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : true,
+      "stepsCount" : 0,
+      "hasContent" : true
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 2,
+    "hasContent" : true
+  } ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Patch/users/me Проверка поля data_of_birth"
+  }, {
+    "name" : "tag",
+    "value" : "User"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Users.tests.Patch_users"
+  }, {
+    "name" : "suite",
+    "value" : "test_patch_users_date_of_birth"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPatchUsersEmail"
+  }, {
+    "name" : "host",
+    "value" : "942e224497fe"
+  }, {
+    "name" : "thread",
+    "value" : "1-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "Users.tests.Patch_users.test_patch_users_date_of_birth"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ "User" ]
+  },
+  "source" : "60ca088daa579f96.json",
+  "parameterValues" : [ ]
+}

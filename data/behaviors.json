@@ -1,0 +1,1333 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "children" : [ {
+    "name" : "Delete/api/v1/subcategory/ - Удаление подкатегории - Проверка поля subcategory_id",
+    "children" : [ {
+      "name" : "test_01",
+      "uid" : "249d7f35c3d90675",
+      "parentUid" : "7fc4ad60823564b475d31a1a2fea7e07",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069374072,
+        "stop" : 1740069375430,
+        "duration" : 1358
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_02",
+      "uid" : "3ce6f8e2530814fe",
+      "parentUid" : "7fc4ad60823564b475d31a1a2fea7e07",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069377679,
+        "stop" : 1740069378392,
+        "duration" : 713
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_03",
+      "uid" : "99eea9ef00460010",
+      "parentUid" : "7fc4ad60823564b475d31a1a2fea7e07",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069379977,
+        "stop" : 1740069380712,
+        "duration" : 735
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_04",
+      "uid" : "8ae8e91a40d22dea",
+      "parentUid" : "7fc4ad60823564b475d31a1a2fea7e07",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069381460,
+        "stop" : 1740069382100,
+        "duration" : 640
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_05",
+      "uid" : "d3a9cdc5fbff9d14",
+      "parentUid" : "7fc4ad60823564b475d31a1a2fea7e07",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069382102,
+        "stop" : 1740069382102,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_06",
+      "uid" : "c59a8f88233ea3b3",
+      "parentUid" : "7fc4ad60823564b475d31a1a2fea7e07",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069384414,
+        "stop" : 1740069384414,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_07",
+      "uid" : "79e8dfef183cf1fe",
+      "parentUid" : "7fc4ad60823564b475d31a1a2fea7e07",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069386436,
+        "stop" : 1740069386436,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "7fc4ad60823564b475d31a1a2fea7e07"
+  }, {
+    "name" : "GET /api/v1/moneybox/ Получение списка всех копилок",
+    "children" : [ {
+      "name" : "test_01",
+      "uid" : "3f8120dbffd5f520",
+      "parentUid" : "c056a5ea1184f48bde21f2f7192861c0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069374075,
+        "stop" : 1740069375256,
+        "duration" : 1181
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_02",
+      "uid" : "91acd2d5a3c93d80",
+      "parentUid" : "c056a5ea1184f48bde21f2f7192861c0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069377700,
+        "stop" : 1740069379461,
+        "duration" : 1761
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_03",
+      "uid" : "653d9114849d8714",
+      "parentUid" : "c056a5ea1184f48bde21f2f7192861c0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069382160,
+        "stop" : 1740069383424,
+        "duration" : 1264
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_04",
+      "uid" : "e7d4319c1aa024b2",
+      "parentUid" : "c056a5ea1184f48bde21f2f7192861c0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069385548,
+        "stop" : 1740069386430,
+        "duration" : 882
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "c056a5ea1184f48bde21f2f7192861c0"
+  }, {
+    "name" : "Get/active_sessions/ Получение списка активных сессий пользователя",
+    "children" : [ {
+      "name" : "test_01",
+      "uid" : "2436eff5165ed565",
+      "parentUid" : "636502ba5ea59a1093a6b2e6a30d9950",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069374102,
+        "stop" : 1740069374694,
+        "duration" : 592
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_02",
+      "uid" : "a56f223f62fd8149",
+      "parentUid" : "636502ba5ea59a1093a6b2e6a30d9950",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069374725,
+        "stop" : 1740069375375,
+        "duration" : 650
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "636502ba5ea59a1093a6b2e6a30d9950"
+  }, {
+    "name" : "Get/api/v1/settings/my/ Настройки авторизованного пользователя",
+    "children" : [ {
+      "name" : "test_01",
+      "uid" : "fcb2df9867a2edc",
+      "parentUid" : "1e18915ac3bed66e3aff59769310f699",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069374112,
+        "stop" : 1740069374764,
+        "duration" : 652
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_02",
+      "uid" : "ea5913426e6c2560",
+      "parentUid" : "1e18915ac3bed66e3aff59769310f699",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069374766,
+        "stop" : 1740069375367,
+        "duration" : 601
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "1e18915ac3bed66e3aff59769310f699"
+  }, {
+    "name" : "Delete/api/v1/wallet/{wallet_id}/ Удаление кошелька",
+    "children" : [ {
+      "name" : "test_01",
+      "uid" : "31f3c64b4ed17189",
+      "parentUid" : "6367d2f4334e7f3bc46c92916ee0f92d",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069374183,
+        "stop" : 1740069377358,
+        "duration" : 3175
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_02",
+      "uid" : "a9c1ba0dee620ea7",
+      "parentUid" : "6367d2f4334e7f3bc46c92916ee0f92d",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069378443,
+        "stop" : 1740069381784,
+        "duration" : 3341
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_03",
+      "uid" : "4680c9384f47a006",
+      "parentUid" : "6367d2f4334e7f3bc46c92916ee0f92d",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069381785,
+        "stop" : 1740069381785,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_04",
+      "uid" : "bcafafa6aebc3183",
+      "parentUid" : "6367d2f4334e7f3bc46c92916ee0f92d",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069383514,
+        "stop" : 1740069383514,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_05",
+      "uid" : "3ad67baac11df589",
+      "parentUid" : "6367d2f4334e7f3bc46c92916ee0f92d",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069385562,
+        "stop" : 1740069385562,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_06",
+      "uid" : "beb68072997342dc",
+      "parentUid" : "6367d2f4334e7f3bc46c92916ee0f92d",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069387313,
+        "stop" : 1740069387313,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_07",
+      "uid" : "ea90de78a5ac5cf7",
+      "parentUid" : "6367d2f4334e7f3bc46c92916ee0f92d",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069389611,
+        "stop" : 1740069389611,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_08",
+      "uid" : "67e524ed33e09b63",
+      "parentUid" : "6367d2f4334e7f3bc46c92916ee0f92d",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069391915,
+        "stop" : 1740069391915,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_09",
+      "uid" : "3fb7c46a0f771e53",
+      "parentUid" : "6367d2f4334e7f3bc46c92916ee0f92d",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069394212,
+        "stop" : 1740069394212,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_10",
+      "uid" : "c12041f76274da46",
+      "parentUid" : "6367d2f4334e7f3bc46c92916ee0f92d",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069396506,
+        "stop" : 1740069396506,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_11",
+      "uid" : "6a3ed060d834558f",
+      "parentUid" : "6367d2f4334e7f3bc46c92916ee0f92d",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069398791,
+        "stop" : 1740069398791,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "6367d2f4334e7f3bc46c92916ee0f92d"
+  }, {
+    "name" : "Get/api/v1/category/ Получение списка категорий - общие проверки",
+    "children" : [ {
+      "name" : "test_01",
+      "uid" : "46bcfc0b483af6aa",
+      "parentUid" : "bfb99aa89b51da6075e50e03d16242f2",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069374187,
+        "stop" : 1740069375531,
+        "duration" : 1344
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_02",
+      "uid" : "3079e76901b66ef2",
+      "parentUid" : "bfb99aa89b51da6075e50e03d16242f2",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069375533,
+        "stop" : 1740069376349,
+        "duration" : 816
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "bfb99aa89b51da6075e50e03d16242f2"
+  }, {
+    "name" : "Delete /api/v1/personal_transaction/{personal_transaction_id}/ Редактирование транзакций, общие проверки",
+    "children" : [ {
+      "name" : "test_01",
+      "uid" : "35edf3b790f5ff3a",
+      "parentUid" : "748742bec18ce815afd9b6ad66229467",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069374648,
+        "stop" : 1740069377681,
+        "duration" : 3033
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_02",
+      "uid" : "ec66b340527cad2",
+      "parentUid" : "748742bec18ce815afd9b6ad66229467",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069381135,
+        "stop" : 1740069384372,
+        "duration" : 3237
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_03",
+      "uid" : "3c4fde02d20abb11",
+      "parentUid" : "748742bec18ce815afd9b6ad66229467",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069387287,
+        "stop" : 1740069387287,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_04",
+      "uid" : "387e680b2e0ef5ae",
+      "parentUid" : "748742bec18ce815afd9b6ad66229467",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069389630,
+        "stop" : 1740069389630,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_05",
+      "uid" : "252ef93ebcea2c65",
+      "parentUid" : "748742bec18ce815afd9b6ad66229467",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069391908,
+        "stop" : 1740069391908,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_06",
+      "uid" : "c862f19b9fd1c305",
+      "parentUid" : "748742bec18ce815afd9b6ad66229467",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069394321,
+        "stop" : 1740069394321,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_07",
+      "uid" : "ad987a020f0a42fc",
+      "parentUid" : "748742bec18ce815afd9b6ad66229467",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069396506,
+        "stop" : 1740069396506,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_08",
+      "uid" : "d6ea86f91215c29d",
+      "parentUid" : "748742bec18ce815afd9b6ad66229467",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069398885,
+        "stop" : 1740069398885,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "748742bec18ce815afd9b6ad66229467"
+  }, {
+    "name" : "test_01",
+    "uid" : "2b6b4610527056b8",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "failed",
+    "time" : {
+      "start" : 1740069377374,
+      "stop" : 1740069381449,
+      "duration" : 4075
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "Patch/api/v1/settings/my/ Настройки пользователя - Проверка поля analytics",
+    "children" : [ {
+      "name" : "test_01",
+      "uid" : "86878014f5c07503",
+      "parentUid" : "94c2158c520e4dd77a591af8e61bd75b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069377685,
+        "stop" : 1740069378441,
+        "duration" : 756
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_02",
+      "uid" : "9354e47c9c50920",
+      "parentUid" : "94c2158c520e4dd77a591af8e61bd75b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069380655,
+        "stop" : 1740069382320,
+        "duration" : 1665
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_03",
+      "uid" : "ee6b67415181fd85",
+      "parentUid" : "94c2158c520e4dd77a591af8e61bd75b",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069382321,
+        "stop" : 1740069382321,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_04",
+      "uid" : "56328f1c6b1feb02",
+      "parentUid" : "94c2158c520e4dd77a591af8e61bd75b",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069383511,
+        "stop" : 1740069383511,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_05",
+      "uid" : "b7d983fe0835670c",
+      "parentUid" : "94c2158c520e4dd77a591af8e61bd75b",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069385567,
+        "stop" : 1740069385567,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_06",
+      "uid" : "2d8513e2b9da7233",
+      "parentUid" : "94c2158c520e4dd77a591af8e61bd75b",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069387320,
+        "stop" : 1740069387320,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_07",
+      "uid" : "5ddeaa1791c6eca6",
+      "parentUid" : "94c2158c520e4dd77a591af8e61bd75b",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069389602,
+        "stop" : 1740069389602,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "94c2158c520e4dd77a591af8e61bd75b"
+  }, {
+    "name" : "Get/api/v1/category/ Получение списка категорий - проверка поля excluded",
+    "children" : [ {
+      "name" : "test_01",
+      "uid" : "85055445239a8231",
+      "parentUid" : "04a6c55b65de83b9df0590d455c88244",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069377704,
+        "stop" : 1740069379166,
+        "duration" : 1462
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_02",
+      "uid" : "58315464433c5022",
+      "parentUid" : "04a6c55b65de83b9df0590d455c88244",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069380971,
+        "stop" : 1740069381843,
+        "duration" : 872
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_03",
+      "uid" : "9d00495333f92001",
+      "parentUid" : "04a6c55b65de83b9df0590d455c88244",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069381845,
+        "stop" : 1740069381845,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_04",
+      "uid" : "e5023a6c1ff44cf6",
+      "parentUid" : "04a6c55b65de83b9df0590d455c88244",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069384430,
+        "stop" : 1740069384430,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_05",
+      "uid" : "8582b8fbab0212f6",
+      "parentUid" : "04a6c55b65de83b9df0590d455c88244",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069386430,
+        "stop" : 1740069386430,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_06",
+      "uid" : "4bf933f85a7562f2",
+      "parentUid" : "04a6c55b65de83b9df0590d455c88244",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069388544,
+        "stop" : 1740069388544,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_07",
+      "uid" : "af7c728b1a37394a",
+      "parentUid" : "04a6c55b65de83b9df0590d455c88244",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069390772,
+        "stop" : 1740069390772,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "04a6c55b65de83b9df0590d455c88244"
+  }, {
+    "name" : "Get/users/get_telegram_link - ссылка на телеграм-бота, напоминающего пользователю о предстоящих платежах",
+    "children" : [ {
+      "name" : "test_01",
+      "uid" : "655cbaf089a15ab2",
+      "parentUid" : "4794553dacd36467fe8b5a9148c47a11",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069378381,
+        "stop" : 1740069378784,
+        "duration" : 403
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_02",
+      "uid" : "5178cb4cdfbcb05b",
+      "parentUid" : "4794553dacd36467fe8b5a9148c47a11",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069378786,
+        "stop" : 1740069379387,
+        "duration" : 601
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "4794553dacd36467fe8b5a9148c47a11"
+  }, {
+    "name" : "Get/users/me Получение информации о текущем пользователе",
+    "children" : [ {
+      "name" : "test_01",
+      "uid" : "e8a1dd37c606150d",
+      "parentUid" : "eeb650a23561b9c729474ddb8614a326",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069380986,
+        "stop" : 1740069381407,
+        "duration" : 421
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_02",
+      "uid" : "1dc816ea87445321",
+      "parentUid" : "eeb650a23561b9c729474ddb8614a326",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069381409,
+        "stop" : 1740069381779,
+        "duration" : 370
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "eeb650a23561b9c729474ddb8614a326"
+  }, {
+    "name" : "Get/api/v1/analytics/payments_analytics - аналитика исполненных и пропущенных регулярных платежей - общие проверки",
+    "children" : [ {
+      "name" : "test_01",
+      "uid" : "599919a6f564dae6",
+      "parentUid" : "bd118aa428aec429cc9913ec93175314",
+      "status" : "passed",
+      "time" : {
+        "start" : 1740069381379,
+        "stop" : 1740069390855,
+        "duration" : 9476
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_02",
+      "uid" : "81b15bb3c018b295",
+      "parentUid" : "bd118aa428aec429cc9913ec93175314",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069393060,
+        "stop" : 1740069393060,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_03",
+      "uid" : "545532e69d570d4e",
+      "parentUid" : "bd118aa428aec429cc9913ec93175314",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069395386,
+        "stop" : 1740069395386,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_04",
+      "uid" : "74877dd0171cba46",
+      "parentUid" : "bd118aa428aec429cc9913ec93175314",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069397646,
+        "stop" : 1740069397646,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_05",
+      "uid" : "cf1679d481976063",
+      "parentUid" : "bd118aa428aec429cc9913ec93175314",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069399933,
+        "stop" : 1740069399933,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "bd118aa428aec429cc9913ec93175314"
+  }, {
+    "name" : "Patch/users/me Изменение информации текущий пользователь",
+    "children" : [ {
+      "name" : "test_01",
+      "uid" : "28b2209edf2bdec7",
+      "parentUid" : "9f77a968b928d6b1aa5940dc187c5b1e",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069381780,
+        "stop" : 1740069381780,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "9f77a968b928d6b1aa5940dc187c5b1e"
+  }, {
+    "name" : "test_02",
+    "uid" : "e8af65a8d31129a4",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1740069382107,
+      "stop" : 1740069383470,
+      "duration" : 1363
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "test_03",
+    "uid" : "e58208ce5020dd23",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "failed",
+    "time" : {
+      "start" : 1740069383471,
+      "stop" : 1740069383471,
+      "duration" : 0
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "Patch/users/me Проверка поля data_of_birth",
+    "children" : [ {
+      "name" : "test_01",
+      "uid" : "a7c1530ef8e5314d",
+      "parentUid" : "246720aff5d99b61004d721598bcfcfb",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069384413,
+        "stop" : 1740069384413,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_02",
+      "uid" : "d920970b53a490b7",
+      "parentUid" : "246720aff5d99b61004d721598bcfcfb",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069386525,
+        "stop" : 1740069386525,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_03",
+      "uid" : "bf5318604c9021e6",
+      "parentUid" : "246720aff5d99b61004d721598bcfcfb",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069388455,
+        "stop" : 1740069388455,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_04",
+      "uid" : "8cac05c33b672185",
+      "parentUid" : "246720aff5d99b61004d721598bcfcfb",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069390765,
+        "stop" : 1740069390765,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_05",
+      "uid" : "4cb06dd47941960e",
+      "parentUid" : "246720aff5d99b61004d721598bcfcfb",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069393059,
+        "stop" : 1740069393059,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_06",
+      "uid" : "60ca088daa579f96",
+      "parentUid" : "246720aff5d99b61004d721598bcfcfb",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069395455,
+        "stop" : 1740069395455,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_07",
+      "uid" : "fa4c80fa55cdc388",
+      "parentUid" : "246720aff5d99b61004d721598bcfcfb",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069397643,
+        "stop" : 1740069397643,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_08",
+      "uid" : "8142493c56046633",
+      "parentUid" : "246720aff5d99b61004d721598bcfcfb",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069399929,
+        "stop" : 1740069399929,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "246720aff5d99b61004d721598bcfcfb"
+  }, {
+    "name" : "test_04",
+    "uid" : "cc0ad039c9dbc330",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "failed",
+    "time" : {
+      "start" : 1740069385562,
+      "stop" : 1740069385562,
+      "duration" : 0
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "GET /api/v1/moneybox/ Проверка поля is_archived",
+    "children" : [ {
+      "name" : "test_01",
+      "uid" : "79ebffb827e1dc29",
+      "parentUid" : "5258062ee757a70f04f597d032e0edeb",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069386432,
+        "stop" : 1740069386432,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_02",
+      "uid" : "a59cb08a72fa4bf5",
+      "parentUid" : "5258062ee757a70f04f597d032e0edeb",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069388483,
+        "stop" : 1740069388483,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_03",
+      "uid" : "74ec87ffc21a6870",
+      "parentUid" : "5258062ee757a70f04f597d032e0edeb",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069390761,
+        "stop" : 1740069390761,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "5258062ee757a70f04f597d032e0edeb"
+  }, {
+    "name" : "test_05",
+    "uid" : "e4d4e79b2d936d00",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "failed",
+    "time" : {
+      "start" : 1740069387300,
+      "stop" : 1740069387300,
+      "duration" : 0
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "Delete/api/v1/subcategory/ - Удаление подкатегории - общие проверки",
+    "children" : [ {
+      "name" : "test_01",
+      "uid" : "186323dbe0dca8eb",
+      "parentUid" : "5062c8d93caf3c6eecab02eff036d0e6",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069388452,
+        "stop" : 1740069388452,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_02",
+      "uid" : "a572d29e7e5f1e21",
+      "parentUid" : "5062c8d93caf3c6eecab02eff036d0e6",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069390772,
+        "stop" : 1740069390772,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "5062c8d93caf3c6eecab02eff036d0e6"
+  }, {
+    "name" : "Post/ remote_logout/device_id Отзыв refresh_token по device_id",
+    "children" : [ {
+      "name" : "test_01",
+      "uid" : "8304ad11aae65b2b",
+      "parentUid" : "71ad9e4bb2e54b47d4cdf933a58ac23d",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069389612,
+        "stop" : 1740069389612,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_02",
+      "uid" : "bd611ff26aac7090",
+      "parentUid" : "71ad9e4bb2e54b47d4cdf933a58ac23d",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069391925,
+        "stop" : 1740069391925,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_03",
+      "uid" : "93118fac3ffb3223",
+      "parentUid" : "71ad9e4bb2e54b47d4cdf933a58ac23d",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069394217,
+        "stop" : 1740069394217,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_04",
+      "uid" : "feb7c842892c6526",
+      "parentUid" : "71ad9e4bb2e54b47d4cdf933a58ac23d",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069396504,
+        "stop" : 1740069396504,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_05",
+      "uid" : "5ade94ed7aafdfd0",
+      "parentUid" : "71ad9e4bb2e54b47d4cdf933a58ac23d",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069398789,
+        "stop" : 1740069398789,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "71ad9e4bb2e54b47d4cdf933a58ac23d"
+  }, {
+    "name" : "Patch/api/v1/settings/my/ Настройки пользователя - Проверка поля business_accounting",
+    "children" : [ {
+      "name" : "test_01",
+      "uid" : "37879a99f7a09453",
+      "parentUid" : "f8318df04b4bacb769c2c201fd7e6f74",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069392007,
+        "stop" : 1740069392007,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_02",
+      "uid" : "28c6b8ad2ef504e0",
+      "parentUid" : "f8318df04b4bacb769c2c201fd7e6f74",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069394218,
+        "stop" : 1740069394218,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_03",
+      "uid" : "be0b9fd97158bec9",
+      "parentUid" : "f8318df04b4bacb769c2c201fd7e6f74",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069396496,
+        "stop" : 1740069396496,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_04",
+      "uid" : "8e0067e9d16aaec8",
+      "parentUid" : "f8318df04b4bacb769c2c201fd7e6f74",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069398894,
+        "stop" : 1740069398894,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_05",
+      "uid" : "37235b370afa2c45",
+      "parentUid" : "f8318df04b4bacb769c2c201fd7e6f74",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069401070,
+        "stop" : 1740069401070,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "f8318df04b4bacb769c2c201fd7e6f74"
+  }, {
+    "name" : "Get/api/v1/subcategory/ - Проверка поля category_id",
+    "children" : [ {
+      "name" : "test_01",
+      "uid" : "80bae0a6160be339",
+      "parentUid" : "cf0249e794462e9ee79332764cff80f4",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069393062,
+        "stop" : 1740069393062,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_02",
+      "uid" : "48154535151209d2",
+      "parentUid" : "cf0249e794462e9ee79332764cff80f4",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069395356,
+        "stop" : 1740069395356,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_03",
+      "uid" : "a5dad48594713e7c",
+      "parentUid" : "cf0249e794462e9ee79332764cff80f4",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069397647,
+        "stop" : 1740069397647,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_04",
+      "uid" : "c58a6b691599029",
+      "parentUid" : "cf0249e794462e9ee79332764cff80f4",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069399930,
+        "stop" : 1740069399930,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "cf0249e794462e9ee79332764cff80f4"
+  }, {
+    "name" : "Get/api/v1/category/ Получение списка категорий - проверка поля transaction_type",
+    "children" : [ {
+      "name" : "test_01",
+      "uid" : "8fa01697c8261764",
+      "parentUid" : "eac12b83b18bb9e72a3bbb8b49a0a854",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069393070,
+        "stop" : 1740069393070,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_02",
+      "uid" : "ec92cab0dc4bfd2e",
+      "parentUid" : "eac12b83b18bb9e72a3bbb8b49a0a854",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069395368,
+        "stop" : 1740069395368,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_03",
+      "uid" : "962a430078b6b733",
+      "parentUid" : "eac12b83b18bb9e72a3bbb8b49a0a854",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069397652,
+        "stop" : 1740069397652,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_04",
+      "uid" : "b3797aa6d6cb3942",
+      "parentUid" : "eac12b83b18bb9e72a3bbb8b49a0a854",
+      "status" : "failed",
+      "time" : {
+        "start" : 1740069399940,
+        "stop" : 1740069399940,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "eac12b83b18bb9e72a3bbb8b49a0a854"
+  } ],
+  "name" : "behaviors"
+}

@@ -1,0 +1,6 @@
+Успешно статус код: 200
+ {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5YzA1ZGUwNC03MDU5LTQ5YmMtOWJmOC1mY2M4Njk4MzUyNDUiLCJhdWQiOlsiZmFzdGFwaS11c2VyczphdXRoIl0sImV4cCI6MTc0MDA3Mjk4MH0.wZ2XbxsV4oHVia9Vx4mfWoWFIVgY8wIE7JXDglp4NtE","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5YzA1ZGUwNC03MDU5LTQ5YmMtOWJmOC1mY2M4Njk4MzUyNDUiLCJleHAiOjE3NDA5MzMzODAsImp0aSI6IjgxZjI0ZDg0LTcyMjctNDM0NS1iN2QyLWE2MDBhY2UzMDM4NyIsImRldmljZSI6IjExMTExIn0.8PdbRoJ0bdC3jyMkb-S_YMijrtxN6SqgdkBM_b312pk","token_type":"bearer"}
+Успешно статус код: 200
+ {"id":"9c05de04-7059-49bc-9bf8-fcc869835245","email":"y.pawel_test1@mail.ru","is_active":true,"is_email_verified":true,"is_phone_verified":true,"last_name":"Иванов","first_name":"Иван","middle_name":"Aa","phone_number":"89260000002","date_of_birth":"2000-01-01","avatar":null}
+{'id': '9c05de04-7059-49bc-9bf8-fcc869835245', 'email': 'y.pawel_test1@mail.ru', 'is_active': True, 'is_email_verified': True, 'is_phone_verified': True, 'last_name': 'Иванов', 'first_name': 'Иван', 'middle_name': 'Aa', 'phone_number': '89260000002', 'date_of_birth': '2000-01-01', 'avatar': None}
+Все поля присутствуют
