@@ -45,17 +45,8 @@ class TestRegularOutcomeDateNextPay:
         )
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result, 201)
-        data = Checking.get_data(result)
-        regular_outcome_id = data['data']['id']
-        try:
-            """Проверка значения поля date_of_next_pay"""
-            assert data['data']['date_of_next_pay'] is None
-        except AssertionError:
-            raise AssertionError
-        finally:
-            result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
-            Checking.check_statuscode(result_delete, 204)
+        RegularOutcomeMethods.delete_regular_outcome_if_bug(result, 201, access_token)
+        Checking.check_statuscode(result, 422)
 
     @allure.description('проверка поля date_of_next_pay - Поле отсутсвует')
     def test_03(self, auth_fixture):

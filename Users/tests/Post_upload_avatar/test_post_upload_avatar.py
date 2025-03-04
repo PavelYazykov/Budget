@@ -62,6 +62,18 @@ class TestPostUploadAvatar:
         print(result.json())
         Checking.check_statuscode(result, 200)
 
+    @allure.description('Загрузка изображения в формате heic')
+    def test_04(self, auth_fixture):
+        """Авторизация"""
+        access_token = auth_fixture
+
+        """Загрузка аватара"""
+        result = UsersMethods.upload_file(
+            'less1mbHEIC.heic', '../../download_files/less1mbHEIC.heic', access_token
+        )
+        print(result.json())
+        Checking.check_statuscode(result, 200)
+
     @allure.description('Загрузка изображения меньше 1 Mb')
     def test_04(self, auth_fixture):
         """Авторизация"""
@@ -108,5 +120,5 @@ class TestPostUploadAvatar:
             'less1mb.txt', '../../download_files/less1mb.txt', access_token
         )
         print(result.json())
-        Checking.check_statuscode(result, 200)
+        Checking.check_statuscode(result, 422)
 

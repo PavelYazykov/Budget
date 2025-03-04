@@ -57,4 +57,23 @@ class TestRegularOutcomeCommon:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 422)
 
+    @allure.description('проверка поля is_paid_off - Поле отсутствует')
+    def test_04(self, auth_fixture):
+        """Авторизация"""
+        access_token = auth_fixture
+
+        """Запрос на создание regular_outcome"""
+        result = RegularOutcomeMethods.create_regular_outcome_without_is_paid_off(
+            'title', 20, None, 'day', 100,
+            '2030-12-12', access_token,
+        )
+
+        """Проверка статус кода"""
+        Checking.check_statuscode(result, 201)
+        data = Checking.get_data(result)
+        regular_outcome_id = data['data']['id']
+
+        result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
+        Checking.check_statuscode(result_delete, 204)
+
 

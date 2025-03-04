@@ -25,9 +25,17 @@ class TestPatchRegularOutcomeSubategoryId:
         subcategory_id = data['data']['id']
         print('Sub', subcategory_id)
 
+        subcategory_result_2 = SubcategoryMethods.create_subcategory(
+            20, 'desr_2', access_token
+        )
+        Checking.check_statuscode(subcategory_result_2, 201)
+        data_2 = Checking.get_data(subcategory_result_2)
+        subcategory_id_2 = data_2['data']['id']
+        print('Sub', subcategory_id_2)
+
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 20, None, 'day', 100, False,
+            'title', 20, subcategory_id, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -38,7 +46,7 @@ class TestPatchRegularOutcomeSubategoryId:
         try:
             """Запрос на изменение платежа"""
             result_patch = RegularOutcomeMethods.change_regular_outcome(
-                regular_outcome_id, 'title', 20, subcategory_id, 'week', 100,
+                regular_outcome_id, 'title', 20, subcategory_id_2, 'week', 100,
                 access_token
             )
 
@@ -47,7 +55,7 @@ class TestPatchRegularOutcomeSubategoryId:
 
             """Проверка значения поля subcategory_id"""
             patch_data = Checking.get_data(result_patch)
-            assert patch_data['data']['subcategory_id'] == subcategory_id
+            assert patch_data['data']['subcategory_id'] == subcategory_id_2
         except AssertionError:
             raise AssertionError
 
@@ -57,6 +65,9 @@ class TestPatchRegularOutcomeSubategoryId:
 
             delete_subcategory = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(delete_subcategory, 204)
+
+            delete_subcategory_2 = SubcategoryMethods.delete_subcategory(subcategory_id_2, access_token)
+            Checking.check_statuscode(delete_subcategory_2, 204)
 
     @allure.description('проверка поля category_id - Поле отсутствует')
     def test_02(self, auth_fixture):
@@ -95,9 +106,18 @@ class TestPatchRegularOutcomeSubategoryId:
         """Авторизация"""
         access_token = auth_fixture
 
+        """Запрос на создание подкатегории"""
+        subcategory_result = SubcategoryMethods.create_subcategory(
+            20, 'desr', access_token
+        )
+        Checking.check_statuscode(subcategory_result, 201)
+        data = Checking.get_data(subcategory_result)
+        subcategory_id = data['data']['id']
+        print('Sub', subcategory_id)
+
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 20, None, 'day', 100, False,
+            'title', 20, subcategory_id, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -124,6 +144,9 @@ class TestPatchRegularOutcomeSubategoryId:
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
+
+            delete_subcategory = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
+            Checking.check_statuscode(delete_subcategory, 204)
 
     @allure.description('проверка поля subcategory_id - Несуществующий id')
     def test_04(self, auth_fixture):

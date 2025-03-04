@@ -2,6 +2,7 @@ import allure
 
 from common_methods.http_methods import HttpMethods
 from common_methods.variables import CommonVariables
+from common_methods.checking import Checking
 
 
 class RegularOutcomeMethods:
@@ -393,4 +394,11 @@ class RegularOutcomeMethods:
             post_url = CommonVariables.base_url + endpoint
             result = HttpMethods.post_without_body(post_url, access_token)
             return result
+
+    @staticmethod
+    def delete_regular_outcome_if_bug(result, status_code, access_token):
+        if result.status_code == status_code:
+            data = Checking.get_data(result)
+            regular_outcome_id = data['data']['id']
+            RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
 
