@@ -1,12 +1,9 @@
 import datetime
-import json
-
 import allure
 import pytest
 
 from Moneybox.methods.moneybox_methods import MoneyboxMethods
 from common_methods.checking import Checking
-
 from common_methods.variables import MoneyboxVariables
 to_date = MoneyboxVariables.to_date
 goal = MoneyboxVariables.goal
@@ -17,9 +14,9 @@ amount = MoneyboxVariables.amount
 
 @pytest.mark.post_moneybox
 @allure.epic('Post_moneybox /api/v1/moneybox/ Проверка поля to_date')
-class TestToDate:
+class TestPostMoneyboxToDate:
 
-    @allure.description('Создание копилки с валидной датой')
+    @allure.description('Проверка поля to_date - Создание копилки с валидной датой')
     def test_01(self, auth_fixture):
 
         """Авторизация"""
@@ -29,6 +26,7 @@ class TestToDate:
         post_result = MoneyboxMethods.create_moneybox(
             to_date, goal, name, currency_id, amount, access_token
         )
+        moneybox_id = MoneyboxMethods.get_moneybox_id(post_result)
 
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
@@ -38,16 +36,11 @@ class TestToDate:
                 data = Checking.get_data(post_result)
                 assert data['data']['to_date'] == to_date
                 print('Значение поля соответствует введенному')
-        except AssertionError:
-            print(post_result.text)
-            raise AssertionError
         finally:
             """Удаление копилки"""
-            with allure.step('Удаление копилки'):
-                moneybox_id = data['data']['id']
-                MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 
-    @allure.description('Поле отсутствует')
+    @allure.description('Проверка поля to_date - Поле отсутствует')
     def test_02(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -61,7 +54,7 @@ class TestToDate:
         Checking.delete_moneybox_if_bug(post_result, 201, access_token)
         Checking.check_statuscode(post_result, 422)
 
-    @allure.description('Пустое поле')
+    @allure.description('Проверка поля to_date - Пустое поле')
     def test_03(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -75,7 +68,7 @@ class TestToDate:
         Checking.delete_moneybox_if_bug(post_result, 201, access_token)
         Checking.check_statuscode(post_result, 422)
 
-    @allure.description('Null')
+    @allure.description('Проверка поля to_date - Null')
     def test_04(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -89,7 +82,7 @@ class TestToDate:
         Checking.delete_moneybox_if_bug(post_result, 201, access_token)
         Checking.check_statuscode(post_result, 422)
 
-    @allure.description('Дата в прошлом')
+    @allure.description('Проверка поля to_date - Дата в прошлом')
     def test_05(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -103,7 +96,7 @@ class TestToDate:
         Checking.delete_moneybox_if_bug(post_result, 201, access_token)
         Checking.check_statuscode(post_result, 422)
 
-    @allure.description('Текущая дата')
+    @allure.description('Проверка поля to_date - Текущая дата')
     def test_06(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -118,7 +111,7 @@ class TestToDate:
         Checking.delete_moneybox_if_bug(post_result, 201, access_token)
         Checking.check_statuscode(post_result, 422)
 
-    @allure.description('Месяц больше 12 (13)')
+    @allure.description('Проверка поля to_date - Месяц больше 12 (13)')
     def test_07(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -132,7 +125,7 @@ class TestToDate:
         Checking.delete_moneybox_if_bug(post_result, 201, access_token)
         Checking.check_statuscode(post_result, 422)
 
-    @allure.description('Число больше 31 (32)')
+    @allure.description('Проверка поля to_date - Число больше 31 (32)')
     def test_08(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -146,7 +139,7 @@ class TestToDate:
         Checking.delete_moneybox_if_bug(post_result, 201, access_token)
         Checking.check_statuscode(post_result, 422)
 
-    @allure.description('Неверный порядок формата даты (дд-мм-гг)')
+    @allure.description('Проверка поля to_date - Неверный порядок формата даты (дд-мм-гг)')
     def test_09(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -160,7 +153,7 @@ class TestToDate:
         Checking.delete_moneybox_if_bug(post_result, 201, access_token)
         Checking.check_statuscode(post_result, 422)
 
-    @allure.description('Неверный разделитель в формате даты (гггг.мм.дд)')
+    @allure.description('Проверка поля to_date - Неверный разделитель в формате даты (гггг.мм.дд)')
     def test_10(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -174,7 +167,7 @@ class TestToDate:
         Checking.delete_moneybox_if_bug(post_result, 201, access_token)
         Checking.check_statuscode(post_result, 422)
 
-    @allure.description('Неверный тип данных (string: "дата")')
+    @allure.description('Проверка поля to_date - Неверный тип данных (string: "дата")')
     def test_11(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -188,7 +181,7 @@ class TestToDate:
         Checking.delete_moneybox_if_bug(post_result, 201, access_token)
         Checking.check_statuscode(post_result, 422)
 
-    @allure.description('Неверный тип данных (integer)')
+    @allure.description('Проверка поля to_date - Неверный тип данных (integer)')
     def test_12(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture

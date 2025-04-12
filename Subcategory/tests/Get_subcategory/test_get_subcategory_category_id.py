@@ -34,8 +34,6 @@ class TestGetAllSubcategoriesCategoryId:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_get, 200)
-        except AssertionError:
-            raise AssertionError
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -50,7 +48,6 @@ class TestGetAllSubcategoriesCategoryId:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_get, 200)
-
 
     @allure.description('Проверка поля category_id - Значение category_id = 0')
     def test_03(self, auth_fixture):

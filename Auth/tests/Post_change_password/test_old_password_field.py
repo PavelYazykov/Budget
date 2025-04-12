@@ -11,7 +11,7 @@ password = AuthVariables.password
 @allure.epic('Post_change_password Проверка поля old_password')
 class TestOldPasswordField:
 
-    @allure.description('Старый пароль - неверный')
+    @allure.description('Проверка поля old_password - Старый пароль - неверный')
     def test_01(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -25,7 +25,7 @@ class TestOldPasswordField:
         AuthMethods.change_password_back(result_change, 'Ohranatruda@1', password, access_token)
         Checking.check_statuscode(result_change, 400)
 
-    @allure.description('Пустое поле')
+    @allure.description('Проверка поля old_password - Пустое поле')
     def test_02(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -39,7 +39,7 @@ class TestOldPasswordField:
         AuthMethods.change_password_back(result_change, 'Ohranatruda@2', password, access_token)
         Checking.check_statuscode(result_change, 422)
 
-    @allure.description('Поле отсутсвует')
+    @allure.description('Проверка поля old_password - Поле отсутсвует')
     def test_03(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -52,7 +52,7 @@ class TestOldPasswordField:
         """Проверка статус кода"""
         Checking.check_statuscode(result_change, 422)
 
-    @allure.description('Null')
+    @allure.description('Проверка поля old_password - Null')
     def test_04(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture

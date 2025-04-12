@@ -12,7 +12,7 @@ user_id_not_exist = AuthVariables.user_id_not_exist
 @allure.epic('Post_reset_password/request_verify_code Проверка поля user_id')
 class TestRequestVerifyCodeUserID:
 
-    @allure.description('Существующий user_id')
+    @allure.description('Проверка поля user_id - Существующий user_id')
     def test_01(self, create_and_delete_users):
         """Создание пользователя"""
         user_id_exist = create_and_delete_users
@@ -24,7 +24,7 @@ class TestRequestVerifyCodeUserID:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
 
-    @allure.description('Несуществующий user_id')
+    @allure.description('Проверка поля user_id - Несуществующий user_id')
     def test_02(self):
         time.sleep(61)
         result = AuthMethods.request_verify_code(user_id_not_exist)
@@ -32,7 +32,7 @@ class TestRequestVerifyCodeUserID:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 404)
 
-    @allure.description('Пуcтое поле')
+    @allure.description('Проверка поля user_id - Пуcтое поле')
     def test_03(self):
         time.sleep(61)
         result = AuthMethods.request_verify_code('')
@@ -48,7 +48,7 @@ class TestRequestVerifyCodeUserID:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 422)
 
-    @allure.description('Null')
+    @allure.description('Проверка поля user_id - Null')
     def test_05(self):
         time.sleep(61)
         result = AuthMethods.request_verify_code('null')

@@ -19,9 +19,9 @@ amount = MoneyboxVariables.amount
 @pytest.mark.patch_moneybox
 @pytest.mark.Moneybox
 @allure.epic('Patch_moneybox /api/v1/moneybox/{moneybox_id}/ Проверка поля currency_id')
-class TestCurrencyPatch:
+class TestPatchMoneyboxCurrencyId:
 
-    @allure.description('Существующий id')
+    @allure.description('Проверка поля currency_id - Существующий id')
     def test_01(self, create_moneybox_and_delete):
         """Создание копилки"""
         moneybox_id, access_token = create_moneybox_and_delete
@@ -40,7 +40,7 @@ class TestCurrencyPatch:
             assert data['data']['wallet']['currency_id'] == currency_id
             print('Значение поля currency_id сответствует введенному значению')
 
-    @allure.description('Поле отсутствует')
+    @allure.description('Проверка поля currency_id - Поле отсутствует')
     def test_02(self, create_moneybox_and_delete):
         """Создание копилки"""
         moneybox_id, access_token = create_moneybox_and_delete
@@ -53,7 +53,7 @@ class TestCurrencyPatch:
         """Проверка статус кода"""
         Checking.check_statuscode(result_patch, 200)
 
-    @allure.description('Null')
+    @allure.description('Проверка поля currency_id - Null')
     def test_03(self, create_moneybox_and_delete):
         """Создание копилки"""
         moneybox_id, access_token = create_moneybox_and_delete
@@ -66,7 +66,7 @@ class TestCurrencyPatch:
         """Проверка статус кода"""
         Checking.check_statuscode(result_patch, 422)
 
-    @allure.description('Несуществующий id')
+    @allure.description('Проверка поля currency_id - Несуществующий id')
     def test_04(self, create_moneybox_and_delete):
         """Создание копилки"""
         moneybox_id, access_token = create_moneybox_and_delete
@@ -79,7 +79,7 @@ class TestCurrencyPatch:
         """Проверка статус кода"""
         Checking.check_statuscode(result_patch, 404)
 
-    @allure.description('id = 0')
+    @allure.description('Проверка поля currency_id - id = 0')
     def test_05(self, create_moneybox_and_delete):
         """Создание копилки"""
         moneybox_id, access_token = create_moneybox_and_delete
@@ -92,7 +92,7 @@ class TestCurrencyPatch:
         """Проверка статус кода"""
         Checking.check_statuscode(result_patch, 422)
 
-    @allure.description('Неверный тип данных (string: "строка")')
+    @allure.description('Проверка поля currency_id - Неверный тип данных (string: "строка")')
     def test_06(self, create_moneybox_and_delete):
         """Создание копилки"""
         moneybox_id, access_token = create_moneybox_and_delete
@@ -105,7 +105,7 @@ class TestCurrencyPatch:
         """Проверка статус кода"""
         Checking.check_statuscode(result_patch, 422)
 
-    @allure.description('Вещественное число (id = 2,3)')
+    @allure.description('Проверка поля currency_id - Вещественное число (id = 2,3)')
     def test_07(self, create_moneybox_and_delete):
         """Создание копилки"""
         moneybox_id, access_token = create_moneybox_and_delete
@@ -118,7 +118,7 @@ class TestCurrencyPatch:
         """Проверка статус кода"""
         Checking.check_statuscode(result_patch, 422)
 
-    @allure.description('Отрицательный id')
+    @allure.description('Проверка поля currency_id - Отрицательный id')
     def test_08(self, create_moneybox_and_delete):
         """Создание копилки"""
         moneybox_id, access_token = create_moneybox_and_delete
@@ -131,7 +131,7 @@ class TestCurrencyPatch:
         """Проверка статус кода"""
         Checking.check_statuscode(result_patch, 422)
 
-    @allure.description('Пустое поле')
+    @allure.description('Проверка поля currency_id - Пустое поле')
     def test_09(self, create_moneybox_and_delete):
         """Создание копилки"""
         moneybox_id, access_token = create_moneybox_and_delete

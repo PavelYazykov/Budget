@@ -35,8 +35,6 @@ class TestGetCurrencyById:
             assert data['data']['code'] == 5
             assert data['data']['full_title'] == 'Name_currency'
             assert data['data']['short_title'] == 'N'
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)

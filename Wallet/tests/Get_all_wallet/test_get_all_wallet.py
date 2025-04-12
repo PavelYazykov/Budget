@@ -11,7 +11,7 @@ from Wallet.methods.wallet_methods import WalletMethods
 @allure.epic('GET/api/v1/wallet/  Получение списка всех счетов')
 class TestGetAllWallet:
 
-    @allure.description('Получение списка все счетов (авторизованный пользователь)')
+    @allure.description('Получение списка всех счетов (авторизованный пользователь)')
     def test_01(self, auth_fixture):
         """Авторизауия"""
         access_token = auth_fixture
@@ -22,7 +22,7 @@ class TestGetAllWallet:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
 
-    @allure.description('Получение списка все счетов (неавторизованный пользователь)')
+    @allure.description('Получение списка всех счетов (неавторизованный пользователь)')
     def test_02(self):
 
         """Запрос счетов"""

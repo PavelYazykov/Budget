@@ -4,6 +4,7 @@ from Regular_outcome.methods.regular_outcome_methods import RegularOutcomeMethod
 from common_methods.checking import Checking
 from Moneybox.methods.moneybox_methods import MoneyboxMethods
 from Regular_outcome.methods.payloads import RegularOutcomePayloads
+from Personal_transaction.methods.personal_transaction_methods import PersonalTransactionMethods
 
 
 @allure.epic(
@@ -19,7 +20,7 @@ class TestPayRegularOutcomeIdField:
 
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
-            'title', 20, None, 'day', 100, False,
+            'Pavel', 20, None, 'day', 100, False,
             '2030-12-12', access_token,
         )
 
@@ -29,7 +30,7 @@ class TestPayRegularOutcomeIdField:
 
         """Создание копилки"""
         result_create_moneybox = MoneyboxMethods.create_moneybox(
-            '2030-12-12', 1000, 'name', 2, 0, access_token
+            '2030-12-12', 1000, 'Pavel', 2, 100, access_token
         )
         Checking.check_statuscode(result_create_moneybox, 201)
         data = Checking.get_data(result_create_moneybox)
@@ -51,6 +52,11 @@ class TestPayRegularOutcomeIdField:
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
+            if float(data['data']['wallet']['amount']) > 0:
+                PersonalTransactionMethods.create_personal_transaction(
+                    100, 'descr', 'Consumption', '2025-03-09',
+                    None, wallet_id, 20, None, access_token
+                )
             result_delete_2 = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
             Checking.check_statuscode(result_delete_2, 204)
 

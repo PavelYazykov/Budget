@@ -36,8 +36,6 @@ class TestPatchSubcategoryIsArchived:
             """Проверка значений"""
             data = Checking.get_data(result)
             assert data['data']['is_archived'] is True
-        except AssertionError:
-            raise AssertionError
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -67,8 +65,6 @@ class TestPatchSubcategoryIsArchived:
             """Проверка значений"""
             data = Checking.get_data(result)
             assert data['data']['is_archived'] is False
-        except AssertionError:
-            raise AssertionError
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -106,9 +102,6 @@ class TestPatchSubcategoryIsArchived:
             """Проверка значений"""
             data = Checking.get_data(result)
             assert data['data']['is_archived'] is False
-
-        except AssertionError:
-            raise AssertionError
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -134,9 +127,6 @@ class TestPatchSubcategoryIsArchived:
 
             """Проверка наличия обязательных полей"""
             SubcategoryPayloads.check_req_fields_get_by_id(result, SubcategoryPayloads.get_payloads_by_id)
-
-        except AssertionError:
-            raise AssertionError
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -159,9 +149,6 @@ class TestPatchSubcategoryIsArchived:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
-
-        except AssertionError:
-            raise AssertionError
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -184,9 +171,6 @@ class TestPatchSubcategoryIsArchived:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
-
-        except AssertionError:
-            raise AssertionError
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -209,9 +193,6 @@ class TestPatchSubcategoryIsArchived:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
-
-        except AssertionError:
-            raise AssertionError
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -234,9 +215,6 @@ class TestPatchSubcategoryIsArchived:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
-
-        except AssertionError:
-            raise AssertionError
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)

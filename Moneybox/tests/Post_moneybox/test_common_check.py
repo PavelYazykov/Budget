@@ -17,7 +17,7 @@ amount = MoneyboxVariables.amount
 
 @pytest.mark.post_moneybox
 @allure.epic('Post_moneybox /api/v1/moneybox/ Создание копилок общие проверки')
-class TestCommon:
+class TestPostMoneyboxCommon:
 
     @allure.description('Создание новой копилки с валидными значениями (авторизованный пользователь)')
     def test_01(self, auth_fixture):
@@ -29,21 +29,17 @@ class TestCommon:
         post_result = MoneyboxMethods.create_moneybox(
             to_date, goal, name, currency_id, amount, access_token
         )
+        moneybox_id = MoneyboxMethods.get_moneybox_id(post_result)
 
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
         try:
             """Проверка наличия обязательных полей"""
             MoneyboxMethods.post_check_exist_req_fields(post_result, Payloads.required_fields())
-
-        except AssertionError:
-            print(post_result.text)
-            raise AssertionError
         finally:
             """Удаление копилки"""
             with allure.step('Удаление копилки'):
-                moneybox_id = MoneyboxMethods.get_moneybox_id(post_result)
-                MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+                MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 
     @allure.description('Создание новой копилки со значением goal меньше amount')
     def test_02(self, auth_fixture):
@@ -118,11 +114,8 @@ class TestCommon:
             print(data['data']['wallet']['is_archived'])
             data = Checking.get_data(result_get)
             assert data['data']['wallet']['is_archived'] is True
-
-        except AssertionError:
-            raise AssertionError
         finally:
-            MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 
 
 

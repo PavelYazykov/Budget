@@ -45,16 +45,16 @@ class TestResetPasswordCheckEmail:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_check, 200)
+        result_change = None
         try:
             """Изменение пароля"""
             result_change = AuthMethods.reset_password_without_email(password)
             Checking.check_statuscode(result_change, 422)
-        except AssertionError:
-            raise AssertionError
         finally:
             """Восстановление изначального пароля"""
-            result_change = AuthMethods.reset_password(email, password)
-            Checking.check_statuscode(result_change, 200)
+            if result_change.status_code == 200:
+                result_change = AuthMethods.reset_password(email, password)
+                Checking.check_statuscode(result_change, 200)
 
     @allure.description('Проверка поля email - Null')
     def test_03(self):
@@ -68,16 +68,16 @@ class TestResetPasswordCheckEmail:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_check, 200)
+        result_change = None
         try:
             """Изменение пароля"""
             result_change = AuthMethods.reset_password(None, password)
             Checking.check_statuscode(result_change, 422)
-        except AssertionError:
-            raise AssertionError
         finally:
             """Восстановление изначального пароля"""
-            result_change = AuthMethods.reset_password(email, password)
-            Checking.check_statuscode(result_change, 200)
+            if result_change.status_code == 200:
+                result_change = AuthMethods.reset_password(email, password)
+                Checking.check_statuscode(result_change, 200)
 
     @allure.description('email адрес запроса кода и email при проверке пароля не совпадают')
     def test_04(self):
@@ -91,16 +91,16 @@ class TestResetPasswordCheckEmail:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_check, 200)
+        result_change = None
         try:
             """Изменение пароля"""
             result_change = AuthMethods.reset_password('y.pawel_test1@yahoo.ru', password)
             Checking.check_statuscode(result_change, 404)
-        except AssertionError:
-            raise AssertionError
         finally:
             """Восстановление изначального пароля"""
-            result_change = AuthMethods.reset_password(email, password)
-            Checking.check_statuscode(result_change, 200)
+            if result_change.status_code == 200:
+                result_change = AuthMethods.reset_password(email, password)
+                Checking.check_statuscode(result_change, 200)
 
     @allure.description('Проверка поля email - Неверный формат email')
     def test_05(self):
@@ -114,16 +114,16 @@ class TestResetPasswordCheckEmail:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_check, 200)
+        result_change = None
         try:
             """Изменение пароля"""
             result_change = AuthMethods.reset_password('pawel_test_1rambler.ru', password)
             Checking.check_statuscode(result_change, 422)
-        except AssertionError:
-            raise AssertionError
         finally:
             """Восстановление изначального пароля"""
-            result_change = AuthMethods.reset_password(email, password)
-            Checking.check_statuscode(result_change, 200)
+            if result_change.status_code == 200:
+                result_change = AuthMethods.reset_password(email, password)
+                Checking.check_statuscode(result_change, 200)
 
     @allure.description('Проверка поля email - Пустое поле')
     def test_06(self):
@@ -137,13 +137,13 @@ class TestResetPasswordCheckEmail:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_check, 200)
+        result_change = None
         try:
             """Изменение пароля"""
             result_change = AuthMethods.reset_password('', password)
             Checking.check_statuscode(result_change, 422)
-        except AssertionError:
-            raise AssertionError
         finally:
             """Восстановление изначального пароля"""
-            result_change = AuthMethods.reset_password(email, password)
-            Checking.check_statuscode(result_change, 200)
+            if result_change.status_code == 200:
+                result_change = AuthMethods.reset_password(email, password)
+                Checking.check_statuscode(result_change, 200)

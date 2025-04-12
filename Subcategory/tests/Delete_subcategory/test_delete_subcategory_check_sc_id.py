@@ -3,7 +3,6 @@ import pytest
 
 from Subcategory.methods.subcategory_methods import SubcategoryMethods
 from common_methods.checking import Checking
-from Subcategory.methods.payloads import SubcategoryPayloads
 category_id = 30
 
 
@@ -19,14 +18,15 @@ class TestDeleteSubcategoryCheckScId:
         """Создание подкатегории"""
         result_create = SubcategoryMethods.create_subcategory(category_id, 'name', access_token)
         Checking.check_statuscode(result_create, 201)
-
-        """Получение id подкатегории"""
-        data = Checking.get_data(result_create)
-        subcategory_id = data['data']['id']
-
-        """Удаление подкатегории"""
-        result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
-        Checking.check_statuscode(result_delete, 204)
+        subcategory_id = None
+        try:
+            """Получение id подкатегории"""
+            data = Checking.get_data(result_create)
+            subcategory_id = data['data']['id']
+        finally:
+            """Удаление подкатегории"""
+            result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
+            Checking.check_statuscode(result_delete, 204)
 
     @allure.description('Проверка поля subcategory_id - несуществующая подкатегория')
     def test_02(self, auth_fixture):

@@ -27,8 +27,6 @@ class TestPostCurrencyCode:
             """Проверка значения"""
             data = Checking.get_data(result_create)
             assert data['data']['code'] == 1000
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление валюты"""
             data = Checking.get_data(result_create)
@@ -37,20 +35,8 @@ class TestPostCurrencyCode:
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
             Checking.check_statuscode(result_delete, 204)
 
-    # @allure.description('Проверка поля code - Значение не занятая цифра')
-    # def test_02(self, auth_fixture):
-    #     """Авторизация"""
-    #     access_token = auth_fixture
-    #
-    #     """Запрос на создание валюты"""
-    #     result_create = CurrencyMethods.create_currency(2, 'Name_currency', 'N', access_token)
-    #
-    #     """Проверка статус кода"""
-    #     Checking.check_statuscode(result_create, 422)
-    #     print(result_create.text)
-
     @allure.description('Проверка поля code - Вещественное число')
-    def test_03(self, auth_fixture):
+    def test_02(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
@@ -63,7 +49,7 @@ class TestPostCurrencyCode:
         Checking.check_statuscode(result_create, 422)
 
     @allure.description('Проверка поля code - Отрицательное значение')
-    def test_04(self, auth_fixture):
+    def test_03(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
@@ -76,7 +62,7 @@ class TestPostCurrencyCode:
         Checking.check_statuscode(result_create, 422)
 
     @allure.description('Проверка поля code - Неверный тип данных string')
-    def test_05(self, auth_fixture):
+    def test_04(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
@@ -91,7 +77,7 @@ class TestPostCurrencyCode:
         Checking.check_statuscode(result_create, 422)
 
     @allure.description('Проверка поля code - Пустое поле')
-    def test_06(self, auth_fixture):
+    def test_05(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
@@ -106,7 +92,7 @@ class TestPostCurrencyCode:
         Checking.check_statuscode(result_create, 422)
 
     @allure.description('Проверка поля code - Поле отсутствует')
-    def test_07(self, auth_fixture):
+    def test_06(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
@@ -121,7 +107,7 @@ class TestPostCurrencyCode:
         Checking.check_statuscode(result_create, 422)
 
     @allure.description('Проверка поля code - Null')
-    def test_08(self, auth_fixture):
+    def test_07(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 

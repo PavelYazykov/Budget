@@ -19,9 +19,8 @@ class TestCreateWalletCommonCheck:
 
         """Создание счета"""
         result = WalletMethods.create_wallet(
-            'wallet', 2, 0, access_token
+            'Pavel_wallet', 2, 0, access_token
         )
-        print(result.text)
         data = Checking.get_data(result)
         wallet_id = data['data']['id']
 
@@ -30,11 +29,8 @@ class TestCreateWalletCommonCheck:
         try:
             """Проверка наличия обязательных полей"""
             WalletPayloads.check_required_fields(result, WalletPayloads.get_payloads)
-        except AssertionError:
-            raise AssertionError
-
         finally:
-            WalletMethods.delete_wallet_by_id(wallet_id, access_token)
+            WalletMethods.delete_wallet_sql(wallet_id)
 
     @allure.description('Создане счета без body')
     def test_02(self, auth_fixture):

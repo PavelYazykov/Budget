@@ -76,4 +76,36 @@ class TestRegularOutcomeCommon:
         result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
         Checking.check_statuscode(result_delete, 204)
 
+    @allure.description('Создание двух одинаковых регулярных списаний')
+    def test_05(self, auth_fixture):
+        """Авторизация"""
+        access_token = auth_fixture
+
+        """Запрос на создание regular_outcome_1"""
+        result = RegularOutcomeMethods.create_regular_outcome(
+            'title', 20, None, 'day', 100, False,
+            '2030-12-12', access_token,
+        )
+
+        """Проверка статус кода"""
+        Checking.check_statuscode(result, 201)
+        data = Checking.get_data(result)
+        regular_outcome_id = data['data']['id']
+        try:
+            """Запрос на создание regular_outcome_2"""
+            result_2 = RegularOutcomeMethods.create_regular_outcome(
+                'title', 20, None, 'day', 100, False,
+                '2030-12-12', access_token,
+            )
+
+            """Проверка статус кода"""
+            RegularOutcomeMethods.delete_regular_outcome_if_bug(result_2, 201, access_token)
+            Checking.check_statuscode(result_2, 409)
+
+        except AssertionError:
+            raise AssertionError
+        finally:
+            result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
+            Checking.check_statuscode(result_delete, 204)
+
 

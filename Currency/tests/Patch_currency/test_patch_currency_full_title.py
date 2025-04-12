@@ -32,8 +32,6 @@ class TestPatchCurrencyFullTitle:
             """Проверка значений"""
             data_new = Checking.get_data(result_change)
             assert data_new['data']['full_title'] == 'Namename'
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -62,8 +60,6 @@ class TestPatchCurrencyFullTitle:
             """Проверка значений"""
             data_new = Checking.get_data(result_change)
             assert data_new['data']['full_title'] == 'Namename12Namename12'
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -92,8 +88,6 @@ class TestPatchCurrencyFullTitle:
             """Проверка значений"""
             data_new = Checking.get_data(result_change)
             assert data_new['data']['full_title'] == '123456789'
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -122,8 +116,6 @@ class TestPatchCurrencyFullTitle:
             """Проверка значений"""
             data_new = Checking.get_data(result_change)
             assert data_new['data']['full_title'] == 'Кириллица'
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -152,8 +144,6 @@ class TestPatchCurrencyFullTitle:
             """Проверка значений"""
             data_new = Checking.get_data(result_change)
             assert data_new['data']['full_title'] == 'Namename'
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -182,8 +172,6 @@ class TestPatchCurrencyFullTitle:
             """Проверка значений"""
             data_new = Checking.get_data(result_change)
             assert data_new['data']['full_title'] == 'Name name'
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -212,8 +200,6 @@ class TestPatchCurrencyFullTitle:
             """Проверка значений"""
             data_new = Checking.get_data(result_change)
             assert data_new['data']['full_title'] == 'Name_name'
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -242,8 +228,6 @@ class TestPatchCurrencyFullTitle:
             """Проверка значений"""
             data_new = Checking.get_data(result_change)
             assert data_new['data']['full_title'] == 'Name12345йц'
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -272,8 +256,6 @@ class TestPatchCurrencyFullTitle:
             """Проверка значений"""
             data_new = Checking.get_data(result_change)
             assert data_new['data']['full_title'] == 'NameName.q'
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -298,9 +280,6 @@ class TestPatchCurrencyFullTitle:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_change, 422)
-
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -312,26 +291,33 @@ class TestPatchCurrencyFullTitle:
         access_token = auth_fixture
 
         """Запрос на создание валюты"""
-        result_create = CurrencyMethods.create_currency(5, 'Name_currency', 'N', access_token)
+        result_create = CurrencyMethods.create_currency(666, 'Name_currency', 'N', access_token)
         Checking.check_statuscode(result_create, 201)
         data = Checking.get_data(result_create)
         currency_id = data['data']['id']
         print(currency_id)
+
+        """Запрос на создание второй  валюты"""
+        result_create_2 = CurrencyMethods.create_currency(555, 'Name_currency_2', 'ETH', access_token)
+        Checking.check_statuscode(result_create, 201)
+        data_2 = Checking.get_data(result_create_2)
+        currency_id_2 = data_2['data']['id']
+        print(currency_id_2)
         try:
             """Запрос на редактрование информации о валюте"""
             result_change = CurrencyMethods.change_currency(
-                currency_id, 6, 'Russian ruble', 'NC', access_token
+                currency_id, 6, 'Name_currency_2', 'NC', access_token
             )
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_change, 422)
-
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
             Checking.check_statuscode(result_delete, 204)
+            """Удаление второй валюты"""
+            result_delete_2 = CurrencyMethods.delete_currency(currency_id_2, access_token)
+            Checking.check_statuscode(result_delete_2, 204)
 
     @allure.description('Проверка поля full_title - 7 символов')
     def test_12(self, auth_fixture):
@@ -352,9 +338,6 @@ class TestPatchCurrencyFullTitle:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_change, 422)
-
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -379,9 +362,6 @@ class TestPatchCurrencyFullTitle:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_change, 422)
-
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -406,9 +386,6 @@ class TestPatchCurrencyFullTitle:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_change, 422)
-
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -433,9 +410,6 @@ class TestPatchCurrencyFullTitle:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_change, 422)
-
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -460,9 +434,6 @@ class TestPatchCurrencyFullTitle:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_change, 422)
-
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -487,9 +458,6 @@ class TestPatchCurrencyFullTitle:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_change, 200)
-
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)

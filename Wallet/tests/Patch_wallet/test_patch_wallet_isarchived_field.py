@@ -6,7 +6,7 @@ from Wallet.methods.wallet_methods import WalletMethods
 
 
 @pytest.mark.Wallet
-@allure.epic('Patch/api/v1/wallet/{wallet_id}/ Редактирование кошелька - Проверка поля is_archived')
+@allure.epic('Patch/api/v1/wallet/{wallet_id}/ Редактирование wallet - Проверка поля is_archived')
 class TestPatchWalletIsArchivedField:
 
     @allure.description('Проверка поля is_archived - Перенос счета в архив')
@@ -14,7 +14,7 @@ class TestPatchWalletIsArchivedField:
         """Авторизация"""
         access_token, wallet_id = create_and_delete_wallet
 
-        """Запрос на изменение кошелька"""
+        """Запрос на изменение wallet"""
         result = WalletMethods.change_wallet_by_id_only_is_archived(
             wallet_id, True, access_token
         )
@@ -31,7 +31,7 @@ class TestPatchWalletIsArchivedField:
         """Авторизация"""
         access_token, wallet_id = create_and_delete_wallet
 
-        """Запрос на изменение кошелька"""
+        """Запрос на изменение wallet"""
         result = WalletMethods.change_wallet_by_id_only_currency_field(
             wallet_id, 2, access_token
         )
@@ -53,7 +53,7 @@ class TestPatchWalletIsArchivedField:
         data = Checking.get_data(result_create)
         wallet_id = data['data']['id']
         try:
-            """Запрос на изменение кошелька"""
+            """Запрос на изменение wallet"""
             result = WalletMethods.change_wallet_by_id_only_is_archived(
                 wallet_id, True, access_token
             )
@@ -74,7 +74,7 @@ class TestPatchWalletIsArchivedField:
         """Авторизация"""
         access_token, wallet_id = create_and_delete_wallet
         try:
-            """Запрос на изменение кошелька"""
+            """Запрос на изменение wallet"""
             result = WalletMethods.change_wallet_by_id_only_is_archived(
                 wallet_id, True, access_token
             )
@@ -86,7 +86,7 @@ class TestPatchWalletIsArchivedField:
             data = Checking.get_data(result)
             assert data['data']['is_archived'] is True
 
-            """Запрос на изменение кошелька"""
+            """Запрос на изменение wallet"""
             result = WalletMethods.change_wallet_by_id_only_is_archived(
                 wallet_id, False, access_token
             )
@@ -105,7 +105,7 @@ class TestPatchWalletIsArchivedField:
         """Авторизация"""
         access_token, wallet_id = create_and_delete_wallet
 
-        """Запрос на изменение кошелька"""
+        """Запрос на изменение wallet"""
         result = WalletMethods.change_wallet_by_id_only_is_archived(
             wallet_id, 'string', access_token
         )
@@ -118,7 +118,7 @@ class TestPatchWalletIsArchivedField:
         """Авторизация"""
         access_token, wallet_id = create_and_delete_wallet
 
-        """Запрос на изменение кошелька"""
+        """Запрос на изменение wallet"""
         result = WalletMethods.change_wallet_by_id_only_is_archived(
             wallet_id, 1234566, access_token
         )
@@ -131,7 +131,7 @@ class TestPatchWalletIsArchivedField:
         """Авторизация"""
         access_token, wallet_id = create_and_delete_wallet
 
-        """Запрос на изменение кошелька"""
+        """Запрос на изменение wallet"""
         result = WalletMethods.change_wallet_by_id_only_is_archived(
             wallet_id, '', access_token
         )
@@ -144,7 +144,7 @@ class TestPatchWalletIsArchivedField:
         """Авторизация"""
         access_token, wallet_id = create_and_delete_wallet
 
-        """Запрос на изменение кошелька"""
+        """Запрос на изменение wallet"""
         result = WalletMethods.change_wallet_by_id_only_is_archived(
             wallet_id, None, access_token
         )

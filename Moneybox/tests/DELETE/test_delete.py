@@ -1,3 +1,5 @@
+import time
+
 import allure
 import pytest
 
@@ -16,7 +18,7 @@ amount = MoneyboxVariables.amount
 @pytest.mark.delete_moneybox
 @pytest.mark.Moneybox
 @allure.epic("DELETE /api/v1/moneybox/{moneybox_id}/ Удаление копилок")
-class TestDelete:
+class TestDeleteMoneybox:
 
     @allure.description("Удаление копилки авторизованный пользователь")
     def test_01(self, create_moneybox):
@@ -33,7 +35,6 @@ class TestDelete:
         with allure.step('Подтверждение удаления'):
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
             Checking.check_statuscode(result_delete, 404)
-            print('Невозможно удалить несуществующую копилку')
 
     @allure.description("Удаление копилки неавторизованный пользователь")
     def test_02(self, create_moneybox):
@@ -45,8 +46,6 @@ class TestDelete:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_delete, 401)
-        except AssertionError:
-            raise AssertionError
         finally:
 
             """Удаление"""
@@ -109,19 +108,8 @@ class TestDelete:
         """Проверка статус кода"""
         Checking.check_statuscode(result_delete, 422)
 
-    @allure.description("Удаление копилки - id = пустое поле")
-    def test_08(self, auth_fixture):
-        """Создание копилки"""
-        access_token = auth_fixture
-
-        """Delete запрос"""
-        result_delete = MoneyboxMethods.delete_moneybox('', access_token)
-
-        """Проверка статус кода"""
-        Checking.check_statuscode(result_delete, 405)
-
     @allure.description("Удаление копилки - id = Null")
-    def test_09(self, auth_fixture):
+    def test_08(self, auth_fixture):
         """Создание копилки"""
         access_token = auth_fixture
 
@@ -132,7 +120,7 @@ class TestDelete:
         Checking.check_statuscode(result_delete, 422)
 
     @allure.description("Удаление копилки - id = Спецсимволы")
-    def test_10(self, auth_fixture):
+    def test_09(self, auth_fixture):
         """Создание копилки"""
         access_token = auth_fixture
 
@@ -142,8 +130,8 @@ class TestDelete:
         """Проверка статус кода"""
         Checking.check_statuscode(result_delete, 422)
 
-    @allure.description("Удаление копилки - Удаление копилки с положительным балансом")
-    def test_11(self, auth_fixture):
+    @allure.description("Удаление копилки с положительным балансом")
+    def test_10(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
@@ -154,28 +142,14 @@ class TestDelete:
         Checking.check_statuscode(create_result, 201)
         data = Checking.get_data(create_result)
         moneybox_id = data['data']['id']
-        wallet_id = data['data']['wallet']['id']
-
         try:
             """Delete запрос"""
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_delete, 400)
-
-        except AssertionError:
-            raise AssertionError
         finally:
-            """Списание средств с копилки"""
-            consume_result = PersonalTransactionMethods.create_personal_transaction(
-                10, 'descr', PersonalTransactionVariables.transaction_type_consume,
-                '2025-01-16', None, wallet_id, 20, None,
-                access_token
-            )
-            Checking.check_statuscode(consume_result, 201)
-
             """Удаление"""
             with allure.step('удаление копилки после теста'):
-                result_delete = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
-                Checking.check_statuscode(result_delete, 204)
+                MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 

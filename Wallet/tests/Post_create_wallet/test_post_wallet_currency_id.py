@@ -25,13 +25,10 @@ class TestCreateWalletCurrencyField:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
         try:
-            """Проверка наличия обязательных полей"""
+            """Проверка значения поля currency_id"""
             assert data['data']['currency_id'] == 2
-        except AssertionError:
-            raise AssertionError
-
         finally:
-            WalletMethods.delete_wallet_by_id(wallet_id, access_token)
+            WalletMethods.delete_wallet_sql(wallet_id)
 
     @allure.description('Создане счета проверка поля currency_id - несуществующий id')
     def test_02(self, auth_fixture):
@@ -44,6 +41,7 @@ class TestCreateWalletCurrencyField:
         )
 
         """Проверка статус кода"""
+        WalletMethods.delete_wallet_if_bug(result)
         Checking.check_statuscode(result, 404)
 
     @allure.description('Создане счета проверка поля currency_id - Поле отсутствует')
@@ -57,6 +55,7 @@ class TestCreateWalletCurrencyField:
         )
 
         """Проверка статус кода"""
+        WalletMethods.delete_wallet_if_bug(result)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Создане счета проверка поля currency_id - Пустое поле')
@@ -70,6 +69,7 @@ class TestCreateWalletCurrencyField:
         )
 
         """Проверка статус кода"""
+        WalletMethods.delete_wallet_if_bug(result)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Создане счета проверка поля currency_id - Null')
@@ -83,6 +83,7 @@ class TestCreateWalletCurrencyField:
         )
 
         """Проверка статус кода"""
+        WalletMethods.delete_wallet_if_bug(result)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Создане счета проверка поля currency_id - id = 0')
@@ -96,6 +97,7 @@ class TestCreateWalletCurrencyField:
         )
 
         """Проверка статус кода"""
+        WalletMethods.delete_wallet_if_bug(result)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Создане счета проверка поля currency_id - Неверный тип данных')
@@ -109,6 +111,7 @@ class TestCreateWalletCurrencyField:
         )
 
         """Проверка статус кода"""
+        WalletMethods.delete_wallet_if_bug(result)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Создане счета проверка поля currency_id - Вещественное число')
@@ -122,6 +125,7 @@ class TestCreateWalletCurrencyField:
         )
 
         """Проверка статус кода"""
+        WalletMethods.delete_wallet_if_bug(result)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Создане счета проверка поля currency_id - Спецсимволы')
@@ -135,6 +139,7 @@ class TestCreateWalletCurrencyField:
         )
 
         """Проверка статус кода"""
+        WalletMethods.delete_wallet_if_bug(result)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Создане счета проверка поля currency_id - Отрицательный id')
@@ -148,4 +153,5 @@ class TestCreateWalletCurrencyField:
         )
 
         """Проверка статус кода"""
+        WalletMethods.delete_wallet_if_bug(result)
         Checking.check_statuscode(result, 422)

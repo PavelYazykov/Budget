@@ -3,6 +3,7 @@ import pytest
 
 from Currency.methods.currency_methods import CurrencyMethods
 from common_methods.checking import Checking
+from Currency.methods.payloads import CurrencyPayloads
 
 
 @pytest.mark.Currency
@@ -19,6 +20,9 @@ class TestGetCurrency:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
+
+        """Проверка отображения валюты"""
+        CurrencyPayloads.check_required_fields_get(result, CurrencyPayloads.get_payloads)
 
     @allure.description('Получение списка валют - Запрос списка валют (неавторизованный пользователь)')
     def test_02(self):

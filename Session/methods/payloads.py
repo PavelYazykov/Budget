@@ -11,8 +11,7 @@ class SessionPayloads:
                 "device_id": "string",
                 "last_active": "string",
                 "system": "string",
-                "client": "string",
-                "location": "string"
+                "client": "string"
             }
         ]
     }

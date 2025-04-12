@@ -18,7 +18,7 @@ date_of_birth = AuthVariables.date_of_birth
 @allure.epic('Post/registration Проверка поля phone')
 class TestRegistrationPhoneField:
 
-    @allure.description('11 символов')
+    @allure.description('Проверка поля phone - 11 символов')
     def test_01(self):
         """Регистрация"""
         result = AuthMethods.registration(
@@ -27,10 +27,11 @@ class TestRegistrationPhoneField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -41,16 +42,11 @@ class TestRegistrationPhoneField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, first_name, middle_name, '89770000000', email, date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
-    @allure.description('Null')  # Проверить по свагеру статус код
+    @allure.description('Проверка поля phone - Null')  # Проверить по свагеру статус код
     def test_02(self):
         """Регистрация"""
         result = AuthMethods.registration(
@@ -59,10 +55,11 @@ class TestRegistrationPhoneField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -73,16 +70,11 @@ class TestRegistrationPhoneField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, first_name, middle_name, None, email, date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
-    @allure.description('10 символов')
+    @allure.description('Проверка поля phone - 10 символов')
     def test_03(self):
         """Регистрация"""
         result = AuthMethods.registration(
@@ -92,10 +84,11 @@ class TestRegistrationPhoneField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
-    @allure.description('12 символов')
+    @allure.description('Проверка поля phone - 12 символов')
     def test_04(self):
         """Регистрация"""
         result = AuthMethods.registration(
@@ -105,10 +98,11 @@ class TestRegistrationPhoneField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
-    @allure.description('Буквы')
+    @allure.description('Проверка поля phone - Буквы')
     def test_05(self):
         """Регистрация"""
         result = AuthMethods.registration(
@@ -118,10 +112,11 @@ class TestRegistrationPhoneField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
-    @allure.description('Спецсимволы')
+    @allure.description('Проверка поля phone - Спецсимволы')
     def test_06(self):
         """Регистрация"""
         result = AuthMethods.registration(
@@ -131,10 +126,11 @@ class TestRegistrationPhoneField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
-    @allure.description('Пустое поле')
+    @allure.description('Проверка поля phone - Пустое поле')
     def test_07(self):
         """Регистрация"""
         result = AuthMethods.registration(
@@ -144,10 +140,11 @@ class TestRegistrationPhoneField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
-    @allure.description('Неверный тип данных (integer)')
+    @allure.description('Проверка поля phone - Неверный тип данных (integer)')
     def test_08(self):
         """Регистрация"""
         result = AuthMethods.registration(
@@ -157,5 +154,6 @@ class TestRegistrationPhoneField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)

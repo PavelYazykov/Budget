@@ -27,10 +27,11 @@ class TestRegistrationFirstnameField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -41,14 +42,9 @@ class TestRegistrationFirstnameField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, 'A', middle_name, phone, email, date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля firstname - 2 символa')
     def test_02(self):
@@ -59,10 +55,11 @@ class TestRegistrationFirstnameField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -73,14 +70,9 @@ class TestRegistrationFirstnameField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, 'Aa', middle_name, phone, email, date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля firstname - Кириллица')
     def test_03(self):
@@ -91,10 +83,11 @@ class TestRegistrationFirstnameField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -105,14 +98,9 @@ class TestRegistrationFirstnameField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, 'Йцукен', middle_name, phone, email, date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля firstname - Латиница')
     def test_04(self):
@@ -123,10 +111,11 @@ class TestRegistrationFirstnameField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -137,14 +126,9 @@ class TestRegistrationFirstnameField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, 'Qwert', middle_name, phone, email, date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля firstname - 63 символа')
     def test_05(self):
@@ -161,10 +145,11 @@ class TestRegistrationFirstnameField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -179,14 +164,9 @@ class TestRegistrationFirstnameField:
                 'Aaaaaaaaaqaaaaaaaaaqaaaaaaaaaqaaaaaaaaaqaaaaaaaaaqaaaaaaaaaqwww',
                 middle_name, phone, email, date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля firstname - 64 символа')
     def test_06(self):
@@ -203,10 +183,11 @@ class TestRegistrationFirstnameField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -221,14 +202,9 @@ class TestRegistrationFirstnameField:
                 'Aaaaaaaaaqaaaaaaaaaqaaaaaaaaaqaaaaaaaaaqaaaaaaaaaqaaaaaaaaaqwwww',
                 middle_name, phone, email, date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля firstname- Пробел')
     def test_07(self):
@@ -245,10 +221,11 @@ class TestRegistrationFirstnameField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -259,14 +236,9 @@ class TestRegistrationFirstnameField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, 'Aaa Q', middle_name, phone, email, date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля firstname - Тире')
     def test_08(self):
@@ -283,10 +255,11 @@ class TestRegistrationFirstnameField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -297,14 +270,9 @@ class TestRegistrationFirstnameField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, 'Aaa-Q', middle_name, phone, email, date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля firstname - Текст в верхнем регистре')
     def test_09(self):
@@ -321,10 +289,11 @@ class TestRegistrationFirstnameField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -335,14 +304,9 @@ class TestRegistrationFirstnameField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, 'Aqq', middle_name, phone, email, date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля firstname - Текст в нижнем регистре')
     def test_10(self):
@@ -359,10 +323,11 @@ class TestRegistrationFirstnameField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -373,14 +338,9 @@ class TestRegistrationFirstnameField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, 'Asdf', middle_name, phone, email, date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля firstname - Текст в верхнем и нижнем регистре')
     def test_11(self):
@@ -397,10 +357,11 @@ class TestRegistrationFirstnameField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -411,14 +372,9 @@ class TestRegistrationFirstnameField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, 'Asdf', middle_name, phone, email, date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля firstname - 2 пробела подряд')
     def test_12(self):
@@ -435,10 +391,11 @@ class TestRegistrationFirstnameField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -449,14 +406,9 @@ class TestRegistrationFirstnameField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, 'A Sdf', middle_name, phone, email, date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля firstname - 2 тире подряд')
     def test_13(self):
@@ -473,10 +425,11 @@ class TestRegistrationFirstnameField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -487,14 +440,9 @@ class TestRegistrationFirstnameField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, 'A-Sdf', middle_name, phone, email, date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля firstname - Пустое поле')
     def test_14(self):
@@ -512,7 +460,8 @@ class TestRegistrationFirstnameField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля firstname - 65 Символов')
@@ -531,7 +480,8 @@ class TestRegistrationFirstnameField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля firstname - Латиница + Кириллица')
@@ -550,7 +500,8 @@ class TestRegistrationFirstnameField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля firstname - 3 пробела подряд')
@@ -568,10 +519,11 @@ class TestRegistrationFirstnameField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -582,14 +534,9 @@ class TestRegistrationFirstnameField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, 'A Sdf', middle_name, phone, email, date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля firstname - 3 тире подряд')
     def test_18(self):
@@ -606,10 +553,11 @@ class TestRegistrationFirstnameField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -620,14 +568,9 @@ class TestRegistrationFirstnameField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, 'A-Sdf', middle_name, phone, email, date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля firstname - Цифры')
     def test_19(self):
@@ -645,7 +588,8 @@ class TestRegistrationFirstnameField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля firstname - Спецсимволы:')
@@ -664,7 +608,8 @@ class TestRegistrationFirstnameField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля firstname - Начинается пробелом')
@@ -682,10 +627,11 @@ class TestRegistrationFirstnameField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -696,14 +642,9 @@ class TestRegistrationFirstnameField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, 'Asdf', middle_name, phone, email, date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля firstname - Заканчивается пробелом')
     def test_22(self):
@@ -720,10 +661,11 @@ class TestRegistrationFirstnameField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -734,14 +676,9 @@ class TestRegistrationFirstnameField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, 'Asdf', middle_name, phone, email, date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля firstname - Начинается с "тире"')
     def test_23(self):
@@ -758,10 +695,11 @@ class TestRegistrationFirstnameField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -772,14 +710,9 @@ class TestRegistrationFirstnameField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, 'Asdf', middle_name, phone, email, date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля firstname - Заканчивается "тире"')
     def test_24(self):
@@ -796,10 +729,11 @@ class TestRegistrationFirstnameField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -810,14 +744,9 @@ class TestRegistrationFirstnameField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, 'Asdf', middle_name, phone, email, date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля firstname - Null')
     def test_25(self):
@@ -835,7 +764,8 @@ class TestRegistrationFirstnameField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
 

@@ -3,10 +3,10 @@ import allure
 import psycopg2
 from common_methods.variables import CommonVariables
 from common_methods.http_methods import HttpMethods
+from common_methods.variables import DataBase
 import requests
 
-
-base_url = 'http://localhost:8000'
+base_url = CommonVariables.base_url
 
 
 class AuthMethods:
@@ -15,11 +15,11 @@ class AuthMethods:
     def connect_db():
         with allure.step('Подключение к БД'):
             with psycopg2.connect(
-                host='82.97.248.83',
-                user='postgres',
-                password='postgres',
-                dbname='budget',
-                port=25432
+                    host=DataBase.host,
+                    user=DataBase.user,
+                    password=DataBase.password,
+                    dbname=DataBase.dbname,
+                    port=DataBase.port
             ) as connection:
                 cursor = connection.cursor()
                 return cursor
@@ -28,11 +28,11 @@ class AuthMethods:
     def connect_db_check_user(user_id, last_name, first_name, middle_name, phone, email, date_of_birth):
         with allure.step('Подключение к БД Проверка полей и значений'):
             with psycopg2.connect(
-                    host='82.97.248.83',
-                    user='postgres',
-                    password='postgres',
-                    dbname='budget',
-                    port=25432
+                    host=DataBase.host,
+                    user=DataBase.user,
+                    password=DataBase.password,
+                    dbname=DataBase.dbname,
+                    port=DataBase.port
             ) as connection:
                 cursor = connection.cursor()
                 cursor.execute(f"""SELECT * FROM users WHERE id= '{user_id}'""")
@@ -46,19 +46,16 @@ class AuthMethods:
                 assert str(result_db[7]) == date_of_birth, f'Неверное значение в поле date_of_birth'
 
     @staticmethod
-    def delete_user(email):
+    def delete_user(users_id):
         with allure.step('Удаление пользователя из базы данных'):
             with psycopg2.connect(
-                host='82.97.248.83',
-                user='postgres',
-                password='postgres',
-                dbname='budget',
-                port=25432
+                host=DataBase.host,
+                user=DataBase.user,
+                password=DataBase.password,
+                dbname=DataBase.dbname,
+                port=DataBase.port
             ) as connection:
                 cursor = connection.cursor()
-                cursor.execute(f"""SELECT id FROM users WHERE email= '{email}'""")
-                result_db = cursor.fetchone()
-                users_id = result_db[0]
                 cursor.execute(f"""DELETE FROM settings WHERE user_id = '{users_id}'""")
                 connection.commit()
                 cursor.execute(f"""DELETE FROM users WHERE id = '{users_id}'""")
@@ -66,20 +63,33 @@ class AuthMethods:
                 print(f'Пользователь с id: {users_id} удален')
 
     @staticmethod
-    def check_required_fields(result, required_fields):  # Возможно не будет использоваться
+    def verification_user(user_id):
+        with allure.step('Верификация пользоваетля'):
+            with psycopg2.connect(
+                    host=DataBase.host,
+                    user=DataBase.user,
+                    password=DataBase.password,
+                    dbname=DataBase.dbname,
+                    port=DataBase.port
+            ) as connection:
+                cursor = connection.cursor()
+                cursor.execute(f"""UPDATE users SET is_active=True, is_email_verified=True, is_phone_verified=True
+                    WHERE id='{user_id}'""")
+                connection.commit()
+
+    @staticmethod
+    def check_required_fields(result, required_fields):
         with allure.step('Проверка наличия всех полей'):
             result_text = result.text
             data = json.loads(result_text)
             user_id = data['id']
-            print(f'User id: {user_id}')
             required_fields = required_fields
             for field in required_fields:
                 assert field in data, f'отсутствует обязательное поле {field}'
                 print(f'Обязательное поле {field} присутствует')
-            return data, user_id
 
     @staticmethod
-    def get_id(result):  # Добавить в тесты
+    def get_id(result):
         """Получение user id, data """
         result_text = result.text
         data = json.loads(result_text)

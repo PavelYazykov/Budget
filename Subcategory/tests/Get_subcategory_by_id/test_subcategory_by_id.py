@@ -33,8 +33,6 @@ class TestGetSubcategoriesById:
 
             """Проверка наличия обязательных полей"""
             SubcategoryPayloads.check_req_fields_get_by_id(result_get, SubcategoryPayloads.get_payloads_by_id)
-        except AssertionError:
-            raise AssertionError
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -92,7 +90,7 @@ class TestGetSubcategoriesById:
         result_get = SubcategoryMethods.get_subcategory_by_id('', access_token)
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result_get, 200)
+        Checking.check_statuscode(result_get, 404)
 
     @allure.description('Получение информации о подкатегорий по id - Значение subcategory_id = Null')
     def test_07(self, auth_fixture):

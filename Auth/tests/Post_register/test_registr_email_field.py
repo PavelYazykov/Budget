@@ -27,10 +27,11 @@ class TestRegistrationEmailField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -41,14 +42,9 @@ class TestRegistrationEmailField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, first_name, middle_name, phone, email, date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля email - 64 символа в локальной части')
     def test_02(self):
@@ -60,10 +56,11 @@ class TestRegistrationEmailField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -77,16 +74,9 @@ class TestRegistrationEmailField:
                 'zzzzzzzzz1zzzzzzzzz1zzzzzzzzz1zzzzzzzzz1zzzzzzzzz1zzzzzzzzz10123@mail.ru',
                 date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(
-                'zzzzzzzzz1zzzzzzzzz1zzzzzzzzz1zzzzzzzzz1zzzzzzzzz1zzzzzzzzz10123@mail.ru'
-            )
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля email - спецсимволы в локальной части email')
     def test_03(self):
@@ -97,10 +87,11 @@ class TestRegistrationEmailField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -111,14 +102,9 @@ class TestRegistrationEmailField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, first_name, middle_name, phone, 'z!2$%^&*qa@mail.ru', date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user('z!2$%^&*qa@mail.ru')
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля email - Цифры')
     def test_04(self):
@@ -129,10 +115,11 @@ class TestRegistrationEmailField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -143,14 +130,9 @@ class TestRegistrationEmailField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, first_name, middle_name, phone, '123456789@mail.ru', date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user('123456789@mail.ru')
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля email - Текст в верхнем регистре')
     def test_05(self):
@@ -161,10 +143,11 @@ class TestRegistrationEmailField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -175,14 +158,9 @@ class TestRegistrationEmailField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, first_name, middle_name, phone, 'QWERTYUIOP@mail.ru', date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user('QWERTYUIOP@mail.ru')
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля email - Текст в нижнем регистре')
     def test_06(self):
@@ -193,10 +171,11 @@ class TestRegistrationEmailField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -207,14 +186,9 @@ class TestRegistrationEmailField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, first_name, middle_name, phone, 'qwertyuiop@mail.ru', date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user('qwertyuiop@mail.ru')
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля email - 254 символа общая длина email')  # Будет падать: "Mail use not real domain"
     def test_07(self):
@@ -228,10 +202,11 @@ class TestRegistrationEmailField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -248,17 +223,9 @@ class TestRegistrationEmailField:
                 'AaQ1234560AaQ1234560AaQ1234560123.AaQ1234560AaQ1234560AaQ1234560AaQ1234560AaQ1234560AaQ1234560123.'
                 'AaQ1234560AaQ1234560AaQ1234560AaQ1234560AaQ1234560AaQ12345.ru', date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user('Aa!1234560Aa!1234560Aa!1234560Aa!1234560AaQ1234560AaQ12345601234@AaQ1234560'
-                                    'AaQ1234560AaQ1234560AaQ1234560AaQ1234560AaQ1234560123.AaQ1234560AaQ1234560Aa'
-                                    'Q1234560AaQ1234560AaQ1234560AaQ1234560123.AaQ1234560AaQ1234560AaQ1234560AaQ'
-                                    '1234560AaQ1234560AaQ12345.ru')
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля email- Кириллица')
     def test_08(self):
@@ -269,10 +236,11 @@ class TestRegistrationEmailField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -283,14 +251,9 @@ class TestRegistrationEmailField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, first_name, middle_name, phone, 'йцукенгшщз@почта.рф', date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user('йцукенгшщз@почта.рф')
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля email - Латиница')
     def test_09(self):
@@ -301,10 +264,11 @@ class TestRegistrationEmailField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -315,14 +279,9 @@ class TestRegistrationEmailField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, first_name, middle_name, phone, 'asdfghjkl@mail.ru', date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user('asdfghjkl@mail.ru')
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля email - 159 символов доменная часть')
     def test_10(self):
@@ -335,10 +294,11 @@ class TestRegistrationEmailField:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)  # Будет падать: "Mail use not real domain"
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -353,15 +313,9 @@ class TestRegistrationEmailField:
                 'testtest12@testtest12testtest12testtest12testtest12testtest12testtest12123.testtest12testtest12'
                 'testtest12testtest12testtest12testtest12123.com', date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user('testtest12@testtest12testtest12testtest12testtest12testtest12testtest12123.'
-                                    'testtest12testtest12testtest12testtest12testtest12testtest12123.com')
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля email - 65 символов в локальной части')
     def test_11(self):
@@ -375,9 +329,8 @@ class TestRegistrationEmailField:
         result_code = result.status_code
         if result_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(
-                'zzzzzzzzz1zzzzzzzzz1zzzzzzzzz1zzzzzzzzz1zzzzzzzzz1zzzzzzzzz101234@mail.ru'
-            )
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля email - 255 символа общая длина email')
@@ -394,10 +347,8 @@ class TestRegistrationEmailField:
         result_code = result.status_code
         if result_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user('Aa!1234560Aa!1234560Aa!1234560Aa!1234560AaQ1234560AaQ12345601234@'
-                                                   'AaQ1234560AaQ1234560AaQ1234560AaQ1234560AaQ1234560AaQ1234560123.'
-                                                   'AaQ1234560AaQ1234560AaQ1234560AaQ1234560AaQ1234560AaQ1234560123.'
-                                                   'AaQ1234560AaQ1234560AaQ1234560AaQ1234560AaQ1234560AaQ123255.ru')
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля email - Латиница + Кириллица')
@@ -411,7 +362,8 @@ class TestRegistrationEmailField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user('йцукен@mail.ru')
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля email - Пробелы')
@@ -425,7 +377,8 @@ class TestRegistrationEmailField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user('qwer @mail.ru')
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля email  - Содержит две точки подряд')
@@ -439,7 +392,8 @@ class TestRegistrationEmailField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user('qwer..@mail.ru')
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля email - Содержит две тире подряд')
@@ -453,7 +407,8 @@ class TestRegistrationEmailField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user('qwer--@mail.ru')
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля email - Отсутствие @ в email')
@@ -467,7 +422,8 @@ class TestRegistrationEmailField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user('qwermail.ru')
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля email - Отсутствие локальной части')
@@ -481,7 +437,8 @@ class TestRegistrationEmailField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user('@mail.ru')
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля email - Отсутствие доменной части')
@@ -495,7 +452,8 @@ class TestRegistrationEmailField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user('qwertyui@.ru')
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля email - Локальная часть начинается  с точки')
@@ -509,7 +467,8 @@ class TestRegistrationEmailField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user('.qwer@mail.ru')
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля email - Локальная часть заканчивается точкой')
@@ -523,7 +482,8 @@ class TestRegistrationEmailField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user('.qwertyui.@mail.ru')
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля email - Доменная часть начинается  с точки')
@@ -537,7 +497,8 @@ class TestRegistrationEmailField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user('qwer@.mail.ru')
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля email - Доменная часть заканчивается точкой')
@@ -551,7 +512,8 @@ class TestRegistrationEmailField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user('qwer@mail..ru')
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля email - Локальная часть начинается  с тире')
@@ -565,7 +527,8 @@ class TestRegistrationEmailField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user('-qwertyui@mail.ru')
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля email - Локальная часть заканчивается тире')
@@ -579,7 +542,8 @@ class TestRegistrationEmailField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user('aaqwertyui-@mail.ru')
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля email - Доменная часть начинается  с тире')
@@ -593,7 +557,8 @@ class TestRegistrationEmailField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user('qwertyui@-mail.ru')
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля email- Доменная часть заканчивается тире')
@@ -607,7 +572,8 @@ class TestRegistrationEmailField:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user('qwertyui@mail-.ru')
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля email - Пустое поле')
@@ -619,6 +585,10 @@ class TestRegistrationEmailField:
         )
 
         """Проверка статус кода"""
+        if result.status_code == 201:
+            """Удаление пользователя из БД"""
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля email - Существующий email')
@@ -630,6 +600,10 @@ class TestRegistrationEmailField:
         )
 
         """Проверка статус кода"""
+        if result.status_code == 201:
+            """Удаление пользователя из БД"""
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 400)
 
     @allure.description('Проверка поля email - Null')
@@ -641,5 +615,9 @@ class TestRegistrationEmailField:
         )
 
         """Проверка статус кода"""
+        if result.status_code == 201:
+            """Удаление пользователя из БД"""
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 

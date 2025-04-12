@@ -14,13 +14,13 @@ amount = MoneyboxVariables.amount
 @pytest.mark.get_moneybox
 @pytest.mark.Moneybox
 @allure.epic('GET /api/v1/moneybox/ Получение списка всех копилок')
-class TestGetAll:
+class TestGetAllMoneybox:
 
     @allure.description('Получение списка всех копилок (авторизованный пользователь)')
-    def test_01(self, auth_fixture):
+    def test_01(self, create_moneybox_and_delete):
 
         """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Get запрос"""
         result_get = MoneyboxMethods.get_all_moneybox(access_token)

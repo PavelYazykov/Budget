@@ -1,5 +1,3 @@
-import json
-
 import allure
 import pytest
 
@@ -28,6 +26,7 @@ class TestLoginCommonCheck:
             email, password, last_name, first_name, middle_name, phone, date_of_birth
         )
         Checking.check_statuscode(create_result, 201)
+        data, user_id = AuthMethods.get_id(create_result)
         try:
             """Получение user_id"""
             data = Checking.get_data(create_result)
@@ -52,10 +51,9 @@ class TestLoginCommonCheck:
             """Проверка наличия обязательных полей"""
             with allure.step('Проверка наличия обязательных полей'):
                 Payloads.check_required_fields(result_login, Payloads.required_fields_login)
-        except AssertionError:
-            raise AssertionError
         finally:
-            AuthMethods.delete_user(email)
+            """Удаление пользователя из БД"""
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Повторный вход без предварительного выхода')
     def test_02(self):
@@ -82,6 +80,7 @@ class TestLoginCommonCheck:
             email, password, last_name, first_name, middle_name, phone, date_of_birth
         )
         Checking.check_statuscode(create_result, 201)
+        data, user_id = AuthMethods.get_id(create_result)
         try:
             result_login = AuthMethods.login(
                 '11113', f'username={email}&password={password}'
@@ -89,7 +88,6 @@ class TestLoginCommonCheck:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_login, 403)
-        except AssertionError:
-            raise AssertionError
         finally:
-            AuthMethods.delete_user(email)
+            """Удаление пользователя из БД"""
+            AuthMethods.delete_user(user_id)

@@ -28,8 +28,6 @@ class TestCreateSubcategoriesCommon:
         try:
             """Проверка наличия обязательных полей"""
             SubcategoryPayloads.check_required_fields_post(result_create, SubcategoryPayloads.post_payloads)
-        except AssertionError:
-            raise AssertionError
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 

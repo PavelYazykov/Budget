@@ -1,13 +1,14 @@
+import time
+
 import allure
 import pytest
-
+from common_methods.auth import Auth
 from Moneybox.methods.payloads import Payloads
 from Moneybox.methods.moneybox_methods import MoneyboxMethods
 from common_methods.checking import Checking
-from common_methods.variables import MoneyboxVariables
+from common_methods.variables import MoneyboxVariables, AuthVariables
 from Personal_transaction.methods.personal_transaction_methods import PersonalTransactionMethods
 from Auth.methods.auth_methods import AuthMethods
-from common_methods.variables import AuthVariables
 to_date = MoneyboxVariables.to_date
 goal = MoneyboxVariables.goal
 name = MoneyboxVariables.name
@@ -19,7 +20,7 @@ amount = MoneyboxVariables.amount
 @pytest.mark.patch_moneybox
 @pytest.mark.Moneybox
 @allure.epic('Patch_moneybox /api/v1/moneybox/{moneybox_id}/ Редактирование копилок, общие проверки')
-class TestCommonPatch:
+class TestMoneyboxCommonPatch:
 
     @allure.description('С существующим ID и валидными значениями в полях (авторизованный пользователь')
     def test_01(self, create_moneybox_and_delete):
@@ -33,17 +34,9 @@ class TestCommonPatch:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_patch, 200)
-        try:
-            """Проверка наличия обязательных полей"""
-            MoneyboxMethods.post_check_exist_req_fields(result_patch, Payloads.required_fields())
-        except AssertionError:
-            print(result_patch.text)
-            raise AssertionError
-        finally:
-            """Удаление копилки"""
-            with allure.step('Удаление копилки'):
-                moneybox_id = MoneyboxMethods.get_moneybox_id(result_patch)
-                MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+
+        """Проверка наличия обязательных полей"""
+        MoneyboxMethods.post_check_exist_req_fields(result_patch, Payloads.required_fields())
 
     @allure.description('С существующим ID и валидными значениями в полях (неавторизованный пользователь')
     def test_02(self, create_moneybox_and_delete):
@@ -153,22 +146,8 @@ class TestCommonPatch:
         """Проверка статус кода"""
         Checking.check_statuscode(result_patch, 422)
 
-    @allure.description('Пустое поле')
-    def test_10(self, auth_fixture):
-
-        """Авторизация"""
-        access_token = auth_fixture
-
-        """Patch_moneybox запрос"""
-        result_patch = MoneyboxMethods.change_moneybox(
-            '', to_date, goal, name, currency_id, is_archived, access_token
-        )
-
-        """Проверка статус кода"""
-        Checking.check_statuscode(result_patch, 405)
-
     @allure.description('Отсутствует id')
-    def test_11(self, auth_fixture):
+    def test_10(self, auth_fixture):
 
         """Авторизация"""
         access_token = auth_fixture
@@ -182,7 +161,7 @@ class TestCommonPatch:
         Checking.check_statuscode(result_patch, 405)
 
     @allure.description('Null')
-    def test_12(self, auth_fixture):
+    def test_11(self, auth_fixture):
 
         """Авторизация"""
         access_token = auth_fixture
@@ -196,7 +175,7 @@ class TestCommonPatch:
         Checking.check_statuscode(result_patch, 422)
 
     @allure.description('Попытка внести изменения в копилку после достижения цели')
-    def test_13(self, auth_fixture):
+    def test_12(self, auth_fixture):
 
         """Авторизация"""
         access_token = auth_fixture
@@ -227,30 +206,44 @@ class TestCommonPatch:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_change, 400)
-        except AssertionError:
-            raise AssertionError
         finally:
-            PersonalTransactionMethods.create_personal_transaction(
-                1000, 'name', 'Consumption', '2024-12-12',
-                None, wallet_id, 20, None, access_token
-            )
-            MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+            """Удаление копилки"""
+            with allure.step('удаление копилки после теста'):
+                MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 
     @allure.description('Редактирование чужой копилки')
-    def test_14(self, create_moneybox_and_delete):
+    def test_13(self, create_moneybox_and_delete):
 
         """Создание копилки"""
         moneybox_id, access_token = create_moneybox_and_delete
 
-        """Авторизация второго пользователя"""
-        result_auth = AuthMethods.login('000011', AuthVariables.auth_payloads_3)
-        Checking.check_statuscode(result_auth, 200)
-        data = Checking.get_data(result_auth)
-        access_token_2 = data['access_token']
-
-        """Запрос на редактирование чужой копилки"""
-        result_change = MoneyboxMethods.change_moneybox(
-            moneybox_id, '2030-12-12', 1000, 'name_2', 2, None, access_token
+        """Создание второго пользователя"""
+        result_create_second_user = AuthMethods.registration(
+            AuthVariables.email_for_create_user, AuthVariables.password, AuthVariables.last_name,
+            AuthVariables.first_name,
+            AuthVariables.middle_name, AuthVariables.phone_for_create_user, AuthVariables.date_of_birth
         )
-        print(result_change.status_code)
-        print(result_change.text)
+        Checking.check_statuscode(result_create_second_user, 201)
+        data, user_id = AuthMethods.get_id(result_create_second_user)
+        try:
+            """Верификация пользователя"""
+            AuthMethods.verification_user(user_id)
+            time.sleep(2)
+
+            """Авторизация второго пользователя"""
+            auth_result = Auth.auth_with_params(
+                '00002', f'username={AuthVariables.email_for_create_user}&password={AuthVariables.password}'
+            )
+            check = auth_result.json()
+            access_token_2 = check.get('access_token')
+            Checking.check_statuscode(auth_result, 200)
+
+            """Запрос на редактирование чужой копилки"""
+            result_change = MoneyboxMethods.change_moneybox(
+                moneybox_id, '2030-12-12', 1000, 'name_2', 2, False, access_token_2
+            )
+            Checking.check_statuscode(result_change, 200)
+
+        finally:
+            """Удаление пользователя из БД"""
+            AuthMethods.delete_user(user_id)

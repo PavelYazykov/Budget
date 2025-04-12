@@ -51,16 +51,16 @@ class TestForgotPasswordEmailField:
             not_verify_email, password, last_name, first_name, middle_name, not_verify_phone, date_of_birth
         )
         Checking.check_statuscode(create_result, 201)
+        data, user_id = AuthMethods.get_id(create_result)
+        time.sleep(20)
         try:
             """Запрос кода"""
             result = AuthMethods.forgot_password(not_verify_email)
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 403)
-        except AssertionError:
-            raise AssertionError
         finally:
-            AuthMethods.delete_user(not_verify_email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля email- Запрос на несуществующую почту')
     def test_05(self):

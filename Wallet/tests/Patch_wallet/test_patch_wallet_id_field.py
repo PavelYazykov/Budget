@@ -6,7 +6,7 @@ from Wallet.methods.wallet_methods import WalletMethods
 
 
 @pytest.mark.Wallet
-@allure.epic('Patch/api/v1/wallet/{wallet_id}/ Редактирование кошелька - Проверка поля wallet_id')
+@allure.epic('Patch/api/v1/wallet/{wallet_id}/ Редактирование wallet - Проверка поля wallet_id')
 class TestPatchWalletCommon:
 
     @allure.description('Проверка поля wallet_id - Существующее значение')
@@ -14,7 +14,7 @@ class TestPatchWalletCommon:
         """Авторизация"""
         access_token, wallet_id = create_and_delete_wallet
 
-        """Запрос на редактирование кошелька"""
+        """Запрос на редактирование wallet"""
         result = WalletMethods.change_wallet_by_id_only_currency_field(
             wallet_id, 2, access_token
         )
@@ -27,7 +27,7 @@ class TestPatchWalletCommon:
         """Авторизация"""
         access_token = auth_fixture
 
-        """Запрос на редактирование кошелька"""
+        """Запрос на редактирование wallet"""
         result = WalletMethods.change_wallet_by_id_only_currency_field(
             994, 2, access_token
         )
@@ -40,7 +40,7 @@ class TestPatchWalletCommon:
         """Авторизация"""
         access_token = auth_fixture
 
-        """Запрос на редактирование кошелька"""
+        """Запрос на редактирование wallet"""
         result = WalletMethods.change_wallet_by_id_only_currency_field(
             0, 2, access_token
         )
@@ -53,7 +53,7 @@ class TestPatchWalletCommon:
         """Авторизация"""
         access_token = auth_fixture
 
-        """Запрос на редактирование кошелька"""
+        """Запрос на редактирование wallet"""
         result = WalletMethods.change_wallet_by_id_only_currency_field(
             -1, 2, access_token
         )
@@ -66,7 +66,7 @@ class TestPatchWalletCommon:
         """Авторизация"""
         access_token = auth_fixture
 
-        """Запрос на редактирование кошелька"""
+        """Запрос на редактирование wallet"""
         result = WalletMethods.change_wallet_by_id_only_currency_field(
             '', 2, access_token
         )
@@ -79,7 +79,7 @@ class TestPatchWalletCommon:
         """Авторизация"""
         access_token = auth_fixture
 
-        """Запрос на редактирование кошелька"""
+        """Запрос на редактирование wallet"""
         result = WalletMethods.change_wallet_by_id_without_id(
             'name', 2, False, access_token
         )
@@ -92,7 +92,7 @@ class TestPatchWalletCommon:
         """Авторизация"""
         access_token = auth_fixture
 
-        """Запрос на редактирование кошелька"""
+        """Запрос на редактирование wallet"""
         result = WalletMethods.change_wallet_by_id_only_currency_field(
             None, 2, access_token
         )
@@ -105,7 +105,7 @@ class TestPatchWalletCommon:
         """Авторизация"""
         access_token = auth_fixture
 
-        """Запрос на редактирование кошелька"""
+        """Запрос на редактирование wallet"""
         result = WalletMethods.change_wallet_by_id_only_currency_field(
             'string', 2, access_token
         )

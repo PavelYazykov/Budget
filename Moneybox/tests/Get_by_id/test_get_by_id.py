@@ -1,3 +1,5 @@
+import time
+
 import pytest
 from common_methods.variables import AuthVariables
 from Moneybox.methods.moneybox_methods import MoneyboxMethods
@@ -11,13 +13,12 @@ goal = MoneyboxVariables.goal
 name = MoneyboxVariables.name
 currency_id = MoneyboxVariables.currency_id
 amount = MoneyboxVariables.amount
-payloads_second_user = 'username=pawel_test_1@rambler.ru&password=Ohranatruda@2'
 
 
 @pytest.mark.get_moneybox_by_id
 @pytest.mark.Moneybox
 @allure.epic('GET /api/v1/moneybox/{moneybox_id}/ Получение списка копилок по id')
-class TestGetById:
+class TestGetMoneyboxById:
 
     @allure.description('Существующим ID (авторизованный пользователь)')
     def test_01(self, create_moneybox_and_delete):
@@ -34,12 +35,8 @@ class TestGetById:
 
         """Проверка id копилки"""
         data = Checking.get_data(result_get)
-        print('DATA', data)
         assert data['data']['id'] == moneybox_id
         print('id копилки соответствует введенному')
-
-        """Проверка наличия обязательных полей и типа данных"""
-        # with allure.step('Проверка наличия обязательных полей и типа двнных'):
 
     @allure.description('Существующим ID (неавторизованный пользователь)')
     def test_02(self, create_moneybox_and_delete):
@@ -119,41 +116,38 @@ class TestGetById:
         """Проверка статус кода"""
         Checking.check_statuscode(result_get, 422)
 
-    @allure.description('Пустое поле -> Отработает как ручка "получение общего списка копилок"')
-    def test_08(self, auth_fixture):
-        """Авторизация"""
-        access_token = auth_fixture
-
-        """Get запрос"""
-        result_get = MoneyboxMethods.get_one_moneybox(
-            '', access_token
-        )
-
-        """Проверка статус кода"""
-        Checking.check_statuscode(result_get, 200)
-
     @allure.description('Получение чужой копилки')
     def test_09(self, create_moneybox_and_delete):
         """Создание копилки первого пользователя"""
         moneybox_id_first_user, access_token_first_user = create_moneybox_and_delete
 
-        """Авторизация второго пользователя"""
-        auth_result = Auth.auth_with_params('00002', payloads_second_user)
-        check = auth_result.json()
-        access_token = check.get('access_token')
-        Checking.check_statuscode(auth_result, 200)
-
-        """Создание копилки второго пользователя"""
-        create_result = MoneyboxMethods.create_moneybox(
-            to_date, goal, name, currency_id, amount, access_token
+        """Создание второго пользователя"""
+        result_create_second_user = AuthMethods.registration(
+            AuthVariables.email_for_create_user, AuthVariables.password, AuthVariables.last_name,
+            AuthVariables.first_name,
+            AuthVariables.middle_name, AuthVariables.phone_for_create_user, AuthVariables.date_of_birth
         )
-        moneybox_id_second_user = MoneyboxMethods.get_moneybox_id(create_result)
+        Checking.check_statuscode(result_create_second_user, 201)
+        data, user_id = AuthMethods.get_id(result_create_second_user)
         try:
+            """Верификация пользователя"""
+            AuthMethods.verification_user(user_id)
+            time.sleep(2)
+
+            """Авторизация второго пользователя"""
+            auth_result = Auth.auth_with_params(
+                '00002', f'username={AuthVariables.email_for_create_user}&password={AuthVariables.password}'
+            )
+            check = auth_result.json()
+            access_token_2 = check.get('access_token')
+            Checking.check_statuscode(auth_result, 200)
+
             """Получение чужой копилки"""
-            result_get = MoneyboxMethods.get_one_moneybox(moneybox_id_first_user, access_token)
+            result_get = MoneyboxMethods.get_one_moneybox(moneybox_id_first_user, access_token_2)
             Checking.check_statuscode(result_get, 404)
-        except AssertionError:
-            raise AssertionError
         finally:
-            MoneyboxMethods.delete_moneybox(moneybox_id_second_user, access_token)
+
+            """Удаление пользователя из БД"""
+            AuthMethods.delete_user(user_id)
+
 

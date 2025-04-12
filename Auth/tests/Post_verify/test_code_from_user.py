@@ -22,7 +22,7 @@ date_of_birth = AuthVariables.date_of_birth
 @allure.epic('Post_reset_password/verify Проверка поля code_from_user')
 class TestCodeFromUser:
 
-    @allure.description('Действующий код')
+    @allure.description('Проверка поля code_from_user - Действующий код')
     def test_01(self):
         time.sleep(61)
         """Создание пользователя"""
@@ -44,13 +44,11 @@ class TestCodeFromUser:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_check, 200)
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
-    @allure.description('Несуществующий код')
+    @allure.description('Проверка поля code_from_user - Несуществующий код')
     def test_02(self):
         """Создание пользователя"""
         create_result = AuthMethods.registration(
@@ -64,13 +62,11 @@ class TestCodeFromUser:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_check, 400)
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
-    @allure.description('Истекший код')
+    @allure.description('Проверка поля code_from_user - Истекший код')
     def test_03(self):
         """Создание пользователя"""
         time.sleep(301)
@@ -93,13 +89,11 @@ class TestCodeFromUser:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_check, 404)
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
-    @allure.description('5 символов ')
+    @allure.description('Проверка поля code_from_user - 5 символов ')
     def test_04(self):
         """Создание пользователя"""
         create_result = AuthMethods.registration(
@@ -113,13 +107,11 @@ class TestCodeFromUser:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_check, 422)
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
-    @allure.description('7 символов ')
+    @allure.description('Проверка поля code_from_user - 7 символов ')
     def test_05(self):
         """Создание пользователя"""
         create_result = AuthMethods.registration(
@@ -133,13 +125,11 @@ class TestCodeFromUser:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_check, 422)
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
-    @allure.description('Пуcтое поле')
+    @allure.description('Проверка поля code_from_user - Пуcтое поле')
     def test_06(self):
         """Создание пользователя"""
         create_result = AuthMethods.registration(
@@ -153,13 +143,11 @@ class TestCodeFromUser:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_check, 422)
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
-    @allure.description('Поле отсутствует')
+    @allure.description('Проверка поля code_from_user - Поле отсутствует')
     def test_07(self):
         """Создание пользователя"""
         create_result = AuthMethods.registration(
@@ -173,13 +161,11 @@ class TestCodeFromUser:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_check, 422)
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
-    @allure.description('Null')
+    @allure.description('Проверка поля code_from_user - Null')
     def test_08(self):
         """Создание пользователя"""
         create_result = AuthMethods.registration(
@@ -193,8 +179,6 @@ class TestCodeFromUser:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_check, 422)
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)

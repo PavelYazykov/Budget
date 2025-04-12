@@ -11,7 +11,7 @@ payloads = AuthVariables.auth_payloads
 
 
 @pytest.mark.Auth
-@allure.epic('Post_reset_password/logout Отзвы refresh_token')
+@allure.epic('Post_reset_password/logout Отзыв refresh_token')
 class TestLogout:
 
     @allure.description('Отзыв refresh_token')
@@ -31,7 +31,7 @@ class TestLogout:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 204)
 
-    @allure.description('Неверный refresh_token')
+    @allure.description('Отзыв refresh_token - Неверный refresh_token')
     def test_02(self):
 
         """Запрос на отзыв refresh_token"""

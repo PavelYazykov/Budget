@@ -36,6 +36,7 @@ class TestPTPostRegularOutcome:
         """Получение id подкатегории"""
         data = Checking.get_data(regular_outcome_result)
         regular_outcome_id = data['data']['id']
+        print(regular_outcome_id)
         try:
             """Создание транзакции"""
             result = PersonalTransactionMethods.create_personal_transaction_with_regular_outcome(
@@ -141,7 +142,7 @@ class TestPTPostRegularOutcome:
         """Создание транзакции"""
         result = PersonalTransactionMethods.create_personal_transaction_with_regular_outcome(
             amount, 't', transaction_type_income, transaction_date,
-            None, wallet_id, category_id_income, None, 9, access_token
+            None, wallet_id, category_id_income, None, 0, access_token
         )
         """Проверка статус кода"""
         Checking.check_statuscode(result, 422)

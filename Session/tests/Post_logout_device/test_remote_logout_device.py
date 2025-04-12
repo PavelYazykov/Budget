@@ -1,10 +1,14 @@
+import time
+
 import allure
 import pytest
 
+from Auth.methods.auth_methods import AuthMethods
 from common_methods.http_methods import HttpMethods
 from Session.methods.sessions_methods import SessionsMethods
 from common_methods.auth import Auth
 from common_methods.checking import Checking
+from common_methods.variables import AuthVariables
 
 
 @pytest.mark.Session
@@ -72,14 +76,32 @@ class TestRemoteLogoutDeviceId:
     def test_06(self, auth_fixture):
         """Автоирзация"""
         access_token = auth_fixture
-        another_user_auth = Auth.auth_with_params(
-            '222222',
-            'username=pawel_test_1@rambler.ru&password=Ohranatruda@2'
-        )
-        """Проверка статус кода"""
-        Checking.check_statuscode(another_user_auth, 200)
 
-        """Запрос на отзыв refresh token"""
-        result = SessionsMethods.remote_logout('222222', access_token)
-        Checking.check_statuscode(result, 403)
+        """Создание второго пользователя"""
+        result_create_second_user = AuthMethods.registration(
+            AuthVariables.email_for_create_user, AuthVariables.password, AuthVariables.last_name,
+            AuthVariables.first_name,
+            AuthVariables.middle_name, AuthVariables.phone_for_create_user, AuthVariables.date_of_birth
+        )
+        Checking.check_statuscode(result_create_second_user, 201)
+        data, user_id = AuthMethods.get_id(result_create_second_user)
+        try:
+            """Верификация пользователя"""
+            AuthMethods.verification_user(user_id)
+            time.sleep(2)
+
+            """Авторизация второго пользователя"""
+            auth_result = Auth.auth_with_params(
+                '00002', f'username={AuthVariables.email_for_create_user}&password={AuthVariables.password}'
+            )
+            check = auth_result.json()
+            access_token_2 = check.get('access_token')
+            Checking.check_statuscode(auth_result, 200)
+
+            """Запрос на отзыв refresh token"""
+            result = SessionsMethods.remote_logout('11111', access_token_2)
+            Checking.check_statuscode(result, 403)
+        finally:
+            """Удаление пользователя из БД"""
+            AuthMethods.delete_user(user_id)
 

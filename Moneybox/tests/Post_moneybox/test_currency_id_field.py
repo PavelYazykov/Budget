@@ -13,9 +13,9 @@ amount = MoneyboxVariables.amount
 
 @pytest.mark.post_moneybox
 @allure.epic('Post_moneybox /api/v1/moneybox/ Проверка поля currency_id')
-class TestCurrencyId:
+class TestPostMoneyboxCurrencyId:
 
-    @allure.description('Существующий id')
+    @allure.description('Проверка поля currency_id - Существующий id')
     def test_01(self, auth_fixture):
 
         """Авторизация"""
@@ -23,7 +23,7 @@ class TestCurrencyId:
 
         """Post_moneybox запрос"""
         post_result = MoneyboxMethods.create_moneybox(to_date, goal, name, currency_id, amount, access_token)
-
+        moneybox_id = MoneyboxMethods.get_moneybox_id(post_result)
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
         try:
@@ -32,16 +32,12 @@ class TestCurrencyId:
                 data = Checking.get_data(post_result)
                 assert data['data']['wallet']['currency_id'] == currency_id
                 print('Значение поля currency_id соответствует введенному')
-        except AssertionError:
-            print(post_result.text)
-            raise AssertionError
         finally:
             """Удаление копилки"""
             with allure.step('Удаление копилки'):
-                moneybox_id = data['data']['id']
-                MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+                MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 
-    @allure.description('Поле отсутствует')
+    @allure.description('Проверка поля currency_id - Поле отсутствует')
     def test_02(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -53,7 +49,7 @@ class TestCurrencyId:
         Checking.delete_moneybox_if_bug(post_result, 201, access_token)
         Checking.check_statuscode(post_result, 422)
 
-    @allure.description('Пустое поле')
+    @allure.description('Проверка поля currency_id - Пустое поле')
     def test_03(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -65,7 +61,7 @@ class TestCurrencyId:
         Checking.delete_moneybox_if_bug(post_result, 201, access_token)
         Checking.check_statuscode(post_result, 422)
 
-    @allure.description('Null')
+    @allure.description('Проверка поля currency_id - Null')
     def test_04(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -77,7 +73,7 @@ class TestCurrencyId:
         Checking.delete_moneybox_if_bug(post_result, 201, access_token)
         Checking.check_statuscode(post_result, 422)
 
-    @allure.description('Несуществующий id')
+    @allure.description('Проверка поля currency_id - Несуществующий id')
     def test_05(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -89,7 +85,7 @@ class TestCurrencyId:
         Checking.delete_moneybox_if_bug(post_result, 201, access_token)
         Checking.check_statuscode(post_result, 404)
 
-    @allure.description('id = 0')
+    @allure.description('Проверка поля currency_id - id = 0')
     def test_06(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -101,7 +97,7 @@ class TestCurrencyId:
         Checking.delete_moneybox_if_bug(post_result, 201, access_token)
         Checking.check_statuscode(post_result, 422)
 
-    @allure.description('Неверный тип данных (string: "строка")')
+    @allure.description('Проверка поля currency_id - Неверный тип данных (string: "строка")')
     def test_07(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -113,7 +109,7 @@ class TestCurrencyId:
         moneybox_id = Checking.delete_moneybox_if_bug(post_result, 201, access_token)
         Checking.check_statuscode(post_result, 422)
 
-    @allure.description('Вещественное число (id = 2,3)')
+    @allure.description('Проверка поля currency_id - Вещественное число (id = 2,3)')
     def test_08(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -125,7 +121,7 @@ class TestCurrencyId:
         Checking.delete_moneybox_if_bug(post_result, 201, access_token)
         Checking.check_statuscode(post_result, 422)
 
-    @allure.description('Спецсимволы')
+    @allure.description('Проверка поля currency_id - Спецсимволы')
     def test_09(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -137,7 +133,7 @@ class TestCurrencyId:
         Checking.delete_moneybox_if_bug(post_result, 201, access_token)
         Checking.check_statuscode(post_result, 422)
 
-    @allure.description('Отрицательный id')
+    @allure.description('Проверка поля currency_id - Отрицательный id')
     def test_10(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -146,7 +142,7 @@ class TestCurrencyId:
         post_result = MoneyboxMethods.create_moneybox(to_date, goal, name, -1, amount, access_token)
 
         """Проверка статус кода"""
-        moneybox_id = Checking.delete_moneybox_if_bug(post_result, 201, access_token)
+        Checking.delete_moneybox_if_bug(post_result, 201, access_token)
         Checking.check_statuscode(post_result, 422)
 
 

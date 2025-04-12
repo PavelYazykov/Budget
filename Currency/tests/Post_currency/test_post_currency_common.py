@@ -29,8 +29,6 @@ class TestPostCurrency:
             assert data['data']['code'] == 5
             assert data['data']['full_title'] == 'Name_currency'
             assert data['data']['short_title'] == 'N'
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление валюты"""
             data = Checking.get_data(result_create)

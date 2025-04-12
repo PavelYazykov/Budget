@@ -6,7 +6,7 @@ from Wallet.methods.wallet_methods import WalletMethods
 
 
 @pytest.mark.Wallet
-@allure.epic('Post/api/v1/wallet/  Создание счета')
+@allure.epic('Post/api/v1/wallet/ -  Создание счета')
 class TestCreateWallet:
 
     @allure.description('Создане счета проверка поля name - 1 символ')
@@ -18,20 +18,17 @@ class TestCreateWallet:
         result = WalletMethods.create_wallet(
             'w', 2, 0, access_token
         )
-        print(result.text)
         data = Checking.get_data(result)
         wallet_id = data['data']['id']
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
         try:
-            """Проверка наличия обязательных полей"""
+            """Проверка значения поля name"""
             assert data['data']['name'] == 'w'
-        except AssertionError:
-            raise AssertionError
 
         finally:
-            WalletMethods.delete_wallet_by_id(wallet_id, access_token)
+            WalletMethods.delete_wallet_sql(wallet_id)
 
     @allure.description('Создане счета проверка поля name - 19 символов')
     def test_02(self, auth_fixture):
@@ -49,13 +46,10 @@ class TestCreateWallet:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
         try:
-            """Проверка наличия обязательных полей"""
+            """Проверка значения поля name"""
             assert data['data']['name'] == 'wwwwwwwwwwqqqqqqqqq'
-        except AssertionError:
-            raise AssertionError
-
         finally:
-            WalletMethods.delete_wallet_by_id(wallet_id, access_token)
+            WalletMethods.delete_wallet_sql(wallet_id)
 
     @allure.description('Создане счета проверка поля name - 20 символов')
     def test_03(self, auth_fixture):
@@ -73,13 +67,10 @@ class TestCreateWallet:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
         try:
-            """Проверка наличия обязательных полей"""
+            """Проверка значения поля name"""
             assert data['data']['name'] == 'wwwwwwwwwwqqqqqqqqqs'
-        except AssertionError:
-            raise AssertionError
-
         finally:
-            WalletMethods.delete_wallet_by_id(wallet_id, access_token)
+            WalletMethods.delete_wallet_sql(wallet_id)
 
     @allure.description('Создане счета проверка поля name - Цифры')
     def test_04(self, auth_fixture):
@@ -97,13 +88,10 @@ class TestCreateWallet:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
         try:
-            """Проверка наличия обязательных полей"""
+            """Проверка значения поля name"""
             assert data['data']['name'] == '12345'
-        except AssertionError:
-            raise AssertionError
-
         finally:
-            WalletMethods.delete_wallet_by_id(wallet_id, access_token)
+            WalletMethods.delete_wallet_sql(wallet_id)
 
     @allure.description('Создане счета проверка поля name - Кириллица')
     def test_05(self, auth_fixture):
@@ -121,13 +109,10 @@ class TestCreateWallet:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
         try:
-            """Проверка наличия обязательных полей"""
+            """Проверка значения поля name"""
             assert data['data']['name'] == 'Счет'
-        except AssertionError:
-            raise AssertionError
-
         finally:
-            WalletMethods.delete_wallet_by_id(wallet_id, access_token)
+            WalletMethods.delete_wallet_sql(wallet_id)
 
     @allure.description('Создане счета проверка поля name - Латиница')
     def test_06(self, auth_fixture):
@@ -145,13 +130,10 @@ class TestCreateWallet:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
         try:
-            """Проверка наличия обязательных полей"""
+            """Проверка значения поля name"""
             assert data['data']['name'] == 'wallets'
-        except AssertionError:
-            raise AssertionError
-
         finally:
-            WalletMethods.delete_wallet_by_id(wallet_id, access_token)
+            WalletMethods.delete_wallet_sql(wallet_id)
 
     @allure.description('Создане счета проверка поля name - Пробел')
     def test_07(self, auth_fixture):
@@ -169,13 +151,10 @@ class TestCreateWallet:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
         try:
-            """Проверка наличия обязательных полей"""
+            """Проверка значения поля name"""
             assert data['data']['name'] == 'Латин ица'
-        except AssertionError:
-            raise AssertionError
-
         finally:
-            WalletMethods.delete_wallet_by_id(wallet_id, access_token)
+            WalletMethods.delete_wallet_sql(wallet_id)
 
     @allure.description('Создане счета проверка поля name - Тире')
     def test_08(self, auth_fixture):
@@ -193,13 +172,10 @@ class TestCreateWallet:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
         try:
-            """Проверка наличия обязательных полей"""
+            """Проверка значения поля name"""
             assert data['data']['name'] == 'Латин-ица'
-        except AssertionError:
-            raise AssertionError
-
         finally:
-            WalletMethods.delete_wallet_by_id(wallet_id, access_token)
+            WalletMethods.delete_wallet_sql(wallet_id)
 
     @allure.description('Создане счета проверка поля name - Точка')
     def test_09(self, auth_fixture):
@@ -217,13 +193,10 @@ class TestCreateWallet:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
         try:
-            """Проверка наличия обязательных полей"""
+            """Проверка значения поля name"""
             assert data['data']['name'] == 'Латин.ица'
-        except AssertionError:
-            raise AssertionError
-
         finally:
-            WalletMethods.delete_wallet_by_id(wallet_id, access_token)
+            WalletMethods.delete_wallet_sql(wallet_id)
 
     @allure.description('Создане счета проверка поля name - Поле отсутствует')
     def test_10(self, auth_fixture):
@@ -236,6 +209,7 @@ class TestCreateWallet:
         )
 
         """Проверка статус кода"""
+        WalletMethods.delete_wallet_if_bug(result)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Создане счета проверка поля name - Пустое поле')
@@ -250,6 +224,7 @@ class TestCreateWallet:
         )
 
         """Проверка статус кода"""
+        WalletMethods.delete_wallet_if_bug(result)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Создане счета проверка поля name - Null')
@@ -264,6 +239,7 @@ class TestCreateWallet:
         )
 
         """Проверка статус кода"""
+        WalletMethods.delete_wallet_if_bug(result)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Создане счета проверка поля name - 21 символ')
@@ -278,6 +254,7 @@ class TestCreateWallet:
         )
 
         """Проверка статус кода"""
+        WalletMethods.delete_wallet_if_bug(result)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Создане счета проверка поля name - Спецсимволы')
@@ -292,6 +269,7 @@ class TestCreateWallet:
         )
 
         """Проверка статус кода"""
+        WalletMethods.delete_wallet_if_bug(result)
         Checking.check_statuscode(result, 422)
 
 

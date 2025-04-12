@@ -34,6 +34,7 @@ class TestGetCategoryExcluded:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
+
         """Проверка наличия исключенных категорий"""
         CategoryPayloads.check_excluded_category_list(result, ['Покупки', 'Недвижимость'])
 
@@ -48,8 +49,16 @@ class TestGetCategoryExcluded:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
 
-        """Проверка наличия исключенных категорий"""
-        print(result.json())
+        """Проверка что все категории остались"""
+        try:
+            missing_titles = CategoryPayloads.check_titles(result, CategoryPayloads.category_list)
+        except KeyError as e:
+            print(f"Поле 'title' отсутствует в одном из элементов: {e}")
+        else:
+            if missing_titles:
+                print(f'Отсутствуют следующие title: {", ".join(missing_titles)}')
+            else:
+                print("Все title присутствуют")
 
     @allure.description('проверка поля excluded - Код категории')
     def test_04(self, auth_fixture):
@@ -62,8 +71,16 @@ class TestGetCategoryExcluded:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
 
-        """Проверка наличия исключенных категорий"""
-        print(result.json())
+        """Проверка что все категории остались"""
+        try:
+            missing_titles = CategoryPayloads.check_titles(result, CategoryPayloads.category_list)
+        except KeyError as e:
+            print(f"Поле 'title' отсутствует в одном из элементов: {e}")
+        else:
+            if missing_titles:
+                print(f'Отсутствуют следующие title: {", ".join(missing_titles)}')
+            else:
+                print("Все title присутствуют")
 
     @allure.description('проверка поля excluded - Пустое поле')
     def test_05(self, auth_fixture):
@@ -76,8 +93,16 @@ class TestGetCategoryExcluded:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
 
-        """Проверка наличия исключенных категорий"""
-        print(result.json())
+        """Проверка что все категории остались"""
+        try:
+            missing_titles = CategoryPayloads.check_titles(result, CategoryPayloads.category_list)
+        except KeyError as e:
+            print(f"Поле 'title' отсутствует в одном из элементов: {e}")
+        else:
+            if missing_titles:
+                print(f'Отсутствуют следующие title: {", ".join(missing_titles)}')
+            else:
+                print("Все title присутствуют")
 
     @allure.description('проверка поля excluded - Null')
     def test_06(self, auth_fixture):
@@ -90,8 +115,16 @@ class TestGetCategoryExcluded:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
 
-        """Проверка наличия исключенных категорий"""
-        print(result.json())
+        """Проверка что все категории остались"""
+        try:
+            missing_titles = CategoryPayloads.check_titles(result, CategoryPayloads.category_list)
+        except KeyError as e:
+            print(f"Поле 'title' отсутствует в одном из элементов: {e}")
+        else:
+            if missing_titles:
+                print(f'Отсутствуют следующие title: {", ".join(missing_titles)}')
+            else:
+                print("Все title присутствуют")
 
     @allure.description('проверка поля excluded - Неверный тип данных')
     def test_07(self, auth_fixture):
@@ -104,5 +137,13 @@ class TestGetCategoryExcluded:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
 
-        """Проверка наличия исключенных категорий"""
-        print(result.json())
+        """Проверка что все категории остались"""
+        try:
+            missing_titles = CategoryPayloads.check_titles(result, CategoryPayloads.category_list)
+        except KeyError as e:
+            print(f"Поле 'title' отсутствует в одном из элементов: {e}")
+        else:
+            if missing_titles:
+                print(f'Отсутствуют следующие title: {", ".join(missing_titles)}')
+            else:
+                print("Все title присутствуют")

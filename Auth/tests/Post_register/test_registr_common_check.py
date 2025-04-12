@@ -1,5 +1,3 @@
-import json
-import time
 import allure
 import pytest
 
@@ -17,7 +15,7 @@ date_of_birth = AuthVariables.date_of_birth
 
 
 @pytest.mark.Auth
-@allure.epic('Post/registration Общие проверки')
+@allure.epic('Post/registration - Общие проверки')
 class TestRegistrationCommonCheck:
 
     @allure.description('Регистрация пользователя с валидными данными')
@@ -29,10 +27,14 @@ class TestRegistrationCommonCheck:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        user_id = None
 
-        """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+
+            """Проверка наличия обязательных полей в ответе"""
+            data = Checking.get_data(result)
+            user_id = data['id']
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -43,14 +45,9 @@ class TestRegistrationCommonCheck:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, first_name, middle_name, phone, email, date_of_birth
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Запрос без body')
     def test_02(self):

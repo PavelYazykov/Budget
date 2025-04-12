@@ -57,7 +57,7 @@ class TestPostPersonalBudgetTransactionType:
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
-    @allure.description('проверка поля transaction_type - Транзакция Consumption')
+    @allure.description('проверка поля transaction_type - Транзакция Transfer between wallets')
     def test_03(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -81,7 +81,7 @@ class TestPostPersonalBudgetTransactionType:
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
-    @allure.description('проверка поля transaction_type - Транзакция Income')
+    @allure.description('проверка поля transaction_type - Несуществующий тип транзакции')
     def test_04(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture

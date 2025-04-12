@@ -27,10 +27,11 @@ class TestRegistrationDate:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
@@ -41,14 +42,9 @@ class TestRegistrationDate:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, first_name, middle_name, phone, email, '2000-01-01'
             )
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
-        else:
-            print('Значения полей в БД соответствуют введенным')
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля date of birth - Null')
     def test_02(self):
@@ -59,22 +55,19 @@ class TestRegistrationDate:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
                 email, last_name, first_name, middle_name, phone, None, data
             )
-
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля date of birth - Пустое поле')
     def test_03(self):
@@ -85,22 +78,19 @@ class TestRegistrationDate:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result, 201)
+        data, user_id = AuthMethods.get_id(result)
 
         """Проверка наличия обязательных полей в ответе"""
         try:
-            data, user_id = AuthMethods.check_required_fields(result, Payloads.required_fields())
+            AuthMethods.check_required_fields(result, Payloads.required_fields())
 
             """Проверка значений обязательных полей"""
             Payloads.required_fields_value(
                 email, last_name, first_name, middle_name, phone, None, data
             )
-
-        except AssertionError:
-            print('Ошибка!')
-            raise AssertionError
         finally:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Проверка поля date of birth - Дата в будущем')
     def test_04(self):
@@ -112,7 +102,8 @@ class TestRegistrationDate:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля date of birth - Неверный порядок формата даты (дд-мм-гггг)')
@@ -125,7 +116,8 @@ class TestRegistrationDate:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля date of birth - Неверный разделитель в формате даты (гггг.мм.дд)')
@@ -138,7 +130,8 @@ class TestRegistrationDate:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля date of birth - Неверный тип данных (string: "дата")')
@@ -151,7 +144,8 @@ class TestRegistrationDate:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 
     @allure.description('Проверка поля date of birth - Неверный тип данных (integer)')
@@ -164,6 +158,7 @@ class TestRegistrationDate:
         """Проверка статус кода"""
         if result.status_code == 201:
             """Удаление пользователя из БД"""
-            AuthMethods.delete_user(email)
+            data, user_id = AuthMethods.get_id(result)
+            AuthMethods.delete_user(user_id)
         Checking.check_statuscode(result, 422)
 

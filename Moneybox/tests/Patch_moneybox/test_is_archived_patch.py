@@ -5,7 +5,6 @@ import pytest
 from Moneybox.methods.moneybox_methods import MoneyboxMethods
 from common_methods.checking import Checking
 from common_methods.variables import MoneyboxVariables
-# moneybox_id = 478
 to_date = MoneyboxVariables.to_date
 goal = MoneyboxVariables.goal
 name = MoneyboxVariables.name
@@ -17,9 +16,9 @@ amount = MoneyboxVariables.amount
 @pytest.mark.patch_moneybox
 @pytest.mark.Moneybox
 @allure.epic('Patch_moneybox /api/v1/moneybox/{moneybox_id}/ Проверка поля is_archived')
-class TestIsArchivedPatch:
+class TestPatchMoneyboxIsArchived:
 
-    @allure.description('Перенос копилки в архив')
+    @allure.description('Проверка поля is_archived - Перенос копилки в архив')
     def test_01(self, create_moneybox_and_delete):
         """Создание копилки"""
         moneybox_id, access_token = create_moneybox_and_delete
@@ -40,7 +39,7 @@ class TestIsArchivedPatch:
             assert data['data']['wallet']['is_archived'] is True
             print('Значение соответствует введенному')
 
-    @allure.description('Поле отсутствует')
+    @allure.description('Проверка поля is_archived - Поле отсутствует')
     def test_02(self, create_moneybox_and_delete):
         """Создание копилки"""
         moneybox_id, access_token = create_moneybox_and_delete
@@ -53,7 +52,7 @@ class TestIsArchivedPatch:
         """Проверка статус кода"""
         Checking.check_statuscode(result_patch, 200)
 
-    @allure.description('Перенос копилки в архив с положительным amount') #Есть вероятность что нельзя удалить копилку с положительным amount
+    @allure.description('Проверка поля is_archived - Перенос копилки в архив с положительным amount') #Есть вероятность что нельзя удалить копилку с положительным amount
     def test_03(self, auth_fixture):
 
         """Авторизация"""
@@ -72,7 +71,7 @@ class TestIsArchivedPatch:
         """Проверка статус кода"""
         Checking.check_statuscode(result_patch, 400)
 
-    @allure.description('Возврат копилки из архива')
+    @allure.description('Проверка поля is_archived - Возврат копилки из архива')
     def test_04(self, create_moneybox_and_delete):
         """Создание копилки"""
         moneybox_id, access_token = create_moneybox_and_delete
@@ -95,7 +94,7 @@ class TestIsArchivedPatch:
         """Проверка статус кода"""
         Checking.check_statuscode(result_patch, 400)
 
-    @allure.description('Неверный тип данных (string: "строка")')
+    @allure.description('Проверка поля is_archived - Неверный тип данных (string: "строка")')
     def test_05(self, create_moneybox_and_delete):
         """Создание копилки"""
         moneybox_id, access_token = create_moneybox_and_delete
@@ -108,7 +107,7 @@ class TestIsArchivedPatch:
         """Проверка статус кода"""
         Checking.check_statuscode(result_patch, 422)
 
-    @allure.description('Неверный тип данных (integer: 12345)')
+    @allure.description('Проверка поля is_archived - Неверный тип данных (integer: 12345)')
     def test_06(self, create_moneybox_and_delete):
         """Создание копилки"""
         moneybox_id, access_token = create_moneybox_and_delete
@@ -121,7 +120,7 @@ class TestIsArchivedPatch:
         """Проверка статус кода"""
         Checking.check_statuscode(result_patch, 422)
 
-    @allure.description('Пустое поле')
+    @allure.description('Проверка поля is_archived - Пустое поле')
     def test_07(self, create_moneybox_and_delete):
         """Создание копилки"""
         moneybox_id, access_token = create_moneybox_and_delete
@@ -134,7 +133,7 @@ class TestIsArchivedPatch:
         """Проверка статус кода"""
         Checking.check_statuscode(result_patch, 422)
 
-    @allure.description('Null')
+    @allure.description('Проверка поля is_archived - Null')
     def test_07(self, create_moneybox_and_delete):
         """Создание копилки"""
         moneybox_id, access_token = create_moneybox_and_delete

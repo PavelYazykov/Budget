@@ -1,8 +1,9 @@
 import json
 import allure
 from common_methods.http_methods import HttpMethods
-
+import psycopg2
 from common_methods.variables import CommonVariables
+from common_methods.variables import DataBase
 base_url = CommonVariables.base_url
 
 
@@ -409,7 +410,6 @@ class MoneyboxMethods:
         with allure.step("Получение moneybox_id"):
             result_text = result.text
             data = json.loads(result_text)
-            print(data)
             moneybox_id = data['data']['id']
             print(f'Moneybox_id: {moneybox_id}')
             return moneybox_id
@@ -437,4 +437,19 @@ class MoneyboxMethods:
             for field in required_fields['data']['wallet']:
                 assert field in data['data']['wallet'], f"Отсутствует обязательное поле: {field}"
                 print(f'Обязательное поле {field} присутствует')
+
+    @staticmethod
+    def delete_moneybox_from_bd(moneybox_id):
+        with allure.step('Удаление копилки из базы данных'):
+            with psycopg2.connect(
+                    host=DataBase.host,
+                    user=DataBase.user,
+                    password=DataBase.password,
+                    dbname=DataBase.dbname,
+                    port=DataBase.port
+            ) as connection:
+                cursor = connection.cursor()
+                cursor.execute(f"""DELETE FROM moneyboxies WHERE id={moneybox_id}""")
+                connection.commit()
+                print(f'Копилка с id: {moneybox_id} удалена')
 

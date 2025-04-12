@@ -1,7 +1,9 @@
 import allure
+import psycopg2
 
+from common_methods.checking import Checking
 from common_methods.http_methods import HttpMethods
-from common_methods.variables import CommonVariables
+from common_methods.variables import CommonVariables, DataBase
 
 
 class WalletMethods:
@@ -164,7 +166,7 @@ class WalletMethods:
 
     @staticmethod
     def delete_wallet_by_id(wallet_id, access_token):
-        with allure.step('Удаление выбранного кошелька'):
+        with allure.step('Удаление выбранного wallet'):
             endpoint = f'/api/v1/wallet/{wallet_id}/'
             delete_url = CommonVariables.base_url + endpoint
             result = HttpMethods.delete(delete_url, access_token)
@@ -173,8 +175,30 @@ class WalletMethods:
 
     @staticmethod
     def delete_wallet_by_id_without_wallet_id(access_token):
-        with allure.step('Удаление выбранного кошелька'):
+        with allure.step('Удаление выбранного wallet'):
             endpoint = f'/api/v1/wallet/'
             delete_url = CommonVariables.base_url + endpoint
             result = HttpMethods.delete(delete_url, access_token)
             return result
+
+    @staticmethod
+    def delete_wallet_sql(wallet_id):
+        with allure.step('Удаление wallet'):
+            with psycopg2.connect(
+                    host=DataBase.host,
+                    user=DataBase.user,
+                    password=DataBase.password,
+                    dbname=DataBase.dbname,
+                    port=DataBase.port
+            ) as connection:
+                cursor = connection.cursor()
+                cursor.execute(f"""DELETE FROM wallets WHERE id='{wallet_id}'""")
+                connection.commit()
+
+    @staticmethod
+    def delete_wallet_if_bug(result):
+        if result.status_code == 201:
+            data = Checking.get_data(result)
+            wallet_id = data['data']['id']
+            WalletMethods.delete_wallet_sql(wallet_id)
+            raise AssertionError

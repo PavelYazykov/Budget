@@ -1,6 +1,7 @@
 import allure
 from common_methods.variables import CommonVariables
 from common_methods.http_methods import HttpMethods
+from common_methods.variables import DataBase
 import psycopg2
 
 
@@ -10,11 +11,11 @@ class UsersMethods:
     def connect_db(email, user_id):
         with allure.step('Подключение к БД, восстановление верификации email'):
             with psycopg2.connect(
-                    host='82.97.248.83',
-                    user='postgres',
-                    password='postgres',
-                    dbname='budget',
-                    port=25432
+                    host=DataBase.host,
+                    user=DataBase.user,
+                    password=DataBase.password,
+                    dbname=DataBase.dbname,
+                    port=DataBase.port
             ) as connection:
                 cursor = connection.cursor()
                 cursor.execute(f"""UPDATE users SET email = '{email}' WHERE id = '{user_id}'""")
@@ -27,11 +28,11 @@ class UsersMethods:
     def delete_users(users_id):
         with allure.step('Удаление пользователя из базы данных'):
             with psycopg2.connect(
-                    host='82.97.248.83',
-                    user='postgres',
-                    password='postgres',
-                    dbname='budget',
-                    port=25432
+                    host=DataBase.host,
+                    user=DataBase.user,
+                    password=DataBase.password,
+                    dbname=DataBase.dbname,
+                    port=DataBase.port
             ) as connection:
                 cursor = connection.cursor()
                 cursor.execute(f"""DELETE FROM settings WHERE user_id = '{users_id}'""")
@@ -399,13 +400,13 @@ class UsersMethods:
         result = HttpMethods.post_download_files(post_url, name, path_to_file, access_token)
         return result
 
-    @staticmethod
+    @staticmethod # УДАЛИТЬ МЕТОД, ЗАМЕНИТЬ НА СОЗДАНИЕ И УДАЛЕНИЕ ПОЛЬЗОВАТЕЛЯ
     def recover_user_info_if_bag(result, email, last_name, first_name, middle_name, phone,
                                  date_of_birth, access_token):
         if result.status_code == 200:
             UsersMethods.change_user_info(
                 email, last_name, first_name, middle_name, phone, date_of_birth, access_token)
-            UsersMethods.connect_db(email)
+            UsersMethods.connect_db(email, user_id)
 
     @staticmethod
     def delete_avatar(access_token):
@@ -423,6 +424,17 @@ class UsersMethods:
         print(user_id)
         return user_id
 
-
-
-
+    @staticmethod
+    def verification_user(user_id):
+        with allure.step('Верификация пользоваетля'):
+            with psycopg2.connect(
+                    host=DataBase.host,
+                    user=DataBase.user,
+                    password=DataBase.password,
+                    dbname=DataBase.dbname,
+                    port=DataBase.port
+            ) as connection:
+                cursor = connection.cursor()
+                cursor.execute(f"""UPDATE users SET is_active=True, is_email_verified=True, is_phone_verified=True
+                WHERE id='{user_id}'""")
+                connection.commit()

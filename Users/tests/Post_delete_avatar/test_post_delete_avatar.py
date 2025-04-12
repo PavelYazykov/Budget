@@ -11,7 +11,6 @@ from Users.methods.user_payloads import UserResponse
 @pytest.mark.User
 @allure.epic('Post/users/delete_avatar Удаление аватара')
 class TestPostDeleteAvatar:
-    time.sleep(3)
 
     @allure.description('Удалить существующий аватар')
     def test_01(self, auth_fixture):

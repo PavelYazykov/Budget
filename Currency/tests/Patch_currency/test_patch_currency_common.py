@@ -35,8 +35,6 @@ class TestPatchCurrency:
             assert data_new['data']['code'] == 6
             assert data_new['data']['full_title'] == 'Name_name'
             assert data_new['data']['short_title'] == 'NC'
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)

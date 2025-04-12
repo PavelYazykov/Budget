@@ -1,7 +1,5 @@
 import allure
 import pytest
-
-from common_methods.http_methods import HttpMethods
 from common_methods.checking import Checking
 from Auth.methods.auth_methods import AuthMethods
 
@@ -10,7 +8,7 @@ from Auth.methods.auth_methods import AuthMethods
 @allure.epic('Post_reset_password/login Проверка поля password')
 class TestCheckPasswordField:
 
-    @allure.description('Неверный пароль')
+    @allure.description('Проверка поля password - Неверный пароль')
     def test_01(self):
         result = AuthMethods.login(
             '11111', 'username=y.pawel_test1@mail.ru&password=Ohranatruda@111'
@@ -19,7 +17,7 @@ class TestCheckPasswordField:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 404)
 
-    @allure.description('Пустое поле')
+    @allure.description('Проверка поля password - Пустое поле')
     def test_02(self):
         result = AuthMethods.login(
             '11111', 'username=y.pawel_test1@mail.ru&password='
@@ -28,7 +26,7 @@ class TestCheckPasswordField:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 422)
 
-    @allure.description('Поле отсутствует')
+    @allure.description('Проверка поля password - Поле отсутствует')
     def test_03(self):
         result = AuthMethods.login(
             '11111', 'username=y.pawel_test1@mail.ru'
@@ -37,7 +35,7 @@ class TestCheckPasswordField:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 422)
 
-    @allure.description('Null')
+    @allure.description('Проверка поля password - Null')
     def test_04(self):
         result = AuthMethods.login(
             '11111', 'username=y.pawel_test1@mail.ru&password=null'

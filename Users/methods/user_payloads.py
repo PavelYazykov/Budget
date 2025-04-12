@@ -42,5 +42,5 @@ class UserResponse:
         }
 
         for field, value in required_fields.items():
-            assert data[field] == value
+            assert data[field] == value, f'фактическое значение {value} должно быть {data[field]}'
 

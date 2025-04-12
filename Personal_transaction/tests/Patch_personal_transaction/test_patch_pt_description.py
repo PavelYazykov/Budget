@@ -13,7 +13,6 @@ transaction_date = PersonalTransactionVariables.transaction_date
 category_id_income = PersonalTransactionVariables.category_id_income
 category_id_consume = PersonalTransactionVariables.category_id_consume
 transaction_type_tbw = PersonalTransactionVariables.transaction_type_tbw
-payloads = AuthVariables.auth_payloads_2
 
 
 @pytest.mark.Personal_transaction

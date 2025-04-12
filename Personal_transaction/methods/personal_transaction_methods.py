@@ -445,7 +445,13 @@ class PersonalTransactionMethods:
             category_id_consume, amount, access_token
     ):
         with allure.step('Списание средств с копилки'):
-            if result.status_code == 422:
+            if result.status_code == 500:
+                PersonalTransactionMethods.create_personal_transaction(
+                    amount, description, transaction_type_consume, transaction_date, None,
+                    wallet_id_1, category_id_consume, None, access_token
+                )
+                print('Списание средств с копилки 1')
+            elif result.status_code == 422:
                 PersonalTransactionMethods.create_personal_transaction(
                     amount, description, transaction_type_consume, transaction_date, None,
                     wallet_id_1, category_id_consume, None, access_token

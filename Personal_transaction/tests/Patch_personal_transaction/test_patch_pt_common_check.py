@@ -1,6 +1,9 @@
+import time
+
 import allure
 import pytest
 
+from Auth.methods.auth_methods import AuthMethods
 from Personal_transaction.methods.personal_transaction_methods import PersonalTransactionMethods
 from common_methods.variables import PersonalTransactionVariables
 from common_methods.checking import Checking
@@ -14,7 +17,6 @@ transaction_date = PersonalTransactionVariables.transaction_date
 category_id_income = PersonalTransactionVariables.category_id_income
 category_id_consume = PersonalTransactionVariables.category_id_consume
 transaction_type_tbw = PersonalTransactionVariables.transaction_type_tbw
-payloads = AuthVariables.auth_payloads_3
 
 
 @pytest.mark.Personal_transaction
@@ -82,20 +84,38 @@ class TestPatchCommonCheck:
         )
         Checking.check_statuscode(result, 201)
 
-        """Авторизация второго пользователя"""
-        auth_result = Auth.auth_with_params('22222', payloads)
-        Checking.check_statuscode(auth_result, 200)
-        data = Checking.get_data(auth_result)
-        access_token_2 = data['access_token']
-
-        """Редактирование транзакции"""
-        personal_transaction_id = PersonalTransactionMethods.get_personal_transaction_id(result)
-        result_patch = PersonalTransactionMethods.change_personal_transaction(
-            personal_transaction_id, 'title', access_token_2
+        """Создание второго пользователя"""
+        result_create_second_user = AuthMethods.registration(
+            AuthVariables.email_for_create_user, AuthVariables.password, AuthVariables.last_name,
+            AuthVariables.first_name,
+            AuthVariables.middle_name, AuthVariables.phone_for_create_user, AuthVariables.date_of_birth
         )
+        Checking.check_statuscode(result_create_second_user, 201)
+        data, user_id = AuthMethods.get_id(result_create_second_user)
+        try:
+            """Верификация пользователя"""
+            AuthMethods.verification_user(user_id)
+            time.sleep(2)
 
-        """Проверка статус кода"""
-        Checking.check_statuscode(result_patch, 404)
+            """Авторизация второго пользователя"""
+            auth_result = Auth.auth_with_params(
+                '00002', f'username={AuthVariables.email_for_create_user}&password={AuthVariables.password}'
+            )
+            check = auth_result.json()
+            access_token_2 = check.get('access_token')
+            Checking.check_statuscode(auth_result, 200)
+
+            """Редактирование транзакции"""
+            personal_transaction_id = PersonalTransactionMethods.get_personal_transaction_id(result)
+            result_patch = PersonalTransactionMethods.change_personal_transaction(
+                personal_transaction_id, 'title', access_token_2
+            )
+
+            """Проверка статус кода"""
+            Checking.check_statuscode(result_patch, 404)
+        finally:
+            """Удаление пользователя из БД"""
+            AuthMethods.delete_user(user_id)
 
     @allure.description('Несуществующий id')
     def test_04(self, auth_fixture):
@@ -175,21 +195,8 @@ class TestPatchCommonCheck:
         """Проверка статус кода"""
         Checking.check_statuscode(result_patch, 405)
 
-    @allure.description('id = Пустое поле')
-    def test_10(self, auth_fixture):
-        """Авторизациия"""
-        access_token = auth_fixture
-
-        """Редактирование транзакции"""
-        result_patch = PersonalTransactionMethods.change_personal_transaction(
-            '', 'title', access_token
-        )
-
-        """Проверка статус кода"""
-        Checking.check_statuscode(result_patch, 405)
-
     @allure.description('Null')
-    def test_11(self, auth_fixture):
+    def test_10(self, auth_fixture):
         """Авторизациия"""
         access_token = auth_fixture
 

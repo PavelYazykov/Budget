@@ -13,7 +13,7 @@ payloads = AuthVariables.auth_payloads
 @allure.epic('Post_reset_password/refresh Обновление рефреш токена')
 class TestRefresh:
 
-    @allure.description('Существующий refresh_token')
+    @allure.description('Обновление рефреш токена - Существующий refresh_token')
     def test_01(self):
 
         """Авторизация"""
@@ -30,7 +30,11 @@ class TestRefresh:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 200)
 
-    @allure.description('Несуществующий refresh_token')
+        """Проверка наличия поля access_token"""
+        data = Checking.get_data(result)
+        assert 'access_token' in data
+
+    @allure.description('Обновление рефреш токена - Несуществующий refresh_token')
     def test_02(self):
 
         """Авторизация"""
@@ -47,7 +51,7 @@ class TestRefresh:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 401)
 
-    @allure.description('Пустое поле')
+    @allure.description('Обновление рефреш токена - Пустое поле')
     def test_03(self):
         result = AuthMethods.refresh(
             '', payloads
@@ -65,7 +69,7 @@ class TestRefresh:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 401)
 
-    @allure.description('Null')
+    @allure.description('Обновление рефреш токена - Null')
     def test_05(self):
         result = AuthMethods.refresh(
             None, payloads

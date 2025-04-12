@@ -1,9 +1,7 @@
 import allure
 import pytest
-
 from Subcategory.methods.subcategory_methods import SubcategoryMethods
 from common_methods.checking import Checking
-from Subcategory.methods.payloads import SubcategoryPayloads
 from Personal_transaction.methods.personal_transaction_methods import PersonalTransactionMethods
 from common_methods.variables import PersonalTransactionVariables
 category_id = 30
@@ -55,23 +53,23 @@ class TestDeleteSubcategoryCommon:
         data = Checking.get_data(result_create)
         subcategory_id = data['data']['id']
         print(f'Id_subcategory: {subcategory_id}')
+        try:
+            """Создание транзакций"""
+            create_personal_transaction = PersonalTransactionMethods.create_personal_transaction(
+                100, 'descr', transaction_type_income, '2024-01-01', None,
+                wallet_id, 30, subcategory_id, access_token
+            )
+            Checking.check_statuscode(create_personal_transaction, 201)
 
-        """Создание транзакций"""
-        create_personal_transaction = PersonalTransactionMethods.create_personal_transaction(
-            100, 'descr', transaction_type_income, '2024-01-01', None,
-            wallet_id, 30, subcategory_id, access_token
-        )
-        Checking.check_statuscode(create_personal_transaction, 201)
-
-        result_consumption = PersonalTransactionMethods.create_personal_transaction(
-            100, 'descr', transaction_type_consume, '2024-01-01', None,
-            wallet_id, 20, None, access_token
-        )
-        Checking.check_statuscode(result_consumption, 201)
-
-        """Удаление подкатегории"""
-        result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
-        Checking.check_statuscode(result_delete, 204)
+            result_consumption = PersonalTransactionMethods.create_personal_transaction(
+                100, 'descr', transaction_type_consume, '2024-01-01', None,
+                wallet_id, 20, None, access_token
+            )
+            Checking.check_statuscode(result_consumption, 201)
+        finally:
+            """Удаление подкатегории"""
+            result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
+            Checking.check_statuscode(result_delete, 204)
 
 
 

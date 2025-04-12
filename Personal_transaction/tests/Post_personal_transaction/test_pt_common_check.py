@@ -111,16 +111,6 @@ class TestPTCommonCheck:
             """Проверка значения поля amount"""
             data = Checking.get_data(result)
             assert data['data']['amount'] == '10.00'
-            print('Баланс копилок:')
-            res_1 = MoneyboxMethods.get_one_moneybox(moneybox_id_1, access_token)
-            print('Kopilka1', res_1.json())
-            print()
-            print()
-            res_2 = MoneyboxMethods.get_one_moneybox(moneybox_id_2, access_token)
-            print('Kopilka2', res_2.json())
-
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление копилки"""
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id_1, access_token)
@@ -252,7 +242,7 @@ class TestPTCommonCheck:
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id_1, access_token)
             Checking.check_statuscode(result_delete, 204)
 
-    @allure.description('Перевести сумму больше чем есть на кошельке')
+    @allure.description('Перевести сумму больше чем есть на wallet')
     def test_09(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture

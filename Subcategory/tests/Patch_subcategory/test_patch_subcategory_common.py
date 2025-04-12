@@ -37,8 +37,6 @@ class TestPatchSubcategoryCommon:
             data = Checking.get_data(result)
             assert data['data']['title'] == 'title'
             assert data['data']['is_archived'] is False
-        except AssertionError:
-            raise AssertionError
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -61,8 +59,6 @@ class TestPatchSubcategoryCommon:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
-        except AssertionError:
-            raise AssertionError
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)

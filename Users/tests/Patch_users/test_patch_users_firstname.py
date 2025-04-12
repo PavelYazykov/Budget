@@ -10,7 +10,7 @@ from Users.methods.user_payloads import UserResponse
 @allure.epic('Patch/users/me Проверка поля firstname')
 class TestPatchUsersEmail:
 
-    @allure.description('firstname - 2 символа')
+    @allure.description('Проверка поля firstname - 2 символа')
     def test_01(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -31,7 +31,7 @@ class TestPatchUsersEmail:
         data = Checking.get_data(result)
         assert data['first_name'] == 'Mm'
 
-    @allure.description('firstname - 3 символa')
+    @allure.description('Проверка поля firstname - 3 символa')
     def test_02(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -52,7 +52,7 @@ class TestPatchUsersEmail:
         data = Checking.get_data(result)
         assert data['first_name'] == 'Mmm'
 
-    @allure.description('firstname - Кириллица')
+    @allure.description('Проверка поля firstname - Кириллица')
     def test_03(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -73,7 +73,7 @@ class TestPatchUsersEmail:
         data = Checking.get_data(result)
         assert data['first_name'] == 'Мммв'
 
-    @allure.description('firstname - Латиница')
+    @allure.description('Проверка поля firstname - Латиница')
     def test_04(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -94,7 +94,7 @@ class TestPatchUsersEmail:
         data = Checking.get_data(result)
         assert data['first_name'] == 'Llll'
 
-    @allure.description('firstname - Пробел')
+    @allure.description('Проверка поля firstname - Пробел')
     def test_05(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -115,7 +115,7 @@ class TestPatchUsersEmail:
         data = Checking.get_data(result)
         assert data['first_name'] == 'Lll L'
 
-    @allure.description('firstname - Тире')
+    @allure.description('Проверка поля firstname - Тире')
     def test_06(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -136,7 +136,7 @@ class TestPatchUsersEmail:
         data = Checking.get_data(result)
         assert data['first_name'] == 'Lll-L'
 
-    @allure.description('firstname - 63 символа')
+    @allure.description('Проверка поля firstname - 63 символа')
     def test_07(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -158,7 +158,7 @@ class TestPatchUsersEmail:
         data = Checking.get_data(result)
         assert data['first_name'] == 'Lllllllllwlllllllllwlllllllllwlllllllllwlllllllllwlllllllllwqqq'
 
-    @allure.description('firstname - 64 символа')
+    @allure.description('Проверка поля firstname - 64 символа')
     def test_08(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -180,7 +180,7 @@ class TestPatchUsersEmail:
         data = Checking.get_data(result)
         assert data['first_name'] == 'Lllllllllwlllllllllwlllllllllwlllllllllwlllllllllwlllllllllwqqqq'
 
-    @allure.description('firstname - Текст в верхнем регистре')
+    @allure.description('Проверка поля firstname - Текст в верхнем регистре')
     def test_09(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -201,7 +201,7 @@ class TestPatchUsersEmail:
         data = Checking.get_data(result)
         assert data['first_name'] == 'Llll'
 
-    @allure.description('firstname - Текст в нижнем регистре')
+    @allure.description('Проверка поля firstname - Текст в нижнем регистре')
     def test_10(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -222,7 +222,7 @@ class TestPatchUsersEmail:
         data = Checking.get_data(result)
         assert data['first_name'] == 'Llll'
 
-    @allure.description('firstname - Текст в верхнем и нижнем регистре')
+    @allure.description('Проверка поля firstname - Текст в верхнем и нижнем регистре')
     def test_11(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -264,7 +264,7 @@ class TestPatchUsersEmail:
         data = Checking.get_data(result)
         assert data['first_name'] == 'Lll L'
 
-    @allure.description('firstname - 2 тире подряд')
+    @allure.description('Проверка поля firstname - 2 тире подряд')
     def test_13(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -285,7 +285,7 @@ class TestPatchUsersEmail:
         data = Checking.get_data(result)
         assert data['first_name'] == 'Lll-L'
 
-    @allure.description('firstname - Поле отсутствует')
+    @allure.description('Проверка поля firstname - Поле отсутствует')
     def test_14(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -302,7 +302,7 @@ class TestPatchUsersEmail:
         """Проверка наличия обязательных полей"""
         UserResponse.check_required_fields(result)
 
-    @allure.description('firstname - Пустое поле')
+    @allure.description('Проверка поля firstname - Пустое поле')
     def test_15(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -316,7 +316,7 @@ class TestPatchUsersEmail:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 422)
 
-    @allure.description('firstname - 65 Символов')
+    @allure.description('Проверка поля firstname - 65 Символов')
     def test_16(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -331,7 +331,7 @@ class TestPatchUsersEmail:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 422)
 
-    @allure.description('firstname - Латиница + Кириллица')
+    @allure.description('Проверка поля firstname - Латиница + Кириллица')
     def test_17(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -345,7 +345,7 @@ class TestPatchUsersEmail:
         """Проверка статус кода"""
         Checking.check_statuscode(result, 422)
 
-    @allure.description('firstname - 3 пробела подряд')
+    @allure.description('Проверка поля firstname - 3 пробела подряд')
     def test_18(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -365,7 +365,7 @@ class TestPatchUsersEmail:
         data = Checking.get_data(result)
         assert data['first_name'] == 'Qw E'
 
-    @allure.description('firstname - 3 тире подряд')
+    @allure.description('Проверка поля firstname - 3 тире подряд')
     def test_19(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -385,7 +385,7 @@ class TestPatchUsersEmail:
         data = Checking.get_data(result)
         assert data['first_name'] == 'Qw-E'
 
-    @allure.description('firstname - Цифры')
+    @allure.description('Проверка поля firstname - Цифры')
     def test_20(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -398,7 +398,7 @@ class TestPatchUsersEmail:
 
         Checking.check_statuscode(result, 422)
 
-    @allure.description('firstname - Спецсимволы')
+    @allure.description('Проверка поля firstname - Спецсимволы')
     def test_21(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -411,7 +411,7 @@ class TestPatchUsersEmail:
 
         Checking.check_statuscode(result, 422)
 
-    @allure.description('firstname - Начинается пробелом')
+    @allure.description('Проверка поля firstname - Начинается пробелом')
     def test_22(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -431,7 +431,7 @@ class TestPatchUsersEmail:
         data = Checking.get_data(result)
         assert data['first_name'] == 'Rrrr'
 
-    @allure.description('firstname - Заканчивается пробелом')
+    @allure.description('Проверка поля firstname - Заканчивается пробелом')
     def test_23(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -451,7 +451,7 @@ class TestPatchUsersEmail:
         data = Checking.get_data(result)
         assert data['first_name'] == 'Rrrr'
 
-    @allure.description('firstname - Начинается с "тире"')
+    @allure.description('Проверка поля firstname - Начинается с "тире"')
     def test_24(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -471,7 +471,7 @@ class TestPatchUsersEmail:
         data = Checking.get_data(result)
         assert data['first_name'] == 'Rrrr'
 
-    @allure.description('firstname - Заканчивается "тире"')
+    @allure.description('Проверка поля firstname - Заканчивается "тире"')
     def test_25(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -491,7 +491,7 @@ class TestPatchUsersEmail:
         data = Checking.get_data(result)
         assert data['first_name'] == 'Rrrr'
 
-    @allure.description('firstname - Null')
+    @allure.description('Проверка поля firstname - Null')
     def test_26(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -504,7 +504,7 @@ class TestPatchUsersEmail:
 
         Checking.check_statuscode(result, 422)
 
-    @allure.description('firstname - 1 символ')
+    @allure.description('Проверка поля firstname - 1 символ')
     def test_27(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture

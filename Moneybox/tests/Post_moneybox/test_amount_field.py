@@ -13,9 +13,9 @@ amount = MoneyboxVariables.amount
 
 @pytest.mark.post_moneybox
 @allure.epic('Post_moneybox /api/v1/moneybox/ Проверка поля amount')
-class TestAmount:
+class TestPostMoneyboxAmount:
 
-    @allure.description('Создание копилки со значением 0')
+    @allure.description('Проверка поля amount - Создание копилки со значением 0')
     def test_01(self, auth_fixture):
 
         """Авторизация"""
@@ -23,6 +23,7 @@ class TestAmount:
 
         """Post_moneybox запрос"""
         post_result = MoneyboxMethods.create_moneybox(to_date, goal, name, currency_id, amount, access_token)
+        create_data = Checking.get_data(post_result)
 
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
@@ -33,16 +34,13 @@ class TestAmount:
                 data = Checking.get_data(post_result)
                 assert data['data']['wallet']['amount'] == '0.00'
                 print('Значение поля amount соответствует введенному')
-        except AssertionError:
-            print(post_result.text)
-            raise AssertionError
         finally:
             """Удаление копилки"""
             with allure.step('Удаление копилки'):
-                moneybox_id = data['data']['id']
-                MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+                moneybox_id = create_data['data']['id']
+                MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 
-    @allure.description('Поле отсутствует')
+    @allure.description('Проверка поля amount - Поле отсутствует')
     def test_02(self, auth_fixture):  # Тест будет падать
 
         """Авторизация"""
@@ -52,17 +50,17 @@ class TestAmount:
         post_result = MoneyboxMethods.create_moneybox_without_amount(
             to_date, goal, name, currency_id, access_token
         )
+        data = Checking.get_data(post_result)
+        moneybox_id = data['data']['id']
 
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
 
         """Удаление копилки"""
         with allure.step('Удаление копилки'):
-            data = Checking.get_data(post_result)
-            moneybox_id = data['data']['id']
-            MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 
-    @allure.description('Целое число')
+    @allure.description('Проверка поля amount - Целое число')
     def test_03(self, auth_fixture):
 
         """Авторизация"""
@@ -70,7 +68,7 @@ class TestAmount:
 
         """Post_moneybox запрос"""
         post_result = MoneyboxMethods.create_moneybox(to_date, goal, name, currency_id, 100, access_token)
-
+        data_create = Checking.get_data(post_result)
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
         try:
@@ -83,16 +81,13 @@ class TestAmount:
             """Списание средств с копилки"""
             wallet_id = MoneyboxMethods.get_wallet_id(post_result)
             MoneyboxMethods.consumption('5.5', wallet_id, access_token)
-        except AssertionError:
-            print(post_result.text)
-            raise AssertionError
         finally:
             """Удаление копилки"""
             with allure.step('Удаление копилки'):
-                moneybox_id = data['data']['id']
-                MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+                moneybox_id = data_create['data']['id']
+                MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 
-    @allure.description('Вещественное число (5,5)')
+    @allure.description('Проверка поля amount - Вещественное число (5,5)')
     def test_04(self, auth_fixture):
 
         """Авторизация"""
@@ -100,7 +95,7 @@ class TestAmount:
 
         """Post_moneybox запрос"""
         post_result = MoneyboxMethods.create_moneybox(to_date, goal, name, currency_id, 5.5, access_token)
-
+        data_create = Checking.get_data(post_result)
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
         try:
@@ -113,16 +108,13 @@ class TestAmount:
             """Списание средств с копилки"""
             wallet_id = MoneyboxMethods.get_wallet_id(post_result)
             MoneyboxMethods.consumption('5.5', wallet_id, access_token)
-        except AssertionError:
-            print(post_result.text)
-            raise AssertionError
         finally:
             """Удаление копилки"""
             with allure.step('Удаление копилки'):
-                moneybox_id = data['data']['id']
-                MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+                moneybox_id = data_create['data']['id']
+                MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 
-    @allure.description('Null')
+    @allure.description('Проверка поля amount - Null')
     def test_05(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -134,7 +126,7 @@ class TestAmount:
         Checking.delete_moneybox_if_bug(post_result, 201, access_token)
         Checking.check_statuscode(post_result, 422)
 
-    @allure.description('Пустое поле')
+    @allure.description('Проверка поля amount - Пустое поле')
     def test_06(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -146,7 +138,7 @@ class TestAmount:
         Checking.delete_moneybox_if_bug(post_result, 201, access_token)
         Checking.check_statuscode(post_result, 422)
 
-    @allure.description('Неверный тип данных (string: "строка")')
+    @allure.description('Проверка поля amount - Неверный тип данных (string: "строка")')
     def test_07(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -158,7 +150,7 @@ class TestAmount:
         Checking.delete_moneybox_if_bug(post_result, 201, access_token)
         Checking.check_statuscode(post_result, 422)
 
-    @allure.description('Отрицательное значение')
+    @allure.description('Проверка поля amount - Отрицательное значение')
     def test_08(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture

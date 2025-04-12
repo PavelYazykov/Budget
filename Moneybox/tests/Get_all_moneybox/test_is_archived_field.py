@@ -14,12 +14,12 @@ amount = MoneyboxVariables.amount
 @pytest.mark.get_moneybox
 @pytest.mark.Moneybox
 @allure.epic('GET /api/v1/moneybox/ Проверка поля is_archived')
-class TestGetAll:
+class TestGetAllMoneyboxIsArchived:
 
-    @allure.description('Пустое поле')
-    def test_01(self, auth_fixture, create_moneybox_and_delete):
+    @allure.description('Проверка поля is_archived - Пустое поле')
+    def test_01(self, create_moneybox_and_delete):
         """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Get запрос"""
         result_get = MoneyboxMethods.get_all_moneybox_with_params(access_token, '')
@@ -27,10 +27,10 @@ class TestGetAll:
         """Проверка статус кода"""
         Checking.check_statuscode(result_get, 422)
 
-    @allure.description('Null')
-    def test_02(self, auth_fixture, create_moneybox_and_delete):
+    @allure.description('Проверка поля is_archived - Null')
+    def test_02(self, create_moneybox_and_delete):
         """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Get запрос"""
         result_get = MoneyboxMethods.get_all_moneybox_with_params(access_token, None)
@@ -38,10 +38,10 @@ class TestGetAll:
         """Проверка статус кода"""
         Checking.check_statuscode(result_get, 422)
 
-    @allure.description('Неверный тип данных')
-    def test_03(self, auth_fixture, create_moneybox_and_delete):
+    @allure.description('Проверка поля is_archived - Неверный тип данных')
+    def test_03(self, create_moneybox_and_delete):
         """Авторизация"""
-        access_token = auth_fixture
+        moneybox_id, access_token = create_moneybox_and_delete
 
         """Get запрос"""
         result_get = MoneyboxMethods.get_all_moneybox_with_params(access_token, 123456)

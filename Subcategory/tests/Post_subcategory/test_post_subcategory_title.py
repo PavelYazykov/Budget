@@ -31,8 +31,6 @@ class TestCreateSubcategoriesTitle:
 
             """Проверка значения поля title"""
             assert data['data']['title'] == 'd'
-        except AssertionError:
-            raise AssertionError
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
@@ -58,8 +56,6 @@ class TestCreateSubcategoriesTitle:
 
             """Проверка значения поля title"""
             assert data['data']['title'] == 'AssertionAssertionn'
-        except AssertionError:
-            raise AssertionError
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
@@ -85,8 +81,6 @@ class TestCreateSubcategoriesTitle:
 
             """Проверка значения поля title"""
             assert data['data']['title'] == 'AssertionAssertionnn'
-        except AssertionError:
-            raise AssertionError
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
@@ -112,8 +106,6 @@ class TestCreateSubcategoriesTitle:
 
             """Проверка значения поля title"""
             assert data['data']['title'] == '12345'
-        except AssertionError:
-            raise AssertionError
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
@@ -139,8 +131,6 @@ class TestCreateSubcategoriesTitle:
 
             """Проверка значения поля title"""
             assert data['data']['title'] == 'фыва'
-        except AssertionError:
-            raise AssertionError
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
@@ -166,8 +156,6 @@ class TestCreateSubcategoriesTitle:
 
             """Проверка значения поля title"""
             assert data['data']['title'] == 'asdf'
-        except AssertionError:
-            raise AssertionError
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
@@ -193,8 +181,6 @@ class TestCreateSubcategoriesTitle:
 
             """Проверка значения поля title"""
             assert data['data']['title'] == 'фыва фыва'
-        except AssertionError:
-            raise AssertionError
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
@@ -220,8 +206,6 @@ class TestCreateSubcategoriesTitle:
 
             """Проверка значения поля title"""
             assert data['data']['title'] == 'фыва_фыва'
-        except AssertionError:
-            raise AssertionError
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
@@ -247,8 +231,6 @@ class TestCreateSubcategoriesTitle:
 
             """Проверка значения поля title"""
             assert data['data']['title'] == 'фыва-фыва'
-        except AssertionError:
-            raise AssertionError
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
@@ -274,8 +256,6 @@ class TestCreateSubcategoriesTitle:
 
             """Проверка значения поля title"""
             assert data['data']['title'] == 'фыва.фыва'
-        except AssertionError:
-            raise AssertionError
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
@@ -298,9 +278,6 @@ class TestCreateSubcategoriesTitle:
                 category_id, 'Категория_1', access_token
             )
             Checking.check_statuscode(result_create_2, 400)
-
-        except AssertionError:
-            raise AssertionError
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
