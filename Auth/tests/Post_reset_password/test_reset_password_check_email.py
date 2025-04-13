@@ -59,6 +59,7 @@ class TestResetPasswordCheckEmail:
     @allure.description('Проверка поля email - Null')
     def test_03(self):
         """Запрос кода"""
+        time.sleep(301)
         result = AuthMethods.forgot_password(email)
         Checking.check_statuscode(result, 200)
         result_code = AuthMethods.get_verify_code(result)
@@ -82,6 +83,7 @@ class TestResetPasswordCheckEmail:
     @allure.description('email адрес запроса кода и email при проверке пароля не совпадают')
     def test_04(self):
         """Запрос кода"""
+        time.sleep(301)
         result = AuthMethods.forgot_password(email)
         Checking.check_statuscode(result, 200)
         result_code = AuthMethods.get_verify_code(result)
@@ -105,6 +107,7 @@ class TestResetPasswordCheckEmail:
     @allure.description('Проверка поля email - Неверный формат email')
     def test_05(self):
         """Запрос кода"""
+        time.sleep(301)
         result = AuthMethods.forgot_password(email)
         Checking.check_statuscode(result, 200)
         result_code = AuthMethods.get_verify_code(result)
@@ -128,6 +131,7 @@ class TestResetPasswordCheckEmail:
     @allure.description('Проверка поля email - Пустое поле')
     def test_06(self):
         """Запрос кода"""
+        time.sleep(301)
         result = AuthMethods.forgot_password(email)
         Checking.check_statuscode(result, 200)
         result_code = AuthMethods.get_verify_code(result)

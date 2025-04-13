@@ -162,6 +162,76 @@ class PersonalBudgetAutoUseMethods:
             return result
 
     @staticmethod
+    def change_personal_budget_auto_use_without_amount(
+            personal_budget_id, transaction_type, category_id, subcategory_id, access_token
+    ):
+        with allure.step('Изменение регулярного персонального бюджета без поля amount'):
+            endpoint = f'/api/v1/personal_budget/auto_use/{personal_budget_id}/'
+            body = {
+                "transaction_type": transaction_type,
+                "category_id": category_id,
+                "subcategory_id": subcategory_id
+            }
+            patch_url = CommonVariables.base_url + endpoint
+            result = HttpMethods.patch(patch_url, body, access_token)
+            return result
+
+    @staticmethod
+    def change_personal_budget_auto_use_without_subcategory_id(
+            personal_budget_id, transaction_type, category_id, amount, access_token
+    ):
+        with allure.step('Изменение регулярного персонального бюджета без поля subcategory_id'):
+            endpoint = f'/api/v1/personal_budget/auto_use/{personal_budget_id}/'
+            body = {
+                "transaction_type": transaction_type,
+                "category_id": category_id,
+                "amount": amount
+            }
+            patch_url = CommonVariables.base_url + endpoint
+            result = HttpMethods.patch(patch_url, body, access_token)
+            return result
+
+    @staticmethod
+    def change_personal_budget_auto_use_without_category_id(
+            personal_budget_id, transaction_type, subcategory_id, amount, access_token
+    ):
+        with allure.step('Изменение регулярного персонального бюджета без поля category_id'):
+            endpoint = f'/api/v1/personal_budget/auto_use/{personal_budget_id}/'
+            body = {
+                "transaction_type": transaction_type,
+                "subcategory_id": subcategory_id,
+                "amount": amount
+            }
+            patch_url = CommonVariables.base_url + endpoint
+            result = HttpMethods.patch(patch_url, body, access_token)
+            return result
+
+    @staticmethod
+    def change_personal_budget_auto_use_without_transaction_type(
+            personal_budget_id, category_id, subcategory_id, amount, access_token
+    ):
+        with allure.step('Изменение регулярного персонального бюджета без поля transaction_type'):
+            endpoint = f'/api/v1/personal_budget/auto_use/{personal_budget_id}/'
+            body = {
+                "category_id": category_id,
+                "subcategory_id": subcategory_id,
+                "amount": amount
+            }
+            patch_url = CommonVariables.base_url + endpoint
+            result = HttpMethods.patch(patch_url, body, access_token)
+            return result
+
+    @staticmethod
+    def change_personal_budget_auto_use_without_body(
+            personal_budget_id, access_token
+    ):
+        with allure.step('Изменение регулярного персонального бюджета без body'):
+            endpoint = f'/api/v1/personal_budget/auto_use/{personal_budget_id}/'
+            patch_url = CommonVariables.base_url + endpoint
+            result = HttpMethods.patch_without_body(patch_url, access_token)
+            return result
+
+    @staticmethod
     def delete_auto_use_if_bug(result, access_token):
         if result.status_code == 201:
             data = Checking.get_data(result)

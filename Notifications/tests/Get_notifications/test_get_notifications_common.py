@@ -116,9 +116,11 @@ class TestGetNotificationsCommon:
             result = NotificationsMethods.get_notifications_without_auth(user_id, '2030-12-11')
 
             """Проверка статус кода"""
-            Checking.check_statuscode(result, 401)
+            Checking.check_statuscode(result, 200)
 
-            """Проверка наличия обязательных полей"""
+            """Проверка отображения уведомления"""
+            data_notifications = Checking.get_data(result)
+            assert data_notifications['meta']['total_count'] == 1
 
         finally:
             """Удаление счета"""

@@ -1,6 +1,6 @@
 import allure
 import pytest
-
+import time
 from Auth.methods.auth_methods import AuthMethods
 from common_methods.checking import Checking
 from common_methods.variables import AuthVariables
@@ -16,6 +16,7 @@ class TestResetPasswordCommonCheck:
     @allure.description('Изменение пароля с валидными данными и после кода подтверждения')
     def test_01(self):
         """Запрос кода"""
+        time.sleep(301)
         result = AuthMethods.forgot_password(email)
         Checking.check_statuscode(result, 200)
         result_code = AuthMethods.get_verify_code(result)

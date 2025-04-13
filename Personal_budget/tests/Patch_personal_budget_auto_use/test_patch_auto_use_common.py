@@ -25,7 +25,6 @@ class TestPatchPersonalBudgetCommon:
         )
         Checking.check_statuscode(result_create_user, 201)
         data, user_id = AuthMethods.get_id(result_create_user)
-        access_token = None
         try:
             """Верификация пользователя"""
             AuthMethods.verification_user(user_id)
@@ -41,7 +40,7 @@ class TestPatchPersonalBudgetCommon:
 
             """Cоздание персонального и регулярного объектов бюджета"""
             PersonalBudgetMethods.create_pb_and_pb_auto_use(
-                20, user_id, 'IN', 12, 2026, None,
+                30, user_id, 'IN', 12, 2026, None,
                 '12345', '54321', 10, '2026-01-12'
             )
 
@@ -62,14 +61,51 @@ class TestPatchPersonalBudgetCommon:
             Checking.check_statuscode(result_get, 200)
 
             """Проверка значения поля amount"""
-            'ДОПИСАТЬ!!!!'
+            data = Checking.get_data(result_get)
+            assert data['data']['amount'] == '1000.00'
         finally:
-            # """Удаление пользователя из БД"""
-            # AuthMethods.delete_user(user_id)
-            result_delete = PersonalBudgetAutoUseMethods.delete_personal_budget_auto_use(
-                '12345', access_token
+            """Удаление пользователя из БД"""
+            AuthMethods.delete_user(user_id)
+
+    @allure.description('общие проверки - Отправка запроса без body')
+    def test_02(self):
+        """Создание пользователя"""
+        result_create_user = AuthMethods.registration(
+            AuthVariables.email_for_create_user, AuthVariables.password, AuthVariables.last_name,
+            AuthVariables.first_name,
+            AuthVariables.middle_name, AuthVariables.phone_for_create_user, AuthVariables.date_of_birth
+        )
+        Checking.check_statuscode(result_create_user, 201)
+        data, user_id = AuthMethods.get_id(result_create_user)
+        try:
+            """Верификация пользователя"""
+            AuthMethods.verification_user(user_id)
+            time.sleep(2)
+
+            """Авторизация пользователя"""
+            auth_result = Auth.auth_with_params(
+                '00002', f'username={AuthVariables.email_for_create_user}&password={AuthVariables.password}'
             )
-            Checking.check_statuscode(result_delete, 204)
+            check = auth_result.json()
+            access_token = check.get('access_token')
+            Checking.check_statuscode(auth_result, 200)
+
+            """Cоздание персонального и регулярного объектов бюджета"""
+            PersonalBudgetMethods.create_pb_and_pb_auto_use(
+                30, user_id, 'IN', 12, 2026, None,
+                '12345', '54321', 10, '2026-01-12'
+            )
+
+            """Запрос на редактирование регулярного бюджета"""
+            result_patch = PersonalBudgetAutoUseMethods.change_personal_budget_auto_use_without_body(
+                '54321', access_token
+            )
+            """Проверка статус кода"""
+            Checking.check_statuscode(result_patch, 422)
+        finally:
+            """Удаление пользователя из БД"""
+            AuthMethods.delete_user(user_id)
+
 
 
 
