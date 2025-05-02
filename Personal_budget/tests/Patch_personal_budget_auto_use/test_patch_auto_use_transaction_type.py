@@ -155,18 +155,7 @@ class TestPatchPersonalBudgeTransactionType:
             )
 
             """Проверка статус кода"""
-            Checking.check_statuscode(result_patch, 200)
-
-            result_get = PersonalBudgetAutoUseMethods.get_personal_budget_auto_use_by_id(
-                '12345', access_token
-            )
-
-            """Проверка статус кода"""
-            Checking.check_statuscode(result_get, 200)
-
-            """Проверка значения поля transaction_type"""
-            data = Checking.get_data(result_get)
-            assert data['data']['transaction_type'] == 'Transfer between wallets'
+            Checking.check_statuscode(result_patch, 422)
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)

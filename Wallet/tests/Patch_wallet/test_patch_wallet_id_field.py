@@ -72,7 +72,7 @@ class TestPatchWalletCommon:
         )
 
         """Провекрка статус кода"""
-        Checking.check_statuscode(result, 405)
+        Checking.check_statuscode(result, 404)
 
     @allure.description('Проверка поля wallet_id - Поле отсутствует')
     def test_06(self, auth_fixture):

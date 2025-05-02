@@ -1,5 +1,3 @@
-import time
-
 import allure
 
 from common_methods.checking import Checking
@@ -29,8 +27,6 @@ class TestPostPersonalBudgetCommon:
         try:
             """Проверка наличия обязательных полей"""
             Payloads.check_required_fields(result_create, Payloads.post_payloads)
-        except AssertionError:
-            raise AssertionError
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
@@ -58,7 +54,7 @@ class TestPostPersonalBudgetCommon:
         """Проверка статус кода"""
         Checking.check_statuscode(result_create, 422)
 
-    @allure.description('общие проверки - Для Income указать категорию соответствующую Consume')
+    @allure.description('общие проверки - Для Income указать категорию соответствующую Consumption')
     def test_04(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
@@ -88,47 +84,8 @@ class TestPostPersonalBudgetCommon:
         """Проверка статус кода"""
         Checking.check_statuscode(result_create, 400)
 
-    @allure.description('общие проверки - Для TBW  - null')
-    def test_06(self, auth_fixture):
-        """Авторизация"""
-        access_token = auth_fixture
-
-        """Создание персонального бюджета"""
-        result_create = PersonalBudgetMethods.create_personal_budget(
-            "Transfer between wallets", None, Variables.subcategory_id, Variables.amount,
-            Variables.month, Variables.year, Variables.date_reminder, Variables.title, Variables.have_to_remind,
-            Variables.remind_in_days, access_token
-        )
-
-        """Проверка статус кода"""
-        Checking.check_statuscode(result_create, 201)
-        data = Checking.get_data(result_create)
-        personal_budget_id = data['data']['id']
-        try:
-            """Проверка наличия обязательных полей"""
-            Payloads.check_required_fields(result_create, Payloads.post_payloads)
-
-        finally:
-            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
-
-    @allure.description('общие проверки - Для TBW - указать категорию')
-    def test_07(self, auth_fixture):
-        """Авторизация"""
-        access_token = auth_fixture
-
-        """Создание персонального бюджета"""
-        result_create = PersonalBudgetMethods.create_personal_budget(
-            "Transfer between wallets", Variables.category_id, Variables.subcategory_id, Variables.amount,
-            Variables.month, Variables.year, Variables.date_reminder, Variables.title, Variables.have_to_remind,
-            Variables.remind_in_days, access_token
-        )
-
-        """Проверка статус кода"""
-        PersonalBudgetMethods.delete_personal_budget_if_bug(result_create, 201, access_token)
-        Checking.check_statuscode(result_create, 400)
-
     @allure.description('общие проверки - Без поля regular_outcome')
-    def test_08(self, auth_fixture):
+    def test_06(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
@@ -145,13 +102,11 @@ class TestPostPersonalBudgetCommon:
         try:
             """Проверка наличия обязательных полей"""
             Payloads.check_required_fields(result_create, Payloads.post_payloads)
-        except AssertionError:
-            raise AssertionError
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
     @allure.description('общие проверки - regular_outcome - null')
-    def test_09(self, auth_fixture):
+    def test_07(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
@@ -168,13 +123,11 @@ class TestPostPersonalBudgetCommon:
         try:
             """Проверка наличия обязательных полей"""
             Payloads.check_required_fields(result_create, Payloads.post_payloads)
-        except AssertionError:
-            raise AssertionError
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
     @allure.description('общие проверки - Создание двух одинаковых бюджетов в один месяц')
-    def test_10(self, auth_fixture):
+    def test_08(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
@@ -207,7 +160,7 @@ class TestPostPersonalBudgetCommon:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
     @allure.description('общие проверки - Дата в прошлом')
-    def test_11(self, auth_fixture):
+    def test_09(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 

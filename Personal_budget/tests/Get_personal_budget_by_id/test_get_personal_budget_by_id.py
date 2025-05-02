@@ -66,7 +66,7 @@ class TestGetPersonalBudgetById:
 
         """Запрос персонального бюджета"""
         result_get = PersonalBudgetMethods.get_personal_budget_by_id('', access_token)
-        Checking.check_statuscode(result_get, 422)
+        Checking.check_statuscode(result_get, 404)
 
     @allure.description('Получение бюджета - Поле id = Null')
     def test_05(self, auth_fixture):

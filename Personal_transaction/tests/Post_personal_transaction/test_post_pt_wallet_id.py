@@ -32,7 +32,7 @@ class TestPTPostWalletId:
 
         """Проверка значения поля amount"""
         data = Checking.get_data(result)
-        assert data['data']['amount'] == '0.00'
+        assert data['data']['amount'] == '10.00'
 
     @allure.description('Проверка поля wallet_id - Несуществующий id')
     def test_02(self, create_moneybox_and_delete_for_personal_transaction):

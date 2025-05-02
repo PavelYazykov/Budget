@@ -147,7 +147,7 @@ class TestDeleteWallet:
         result_delete = WalletMethods.delete_wallet_by_id('', access_token)
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result_delete, 405)
+        Checking.check_statuscode(result_delete, 404)
 
     @allure.description('Удаление wallet - поле wallet_id отсутствует')
     def test_08(self, auth_fixture):

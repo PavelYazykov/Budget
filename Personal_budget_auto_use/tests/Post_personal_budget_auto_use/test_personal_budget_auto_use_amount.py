@@ -7,7 +7,7 @@ from Personal_budget_auto_use.methods.payloads_variables import Variables
 
 @allure.epic('Post/api/v1/personal_budget_auto_use/ - Создание ежемесячного объекта бюджета - '
              'проверка поля amount')
-class TestGetPersonalAmount:
+class TestPostAutoUseAmount:
 
     @allure.description('amount - Целое число')
     def test_01(self, auth_fixture):

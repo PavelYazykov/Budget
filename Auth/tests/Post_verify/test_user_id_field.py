@@ -127,7 +127,7 @@ class TestUserIdField:
             result_check = AuthMethods.verify_without_userid(result_code)
 
             """Проверка статус кода"""
-            Checking.check_statuscode(result_check, 422)
+            Checking.check_statuscode(result_check, 404)
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)

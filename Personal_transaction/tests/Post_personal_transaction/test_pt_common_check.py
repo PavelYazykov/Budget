@@ -32,7 +32,7 @@ class TestPTCommonCheck:
 
         """Проверка значения поля amount"""
         data = Checking.get_data(result)
-        assert data['data']['amount'] == '0.00'
+        assert data['data']['amount'] == '10.00'
 
     @allure.description('Создание транзакции "Consumption" с валидными данными (авторизованный пользователь)')
     def test_02(self, auth_fixture):
@@ -61,9 +61,6 @@ class TestPTCommonCheck:
             data = Checking.get_data(result)
             print(data['data']['amount'])
             assert data['data']['amount'] == '10.00'
-        except AssertionError as error:
-            print('Ошибка!')
-            raise error
         finally:
             """Удаление копилки"""
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
@@ -168,9 +165,6 @@ class TestPTCommonCheck:
             )
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
-
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление копилки"""
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id_1, access_token)
@@ -201,8 +195,6 @@ class TestPTCommonCheck:
             )
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
-        except AssertionError:
-            raise AssertionError
         finally:
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id_2, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -229,8 +221,6 @@ class TestPTCommonCheck:
             )
             """Проверка статус кода"""
             Checking.check_statuscode(result, 400)
-        except AssertionError:
-            raise AssertionError
         finally:
             """Списание средств с копилки"""
             result_consume = PersonalTransactionMethods.create_personal_transaction(
@@ -271,8 +261,6 @@ class TestPTCommonCheck:
             )
             """Проверка статус кода"""
             Checking.check_statuscode(result, 400)
-        except AssertionError:
-            raise AssertionError
         finally:
             """Списание средств с копилки"""
             result_consume = PersonalTransactionMethods.create_personal_transaction(
@@ -315,10 +303,6 @@ class TestPTCommonCheck:
                     wallet_id, category_id_consume, None, access_token
                 )
             Checking.check_statuscode(result, 400)
-
-        except AssertionError as error:
-            print(f'Ошибка!')
-            raise error
         finally:
             """Удаление копилки"""
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)

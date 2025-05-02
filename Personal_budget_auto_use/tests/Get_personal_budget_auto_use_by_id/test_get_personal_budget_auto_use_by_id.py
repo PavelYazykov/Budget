@@ -77,7 +77,7 @@ class TestGetAutoUseById:
         )
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result_get, 422)
+        Checking.check_statuscode(result_get, 404)
 
     @allure.description('Запрос регулярного бюджета с id = Null')
     def test_05(self, auth_fixture):

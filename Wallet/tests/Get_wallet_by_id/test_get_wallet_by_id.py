@@ -86,7 +86,7 @@ class TestGetWalletById:
         result = WalletMethods.get_wallet_by_id('', access_token)
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result, 200)
+        Checking.check_statuscode(result, 404)
 
     @allure.description('Получение информации о wallet по id - Null')
     def test_08(self, auth_fixture):

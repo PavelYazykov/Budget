@@ -81,6 +81,7 @@ class TestRegularOutcomeCommon:
         """Авторизация"""
         access_token = auth_fixture
 
+        regular_outcome_id_2 = None
         """Запрос на создание regular_outcome_1"""
         result = RegularOutcomeMethods.create_regular_outcome(
             'title', 20, None, 'day', 100, False,
@@ -99,13 +100,14 @@ class TestRegularOutcomeCommon:
             )
 
             """Проверка статус кода"""
-            RegularOutcomeMethods.delete_regular_outcome_if_bug(result_2, 201, access_token)
-            Checking.check_statuscode(result_2, 409)
-
-        except AssertionError:
-            raise AssertionError
+            Checking.check_statuscode(result_2, 201)
+            data_2 = Checking.get_data(result_2)
+            regular_outcome_id_2 = data_2['data']['id']
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
+
+            result_delete_2 = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id_2, access_token)
+            Checking.check_statuscode(result_delete_2, 204)
 
 

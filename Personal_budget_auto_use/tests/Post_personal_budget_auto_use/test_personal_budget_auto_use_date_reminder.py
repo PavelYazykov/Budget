@@ -9,7 +9,7 @@ current_date = str(date.today())
 
 @allure.epic('Post/api/v1/personal_budget_auto_use/ - Создание ежемесячного объекта бюджета - '
              'проверка поля date_reminder')
-class TestGetPersonalDateReminder:
+class TestPostAutoUsDateReminder:
 
     @allure.description('date_reminder - Текущая дата')
     def test_01(self, auth_fixture):

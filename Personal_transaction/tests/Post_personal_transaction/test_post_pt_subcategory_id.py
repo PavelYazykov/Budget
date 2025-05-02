@@ -42,9 +42,8 @@ class TestPTPostSubcategoryId:
 
             """Проверка значения поля amount"""
             data = Checking.get_data(result)
-            assert data['data']['amount'] == '0.00'
-        except AssertionError:
-            raise AssertionError
+            assert data['data']['amount'] == '10.00'
+
         finally:
             """Удаление подкатегории"""
             delete_result = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
@@ -66,7 +65,7 @@ class TestPTPostSubcategoryId:
 
         """Проверка значения поля amount"""
         data = Checking.get_data(result)
-        assert data['data']['amount'] == '0.00'
+        assert data['data']['amount'] == '10.00'
 
     @allure.description('Проверка поля subcategory_id - Null')
     def test_03(self, create_moneybox_and_delete_for_personal_transaction):
@@ -83,7 +82,7 @@ class TestPTPostSubcategoryId:
 
         """Проверка значения поля amount"""
         data = Checking.get_data(result)
-        assert data['data']['amount'] == '0.00'
+        assert data['data']['amount'] == '10.00'
 
     @allure.description('Проверка поля subcategory_id - Несуществующий id')
     def test_04(self, create_moneybox_and_delete_for_personal_transaction):

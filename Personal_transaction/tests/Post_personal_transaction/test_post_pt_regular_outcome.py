@@ -49,8 +49,6 @@ class TestPTPostRegularOutcome:
             """Проверка значения поля amount"""
             data = Checking.get_data(result)
             assert data['data']['regular_outcome_id'] == regular_outcome_id
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление подкатегории"""
             delete_result = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
@@ -78,9 +76,7 @@ class TestPTPostRegularOutcome:
 
             """Проверка значения поля amount"""
             data = Checking.get_data(result)
-            assert data['data']['amount'] == '0.00'
-        except AssertionError:
-            raise AssertionError
+            assert data['data']['amount'] == '10.00'
         finally:
             """Удаление подкатегории"""
             delete_result = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)

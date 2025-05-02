@@ -74,11 +74,7 @@ class TestPostAmount:
             category_id_income, None, access_token
         )
         """Проверка статус кода"""
-        Checking.check_statuscode(result, 201)
-
-        """Проверка значения поля amount"""
-        data = Checking.get_data(result)
-        assert data['data']['amount'] == '0.00'
+        Checking.check_statuscode(result, 422)
 
     @allure.description('Значение 9999999999.99')
     def test_04(self, auth_fixture):
@@ -87,7 +83,7 @@ class TestPostAmount:
 
         """Создание копилки"""
         result_moneybox = MoneyboxMethods.create_moneybox(
-            '2030-12-31', 9999999999.99, 'moneybox', 2, amount, access_token
+            '2030-12-31', 9999999999.99, 'moneybox', 2, 0, access_token
         )
         Checking.check_statuscode(result_moneybox, 201)
 
@@ -114,8 +110,6 @@ class TestPostAmount:
             data = Checking.get_data(result)
             print(data['data']['amount'])
             assert data['data']['amount'] == '9999999999.99'
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление копилки"""
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
@@ -128,7 +122,7 @@ class TestPostAmount:
 
         """Создание копилки"""
         result_moneybox = MoneyboxMethods.create_moneybox(
-            '2030-12-31', 9999999999.99, 'moneybox', 2, amount, access_token
+            '2030-12-31', 9999999999.99, 'moneybox', 2, 0, access_token
         )
         Checking.check_statuscode(result_moneybox, 201)
 
@@ -144,8 +138,6 @@ class TestPostAmount:
             """Проверка статус кода"""
             print('RESULT:', result.json())
             Checking.check_statuscode(result, 422)
-        except AssertionError:
-            raise AssertionError
         finally:
             """Удаление копилки"""
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
@@ -158,7 +150,7 @@ class TestPostAmount:
 
         """Создание копилки"""
         result_moneybox = MoneyboxMethods.create_moneybox(
-            '2030-12-31', 9999999999.99, 'moneybox', 2, amount, access_token
+            '2030-12-31', 9999999999.99, 'moneybox', 2, 0, access_token
         )
         Checking.check_statuscode(result_moneybox, 201)
 
@@ -173,9 +165,6 @@ class TestPostAmount:
             )
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
-        except AssertionError:
-            print(f'Ошибка!')
-            raise AssertionError
         finally:
             """Удаление копилки"""
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)

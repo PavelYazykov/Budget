@@ -135,7 +135,7 @@ class TestPatchPersonalBudgetCategoryId:
             "", Variables.transaction_type, None, Variables.subcategory_id,
             Variables.amount, Variables.month, Variables.year, access_token
         )
-        Checking.check_statuscode(result_patch, 405)
+        Checking.check_statuscode(result_patch, 404)
 
     @allure.description('Проверка поля category_id - Неверный тип данных string')
     def test_07(self, auth_fixture):

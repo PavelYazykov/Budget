@@ -8,7 +8,7 @@ from Users.methods.user_payloads import UserResponse
 
 @pytest.mark.User
 @allure.epic('Patch/users/me Проверка поля firstname')
-class TestPatchUsersEmail:
+class TestPatchUsersFirstname:
 
     @allure.description('Проверка поля firstname - 2 символа')
     def test_01(self, auth_fixture):

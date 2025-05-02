@@ -62,7 +62,7 @@ class TestDeleteSubcategoryCheckScId:
 
         """Удаление подкатегории"""
         result_delete = SubcategoryMethods.delete_subcategory('', access_token)
-        Checking.check_statuscode(result_delete, 405)
+        Checking.check_statuscode(result_delete, 404)
 
     @allure.description('Проверка поля subcategory_id - Значение category_id = Null')
     def test_06(self, auth_fixture):

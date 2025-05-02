@@ -26,7 +26,7 @@ class TestPayRegularOutcomeCommon:
 
         """Создание копилки"""
         result_create_moneybox = MoneyboxMethods.create_moneybox(
-            '2030-12-12', 1000, 'name', 2, 0, access_token
+            '2030-12-12', 1000, 'name', 2, 100, access_token
         )
         Checking.check_statuscode(result_create_moneybox, 201)
         data = Checking.get_data(result_create_moneybox)
@@ -43,8 +43,6 @@ class TestPayRegularOutcomeCommon:
 
             """Проверка наличия обязательных полей"""
             RegularOutcomePayloads.check_required_fields(result_pay, RegularOutcomePayloads.pay_regular_outcome)
-        except AssertionError:
-            raise AssertionError
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)

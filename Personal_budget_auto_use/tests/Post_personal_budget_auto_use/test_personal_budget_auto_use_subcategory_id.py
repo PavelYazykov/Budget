@@ -8,7 +8,7 @@ from Subcategory.methods.subcategory_methods import SubcategoryMethods
 
 @allure.epic('Post/api/v1/personal_budget_auto_use/ - Создание ежемесячного объекта бюджета - '
              'проверка поля subcategory_id')
-class TestGetPersonalSubcategoryId:
+class TestPostAutoUseSubcategoryId:
 
     @allure.description('subcategory_id - Существующий id')
     def test_01(self, auth_fixture):

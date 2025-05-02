@@ -7,7 +7,7 @@ from Personal_budget_auto_use.methods.payloads_variables import Variables
 
 @allure.epic('Post/api/v1/personal_budget_auto_use/ - Создание ежемесячного объекта бюджета - '
              'проверка поля transaction_type')
-class TestGetPersonalBudget:
+class TestPostAutoUseTransactionType:
 
     @allure.description('transaction_type - Транзакция Income')
     def test_01(self, auth_fixture):
@@ -69,20 +69,10 @@ class TestGetPersonalBudget:
             'Transfer between wallets', Variables.category_id, Variables.subcategory_id, Variables.amount,
             Variables.date_reminder, access_token
         )
-        Checking.check_statuscode(result_create, 201)
-        data = Checking.get_data(result_create)
-        personal_budget_auto_use_id = data['data']['id']
-        try:
-            """Проверка поля transaction_type"""
-            data = Checking.get_data(result_create)
-            transaction_type = data['data']['transaction_type']
-            assert transaction_type == 'Transfer between wallets'
-        finally:
-            if personal_budget_auto_use_id is not None:
-                delete_result = PersonalBudgetAutoUseMethods.delete_personal_budget_auto_use(
-                    personal_budget_auto_use_id, access_token
-                )
-                Checking.check_statuscode(delete_result, 204)
+
+        """Проверка статус кода"""
+        PersonalBudgetAutoUseMethods.delete_auto_use_if_bug(result_create, access_token)
+        Checking.check_statuscode(result_create, 422)
 
     @allure.description('transaction_type - несуществующий тип транзакции')
     def test_04(self, auth_fixture):

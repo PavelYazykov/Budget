@@ -9,7 +9,7 @@ from Users.methods.user_payloads import UserResponse
 
 @pytest.mark.User
 @allure.epic('Patch/users/me Проверка поля phone')
-class TestPatchUsersEmail:
+class TestPatchUsersPhone:
 
     @allure.description('phone - 11 цифр ')
     def test_01(self, auth_fixture):

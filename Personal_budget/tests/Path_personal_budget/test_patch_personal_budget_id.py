@@ -60,8 +60,6 @@ class TestPatchPersonalBudgetID:
                 Variables.amount, Variables.month, Variables.year, access_token
             )
             Checking.check_statuscode(result_patch, 404)
-        except AssertionError:
-            raise AssertionError
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
@@ -88,8 +86,6 @@ class TestPatchPersonalBudgetID:
                 Variables.amount, Variables.month, Variables.year, access_token
             )
             Checking.check_statuscode(result_patch, 422)
-        except AssertionError:
-            raise AssertionError
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
@@ -115,9 +111,7 @@ class TestPatchPersonalBudgetID:
                 "", Variables.transaction_type, Variables.category_id, Variables.subcategory_id,
                 Variables.amount, Variables.month, Variables.year, access_token
             )
-            Checking.check_statuscode(result_patch, 405)
-        except AssertionError:
-            raise AssertionError
+            Checking.check_statuscode(result_patch, 404)
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 

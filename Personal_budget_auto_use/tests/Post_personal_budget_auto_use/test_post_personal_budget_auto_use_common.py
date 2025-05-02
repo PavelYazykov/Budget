@@ -6,7 +6,7 @@ from Personal_budget_auto_use.methods.payloads_variables import Variables, Paylo
 
 
 @allure.epic('Post/api/v1/personal_budget_auto_use/ - Создание ежемесячного объекта бюджета - общие проверки')
-class TestGetPersonalBudget:
+class TestPostAutoUseCommon:
 
     @allure.description('общие проверки - Создание бюджета с валидными данными (авторизованный пользователь)')
     def test_01(self, auth_fixture):
@@ -68,38 +68,12 @@ class TestGetPersonalBudget:
         PersonalBudgetAutoUseMethods.delete_auto_use_if_bug(result_create, access_token)
         Checking.check_statuscode(result_create, 400)
 
-    @allure.description('общие проверки - Для TBW  - указать категорию')
+    @allure.description('общие проверки - Создание двух одинаковых регулярных бюджетов в один месяц')
     def test_05(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
-        """Создание ежемесячного объекта бюджета"""
-        result_create = PersonalBudgetAutoUseMethods.create_personal_budget_auto_use(
-            'Transfer between wallets', 30, Variables.subcategory_id, Variables.amount,
-            Variables.date_reminder, access_token
-        )
-        """Проверка статус кода"""
-        PersonalBudgetAutoUseMethods.delete_auto_use_if_bug(result_create, access_token)
-        Checking.check_statuscode(result_create, 400)
-
-    @allure.description('общие проверки - Для TBW  - указать категорию - null')
-    def test_06(self, auth_fixture):
-        """Авторизация"""
-        access_token = auth_fixture
-
-        """Создание ежемесячного объекта бюджета"""
-        result_create = PersonalBudgetAutoUseMethods.create_personal_budget_auto_use(
-            'Transfer between wallets', None, Variables.subcategory_id, Variables.amount,
-            Variables.date_reminder, access_token
-        )
-        """Проверка статус кода"""
-        PersonalBudgetAutoUseMethods.delete_auto_use_if_bug(result_create, access_token)
-        Checking.check_statuscode(result_create, 201)
-
-    @allure.description('общие проверки - Создание двух одинаковых регулярных бюджетов в один месяц')
-    def test_07(self, auth_fixture):
-        """Авторизация"""
-        access_token = auth_fixture
+        personal_budget_auto_use_id_2 = None
 
         """Создание ежемесячного объекта бюджета_1"""
         result_create = PersonalBudgetAutoUseMethods.create_personal_budget_auto_use(
@@ -115,12 +89,18 @@ class TestGetPersonalBudget:
                 Variables.transaction_type, Variables.category_id, Variables.subcategory_id, Variables.amount,
                 Variables.date_reminder, access_token
             )
-            PersonalBudgetAutoUseMethods.delete_auto_use_if_bug(result_create_2, access_token)
-            Checking.check_statuscode(result_create_2, 409)
+            Checking.check_statuscode(result_create_2, 201)
+            data_2 = Checking.get_data(result_create_2)
+            personal_budget_auto_use_id_2 = data_2['data']['id']
         finally:
             if personal_budget_auto_use_id:
                 delete_result = PersonalBudgetAutoUseMethods.delete_personal_budget_auto_use(
                     personal_budget_auto_use_id, access_token
                 )
                 Checking.check_statuscode(delete_result, 204)
+            if personal_budget_auto_use_id_2:
+                delete_result_2 = PersonalBudgetAutoUseMethods.delete_personal_budget_auto_use(
+                    personal_budget_auto_use_id_2, access_token
+                )
+                Checking.check_statuscode(delete_result_2, 204)
 

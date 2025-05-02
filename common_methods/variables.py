@@ -71,7 +71,7 @@ class MoneyboxVariables:
 
 class PersonalTransactionVariables:
     transaction_date = datetime.date.today().isoformat()
-    amount = 0
+    amount = 10
     description = 'transaction'
     transaction_type_income = 'Income'
     transaction_type_consume = 'Consumption'

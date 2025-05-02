@@ -6,7 +6,7 @@ from Personal_budget_auto_use.methods.payloads_variables import Variables, Paylo
 
 
 @allure.epic('Get/api/v1/personal_budget_auto_use/ - Запрос списка ежемесячных объектов бюджета')
-class TestGetPersonalBudget:
+class TestGetAutoUse:
 
     @allure.description('Запрос информации о регулярном бюджете авторизованный пользователь')
     def test_01(self, auth_fixture):

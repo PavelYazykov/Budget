@@ -75,7 +75,7 @@ class TestDeletePersonalBudget:
         result_delete = PersonalBudgetMethods.delete_personal_budget('', access_token)
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result_delete, 405)
+        Checking.check_statuscode(result_delete, 404)
 
     @allure.description('Удаление персонального бюджета - id - Поле отсутствует')
     def test_06(self, auth_fixture):

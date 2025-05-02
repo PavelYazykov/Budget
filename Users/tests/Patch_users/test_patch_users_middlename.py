@@ -9,7 +9,7 @@ from Users.methods.user_payloads import UserResponse
 
 @pytest.mark.User
 @allure.epic('Patch/users/me Проверка поля middlename')
-class TestPatchUsersEmail:
+class TestPatchUsersMiddlename:
 
     @allure.description('middlename - 1 символ')
     def test_01(self, auth_fixture):

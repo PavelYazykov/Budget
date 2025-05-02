@@ -161,7 +161,7 @@ class TestPayRegularOutcomeIdField:
             )
 
             """Проверка статус кода"""
-            Checking.check_statuscode(result_pay, 405)
+            Checking.check_statuscode(result_pay, 404)
         except AssertionError:
             raise AssertionError
         finally:

@@ -28,8 +28,6 @@ class TestPostPersonalBudgetTransactionType:
         try:
             """Проверка наличия обязательных полей"""
             Payloads.check_required_fields(result_create, Payloads.post_payloads)
-        except AssertionError:
-            raise AssertionError
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
@@ -52,8 +50,6 @@ class TestPostPersonalBudgetTransactionType:
         try:
             """Проверка наличия обязательных полей"""
             Payloads.check_required_fields(result_create, Payloads.post_payloads)
-        except AssertionError:
-            raise AssertionError
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
@@ -68,18 +64,14 @@ class TestPostPersonalBudgetTransactionType:
             Variables.month, Variables.year, Variables.date_reminder, Variables.title, Variables.have_to_remind,
             Variables.remind_in_days, access_token
         )
-
-        """Проверка статус кода"""
-        Checking.check_statuscode(result_create, 201)
-        data = Checking.get_data(result_create)
-        personal_budget_id = data['data']['id']
         try:
-            """Проверка наличия обязательных полей"""
-            Payloads.check_required_fields(result_create, Payloads.post_payloads)
-        except AssertionError:
-            raise AssertionError
+            """Проверка статус кода"""
+            Checking.check_statuscode(result_create, 422)
         finally:
-            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            if result_create.status_code == 201:
+                data = Checking.get_data(result_create)
+                personal_budget_id = data['data']['id']
+                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
     @allure.description('проверка поля transaction_type - Несуществующий тип транзакции')
     def test_04(self, auth_fixture):

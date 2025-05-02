@@ -86,7 +86,7 @@ class TestDeleteAutoUse:
         )
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result_delete, 422)
+        Checking.check_statuscode(result_delete, 404)
 
     @allure.description('Удаление регулярного бюджета - Поле отсутствует')
     def test_06(self, auth_fixture):

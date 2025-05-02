@@ -1,6 +1,6 @@
 import allure
 import pytest
-
+from Wallet.methods.wallet_methods import WalletMethods
 from Personal_transaction.methods.personal_transaction_methods import PersonalTransactionMethods
 from common_methods.variables import PersonalTransactionVariables
 from common_methods.checking import Checking
@@ -59,9 +59,6 @@ class TestPTWalletForTransfer:
             """Проверка значения поля amount"""
             data = Checking.get_data(result)
             assert data['data']['amount'] == '10.00'
-        except AssertionError as error:
-            print('Ошибка!')
-            raise error
         finally:
             """Удаление копилки"""
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id_1, access_token)
@@ -86,19 +83,30 @@ class TestPTWalletForTransfer:
         Payloads.check_required_fields_post(result, Payloads.post_payloads)
 
     @allure.description('Проверкра поля id_wallet_for_transfer - Поле отсутствует при транзакции Consumption')
-    def test_03(self, create_moneybox_and_delete_for_personal_transaction):
-        """Создание копилки"""
-        moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_personal_transaction
-        """Создание транзакции"""
-        result = PersonalTransactionMethods.create_personal_transaction_without_id_wallet_for_transfer(
-            amount, description, transaction_type_consume, transaction_date, wallet_id,
-            category_id_consume, None, access_token
-        )
-        """Проверка статус кода"""
-        Checking.check_statuscode(result, 201)
+    def test_03(self, auth_fixture):
+        """Авторизация"""
+        access_token = auth_fixture
 
-        """Проверка наличия обязательных  полей"""
-        Payloads.check_required_fields_post(result, Payloads.post_payloads)
+        """Создание счета"""
+        create_wallet = WalletMethods.create_wallet(
+            'Pavel_walet', 2, 10, access_token
+        )
+        Checking.check_statuscode(create_wallet, 201)
+        data = Checking.get_data(create_wallet)
+        wallet_id = data['data']['id']
+        try:
+            """Создание транзакции"""
+            result = PersonalTransactionMethods.create_personal_transaction_without_id_wallet_for_transfer(
+                amount, description, transaction_type_consume, transaction_date, wallet_id,
+                category_id_consume, None, access_token
+            )
+            """Проверка статус кода"""
+            Checking.check_statuscode(result, 201)
+
+            """Проверка наличия обязательных  полей"""
+            Payloads.check_required_fields_post(result, Payloads.post_payloads)
+        finally:
+            WalletMethods.delete_wallet_sql(wallet_id)
 
     @allure.description(
         'Проверкра поля id_wallet_for_transfer - Поле отсутствует при транзакции Transfer between wallets'

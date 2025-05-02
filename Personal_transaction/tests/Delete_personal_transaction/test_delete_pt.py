@@ -43,7 +43,6 @@ class TestDeletePersonalTransaction:
         Checking.check_statuscode(result_delete, 204)
 
         """Повторное удаление транзакции"""
-        personal_transaction_id = PersonalTransactionMethods.get_personal_transaction_id(result)
         result_delete = PersonalTransactionMethods.delete_personal_transaction(personal_transaction_id, access_token)
 
         """Проверка статус кода"""
@@ -53,6 +52,7 @@ class TestDeletePersonalTransaction:
         result_get = PersonalTransactionMethods.get_personal_transaction_by_id(
             personal_transaction_id, access_token
         )
+        Checking.check_statuscode(result_get, 404)
 
     @allure.description('Удаление транзакции с существующим id (неавторизованный пользователь)')
     def test_02(self, create_moneybox_and_delete_for_personal_transaction):

@@ -62,7 +62,7 @@ class TestDeleteRegularOutcome:
 
         """Запрос на удаление"""
         result_delete = RegularOutcomeMethods.delete_regular_outcome('', access_token)
-        Checking.check_statuscode(result_delete, 405)
+        Checking.check_statuscode(result_delete, 404)
 
     @allure.description('Удаление объекта - Поле отсутствует')
     def test_06(self, auth_fixture):

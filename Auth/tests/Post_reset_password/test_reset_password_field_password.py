@@ -5,7 +5,7 @@ import pytest
 from Auth.methods.auth_methods import AuthMethods
 from common_methods.checking import Checking
 from common_methods.variables import AuthVariables
-email = AuthVariables.email
+email = AuthVariables.email_for_create_user
 password = AuthVariables.password
 phone = AuthVariables.phone
 
@@ -17,6 +17,7 @@ class TestResetPasswordCheckPassword:
     @allure.description('Проверка поля password - 12 символов')
     def test_01(self):
         """Создание пользователя"""
+        time.sleep(301)
         result_create_user = AuthMethods.registration(
             AuthVariables.email_for_create_user, AuthVariables.password, AuthVariables.last_name,
             AuthVariables.first_name,
@@ -50,6 +51,7 @@ class TestResetPasswordCheckPassword:
     @allure.description('Проверка поля password - 100 символов')
     def test_02(self):
         """Создание пользователя"""
+        time.sleep(301)
         result_create_user = AuthMethods.registration(
             AuthVariables.email_for_create_user, AuthVariables.password, AuthVariables.last_name,
             AuthVariables.first_name,
@@ -86,6 +88,7 @@ class TestResetPasswordCheckPassword:
     @allure.description('Проверка поля password - Пробел')
     def test_03(self):
         """Создание пользователя"""
+        time.sleep(301)
         result_create_user = AuthMethods.registration(
             AuthVariables.email_for_create_user, AuthVariables.password, AuthVariables.last_name,
             AuthVariables.first_name,
@@ -99,7 +102,6 @@ class TestResetPasswordCheckPassword:
             time.sleep(2)
 
             """Запрос кода"""
-            time.sleep(301)
             result = AuthMethods.forgot_password(email)
             Checking.check_statuscode(result, 200)
             result_code = AuthMethods.get_verify_code(result)
@@ -122,6 +124,7 @@ class TestResetPasswordCheckPassword:
     @allure.description('Проверка поля password - Ввод предыдущего пароля')
     def test_04(self):
         """Создание пользователя"""
+        time.sleep(301)
         result_create_user = AuthMethods.registration(
             AuthVariables.email_for_create_user, AuthVariables.password, AuthVariables.last_name,
             AuthVariables.first_name,
@@ -135,7 +138,6 @@ class TestResetPasswordCheckPassword:
             time.sleep(2)
 
             """Запрос кода"""
-            time.sleep(301)
             result = AuthMethods.forgot_password(email)
             Checking.check_statuscode(result, 200)
             result_code = AuthMethods.get_verify_code(result)
@@ -158,6 +160,7 @@ class TestResetPasswordCheckPassword:
     @allure.description('Проверка поля password - 11 символов')
     def test_05(self):
         """Создание пользователя"""
+        time.sleep(301)
         result_create_user = AuthMethods.registration(
             AuthVariables.email_for_create_user, AuthVariables.password, AuthVariables.last_name,
             AuthVariables.first_name,
@@ -193,6 +196,7 @@ class TestResetPasswordCheckPassword:
     @allure.description('Проверка поля password - 101 символов')
     def test_06(self):
         """Создание пользователя"""
+        time.sleep(301)
         result_create_user = AuthMethods.registration(
             AuthVariables.email_for_create_user, AuthVariables.password, AuthVariables.last_name,
             AuthVariables.first_name,
@@ -229,6 +233,7 @@ class TestResetPasswordCheckPassword:
     @allure.description('Проверка поля password - Пустое поле')
     def test_07(self):
         """Создание пользователя"""
+        time.sleep(301)
         result_create_user = AuthMethods.registration(
             AuthVariables.email_for_create_user, AuthVariables.password, AuthVariables.last_name,
             AuthVariables.first_name,
@@ -264,6 +269,7 @@ class TestResetPasswordCheckPassword:
     @allure.description('Проверка поля password - Null')
     def test_08(self):
         """Создание пользователя"""
+        time.sleep(301)
         result_create_user = AuthMethods.registration(
             AuthVariables.email_for_create_user, AuthVariables.password, AuthVariables.last_name,
             AuthVariables.first_name,
@@ -299,6 +305,7 @@ class TestResetPasswordCheckPassword:
     @allure.description('Проверка поля password - Пароль не соответствует требованиям')
     def test_09(self):
         """Создание пользователя"""
+        time.sleep(301)
         result_create_user = AuthMethods.registration(
             AuthVariables.email_for_create_user, AuthVariables.password, AuthVariables.last_name,
             AuthVariables.first_name,
@@ -335,6 +342,7 @@ class TestResetPasswordCheckPassword:
     @allure.description('Проверка поля password - Неверный тип данных (integer)')
     def test_10(self):
         """Создание пользователя"""
+        time.sleep(301)
         result_create_user = AuthMethods.registration(
             AuthVariables.email_for_create_user, AuthVariables.password, AuthVariables.last_name,
             AuthVariables.first_name,
@@ -370,6 +378,7 @@ class TestResetPasswordCheckPassword:
     @allure.description('Проверка поля password - Поле отсутствует')
     def test_11(self):
         """Создание пользователя"""
+        time.sleep(301)
         result_create_user = AuthMethods.registration(
             AuthVariables.email_for_create_user, AuthVariables.password, AuthVariables.last_name,
             AuthVariables.first_name,
@@ -403,6 +412,7 @@ class TestResetPasswordCheckPassword:
     @allure.description('Проверка поля password - Скомпрометированный пароль')
     def test_12(self):
         """Создание пользователя"""
+        time.sleep(301)
         result_create_user = AuthMethods.registration(
             AuthVariables.email_for_create_user, AuthVariables.password, AuthVariables.last_name,
             AuthVariables.first_name,

@@ -38,8 +38,6 @@ class TestPostPersonalBudgetSubcategoryId:
         try:
             """Проверка поля category_id"""
             assert data['data']['subcategory_id'] == subcategory_id
-        except AssertionError:
-            raise AssertionError
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
@@ -63,8 +61,6 @@ class TestPostPersonalBudgetSubcategoryId:
         try:
             """Проверка поля category_id"""
             assert data['data']['subcategory_id'] is None
-        except AssertionError:
-            raise AssertionError
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
@@ -81,8 +77,14 @@ class TestPostPersonalBudgetSubcategoryId:
         )
 
         """Проверка статус кода"""
-        PersonalBudgetMethods.delete_personal_budget_if_bug(result_create, 201, access_token)
-        Checking.check_statuscode(result_create, 422)
+        Checking.check_statuscode(result_create, 201)
+        data = Checking.get_data(result_create)
+        personal_budget_id = data['data']['id']
+        try:
+            """Проверка поля category_id"""
+            assert data['data']['category_id'] == Variables.category_id
+        finally:
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
     @allure.description('проверка поля subcategory_id - Несуществующий id')
     def test_04(self, auth_fixture):
