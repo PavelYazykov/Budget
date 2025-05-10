@@ -9,6 +9,7 @@ from common_methods.checking import Checking
 
 
 @pytest.mark.Auth
+@pytest.mark.request_verify_code_common
 @allure.epic('Post_reset_password/request_verify_code -  Запрос кода для верификации')
 class TestResetPasswordCommonCheck:
 

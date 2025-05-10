@@ -11,6 +11,7 @@ payloads = AuthVariables.auth_payloads
 
 
 @pytest.mark.Auth
+@pytest.mark.logout
 @allure.epic('Post_reset_password/logout Отзыв refresh_token')
 class TestLogout:
 

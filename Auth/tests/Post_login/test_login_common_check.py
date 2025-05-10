@@ -16,6 +16,7 @@ payloads = AuthVariables.auth_payloads
 
 
 @pytest.mark.Auth
+@pytest.mark.login_check_common
 @allure.epic('Post_reset_password/login Общие проверки')
 class TestLoginCommonCheck:
 

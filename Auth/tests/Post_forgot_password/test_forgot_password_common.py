@@ -12,6 +12,7 @@ phone = AuthVariables.phone
 
 
 @pytest.mark.Auth
+@pytest.mark.forgot_password_common
 @allure.epic('Post_forgot_password Общие проверки')
 class TestForgotPasswordCommonCheck:
 

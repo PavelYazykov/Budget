@@ -1,10 +1,12 @@
 import allure
+import pytest
 
 from common_methods.checking import Checking
 from Analytics.methods.analytics_methods import AnalyticsMethods
 from Personal_transaction.methods.personal_transaction_methods import PersonalTransactionMethods
 
 
+@pytest.mark.Analytics
 @allure.epic('GET/api/v1/analytics/summary_by_category - Запрос суммированных доходов/расходов по категориям за месяц')
 class TestSummaryByCategoryYear:
     @allure.description('Проверка поля year - Значение = 2020')

@@ -10,6 +10,7 @@ phone = AuthVariables.phone
 
 
 @pytest.mark.Auth
+@pytest.mark.reset_password_common
 @allure.epic('Post_reset_password/reset_password Общие проверки')
 class TestResetPasswordCommonCheck:
 

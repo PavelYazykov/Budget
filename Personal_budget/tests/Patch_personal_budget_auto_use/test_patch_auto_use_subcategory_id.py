@@ -1,6 +1,7 @@
 import time
 
 import allure
+import pytest
 
 from Auth.methods.auth_methods import AuthMethods
 from common_methods.auth import Auth
@@ -12,6 +13,7 @@ from common_methods.variables import AuthVariables
 from Subcategory.methods.subcategory_methods import SubcategoryMethods
 
 
+@pytest.mark.personal_budget
 @allure.epic('Patch/api/v1/personal_budget/{personal_budget_id}/ - Редактирование единоразового и регулярного бюджета -'
              'проверка поля subcategory id')
 class TestPatchPersonalBudgetSubcategoryId:

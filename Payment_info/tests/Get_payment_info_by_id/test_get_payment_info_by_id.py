@@ -1,4 +1,5 @@
 import allure
+import pytest
 
 from Payment_info.methods.payment_info_methods import PaymentInfoMethods
 from Payment_info.methods.payloads import Payloads
@@ -6,6 +7,7 @@ from Regular_outcome.methods.regular_outcome_methods import RegularOutcomeMethod
 from common_methods.checking import Checking
 
 
+@pytest.mark.payment_info
 @allure.epic('Get/api/v1/payment_info/{payment_info_id}/ - Запрос объекта payment_info по id')
 class TestGetPaymentInfoById:
 

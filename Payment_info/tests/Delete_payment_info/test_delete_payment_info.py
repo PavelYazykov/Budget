@@ -1,10 +1,12 @@
 import allure
+import pytest
 
 from Payment_info.methods.payment_info_methods import PaymentInfoMethods
 from Regular_outcome.methods.regular_outcome_methods import RegularOutcomeMethods
 from common_methods.checking import Checking
 
 
+@pytest.mark.payment_info
 @allure.epic('Delete/api/v1/payment_info/{debt_id}/ - Удаление объекта payment_info по id')
 class TestDeletePaymentInfo:
 

@@ -1,4 +1,5 @@
 import allure
+import pytest
 
 from Payment_info.methods.payment_info_methods import PaymentInfoMethods
 from Payment_info.methods.payloads import Payloads
@@ -6,8 +7,9 @@ from Regular_outcome.methods.regular_outcome_methods import RegularOutcomeMethod
 from common_methods.checking import Checking
 
 
-@allure.epic('Get/api/v1/payment_info/ - Запрос объектов payment_info')
-class TestGetPaymentInfo:
+@pytest.mark.payment_info
+@allure.epic('Get/api/v1/payment_info/ - Запрос объектов payment_info - общие проверки')
+class TestGetPaymentInfoCommon:
 
     @allure.description('Запрос объектов payment_info  - Запрос информацию о платежах без параметров')
     def test_01(self, auth_fixture):

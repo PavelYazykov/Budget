@@ -1,5 +1,8 @@
 import allure
 from datetime import date
+
+import pytest
+
 from common_methods.checking import Checking
 from Personal_budget.methods.personal_budget_methods import PersonalBudgetMethods
 from Personal_budget.methods.payloads import Variables, Payloads
@@ -7,6 +10,7 @@ from Personal_budget.methods.payloads import Variables, Payloads
 current_date = str(date.today())
 
 
+@pytest.mark.personal_budget
 @allure.epic('Post/api/v1/personal_budget/ - Создание нового объекта персонального бюджета - '
              'Раздел regular_outcome/проверка поля have_to_remind')
 class TestPostPersonalBudgetHaveRemind:

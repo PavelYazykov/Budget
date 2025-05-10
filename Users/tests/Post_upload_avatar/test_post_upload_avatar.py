@@ -8,7 +8,7 @@ from Users.methods.users_methods import UsersMethods
 mbJPG = os.path.abspath(os.path.join('..', '..', 'download_files', '1mbJPG.jpg'))
 
 
-@pytest.mark.User
+@pytest.mark.Users
 @allure.epic('Post/users/upload_avatar Загрузка аватара')
 class TestPostUploadAvatar:
     time.sleep(3)

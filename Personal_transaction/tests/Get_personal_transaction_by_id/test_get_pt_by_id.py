@@ -77,7 +77,7 @@ class TestGetById:
         Checking.check_statuscode(result, 201)
 
         """Получение информации о транзакции"""
-        result_get = PersonalTransactionMethods.get_personal_transaction_by_id(1, access_token)
+        result_get = PersonalTransactionMethods.get_personal_transaction_by_id(1000, access_token)
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_get, 403)

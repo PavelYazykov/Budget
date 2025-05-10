@@ -79,7 +79,7 @@ class TestDeletePersonalTransaction:
         access_token = auth_fixture
 
         """Удаление транзакции"""
-        result_delete = PersonalTransactionMethods.delete_personal_transaction(1, access_token)
+        result_delete = PersonalTransactionMethods.delete_personal_transaction(1000, access_token)
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_delete, 404)

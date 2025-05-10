@@ -1,6 +1,7 @@
 import time
 
 import allure
+import pytest
 
 from Auth.methods.auth_methods import AuthMethods
 from common_methods.auth import Auth
@@ -11,6 +12,7 @@ from Personal_budget_auto_use.methods.personal_budget_auto_use_methods import Pe
 from common_methods.variables import AuthVariables
 
 
+@pytest.mark.personal_budget
 @allure.epic('Patch/api/v1/personal_budget/{personal_budget_id}/ - Редактирование единоразового и регулярного бюджета -'
              'проверка поля transaction_type')
 class TestPatchPersonalBudgeTransactionType:

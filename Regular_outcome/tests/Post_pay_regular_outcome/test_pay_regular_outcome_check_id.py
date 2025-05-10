@@ -1,4 +1,5 @@
 import allure
+import pytest
 
 from Regular_outcome.methods.regular_outcome_methods import RegularOutcomeMethods
 from common_methods.checking import Checking
@@ -7,6 +8,7 @@ from Regular_outcome.methods.payloads import RegularOutcomePayloads
 from Personal_transaction.methods.personal_transaction_methods import PersonalTransactionMethods
 
 
+@pytest.mark.Regular_outcome
 @allure.epic(
     'POST/api/v1/regular_outcome/pay_regular_outcome/{regular_outcome_id}/ - '
     'оплата регулярных списаний по id - проверка поля regular_outcome_id'
@@ -47,8 +49,6 @@ class TestPayRegularOutcomeIdField:
 
             """проверка поля regular_outcome_id"""
             RegularOutcomePayloads.check_required_fields(result_pay, RegularOutcomePayloads.pay_regular_outcome)
-        except AssertionError:
-            raise AssertionError
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -57,8 +57,7 @@ class TestPayRegularOutcomeIdField:
                     100, 'descr', 'Consumption', '2025-03-09',
                     None, wallet_id, 20, None, access_token
                 )
-            result_delete_2 = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
-            Checking.check_statuscode(result_delete_2, 204)
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 
     @allure.description('проверка поля regular_outcome_id - Несуществующий id')
     def test_02(self, auth_fixture):
@@ -81,11 +80,8 @@ class TestPayRegularOutcomeIdField:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_pay, 404)
-        except AssertionError:
-            raise AssertionError
         finally:
-            result_delete_2 = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
-            Checking.check_statuscode(result_delete_2, 204)
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 
     @allure.description('проверка поля regular_outcome_id - Отрицательное значение id')
     def test_03(self, auth_fixture):
@@ -108,11 +104,8 @@ class TestPayRegularOutcomeIdField:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_pay, 422)
-        except AssertionError:
-            raise AssertionError
         finally:
-            result_delete_2 = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
-            Checking.check_statuscode(result_delete_2, 204)
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 
     @allure.description('проверка поля regular_outcome_id - Значение id = 0')
     def test_04(self, auth_fixture):
@@ -135,11 +128,8 @@ class TestPayRegularOutcomeIdField:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_pay, 422)
-        except AssertionError:
-            raise AssertionError
         finally:
-            result_delete_2 = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
-            Checking.check_statuscode(result_delete_2, 204)
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 
     @allure.description('проверка поля regular_outcome_id - Значение id - Пустое поле')
     def test_05(self, auth_fixture):
@@ -162,11 +152,8 @@ class TestPayRegularOutcomeIdField:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_pay, 404)
-        except AssertionError:
-            raise AssertionError
         finally:
-            result_delete_2 = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
-            Checking.check_statuscode(result_delete_2, 204)
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 
     @allure.description('проверка поля regular_outcome_id - Значение id - Поле отсутствует')
     def test_06(self, auth_fixture):
@@ -189,11 +176,8 @@ class TestPayRegularOutcomeIdField:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_pay, 405)
-        except AssertionError:
-            raise AssertionError
         finally:
-            result_delete_2 = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
-            Checking.check_statuscode(result_delete_2, 204)
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 
     @allure.description('проверка поля regular_outcome_id - Значение id - Null')
     def test_07(self, auth_fixture):
@@ -216,11 +200,8 @@ class TestPayRegularOutcomeIdField:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_pay, 422)
-        except AssertionError:
-            raise AssertionError
         finally:
-            result_delete_2 = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
-            Checking.check_statuscode(result_delete_2, 204)
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 
     @allure.description('проверка поля regular_outcome_id - Значение id - Неверный тип данных string')
     def test_08(self, auth_fixture):
@@ -243,8 +224,5 @@ class TestPayRegularOutcomeIdField:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_pay, 422)
-        except AssertionError:
-            raise AssertionError
         finally:
-            result_delete_2 = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
-            Checking.check_statuscode(result_delete_2, 204)
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)

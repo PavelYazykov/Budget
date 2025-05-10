@@ -1,10 +1,12 @@
 import allure
+import pytest
 
 from common_methods.checking import Checking
 from Personal_budget.methods.personal_budget_methods import PersonalBudgetMethods
 from Personal_budget.methods.payloads import Variables, Payloads
 
 
+@pytest.mark.personal_budget
 @allure.epic('Get/api/v1/personal_budget/{personal_budget_id}/ - Запрос объекта бюджета по id')
 class TestGetPersonalBudgetById:
 
@@ -35,7 +37,7 @@ class TestGetPersonalBudgetById:
             Payloads.check_required_fields(result_get, Payloads.get_payloads)
         except AssertionError as e:
             with allure.step(f'Ошибка проверки: {e}'):
-                # Добавляем подробное описание ошибки
+                # Подробное описание ошибки
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:

@@ -124,7 +124,7 @@ class TestPatchCommonCheck:
 
         """Редактирование транзакции"""
         result_patch = PersonalTransactionMethods.change_personal_transaction(
-            1, 'title', access_token
+            1000, 'title', access_token
         )
 
         """Проверка статус кода"""

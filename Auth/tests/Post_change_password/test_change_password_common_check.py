@@ -11,6 +11,7 @@ password = AuthVariables.password
 
 
 @pytest.mark.Auth
+@pytest.mark.change_password_common
 @allure.epic('Post_change_password Общие проверки')
 class TestCommonCheck:
 

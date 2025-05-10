@@ -1,9 +1,12 @@
 import allure
+import pytest
+
 from common_methods.checking import Checking
 from Personal_budget.methods.personal_budget_methods import PersonalBudgetMethods
 from Personal_budget.methods.payloads import Variables, Payloads
 
 
+@pytest.mark.personal_budget
 @allure.epic('Get/api/v1/personal_budget/ - Запрос всех объектов бюджета - Проверка поля yaer_to')
 class TestGetPersonalBudgetYearTo:
 

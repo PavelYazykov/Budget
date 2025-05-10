@@ -1,4 +1,5 @@
 import allure
+import pytest
 
 from Notifications.methods.notifications_methods import NotificationsMethods
 from common_methods.checking import Checking
@@ -10,6 +11,7 @@ from datetime import date
 current_date = date.today()
 
 
+@pytest.mark.notifications
 @allure.epic('Get/api/v1/notification/get/regular - Получение списка уведомлений о регулярных платежах - '
              'проверка поля local_date')
 class TestGetNotificationsLocalDate:

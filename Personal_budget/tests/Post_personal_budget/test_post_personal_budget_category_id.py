@@ -1,10 +1,12 @@
 import allure
+import pytest
 
 from common_methods.checking import Checking
 from Personal_budget.methods.personal_budget_methods import PersonalBudgetMethods
 from Personal_budget.methods.payloads import Variables
 
 
+@pytest.mark.personal_budget
 @allure.epic('Post/api/v1/personal_budget/ - Создание нового объекта персонального бюджета - '
              'проверка поля category_id')
 class TestPostPersonalBudgetCategoryId:

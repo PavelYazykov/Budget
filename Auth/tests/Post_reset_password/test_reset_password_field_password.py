@@ -11,6 +11,7 @@ phone = AuthVariables.phone
 
 
 @pytest.mark.Auth
+@pytest.mark.reset_password_field_password
 @allure.epic('Post/reset_password Проверка поля password')
 class TestResetPasswordCheckPassword:
 

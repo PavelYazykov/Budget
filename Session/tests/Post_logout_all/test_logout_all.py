@@ -1,9 +1,13 @@
+import time
+
 import allure
 import pytest
 
+from Auth.methods.auth_methods import AuthMethods
 from common_methods.auth import Auth
 from common_methods.checking import Checking
 from Session.methods.sessions_methods import SessionsMethods
+from common_methods.variables import AuthVariables
 
 
 @pytest.mark.Session
@@ -68,4 +72,37 @@ class TestLogoutAll:
         """Запрос на отзыв refresh token"""
         result = SessionsMethods.logout_all(None, access_token)
         Checking.check_statuscode(result, 422)
+
+    @allure.description('device_id чужого пользователя')
+    def test_06(self, auth_fixture):
+        """Авторизация"""
+        access_token = auth_fixture
+
+        """Создание второго пользователя"""
+        result_create_second_user = AuthMethods.registration(
+            AuthVariables.email_for_create_user, AuthVariables.password, AuthVariables.last_name,
+            AuthVariables.first_name,
+            AuthVariables.middle_name, AuthVariables.phone_for_create_user, AuthVariables.date_of_birth
+        )
+        Checking.check_statuscode(result_create_second_user, 201)
+        data, user_id = AuthMethods.get_id(result_create_second_user)
+        try:
+            """Верификация пользователя"""
+            AuthMethods.verification_user(user_id)
+            time.sleep(2)
+
+            """Авторизация второго пользователя"""
+            auth_result = Auth.auth_with_params(
+                '00002', f'username={AuthVariables.email_for_create_user}&password={AuthVariables.password}'
+            )
+            check = auth_result.json()
+            access_token_2 = check.get('access_token')
+            Checking.check_statuscode(auth_result, 200)
+
+            """Запрос на отзыв refresh_token"""
+            result = SessionsMethods.logout_all('11111', access_token_2)
+            Checking.check_statuscode(result, 403)
+        finally:
+            """Удаление пользователя из БД"""
+            AuthMethods.delete_user(user_id)
 

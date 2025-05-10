@@ -1,4 +1,5 @@
 import allure
+import pytest
 
 from Payment_info.methods.payloads import Payloads
 from Payment_info.methods.payment_info_methods import PaymentInfoMethods
@@ -7,6 +8,7 @@ from Regular_outcome.methods.regular_outcome_methods import RegularOutcomeMethod
 from Wallet.methods.wallet_methods import WalletMethods
 
 
+@pytest.mark.payment_info
 @allure.epic('Post/api/v1/payment_info/{payment_info_id}/ - Оплата просроченного платежа - '
              'проверка поля payment_info_id')
 class TestPostPaymentInfoId:

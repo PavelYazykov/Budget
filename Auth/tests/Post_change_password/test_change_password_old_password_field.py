@@ -8,6 +8,7 @@ password = AuthVariables.password
 
 
 @pytest.mark.Auth
+@pytest.mark.change_password_old_password
 @allure.epic('Post_change_password Проверка поля old_password')
 class TestOldPasswordField:
 

@@ -28,12 +28,16 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
+
       - name: Install Chrome
         run: sudo apt-get install google-chrome-stable
+
       - name: install dependencies
         run: pip install -r requirements.txt
+
       - name: Download all workflow run artifacts
         uses: actions/download-artifact@v4
+
       - name: moneybox_tests
         if: github.event.inputs.deployment-target == 'moneybox_tests'
         run: pytest -sv -m Moneybox --alluredir=allure-results
@@ -46,6 +50,7 @@ jobs:
         if: github.event.inputs.deployment-target == 'delete_moneybox_tests'
         run: pytest -sv -m delete_moneybox --alluredir=allure-results
         continue-on-error: true
+
       - name: Store allure results
         uses: actions/upload-artifact@v4
         with:

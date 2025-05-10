@@ -45,6 +45,17 @@ class SettingsMethods:
             return result
 
     @staticmethod
+    def patch_settings_onboarding(has_onboarding, access_token):
+        with allure.step('Изменение настроек пользователя has_onboarding'):
+            endpoint = '/api/v1/settings/my/'
+            body = {
+                "has_onboarding": has_onboarding,
+            }
+            patch_url = CommonVariables.base_url + endpoint
+            result = HttpMethods.patch(patch_url, body, access_token)
+            return result
+
+    @staticmethod
     def patch_settings_2(
             personal_accounting, business_accounting, analytics, use_subcategories, use_quantity, push_notifications,
             email_notifications, default_currency_id, excluded_categories, remind_in_days, telegram_notifications,

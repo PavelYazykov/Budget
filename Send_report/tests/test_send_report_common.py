@@ -1,4 +1,5 @@
 import allure
+import pytest
 
 from Send_report.methods.send_reports_methods import SendReportsMethods
 from common_methods.checking import Checking
@@ -6,6 +7,7 @@ from Personal_budget.methods.personal_budget_methods import PersonalBudgetMethod
 from Send_report.methods.payloads import Variables
 
 
+@pytest.mark.Send_report
 @allure.epic('Get/api/v1/send_report/ - Отправка отчёта персонального бюджета пользователя на почту - общие проверки')
 class TestSendReportCommon:
 

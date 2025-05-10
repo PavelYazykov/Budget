@@ -1,4 +1,5 @@
 import allure
+import pytest
 
 from common_methods.checking import Checking
 from Personal_budget_auto_use.methods.personal_budget_auto_use_methods import PersonalBudgetAutoUseMethods
@@ -6,6 +7,7 @@ from Personal_budget_auto_use.methods.payloads_variables import Variables
 from Subcategory.methods.subcategory_methods import SubcategoryMethods
 
 
+@pytest.mark.personal_budget_auto_use
 @allure.epic('Post/api/v1/personal_budget_auto_use/ - Создание ежемесячного объекта бюджета - '
              'проверка поля subcategory_id')
 class TestPostAutoUseSubcategoryId:

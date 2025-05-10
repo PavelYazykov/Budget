@@ -9,6 +9,7 @@ user_id_not_exist = AuthVariables.user_id_not_exist
 
 
 @pytest.mark.Auth
+@pytest.mark.request_verify_code_user_id
 @allure.epic('Post_reset_password/request_verify_code Проверка поля user_id')
 class TestRequestVerifyCodeUserID:
 

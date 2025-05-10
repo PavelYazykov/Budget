@@ -8,7 +8,7 @@ from Users.methods.users_methods import UsersMethods
 from Users.methods.user_payloads import UserResponse
 
 
-@pytest.mark.User
+@pytest.mark.Users
 @allure.epic('Post/users/delete_avatar Удаление аватара')
 class TestPostDeleteAvatar:
 

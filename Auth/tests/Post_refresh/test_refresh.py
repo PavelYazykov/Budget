@@ -10,6 +10,7 @@ payloads = AuthVariables.auth_payloads
 
 
 @pytest.mark.Auth
+@pytest.mark.refresh
 @allure.epic('Post_reset_password/refresh Обновление рефреш токена')
 class TestRefresh:
 

@@ -10,6 +10,7 @@ password = AuthVariables.password
 
 
 @pytest.mark.Auth
+@pytest.mark.check_code_field
 @allure.epic('Post_reset_password/code/check Проверка поля code')
 class TestCheckCodeField:
 

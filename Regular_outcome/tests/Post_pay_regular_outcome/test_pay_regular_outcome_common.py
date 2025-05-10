@@ -1,4 +1,5 @@
 import allure
+import pytest
 
 from Regular_outcome.methods.regular_outcome_methods import RegularOutcomeMethods
 from common_methods.checking import Checking
@@ -6,6 +7,7 @@ from Moneybox.methods.moneybox_methods import MoneyboxMethods
 from Regular_outcome.methods.payloads import RegularOutcomePayloads
 
 
+@pytest.mark.Regular_outcome
 @allure.epic('POST/api/v1/regular_outcome/pay_regular_outcome/{regular_outcome_id}/ - оплата регулярных списаний по id')
 class TestPayRegularOutcomeCommon:
 
@@ -46,8 +48,7 @@ class TestPayRegularOutcomeCommon:
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
-            result_delete_2 = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
-            Checking.check_statuscode(result_delete_2, 204)
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 
 
 

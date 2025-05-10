@@ -19,6 +19,7 @@ date_of_birth = AuthVariables.date_of_birth
 
 
 @pytest.mark.Auth
+@pytest.mark.verify_code_from_user
 @allure.epic('Post_reset_password/verify Проверка поля code_from_user')
 class TestCodeFromUser:
 

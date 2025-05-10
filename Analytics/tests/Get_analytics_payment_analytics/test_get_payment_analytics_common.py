@@ -1,10 +1,13 @@
 import allure
+import pytest
 
 from Analytics.methods.analytics_methods import AnalyticsMethods
 from common_methods.checking import Checking
 from Regular_outcome.methods.regular_outcome_methods import RegularOutcomeMethods
+from Analytics.methods.payloads import Payloads
 
 
+@pytest.mark.Analytics
 @allure.epic('Get/api/v1/analytics/payments_analytics - аналитика исполненных и пропущенных регулярных платежей - '
              'общие проверки')
 class TestGetPaymentAnalyticsCommon:
@@ -36,12 +39,16 @@ class TestGetPaymentAnalyticsCommon:
 
             """проверка статус кода"""
             Checking.check_statuscode(result_get, 200)
-            print('Result_analytics', result_get.text)
-            #
-            # """Проверка типа транзакции"""
 
-        except AssertionError:
-            raise AssertionError
+            """Проверка наличия обязательных полей"""
+            Payloads.check_get_payments_analytics(result_get, Payloads.get_payments_analytics)
+
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
+
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -76,12 +83,16 @@ class TestGetPaymentAnalyticsCommon:
 
             """проверка статус кода"""
             Checking.check_statuscode(result_get, 200)
-            print('Result_analytics', result_get.text)
-            #
-            # """Проверка типа транзакции"""
 
-        except AssertionError:
-            raise AssertionError
+            """Проверка наличия обязательных полей"""
+            Payloads.check_get_payments_analytics(result_get, Payloads.get_payments_analytics)
+
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
+
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -117,11 +128,16 @@ class TestGetPaymentAnalyticsCommon:
             """проверка статус кода"""
             Checking.check_statuscode(result_get, 200)
             print('Result_analytics', result_get.text)
-            #
-            # """Проверка типа транзакции"""
 
-        except AssertionError:
-            raise AssertionError
+            """Проверка наличия обязательных полей"""
+            Payloads.check_get_payments_analytics(result_get, Payloads.get_payments_analytics)
+
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
+
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -157,11 +173,16 @@ class TestGetPaymentAnalyticsCommon:
             """проверка статус кода"""
             Checking.check_statuscode(result_get, 200)
             print('Result_analytics', result_get.text)
-            #
-            # """Проверка типа транзакции"""
 
-        except AssertionError:
-            raise AssertionError
+            """Проверка наличия обязательных полей"""
+            Payloads.check_get_payments_analytics(result_get, Payloads.get_payments_analytics)
+
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
+
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -197,11 +218,16 @@ class TestGetPaymentAnalyticsCommon:
             """проверка статус кода"""
             Checking.check_statuscode(result_get, 200)
             print('Result_analytics', result_get.text)
-            #
-            # """Проверка типа транзакции"""
 
-        except AssertionError:
-            raise AssertionError
+            """Проверка наличия обязательных полей"""
+            Payloads.check_get_payments_analytics(result_get, Payloads.get_payments_analytics)
+
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
+
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -237,11 +263,16 @@ class TestGetPaymentAnalyticsCommon:
             """проверка статус кода"""
             Checking.check_statuscode(result_get, 200)
             print('Result_analytics', result_get.text)
-            #
-            # """Проверка типа транзакции"""
 
-        except AssertionError:
-            raise AssertionError
+            """Проверка наличия обязательных полей"""
+            Payloads.check_get_payments_analytics(result_get, Payloads.get_payments_analytics)
+
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
+
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -275,13 +306,8 @@ class TestGetPaymentAnalyticsCommon:
             )
 
             """проверка статус кода"""
-            Checking.check_statuscode(result_get, 422)
+            Checking.check_statuscode(result_get, 400)
             print('Result_analytics', result_get.text)
-            #
-            # """Проверка типа транзакции"""
-
-        except AssertionError:
-            raise AssertionError
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)

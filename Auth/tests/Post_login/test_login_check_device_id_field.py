@@ -8,6 +8,7 @@ from Auth.methods.payloads import Payloads
 
 
 @pytest.mark.Auth
+@pytest.mark.login_check_device_id_field
 @allure.epic('Post_reset_password/login Проверка поля device_id')
 class TestCheckDeviceId:
 

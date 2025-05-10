@@ -25,24 +25,6 @@ def auth_fixture():
     return access_token
 
 
-# @pytest.fixture() УДАЛИТЬ!!! НЕ ИСПОЛЬЗУЕТСЯ
-# def auth_fixture_for_users_check_email():
-#     result = Auth.auth()
-#     Checking.check_statuscode(result, 200)
-#     check = result.json()
-#     access_token = check.get('access_token')
-#     yield access_token
-#     UsersMethods.change_user_email(
-#         'y.pawel_test1@mail.ru',
-#         access_token
-#     )
-#     result_get_code = AuthMethods.request_verify_code(AuthVariables.user_id_verify)
-#     Checking.check_statuscode(result_get_code, 200)
-#     code = AuthMethods.get_verify_code(result_get_code)
-#     result_verify = AuthMethods.verify(AuthVariables.user_id_verify, code)
-#     Checking.check_statuscode(result_verify, 200)
-
-
 @pytest.fixture()
 def create_and_delete_users():
     result = AuthMethods.registration(
@@ -144,7 +126,19 @@ def create_moneybox_and_delete_for_analytics():
     moneybox_id = data['data']['id']
     wallet_id = data['data']['wallet']['id']
     yield moneybox_id, wallet_id, access_token
-    MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
+    with psycopg2.connect(
+            host=DataBase.host,
+            user=DataBase.user,
+            password=DataBase.password,
+            dbname=DataBase.dbname,
+            port=DataBase.port
+    ) as connection:
+        cursor = connection.cursor()
+        cursor.execute(f"""DELETE FROM moneyboxies WHERE id={moneybox_id}""")
+        cursor.execute(f"""DELETE FROM wallets WHERE id={wallet_id}""")
+        connection.commit()
+        print(f'Копилка с id: {moneybox_id} и wallet c {wallet_id} удалены')
+
 
 
 @pytest.fixture()

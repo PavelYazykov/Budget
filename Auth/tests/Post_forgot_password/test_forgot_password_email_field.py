@@ -17,6 +17,7 @@ date_of_birth = AuthVariables.date_of_birth
 
 
 @pytest.mark.Auth
+@pytest.mark.forgot_password_email_field
 @allure.epic('Post_forgot_password Проверка поля email')
 class TestForgotPasswordEmailField:
 

@@ -15,6 +15,7 @@ date_of_birth = AuthVariables.date_of_birth
 
 
 @pytest.mark.Auth
+@pytest.mark.registr_date_of_birth
 @allure.epic('Post/registration Проверка поля date of birth')
 class TestRegistrationDate:
 

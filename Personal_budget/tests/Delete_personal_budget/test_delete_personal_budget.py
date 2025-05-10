@@ -1,10 +1,12 @@
 import allure
+import pytest
 
 from common_methods.checking import Checking
 from Personal_budget.methods.personal_budget_methods import PersonalBudgetMethods
 from Personal_budget.methods.payloads import Variables
 
 
+@pytest.mark.personal_budget
 @allure.epic('Delete/api/v1/personal_budget/{personal_budget_id}/ - Удаление персонального бюджета')
 class TestDeletePersonalBudget:
 

@@ -113,6 +113,15 @@ class AnalyticsMethods:
             return result
 
     @staticmethod
+    def get_payments_analytics_completed_detail_without_auth(category_id):
+        with allure.step('Запрос аналитики по исполненным регулярным платежам для заданой '
+                         'категории без параметров и авторизации'):
+            endpoint = f'/api/v1/analytics/payments_analytics/{category_id}/completed_detail'
+            get_url = CommonVariables.base_url + endpoint
+            result = HttpMethods.get_without_auth(get_url)
+            return result
+
+    @staticmethod
     def get_payments_analytics_completed_detail_with_params(category_id, paylodas, access_token):
         with allure.step('Запрос аналитики по исполненным регулярным платежам для заданой категории c параметрами'):
             endpoint = f'/api/v1/analytics/payments_analytics/{category_id}/completed_detail'
@@ -134,5 +143,13 @@ class AnalyticsMethods:
             endpoint = f'/api/v1/analytics/payments_analytics/{category_id}/missed_detail'
             get_url = CommonVariables.base_url + endpoint + payloads
             result = HttpMethods.get(get_url, access_token)
+            return result
+
+    @staticmethod
+    def get_payment_analytics_missed_detail_with_params_without_auth(category_id, payloads):
+        with allure.step('Запрос аналитики по пропущенным регулярным платежам для заданой категории с параметрами'):
+            endpoint = f'/api/v1/analytics/payments_analytics/{category_id}/missed_detail'
+            get_url = CommonVariables.base_url + endpoint + payloads
+            result = HttpMethods.get_without_auth(get_url)
             return result
 
