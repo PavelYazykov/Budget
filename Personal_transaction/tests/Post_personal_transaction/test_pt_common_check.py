@@ -61,6 +61,11 @@ class TestPTCommonCheck:
             data = Checking.get_data(result)
             print(data['data']['amount'])
             assert data['data']['amount'] == '10.00'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
@@ -108,6 +113,11 @@ class TestPTCommonCheck:
             """Проверка значения поля amount"""
             data = Checking.get_data(result)
             assert data['data']['amount'] == '10.00'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id_1, access_token)
@@ -165,6 +175,11 @@ class TestPTCommonCheck:
             )
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id_1, access_token)
@@ -195,6 +210,11 @@ class TestPTCommonCheck:
             )
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id_2, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -221,6 +241,11 @@ class TestPTCommonCheck:
             )
             """Проверка статус кода"""
             Checking.check_statuscode(result, 400)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Списание средств с копилки"""
             result_consume = PersonalTransactionMethods.create_personal_transaction(
@@ -261,6 +286,11 @@ class TestPTCommonCheck:
             )
             """Проверка статус кода"""
             Checking.check_statuscode(result, 400)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Списание средств с копилки"""
             result_consume = PersonalTransactionMethods.create_personal_transaction(
@@ -303,6 +333,11 @@ class TestPTCommonCheck:
                     wallet_id, category_id_consume, None, access_token
                 )
             Checking.check_statuscode(result, 400)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)

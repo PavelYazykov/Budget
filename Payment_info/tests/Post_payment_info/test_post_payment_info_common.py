@@ -8,7 +8,7 @@ from Wallet.methods.wallet_methods import WalletMethods
 from Payment_info.methods.payloads import Payloads
 
 
-@pytest.mark.payment_info
+@pytest.mark.Payment_info
 @allure.epic('Post/api/v1/payment_info/{payment_info_id}/ - Оплата просроченного платежа - общие проверки')
 class TestPostPaymentInfoCommon:
 
@@ -55,6 +55,11 @@ class TestPostPaymentInfoCommon:
             """Проверка значений поля amount"""
             data_2 = Checking.get_data(pay_payment_info)
             assert data_2['data']['amount'] == '10.00'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
             delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
@@ -99,7 +104,11 @@ class TestPostPaymentInfoCommon:
 
             """Проверка статус кода"""
             Checking.check_statuscode(pay_payment_info, 401)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
             delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
@@ -144,7 +153,11 @@ class TestPostPaymentInfoCommon:
 
             """Проверка статус кода"""
             Checking.check_statuscode(pay_payment_info, 422)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
             delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
@@ -189,7 +202,11 @@ class TestPostPaymentInfoCommon:
 
             """Проверка статус кода"""
             Checking.check_statuscode(pay_payment_info, 400)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
             delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)

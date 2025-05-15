@@ -27,8 +27,11 @@ class TestRegularOutcomeAmount:
         try:
             """Проверка значения поля amount"""
             assert data['data']['amount'] == '100.00'
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -51,8 +54,11 @@ class TestRegularOutcomeAmount:
         try:
             """Проверка значения поля amount"""
             assert data['data']['amount'] == '100.01'
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -75,8 +81,11 @@ class TestRegularOutcomeAmount:
         try:
             """Проверка значения поля amount"""
             assert data['data']['amount'] == '9999999999.99'
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -99,8 +108,11 @@ class TestRegularOutcomeAmount:
         try:
             """Проверка значения поля amount"""
             assert data['data']['amount'] == '0.00'
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)

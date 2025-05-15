@@ -27,8 +27,11 @@ class TestRegularOutcomeDateNextPay:
         try:
             """Проверка значения поля date_of_next_pay"""
             assert data['data']['date_of_next_pay'] == '2030-12-12'
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)

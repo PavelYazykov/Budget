@@ -43,6 +43,11 @@ class TestRegistrationEmailField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, first_name, middle_name, phone, email, date_of_birth
             )
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -75,6 +80,11 @@ class TestRegistrationEmailField:
                 'zzzzzzzzz1zzzzzzzzz1zzzzzzzzz1zzzzzzzzz1zzzzzzzzz1zzzzzzzzz10123@mail.ru',
                 date_of_birth
             )
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -103,6 +113,11 @@ class TestRegistrationEmailField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, first_name, middle_name, phone, 'z!2$%^&*qa@mail.ru', date_of_birth
             )
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -131,6 +146,11 @@ class TestRegistrationEmailField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, first_name, middle_name, phone, '123456789@mail.ru', date_of_birth
             )
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -159,6 +179,11 @@ class TestRegistrationEmailField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, first_name, middle_name, phone, 'QWERTYUIOP@mail.ru', date_of_birth
             )
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -187,6 +212,11 @@ class TestRegistrationEmailField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, first_name, middle_name, phone, 'qwertyuiop@mail.ru', date_of_birth
             )
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -224,6 +254,11 @@ class TestRegistrationEmailField:
                 'AaQ1234560AaQ1234560AaQ1234560123.AaQ1234560AaQ1234560AaQ1234560AaQ1234560AaQ1234560AaQ1234560123.'
                 'AaQ1234560AaQ1234560AaQ1234560AaQ1234560AaQ1234560AaQ12345.ru', date_of_birth
             )
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -252,6 +287,11 @@ class TestRegistrationEmailField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, first_name, middle_name, phone, 'йцукенгшщз@почта.рф', date_of_birth
             )
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -280,6 +320,11 @@ class TestRegistrationEmailField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, first_name, middle_name, phone, 'asdfghjkl@mail.ru', date_of_birth
             )
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -314,6 +359,11 @@ class TestRegistrationEmailField:
                 'testtest12@testtest12testtest12testtest12testtest12testtest12testtest12123.testtest12testtest12'
                 'testtest12testtest12testtest12testtest12123.com', date_of_birth
             )
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)

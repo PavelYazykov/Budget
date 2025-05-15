@@ -33,8 +33,11 @@ class TestPatchRegularOutcomeCommon:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_patch, 200)
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
 
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
@@ -61,8 +64,11 @@ class TestPatchRegularOutcomeCommon:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_patch, 422)
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
 
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)

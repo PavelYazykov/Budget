@@ -5,7 +5,7 @@ from common_methods.checking import Checking
 from Personal_budget.methods.personal_budget_methods import PersonalBudgetMethods
 from Personal_budget.methods.payloads import Variables
 
-@pytest.mark.personal_budget
+@pytest.mark.Personal_budget
 @allure.epic('Post/api/v1/personal_budget/ - Создание нового объекта персонального бюджета - '
              'проверка поля month')
 class TestPostPersonalBudgetMonth:
@@ -29,8 +29,11 @@ class TestPostPersonalBudgetMonth:
         try:
             """Проверка поля category_id"""
             assert data['data']['month'] == 1
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
@@ -53,8 +56,11 @@ class TestPostPersonalBudgetMonth:
         try:
             """Проверка поля category_id"""
             assert data['data']['month'] == 12
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
@@ -77,8 +83,11 @@ class TestPostPersonalBudgetMonth:
         try:
             """Проверка поля category_id"""
             assert data['data']['month'] == 1
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
@@ -101,8 +110,11 @@ class TestPostPersonalBudgetMonth:
         try:
             """Проверка поля category_id"""
             assert data['data']['month'] == 11
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 

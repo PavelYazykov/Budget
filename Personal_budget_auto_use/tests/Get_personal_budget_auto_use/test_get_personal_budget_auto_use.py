@@ -6,7 +6,7 @@ from Personal_budget_auto_use.methods.personal_budget_auto_use_methods import Pe
 from Personal_budget_auto_use.methods.payloads_variables import Variables, Payloads
 
 
-@pytest.mark.personal_budget_auto_use
+@pytest.mark.Personal_budget_auto_use
 @allure.epic('Get/api/v1/personal_budget_auto_use/ - Запрос списка ежемесячных объектов бюджета')
 class TestGetAutoUse:
 
@@ -32,6 +32,11 @@ class TestGetAutoUse:
 
             """Проверка наличия обязательных полей"""
             Payloads.check_req_fields(result_get, Payloads.get_payloads)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_auto_use_id:
                 delete_result = PersonalBudgetAutoUseMethods.delete_personal_budget_auto_use(

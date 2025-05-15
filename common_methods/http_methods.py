@@ -27,11 +27,13 @@ class HttpMethods:
     def post_download_files(url, name, path_to_file, access_token):
         headers = {"Authorization": f"Bearer {access_token}"}
         payload = {}
-        files = [
-            ('file', (name, open(path_to_file, 'rb'), 'image/jpeg'))
-        ]
-        result = requests.post(url, headers=headers, data=payload, files=files)
+        with open(path_to_file, 'rb') as f:
+            files = [
+                ('file', (name, f, 'image/jpeg'))
+            ]
+            result = requests.post(url, headers=headers, data=payload, files=files)
         return result
+
 
     @staticmethod
     def post_without_auth(url, body):

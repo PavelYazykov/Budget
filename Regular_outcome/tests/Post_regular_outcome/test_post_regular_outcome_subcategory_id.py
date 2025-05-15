@@ -37,8 +37,11 @@ class TestRegularOutcomeSubcategoryId:
         try:
             """Проверка значения поля subcategory_id"""
             assert data['data']['subcategory_id'] == subcategory_id
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -64,8 +67,11 @@ class TestRegularOutcomeSubcategoryId:
         try:
             """проверка наличия обязательных полей"""
             RegularOutcomePayloads.check_required_fields(result, RegularOutcomePayloads.post_payloads)
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -88,8 +94,11 @@ class TestRegularOutcomeSubcategoryId:
         try:
             """проверка наличия обязательных полей"""
             RegularOutcomePayloads.check_required_fields(result, RegularOutcomePayloads.post_payloads)
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)

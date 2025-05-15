@@ -29,6 +29,11 @@ class TestCreateWalletCommonCheck:
         try:
             """Проверка наличия обязательных полей"""
             WalletPayloads.check_required_fields(result, WalletPayloads.get_payloads)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             WalletMethods.delete_wallet_sql(wallet_id)
 

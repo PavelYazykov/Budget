@@ -1,4 +1,9 @@
+import inspect
+import json
+import logging
+import os
 import time
+import traceback
 
 import allure
 import pytest
@@ -30,12 +35,17 @@ class TestPostMoneyboxCommon:
             to_date, goal, name, currency_id, amount, access_token
         )
         moneybox_id = MoneyboxMethods.get_moneybox_id(post_result)
-
-        """Проверка статус кода"""
-        Checking.check_statuscode(post_result, 201)
         try:
+            """Проверка статус кода"""
+            Checking.check_statuscode(post_result, 201)
+
             """Проверка наличия обязательных полей"""
             MoneyboxMethods.post_check_exist_req_fields(post_result, Payloads.required_fields())
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             with allure.step('Удаление копилки'):
@@ -110,10 +120,50 @@ class TestPostMoneyboxCommon:
             """Проверка значения поля is_archived"""
             result_get = MoneyboxMethods.get_one_moneybox(moneybox_id, access_token)
             Checking.check_statuscode(result_get, 200)
-            print('ЗНАЧЕНИЕ: ', result_get.text)
-            print(data['data']['wallet']['is_archived'])
             data = Checking.get_data(result_get)
             assert data['data']['wallet']['is_archived'] is True
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
+        finally:
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
+
+    @allure.description('Создание новой копилки с валидными значениями (авторизованный пользователь)')  # DELETE
+    def test_06(self, auth_fixture):
+        steps = []
+        moneybox_id = None
+
+        try:
+            steps.append("Авторизация пользователя")
+            access_token = auth_fixture
+
+            steps.append("Отправка post_moneybox запроса")
+            post_result = MoneyboxMethods.create_moneybox(
+                to_date, goal, name, currency_id, amount, access_token
+            )
+
+            steps.append("Получение ID копилки")
+            moneybox_id = MoneyboxMethods.get_moneybox_id(post_result)
+
+            steps.append("Проверка статус кода")
+            Checking.check_statuscode(post_result, 201)
+
+            steps.append("Проверка обязательных полей")
+            MoneyboxMethods.post_check_exist_req_fields(post_result, Payloads.required_fields())
+
+        except AssertionError as e:
+            steps.append(f"Ошибка: {e}")
+            step_log_text = "\n".join(steps)
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Сохраняем все шаги в текстовый файл
+                with open("manual_step_log.txt", "w", encoding="utf-8") as f:
+                    f.write(step_log_text)
+                # Прикрепляем файл к Allure-отчёту
+                allure.attach.file("manual_step_log.txt", name="Шаги до ошибки",
+                                   attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 

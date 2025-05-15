@@ -6,7 +6,7 @@ from Personal_budget.methods.personal_budget_methods import PersonalBudgetMethod
 from Personal_budget.methods.payloads import Variables, Payloads
 
 
-@pytest.mark.personal_budget
+@pytest.mark.Personal_budget
 @allure.epic('Get/api/v1/personal_budget/ - Запрос всех объектов бюджета - Общие проверки')
 class TestGetPersonalBudgetCommon:
 
@@ -42,7 +42,11 @@ class TestGetPersonalBudgetCommon:
 
             """Проверка наличия обязательных полей"""
             Payloads.check_required_fields_get(result_get, Payloads.get_payloads)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 

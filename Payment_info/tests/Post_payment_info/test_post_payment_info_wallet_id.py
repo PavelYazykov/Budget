@@ -7,7 +7,7 @@ from Regular_outcome.methods.regular_outcome_methods import RegularOutcomeMethod
 from Wallet.methods.wallet_methods import WalletMethods
 
 
-@pytest.mark.payment_info
+@pytest.mark.Payment_info
 @allure.epic('Post/api/v1/payment_info/{payment_info_id}/ - Оплата просроченного платежа - '
              'проверка поля wallet_id')
 class TestPostPaymentInfoWalletId:
@@ -52,6 +52,11 @@ class TestPostPaymentInfoWalletId:
             """Проверка поля wallet_id"""
             data_2 = Checking.get_data(pay_payment_info)
             assert data_2['data']['wallet_id'] == wallet_id
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
             delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
@@ -86,6 +91,11 @@ class TestPostPaymentInfoWalletId:
 
             """Проверка статус кода"""
             Checking.check_statuscode(pay_payment_info, 404)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
             delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
@@ -117,6 +127,11 @@ class TestPostPaymentInfoWalletId:
 
             """Проверка статус кода"""
             Checking.check_statuscode(pay_payment_info, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
             delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
@@ -148,6 +163,11 @@ class TestPostPaymentInfoWalletId:
 
             """Проверка статус кода"""
             Checking.check_statuscode(pay_payment_info, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
             delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
@@ -179,6 +199,11 @@ class TestPostPaymentInfoWalletId:
 
             """Проверка статус кода"""
             Checking.check_statuscode(pay_payment_info, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
             delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
@@ -210,6 +235,11 @@ class TestPostPaymentInfoWalletId:
 
             """Проверка статус кода"""
             Checking.check_statuscode(pay_payment_info, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
             delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)

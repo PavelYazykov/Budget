@@ -36,6 +36,11 @@ class TestPostMoneyboxName:
                 data = Checking.get_data(post_result)
                 assert data['data']['wallet']['name'] == 'М'
                 print('Значение поля соответствует введенному')
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
@@ -60,6 +65,11 @@ class TestPostMoneyboxName:
                 data = Checking.get_data(post_result)
                 assert data['data']['wallet']['name'] == 'мумумумумумумумумум'
                 print('Значение поля соответствует введенному')
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
@@ -84,6 +94,11 @@ class TestPostMoneyboxName:
                 data = Checking.get_data(post_result)
                 assert data['data']['wallet']['name'] == 'мумумумумумумумумуму'
                 print('Значение поля соответствует введенному')
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
@@ -132,6 +147,11 @@ class TestPostMoneyboxName:
                 data = Checking.get_data(post_result)
                 assert data['data']['wallet']['name'] == 'Счёт'
                 print('Значение поля соответствует введенному')
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
@@ -156,6 +176,11 @@ class TestPostMoneyboxName:
                 data = Checking.get_data(post_result)
                 assert data['data']['wallet']['name'] == 'Moneybox'
                 print('Значение поля соответствует введенному')
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
@@ -180,6 +205,11 @@ class TestPostMoneyboxName:
                 data = Checking.get_data(post_result)
                 assert data['data']['wallet']['name'] == 'Мой счет'
                 print('Значение поля соответствует введенному')
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
@@ -204,6 +234,11 @@ class TestPostMoneyboxName:
                 data = Checking.get_data(post_result)
                 assert data['data']['wallet']['name'] == 'Мой_счет'
                 print('Значение поля соответствует введенному')
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
@@ -227,6 +262,11 @@ class TestPostMoneyboxName:
                 data = Checking.get_data(post_result)
                 assert data['data']['wallet']['name'] == 'Мой-счет'
                 print('Значение поля соответствует введенному')
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
@@ -250,6 +290,11 @@ class TestPostMoneyboxName:
                 data = Checking.get_data(post_result)
                 assert data['data']['wallet']['name'] == 'Мой.счет'
                 print('Значение поля соответствует введенному')
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)

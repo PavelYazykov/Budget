@@ -7,7 +7,7 @@ from Regular_outcome.methods.regular_outcome_methods import RegularOutcomeMethod
 from common_methods.checking import Checking
 
 
-@pytest.mark.payment_info
+@pytest.mark.Payment_info
 @allure.epic('Get/api/v1/payment_info/ - Запрос объектов payment_info - проверка поля month')
 class TestGetPaymentInfoMonth:
 
@@ -25,12 +25,12 @@ class TestGetPaymentInfoMonth:
         data = Checking.get_data(create_regular_outcome)
         regular_outcome_id = data['data']['id']
 
-        PaymentInfoMethods.create_regular_outcome('2025-04-12', regular_outcome_id)
+        PaymentInfoMethods.create_regular_outcome('2025-01-12', regular_outcome_id)
         try:
 
             """Создание просроченного платежа"""
             PaymentInfoMethods.create_payment_info_in_bd(
-                regular_outcome_id, 10, '2025-04-12', None, False, 111
+                regular_outcome_id, 10, '2025-01-12', None, False, 111
             )
 
             """Запрос информации о платеже"""
@@ -43,7 +43,11 @@ class TestGetPaymentInfoMonth:
 
             """Проверка наличия всех полей"""
             Payloads.check_required_fields_for_get_request(get_result, Payloads.get_payloads)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
             delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
@@ -63,12 +67,12 @@ class TestGetPaymentInfoMonth:
         data = Checking.get_data(create_regular_outcome)
         regular_outcome_id = data['data']['id']
 
-        PaymentInfoMethods.create_regular_outcome('2025-04-12', regular_outcome_id)
+        PaymentInfoMethods.create_regular_outcome('2025-01-12', regular_outcome_id)
         try:
 
             """Создание просроченного платежа"""
             PaymentInfoMethods.create_payment_info_in_bd(
-                regular_outcome_id, 10, '2025-04-12', None, False, 111
+                regular_outcome_id, 10, '2025-01-12', None, False, 111
             )
 
             """Запрос информации о платеже"""
@@ -81,7 +85,11 @@ class TestGetPaymentInfoMonth:
 
             """Проверка наличия всех полей"""
             Payloads.check_required_fields_for_get_request(get_result, Payloads.get_payloads)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
             delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
@@ -101,17 +109,17 @@ class TestGetPaymentInfoMonth:
         data = Checking.get_data(create_regular_outcome)
         regular_outcome_id = data['data']['id']
 
-        PaymentInfoMethods.create_regular_outcome('2025-04-12', regular_outcome_id)
+        PaymentInfoMethods.create_regular_outcome('2024-12-12', regular_outcome_id)
         try:
 
             """Создание просроченного платежа"""
             PaymentInfoMethods.create_payment_info_in_bd(
-                regular_outcome_id, 10, '2025-04-12', None, False, 111
+                regular_outcome_id, 10, '2024-12-12', None, False, 111
             )
 
             """Запрос информации о платеже"""
             get_result = PaymentInfoMethods.get_payment_info_with_params(
-                '?month=1', access_token
+                '?month=12', access_token
             )
 
             """Проверка статус кода"""
@@ -119,7 +127,11 @@ class TestGetPaymentInfoMonth:
 
             """Проверка наличия всех полей"""
             Payloads.check_required_fields_for_get_request(get_result, Payloads.get_payloads)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
             delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
@@ -157,7 +169,11 @@ class TestGetPaymentInfoMonth:
 
             """Проверка наличия всех полей"""
             Payloads.check_required_fields_for_get_request(get_result, Payloads.get_payloads)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
             delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
@@ -177,12 +193,12 @@ class TestGetPaymentInfoMonth:
         data = Checking.get_data(create_regular_outcome)
         regular_outcome_id = data['data']['id']
 
-        PaymentInfoMethods.create_regular_outcome('2025-04-12', regular_outcome_id)
+        PaymentInfoMethods.create_regular_outcome('2024-11-12', regular_outcome_id)
         try:
 
             """Создание просроченного платежа"""
             PaymentInfoMethods.create_payment_info_in_bd(
-                regular_outcome_id, 10, '2025-04-12', None, False, 111
+                regular_outcome_id, 10, '2024-11-12', None, False, 111
             )
 
             """Запрос информации о платеже"""
@@ -195,7 +211,11 @@ class TestGetPaymentInfoMonth:
 
             """Проверка наличия всех полей"""
             Payloads.check_required_fields_for_get_request(get_result, Payloads.get_payloads)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
             delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
@@ -230,7 +250,11 @@ class TestGetPaymentInfoMonth:
 
             """Проверка статус кода"""
             Checking.check_statuscode(get_result, 422)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
             delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
@@ -265,7 +289,11 @@ class TestGetPaymentInfoMonth:
 
             """Проверка статус кода"""
             Checking.check_statuscode(get_result, 422)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
             delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
@@ -300,7 +328,11 @@ class TestGetPaymentInfoMonth:
 
             """Проверка статус кода"""
             Checking.check_statuscode(get_result, 422)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
             delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
@@ -335,7 +367,11 @@ class TestGetPaymentInfoMonth:
 
             """Проверка статус кода"""
             Checking.check_statuscode(get_result, 422)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
             delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)

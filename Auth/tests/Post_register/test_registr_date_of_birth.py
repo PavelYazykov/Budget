@@ -43,6 +43,11 @@ class TestRegistrationDate:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, first_name, middle_name, phone, email, '2000-01-01'
             )
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -66,6 +71,11 @@ class TestRegistrationDate:
             Payloads.required_fields_value(
                 email, last_name, first_name, middle_name, phone, None, data
             )
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -89,6 +99,11 @@ class TestRegistrationDate:
             Payloads.required_fields_value(
                 email, last_name, first_name, middle_name, phone, None, data
             )
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)

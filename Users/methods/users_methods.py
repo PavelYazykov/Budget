@@ -396,17 +396,9 @@ class UsersMethods:
 
     @staticmethod
     def upload_file(name, path_to_file, access_token):
-        post_url = 'https://budget-test.god-it.ru/users/upload_avatar'
+        post_url = CommonVariables.base_url + '/users/upload_avatar'
         result = HttpMethods.post_download_files(post_url, name, path_to_file, access_token)
         return result
-
-    @staticmethod # УДАЛИТЬ МЕТОД, ЗАМЕНИТЬ НА СОЗДАНИЕ И УДАЛЕНИЕ ПОЛЬЗОВАТЕЛЯ
-    def recover_user_info_if_bag(result, email, last_name, first_name, middle_name, phone,
-                                 date_of_birth, access_token):
-        if result.status_code == 200:
-            UsersMethods.change_user_info(
-                email, last_name, first_name, middle_name, phone, date_of_birth, access_token)
-            UsersMethods.connect_db(email, user_id)
 
     @staticmethod
     def delete_avatar(access_token):

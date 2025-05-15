@@ -6,7 +6,7 @@ from Personal_budget.methods.personal_budget_methods import PersonalBudgetMethod
 from Personal_budget.methods.payloads import Variables, Payloads
 
 
-@pytest.mark.personal_budget
+@pytest.mark.Personal_budget
 @allure.epic('Post/api/v1/personal_budget/ - Создание нового объекта персонального бюджета - '
              'проверка поля transaction_type')
 class TestPostPersonalBudgetTransactionType:
@@ -30,6 +30,11 @@ class TestPostPersonalBudgetTransactionType:
         try:
             """Проверка наличия обязательных полей"""
             Payloads.check_required_fields(result_create, Payloads.post_payloads)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
@@ -52,6 +57,11 @@ class TestPostPersonalBudgetTransactionType:
         try:
             """Проверка наличия обязательных полей"""
             Payloads.check_required_fields(result_create, Payloads.post_payloads)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
@@ -69,6 +79,11 @@ class TestPostPersonalBudgetTransactionType:
         try:
             """Проверка статус кода"""
             Checking.check_statuscode(result_create, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if result_create.status_code == 201:
                 data = Checking.get_data(result_create)

@@ -28,8 +28,11 @@ class TestRegularOutcomeCommon:
         try:
             """Проверка наличия обязательных полей"""
             RegularOutcomePayloads.check_required_fields(result, RegularOutcomePayloads.post_payloads)
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -103,6 +106,11 @@ class TestRegularOutcomeCommon:
             Checking.check_statuscode(result_2, 201)
             data_2 = Checking.get_data(result_2)
             regular_outcome_id_2 = data_2['data']['id']
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)

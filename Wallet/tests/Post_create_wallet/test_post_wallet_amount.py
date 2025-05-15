@@ -27,6 +27,11 @@ class TestCreateWalletAmountField:
         try:
             """Проверка значения поля amount"""
             assert data['data']['amount'] == '0.00'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             WalletMethods.delete_wallet_sql(wallet_id)
 
@@ -66,7 +71,11 @@ class TestCreateWalletAmountField:
         try:
             """Проверка значения поля amount"""
             assert data['data']['amount'] == '10.00'
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             WalletMethods.delete_wallet_sql(wallet_id)
 
@@ -87,6 +96,11 @@ class TestCreateWalletAmountField:
         try:
             """Проверка значения поля amount"""
             assert data['data']['amount'] == '10.10'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             WalletMethods.delete_wallet_sql(wallet_id)
 

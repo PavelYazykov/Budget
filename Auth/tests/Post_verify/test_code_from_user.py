@@ -45,6 +45,11 @@ class TestCodeFromUser:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_check, 200)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -63,6 +68,11 @@ class TestCodeFromUser:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_check, 400)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -90,6 +100,11 @@ class TestCodeFromUser:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_check, 404)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -108,6 +123,11 @@ class TestCodeFromUser:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_check, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -126,6 +146,11 @@ class TestCodeFromUser:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_check, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -144,6 +169,11 @@ class TestCodeFromUser:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_check, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -162,6 +192,11 @@ class TestCodeFromUser:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_check, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -180,6 +215,11 @@ class TestCodeFromUser:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_check, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)

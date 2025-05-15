@@ -27,6 +27,11 @@ class TestPostCurrencyCode:
             """Проверка значения"""
             data = Checking.get_data(result_create)
             assert data['data']['code'] == 1000
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             data = Checking.get_data(result_create)

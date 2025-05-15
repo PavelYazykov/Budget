@@ -51,6 +51,11 @@ class TestResetPasswordCheckEmail:
             """Изменение пароля"""
             result_change = AuthMethods.reset_password_without_email(password)
             Checking.check_statuscode(result_change, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Восстановление изначального пароля"""
             if result_change.status_code == 200:
@@ -75,6 +80,11 @@ class TestResetPasswordCheckEmail:
             """Изменение пароля"""
             result_change = AuthMethods.reset_password(None, password)
             Checking.check_statuscode(result_change, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Восстановление изначального пароля"""
             if result_change.status_code == 200:
@@ -99,6 +109,11 @@ class TestResetPasswordCheckEmail:
             """Изменение пароля"""
             result_change = AuthMethods.reset_password('y.pawel_test1@yahoo.ru', password)
             Checking.check_statuscode(result_change, 404)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Восстановление изначального пароля"""
             if result_change.status_code == 200:
@@ -123,6 +138,11 @@ class TestResetPasswordCheckEmail:
             """Изменение пароля"""
             result_change = AuthMethods.reset_password('pawel_test_1rambler.ru', password)
             Checking.check_statuscode(result_change, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Восстановление изначального пароля"""
             if result_change.status_code == 200:
@@ -147,6 +167,11 @@ class TestResetPasswordCheckEmail:
             """Изменение пароля"""
             result_change = AuthMethods.reset_password('', password)
             Checking.check_statuscode(result_change, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Восстановление изначального пароля"""
             if result_change.status_code == 200:

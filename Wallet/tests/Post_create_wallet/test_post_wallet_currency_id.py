@@ -27,6 +27,11 @@ class TestCreateWalletCurrencyField:
         try:
             """Проверка значения поля currency_id"""
             assert data['data']['currency_id'] == 2
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             WalletMethods.delete_wallet_sql(wallet_id)
 

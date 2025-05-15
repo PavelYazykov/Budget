@@ -8,7 +8,7 @@ from datetime import date
 current_date = str(date.today())
 
 
-@pytest.mark.personal_budget_auto_use
+@pytest.mark.Personal_budget_auto_use
 @allure.epic('Post/api/v1/personal_budget_auto_use/ - Создание ежемесячного объекта бюджета - '
              'проверка поля date_reminder')
 class TestPostAutoUsDateReminder:
@@ -30,6 +30,11 @@ class TestPostAutoUsDateReminder:
             """Проверка поля date_reminder"""
             data = Checking.get_data(result_create)
             assert data['data']['date_reminder'] == current_date
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_auto_use_id is not None:
                 delete_result = PersonalBudgetAutoUseMethods.delete_personal_budget_auto_use(
@@ -54,6 +59,11 @@ class TestPostAutoUsDateReminder:
             """Проверка поля date_reminder"""
             data = Checking.get_data(result_create)
             assert data['data']['date_reminder'] == '2030-12-12'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_auto_use_id is not None:
                 delete_result = PersonalBudgetAutoUseMethods.delete_personal_budget_auto_use(

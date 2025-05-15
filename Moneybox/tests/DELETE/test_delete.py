@@ -46,8 +46,12 @@ class TestDeleteMoneybox:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_delete, 401)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
-
             """Удаление"""
             with allure.step('удаление копилки после теста'):
                 result_delete = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
@@ -148,6 +152,11 @@ class TestDeleteMoneybox:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_delete, 400)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление"""
             with allure.step('удаление копилки после теста'):

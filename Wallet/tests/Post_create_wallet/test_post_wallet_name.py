@@ -26,7 +26,11 @@ class TestCreateWallet:
         try:
             """Проверка значения поля name"""
             assert data['data']['name'] == 'w'
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             WalletMethods.delete_wallet_sql(wallet_id)
 
@@ -48,6 +52,11 @@ class TestCreateWallet:
         try:
             """Проверка значения поля name"""
             assert data['data']['name'] == 'wwwwwwwwwwqqqqqqqqq'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             WalletMethods.delete_wallet_sql(wallet_id)
 
@@ -69,6 +78,11 @@ class TestCreateWallet:
         try:
             """Проверка значения поля name"""
             assert data['data']['name'] == 'wwwwwwwwwwqqqqqqqqqs'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             WalletMethods.delete_wallet_sql(wallet_id)
 
@@ -90,6 +104,11 @@ class TestCreateWallet:
         try:
             """Проверка значения поля name"""
             assert data['data']['name'] == '12345'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             WalletMethods.delete_wallet_sql(wallet_id)
 
@@ -132,6 +151,11 @@ class TestCreateWallet:
         try:
             """Проверка значения поля name"""
             assert data['data']['name'] == 'wallets'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             WalletMethods.delete_wallet_sql(wallet_id)
 
@@ -153,6 +177,11 @@ class TestCreateWallet:
         try:
             """Проверка значения поля name"""
             assert data['data']['name'] == 'Латин ица'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             WalletMethods.delete_wallet_sql(wallet_id)
 
@@ -174,6 +203,11 @@ class TestCreateWallet:
         try:
             """Проверка значения поля name"""
             assert data['data']['name'] == 'Латин-ица'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             WalletMethods.delete_wallet_sql(wallet_id)
 
@@ -195,6 +229,11 @@ class TestCreateWallet:
         try:
             """Проверка значения поля name"""
             assert data['data']['name'] == 'Латин.ица'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             WalletMethods.delete_wallet_sql(wallet_id)
 

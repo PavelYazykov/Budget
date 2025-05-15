@@ -7,7 +7,7 @@ from Personal_budget_auto_use.methods.payloads_variables import Variables
 from Subcategory.methods.subcategory_methods import SubcategoryMethods
 
 
-@pytest.mark.personal_budget_auto_use
+@pytest.mark.Personal_budget_auto_use
 @allure.epic('Post/api/v1/personal_budget_auto_use/ - Создание ежемесячного объекта бюджета - '
              'проверка поля subcategory_id')
 class TestPostAutoUseSubcategoryId:
@@ -36,6 +36,11 @@ class TestPostAutoUseSubcategoryId:
             """Проверка поля subcategory_id"""
             data = Checking.get_data(result_create)
             assert data['data']['subcategory_id'] == subcategory_id
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_auto_use_id is not None:
                 delete_result = PersonalBudgetAutoUseMethods.delete_personal_budget_auto_use(
@@ -64,6 +69,11 @@ class TestPostAutoUseSubcategoryId:
             """Проверка поля subcategory_id"""
             data = Checking.get_data(result_create)
             assert data['data']['subcategory_id'] is None
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_auto_use_id is not None:
                 delete_result = PersonalBudgetAutoUseMethods.delete_personal_budget_auto_use(
@@ -89,6 +99,11 @@ class TestPostAutoUseSubcategoryId:
             """Проверка поля subcategory_id"""
             data = Checking.get_data(result_create)
             assert data['data']['subcategory_id'] is None
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_auto_use_id is not None:
                 delete_result = PersonalBudgetAutoUseMethods.delete_personal_budget_auto_use(

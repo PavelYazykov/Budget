@@ -49,6 +49,11 @@ class TestPayRegularOutcomeIdField:
 
             """проверка поля regular_outcome_id"""
             RegularOutcomePayloads.check_required_fields(result_pay, RegularOutcomePayloads.pay_regular_outcome)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -80,6 +85,11 @@ class TestPayRegularOutcomeIdField:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_pay, 404)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 
@@ -104,6 +114,11 @@ class TestPayRegularOutcomeIdField:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_pay, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 
@@ -128,6 +143,11 @@ class TestPayRegularOutcomeIdField:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_pay, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 
@@ -152,6 +172,11 @@ class TestPayRegularOutcomeIdField:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_pay, 404)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 
@@ -176,6 +201,11 @@ class TestPayRegularOutcomeIdField:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_pay, 405)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 
@@ -200,6 +230,11 @@ class TestPayRegularOutcomeIdField:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_pay, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 
@@ -224,5 +259,10 @@ class TestPayRegularOutcomeIdField:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_pay, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)

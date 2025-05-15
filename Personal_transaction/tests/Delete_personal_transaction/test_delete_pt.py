@@ -199,6 +199,11 @@ class TestDeletePersonalTransaction:
             """Удаление копилки другого пользователя"""
             result_delete = PersonalTransactionMethods.delete_personal_transaction(personal_transaction_id, access_token_2)
             Checking.check_statuscode(result_delete, 400)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -290,8 +295,11 @@ class TestDeletePersonalTransaction:
             data = Checking.get_data(result_get)
             print(data)
             assert data['data']['wallet']['amount'] == '200.00'
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Списание средств с копилки"""
             result_consumption = PersonalTransactionMethods.create_personal_transaction(
@@ -339,8 +347,11 @@ class TestDeletePersonalTransaction:
                 personal_transaction_id, access_token
             )
             Checking.check_statuscode(result_delete, 400)
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Списание средств с копилки"""
             result_consumption = PersonalTransactionMethods.create_personal_transaction(
@@ -401,8 +412,11 @@ class TestDeletePersonalTransaction:
             )
             Checking.check_statuscode(result_delete, 400)
 
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Списание средств с копилки"""
             result = PersonalTransactionMethods.create_personal_transaction(
@@ -468,8 +482,11 @@ class TestDeletePersonalTransaction:
             """Удаление транзакции перевод между счетами"""
             result_delete = PersonalTransactionMethods.delete_personal_transaction(personal_transaction_id, access_token)
             Checking.check_statuscode(result_delete, 400)
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Списание средств с первой копилки"""
             result = PersonalTransactionMethods.create_personal_transaction(
@@ -535,8 +552,11 @@ class TestDeletePersonalTransaction:
             """Удаление транзакции перевод между счетами"""
             result_delete = PersonalTransactionMethods.delete_personal_transaction(personal_transaction_id, access_token)
             Checking.check_statuscode(result_delete, 400)
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Списание средств с первой копилки"""
             result = PersonalTransactionMethods.create_personal_transaction(

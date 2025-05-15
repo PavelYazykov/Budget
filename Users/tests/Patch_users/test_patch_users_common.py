@@ -59,6 +59,11 @@ class TestPatchUsersCommon:
                 result, AuthVariables.email_for_create_user_2, AuthVariables.last_name, AuthVariables.first_name,
                 AuthVariables.middle_name, AuthVariables.phone_for_create_user_2, AuthVariables.date_of_birth
             )
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 

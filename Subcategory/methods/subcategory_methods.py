@@ -2,6 +2,7 @@ import json
 import allure
 from common_methods.http_methods import HttpMethods
 from common_methods.variables import CommonVariables
+from common_methods.checking import Checking
 base_url = CommonVariables.base_url
 
 
@@ -131,6 +132,13 @@ class SubcategoryMethods:
         result = HttpMethods.delete(delete_url, access_token)
         return result
 
+    @staticmethod
+    def delete_subcategory_if_bug(result, status_code, access_token):
+        if result.status_code == status_code:
+            data = Checking.get_data(result)
+            subcategory_id = data['data']['id']
+            result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
+            Checking.check_statuscode(result_delete, 204)
 
     @staticmethod
     def get_subcategory_id(result):

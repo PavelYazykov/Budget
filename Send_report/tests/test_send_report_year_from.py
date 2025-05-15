@@ -36,6 +36,11 @@ class TestSendReportYearFrom:
             """Проверка отправк отчета"""
             data = Checking.get_data(result_get)
             assert (data['message']) == 'Request sent successfully'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_id is not None:
                 delete_personal_budget = PersonalBudgetMethods.delete_personal_budget(
@@ -67,6 +72,11 @@ class TestSendReportYearFrom:
             """Проверка отправк отчета"""
             data = Checking.get_data(result_get)
             assert (data['message']) == 'Request sent successfully'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_id is not None:
                 delete_personal_budget = PersonalBudgetMethods.delete_personal_budget(
@@ -98,6 +108,11 @@ class TestSendReportYearFrom:
             """Проверка отправк отчета"""
             data = Checking.get_data(result_get)
             assert (data['message']) == 'Request sent successfully'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_id is not None:
                 delete_personal_budget = PersonalBudgetMethods.delete_personal_budget(
@@ -125,7 +140,11 @@ class TestSendReportYearFrom:
             )
             """Проверка статус кода"""
             Checking.check_statuscode(result_get, 422)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_id is not None:
                 delete_personal_budget = PersonalBudgetMethods.delete_personal_budget(
@@ -153,7 +172,11 @@ class TestSendReportYearFrom:
             )
             """Проверка статус кода"""
             Checking.check_statuscode(result_get, 422)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_id is not None:
                 delete_personal_budget = PersonalBudgetMethods.delete_personal_budget(
@@ -181,7 +204,11 @@ class TestSendReportYearFrom:
             )
             """Проверка статус кода"""
             Checking.check_statuscode(result_get, 422)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_id is not None:
                 delete_personal_budget = PersonalBudgetMethods.delete_personal_budget(
@@ -209,7 +236,11 @@ class TestSendReportYearFrom:
             )
             """Проверка статус кода"""
             Checking.check_statuscode(result_get, 422)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_id is not None:
                 delete_personal_budget = PersonalBudgetMethods.delete_personal_budget(

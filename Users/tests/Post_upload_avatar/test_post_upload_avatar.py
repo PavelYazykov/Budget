@@ -5,13 +5,11 @@ import pytest
 
 from common_methods.checking import Checking
 from Users.methods.users_methods import UsersMethods
-mbJPG = os.path.abspath(os.path.join('..', '..', 'download_files', '1mbJPG.jpg'))
 
 
 @pytest.mark.Users
 @allure.epic('Post/users/upload_avatar Загрузка аватара')
 class TestPostUploadAvatar:
-    time.sleep(3)
 
     @allure.description('Загрузка изображения в формате jpg')
     def test_01(self, auth_fixture):
@@ -21,19 +19,6 @@ class TestPostUploadAvatar:
         """Загрузка аватара"""
         result = UsersMethods.upload_file(
             '1mbJPG.jpg', '../../download_files/1mbJPG.jpg', access_token
-        )
-        print(result.json())
-        Checking.check_statuscode(result, 200)
-
-    @pytest.mark.path
-    @allure.description('Загрузка изображения в формате jpg')
-    def test_010(self, auth_fixture):
-        """Авторизация"""
-        access_token = auth_fixture
-
-        """Загрузка аватара"""
-        result = UsersMethods.upload_file(
-            '1mbJPG.jpg', os.path.abspath('1mbJPG.jpg'), access_token
         )
         print(result.json())
         Checking.check_statuscode(result, 200)

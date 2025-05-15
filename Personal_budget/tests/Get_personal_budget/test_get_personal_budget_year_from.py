@@ -6,7 +6,7 @@ from Personal_budget.methods.personal_budget_methods import PersonalBudgetMethod
 from Personal_budget.methods.payloads import Variables, Payloads
 
 
-@pytest.mark.personal_budget
+@pytest.mark.Personal_budget
 @allure.epic('Get/api/v1/personal_budget/ - Запрос всех объектов бюджета - Проверка поля year_from')
 class TestGetPersonalBudgetYearFrom:
 
@@ -36,7 +36,11 @@ class TestGetPersonalBudgetYearFrom:
 
             """Проверка наличия обязательных полей"""
             Payloads.check_required_fields_get(result_get, Payloads.get_payloads)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
@@ -66,7 +70,11 @@ class TestGetPersonalBudgetYearFrom:
 
             """Проверка наличия обязательных полей"""
             Payloads.check_required_fields_get(result_get, Payloads.get_payloads)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
@@ -96,7 +104,11 @@ class TestGetPersonalBudgetYearFrom:
 
             """Проверка наличия обязательных полей"""
             Payloads.check_required_fields_get(result_get, Payloads.get_payloads)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
@@ -123,7 +135,11 @@ class TestGetPersonalBudgetYearFrom:
                 '?month_from=1&year_from=2019&month_to=12&year_to=2100', access_token
             )
             Checking.check_statuscode(result_get, 422)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
@@ -150,7 +166,11 @@ class TestGetPersonalBudgetYearFrom:
                 '?month_from=1&year_from=2101&month_to=12&year_to=2100', access_token
             )
             Checking.check_statuscode(result_get, 422)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
@@ -177,7 +197,11 @@ class TestGetPersonalBudgetYearFrom:
                 '?month_from=1&year_from=25&month_to=12&year_to=2100', access_token
             )
             Checking.check_statuscode(result_get, 422)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
@@ -204,7 +228,11 @@ class TestGetPersonalBudgetYearFrom:
                 '?month_from=1&year_from=-2026&month_to=12&year_to=2100', access_token
             )
             Checking.check_statuscode(result_get, 422)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
@@ -231,7 +259,11 @@ class TestGetPersonalBudgetYearFrom:
                 '?month_from=1&year_from=""&month_to=12&year_to=2100', access_token
             )
             Checking.check_statuscode(result_get, 422)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
@@ -258,7 +290,11 @@ class TestGetPersonalBudgetYearFrom:
                 '?month_from=1&year_from=null&month_to=12&year_to=2100', access_token
             )
             Checking.check_statuscode(result_get, 422)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
@@ -285,6 +321,10 @@ class TestGetPersonalBudgetYearFrom:
                 '?month_from=1&year_from=@#$%&month_to=12&year_to=2100', access_token
             )
             Checking.check_statuscode(result_get, 422)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)

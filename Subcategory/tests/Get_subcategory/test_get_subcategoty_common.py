@@ -29,7 +29,11 @@ class TestGetAllSubcategoriesCommon:
             Checking.check_statuscode(result_get, 200)
             data = Checking.get_data(result_get)
             category_id = data['data'][0]['category_id']
-            print(category_id)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)

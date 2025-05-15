@@ -78,7 +78,7 @@ class TestContactAdminEmail:
 
         """Запрос администратору"""
         result = SettingsMethods.post_contact_to_admin_without_email(
-        'message topic', SettingsPayloads.message, access_token
+            'message topic', SettingsPayloads.message, access_token
         )
 
         """Проверка статус кода"""

@@ -62,6 +62,11 @@ class TestPatchWalletCommon:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_change, 400)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
 
@@ -98,6 +103,11 @@ class TestPatchWalletCommon:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_change, 403)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)

@@ -6,7 +6,7 @@ from Personal_budget.methods.personal_budget_methods import PersonalBudgetMethod
 from Personal_budget.methods.payloads import Variables
 
 
-@pytest.mark.personal_budget
+@pytest.mark.Personal_budget
 @allure.epic('Post/api/v1/personal_budget/ - Создание нового объекта персонального бюджета - '
              'проверка поля year')
 class TestPostPersonalBudgetYear:
@@ -30,8 +30,11 @@ class TestPostPersonalBudgetYear:
         try:
             """Проверка поля category_id"""
             assert data['data']['year'] == 2025
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
@@ -54,8 +57,11 @@ class TestPostPersonalBudgetYear:
         try:
             """Проверка поля category_id"""
             assert data['data']['year'] == 2100
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 

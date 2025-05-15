@@ -27,6 +27,11 @@ class TestPostCurrencyShortTitle:
             """Проверка значения"""
             data = Checking.get_data(result_create)
             assert data['data']['short_title'] == 'N'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             data = Checking.get_data(result_create)
@@ -51,6 +56,11 @@ class TestPostCurrencyShortTitle:
             """Проверка значения"""
             data = Checking.get_data(result_create)
             assert data['data']['short_title'] == 'Nnnn'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             data = Checking.get_data(result_create)
@@ -75,6 +85,11 @@ class TestPostCurrencyShortTitle:
             """Проверка значения"""
             data = Checking.get_data(result_create)
             assert data['data']['short_title'] == 'Nnnnn'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             data = Checking.get_data(result_create)
@@ -99,6 +114,11 @@ class TestPostCurrencyShortTitle:
             """Проверка значения"""
             data = Checking.get_data(result_create)
             assert data['data']['short_title'] == '123'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             data = Checking.get_data(result_create)
@@ -123,6 +143,11 @@ class TestPostCurrencyShortTitle:
             """Проверка значения"""
             data = Checking.get_data(result_create)
             assert data['data']['short_title'] == 'Ф'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             data = Checking.get_data(result_create)
@@ -147,6 +172,11 @@ class TestPostCurrencyShortTitle:
             """Проверка значения"""
             data = Checking.get_data(result_create)
             assert data['data']['short_title'] == 'S'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             data = Checking.get_data(result_create)
@@ -182,6 +212,11 @@ class TestPostCurrencyShortTitle:
             """Проверка значения"""
             data = Checking.get_data(result_create)
             assert data['data']['short_title'] == 's_s'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             data = Checking.get_data(result_create)
@@ -206,6 +241,11 @@ class TestPostCurrencyShortTitle:
             """Проверка значения"""
             data = Checking.get_data(result_create)
             assert data['data']['short_title'] == 'sф1'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             data = Checking.get_data(result_create)
@@ -230,6 +270,11 @@ class TestPostCurrencyShortTitle:
             """Проверка значения"""
             data = Checking.get_data(result_create)
             assert data['data']['short_title'] == 's.s'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             data = Checking.get_data(result_create)
@@ -266,6 +311,11 @@ class TestPostCurrencyShortTitle:
             if result_create_2.status_code == 201:
                 CurrencyMethods.delete_currency_if_bug(result_create_2, access_token)
             Checking.check_statuscode(result_create_2, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
             Checking.check_statuscode(result_delete, 204)

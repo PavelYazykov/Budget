@@ -206,6 +206,11 @@ class TestMoneyboxCommonPatch:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_change, 400)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             with allure.step('удаление копилки после теста'):
@@ -243,7 +248,11 @@ class TestMoneyboxCommonPatch:
                 moneybox_id, '2030-12-12', 1000, 'name_2', 2, False, access_token_2
             )
             Checking.check_statuscode(result_change, 200)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)

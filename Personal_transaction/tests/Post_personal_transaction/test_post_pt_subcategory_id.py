@@ -43,7 +43,11 @@ class TestPTPostSubcategoryId:
             """Проверка значения поля amount"""
             data = Checking.get_data(result)
             assert data['data']['amount'] == '10.00'
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление подкатегории"""
             delete_result = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)

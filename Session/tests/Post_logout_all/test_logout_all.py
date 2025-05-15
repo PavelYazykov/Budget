@@ -102,6 +102,11 @@ class TestLogoutAll:
             """Запрос на отзыв refresh_token"""
             result = SessionsMethods.logout_all('11111', access_token_2)
             Checking.check_statuscode(result, 403)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)

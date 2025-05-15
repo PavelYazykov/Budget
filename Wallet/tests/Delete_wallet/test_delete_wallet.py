@@ -219,8 +219,12 @@ class TestDeleteWallet:
             """Удаление wallet другого пользователя"""
             result_delete = WalletMethods.delete_wallet_by_id(wallet_id, access_token_2)
             Checking.check_statuscode(result_delete, 403)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
-
             """Удаление wallet"""
             result_delete_2 = WalletMethods.delete_wallet_by_id(wallet_id, access_token)
             Checking.check_statuscode(result_delete_2, 204)

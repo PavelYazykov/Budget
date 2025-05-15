@@ -9,7 +9,7 @@ from Personal_budget.methods.payloads import Variables, Payloads
 
 current_date = str(date.today())
 
-@pytest.mark.personal_budget
+@pytest.mark.Personal_budget
 @allure.epic('Post/api/v1/personal_budget/ - Создание нового объекта персонального бюджета - '
              'Раздел regular_outcome/проверка поля date_reminder')
 class TestPostPersonalBudgetDateReminder:
@@ -33,8 +33,11 @@ class TestPostPersonalBudgetDateReminder:
         try:
             """Проверка наличия обязательных полей"""
             Payloads.check_required_fields(result_create, Payloads.post_payloads)
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
@@ -57,8 +60,11 @@ class TestPostPersonalBudgetDateReminder:
         try:
             """Проверка наличия обязательных полей"""
             Payloads.check_required_fields(result_create, Payloads.post_payloads)
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 

@@ -6,7 +6,7 @@ from Personal_budget_auto_use.methods.personal_budget_auto_use_methods import Pe
 from Personal_budget_auto_use.methods.payloads_variables import Variables
 
 
-@pytest.mark.personal_budget_auto_use
+@pytest.mark.Personal_budget_auto_use
 @allure.epic('Post/api/v1/personal_budget_auto_use/ - Создание ежемесячного объекта бюджета - '
              'проверка поля amount')
 class TestPostAutoUseAmount:
@@ -28,6 +28,11 @@ class TestPostAutoUseAmount:
             """Проверка поля amount"""
             data = Checking.get_data(result_create)
             assert data['data']['amount'] == '10.00'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_auto_use_id is not None:
                 delete_result = PersonalBudgetAutoUseMethods.delete_personal_budget_auto_use(
@@ -76,6 +81,11 @@ class TestPostAutoUseAmount:
             """Проверка поля amount"""
             data = Checking.get_data(result_create)
             assert data['data']['amount'] == '9999999999.99'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_auto_use_id is not None:
                 delete_result = PersonalBudgetAutoUseMethods.delete_personal_budget_auto_use(

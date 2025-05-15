@@ -32,8 +32,11 @@ class TestPatchCurrencyShortTitle:
             """Проверка значений"""
             data_new = Checking.get_data(result_change)
             assert data_new['data']['short_title'] == 'R'
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -62,8 +65,11 @@ class TestPatchCurrencyShortTitle:
             """Проверка значений"""
             data_new = Checking.get_data(result_change)
             assert data_new['data']['short_title'] == 'Rrrrr'
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -92,8 +98,11 @@ class TestPatchCurrencyShortTitle:
             """Проверка значений"""
             data_new = Checking.get_data(result_change)
             assert data_new['data']['short_title'] == '123'
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -122,8 +131,11 @@ class TestPatchCurrencyShortTitle:
             """Проверка значений"""
             data_new = Checking.get_data(result_change)
             assert data_new['data']['short_title'] == 'К'
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -152,8 +164,11 @@ class TestPatchCurrencyShortTitle:
             """Проверка значений"""
             data_new = Checking.get_data(result_change)
             assert data_new['data']['short_title'] == 'R'
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -179,8 +194,11 @@ class TestPatchCurrencyShortTitle:
             """Проверка статус кода"""
             Checking.check_statuscode(result_change, 422)
 
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -209,8 +227,11 @@ class TestPatchCurrencyShortTitle:
             """Проверка значений"""
             data_new = Checking.get_data(result_change)
             assert data_new['data']['short_title'] == 'R_r'
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -239,8 +260,11 @@ class TestPatchCurrencyShortTitle:
             """Проверка значений"""
             data_new = Checking.get_data(result_change)
             assert data_new['data']['short_title'] == 'Rк1'
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -269,8 +293,11 @@ class TestPatchCurrencyShortTitle:
             """Проверка значений"""
             data_new = Checking.get_data(result_change)
             assert data_new['data']['short_title'] == 'R.r'
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -299,8 +326,11 @@ class TestPatchCurrencyShortTitle:
             """Проверка значений"""
             data_new = Checking.get_data(result_change)
             assert data_new['data']['full_title'] == 'Name_cur'
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -326,8 +356,11 @@ class TestPatchCurrencyShortTitle:
             """Проверка статус кода"""
             Checking.check_statuscode(result_change, 422)
 
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -359,6 +392,11 @@ class TestPatchCurrencyShortTitle:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_change, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -386,6 +424,11 @@ class TestPatchCurrencyShortTitle:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_change, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -410,6 +453,11 @@ class TestPatchCurrencyShortTitle:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_change, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -434,6 +482,11 @@ class TestPatchCurrencyShortTitle:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_change, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)
@@ -458,6 +511,11 @@ class TestPatchCurrencyShortTitle:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_change, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)

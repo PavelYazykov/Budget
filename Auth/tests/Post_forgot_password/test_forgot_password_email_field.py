@@ -60,6 +60,11 @@ class TestForgotPasswordEmailField:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 403)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 

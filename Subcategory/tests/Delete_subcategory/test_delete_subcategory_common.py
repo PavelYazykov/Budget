@@ -66,6 +66,11 @@ class TestDeleteSubcategoryCommon:
                 wallet_id, 20, None, access_token
             )
             Checking.check_statuscode(result_consumption, 201)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление подкатегории"""
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)

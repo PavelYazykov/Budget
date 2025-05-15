@@ -35,8 +35,11 @@ class TestGetRegularOutcomeById:
             """Проверка поля id"""
             get_data = Checking.get_data(result_get)
             assert get_data['data']['id'] == regular_outcome_id
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             delete_result = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(delete_result, 204)

@@ -37,6 +37,11 @@ class TestPostMoneyboxGoal:
                 data = Checking.get_data(post_result)
                 assert data['data']['goal'] == '1.00'
                 print('Значение поля соответствует введенному')
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             with allure.step('Удаление копилки'):
@@ -59,6 +64,11 @@ class TestPostMoneyboxGoal:
                 data = Checking.get_data(post_result)
                 assert data['data']['goal'] == '0.01'
                 print('Значение поля соответствует введенному')
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             with allure.step('Удаление копилки'):

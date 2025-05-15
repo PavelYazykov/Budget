@@ -109,6 +109,11 @@ class TestPatchMoneyboxGoal:
 
             """Проверкра статус кода"""
             Checking.check_statuscode(result_patch, 400)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Обнуление баланса копилки"""
             result_consumption = PersonalTransactionMethods.create_personal_transaction(
@@ -192,6 +197,11 @@ class TestPatchMoneyboxGoal:
 
             """Проверкра статус кода"""
             Checking.check_statuscode(result_patch, 400)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)

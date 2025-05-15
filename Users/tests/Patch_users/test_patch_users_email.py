@@ -55,7 +55,11 @@ class TestPatchUsersEmail:
             """Проверка значения поля email"""
             data = Checking.get_data(result)
             assert data['email'] == AuthVariables.email_for_create_user_2
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -100,6 +104,11 @@ class TestPatchUsersEmail:
             """Проверка значения поля email"""
             data = Checking.get_data(result)
             assert data['email'] == 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@mail.ru'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -144,6 +153,11 @@ class TestPatchUsersEmail:
             """Проверка значения поля email"""
             data = Checking.get_data(result)
             assert data['email'] == 'a#$%^&*q@mail.ru'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -188,6 +202,11 @@ class TestPatchUsersEmail:
             """Проверка значения поля email"""
             data = Checking.get_data(result)
             assert data['email'] == '123456@mail.ru'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -232,6 +251,11 @@ class TestPatchUsersEmail:
             """Проверка значения поля email"""
             data = Checking.get_data(result)
             assert data['email'] == 'MMM@mail.ru'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -275,6 +299,11 @@ class TestPatchUsersEmail:
             """Проверка значения поля email"""
             data = Checking.get_data(result)
             assert data['email'] == 'mmm@mail.ru'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -318,6 +347,11 @@ class TestPatchUsersEmail:
             """Проверка значения поля email"""
             data = Checking.get_data(result)
             assert data['email'] == 'MMmmm@mail.ru'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -368,6 +402,11 @@ class TestPatchUsersEmail:
                                      '60AaQ1234560AaQ1234560AaQ1234560123.AaQ1234560AaQ1234560AaQ1234560AaQ1234560AaQ'
                                      '1234560AaQ12345.ru'
                     )
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -422,6 +461,11 @@ class TestPatchUsersEmail:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -462,6 +506,11 @@ class TestPatchUsersEmail:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -499,6 +548,11 @@ class TestPatchUsersEmail:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -537,6 +591,11 @@ class TestPatchUsersEmail:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -575,6 +634,11 @@ class TestPatchUsersEmail:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -614,6 +678,11 @@ class TestPatchUsersEmail:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -653,6 +722,11 @@ class TestPatchUsersEmail:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -692,6 +766,11 @@ class TestPatchUsersEmail:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -731,6 +810,11 @@ class TestPatchUsersEmail:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -770,6 +854,11 @@ class TestPatchUsersEmail:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -809,6 +898,11 @@ class TestPatchUsersEmail:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -848,6 +942,11 @@ class TestPatchUsersEmail:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -887,6 +986,11 @@ class TestPatchUsersEmail:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -926,6 +1030,11 @@ class TestPatchUsersEmail:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -965,6 +1074,11 @@ class TestPatchUsersEmail:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -1004,6 +1118,11 @@ class TestPatchUsersEmail:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -1043,6 +1162,11 @@ class TestPatchUsersEmail:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -1082,6 +1206,11 @@ class TestPatchUsersEmail:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -1121,6 +1250,11 @@ class TestPatchUsersEmail:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 400)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 
@@ -1160,6 +1294,11 @@ class TestPatchUsersEmail:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             AuthMethods.delete_user(user_id)
 

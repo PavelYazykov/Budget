@@ -7,7 +7,7 @@ from Regular_outcome.methods.regular_outcome_methods import RegularOutcomeMethod
 from common_methods.checking import Checking
 
 
-@pytest.mark.payment_info
+@pytest.mark.Payment_info
 @allure.epic('Get/api/v1/payment_info/ - Запрос объектов payment_info - проверка поля regular_outcome_id')
 class TestGetPaymentInfoRegularOutcomeId:
 
@@ -43,7 +43,11 @@ class TestGetPaymentInfoRegularOutcomeId:
 
             """Проверка наличия всех полей"""
             Payloads.check_required_fields_for_get_request(get_result, Payloads.get_payloads)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
             delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
@@ -81,7 +85,11 @@ class TestGetPaymentInfoRegularOutcomeId:
 
             """Проверка наличия всех полей"""
             Payloads.check_required_fields_for_get_request(get_result, Payloads.get_payloads)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
             delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)

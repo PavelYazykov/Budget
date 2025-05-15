@@ -6,7 +6,7 @@ from Personal_budget.methods.personal_budget_methods import PersonalBudgetMethod
 from Personal_budget.methods.payloads import Variables
 
 
-@pytest.mark.personal_budget
+@pytest.mark.Personal_budget
 @allure.epic('Patch/api/v1/personal_budget/{personal_budget_id}/ - Редактирование персонального бюджета - '
              'проверка поля amount')
 class TestPatchPersonalBudgetAmount:
@@ -40,6 +40,11 @@ class TestPatchPersonalBudgetAmount:
             """Проверка значения поля amount"""
             data = Checking.get_data(result_patch)
             assert data['data']['amount'] == '10.00'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_id is not None:
                 PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
@@ -73,6 +78,11 @@ class TestPatchPersonalBudgetAmount:
             """Проверка значения поля amount"""
             data = Checking.get_data(result_patch)
             assert data['data']['amount'] == '10.10'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_id is not None:
                 PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
@@ -106,6 +116,11 @@ class TestPatchPersonalBudgetAmount:
             """Проверка значения поля amount"""
             data = Checking.get_data(result_patch)
             assert data['data']['amount'] == '9999999999.99'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_id is not None:
                 PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
@@ -139,6 +154,11 @@ class TestPatchPersonalBudgetAmount:
             """Проверка значения поля amount"""
             data = Checking.get_data(result_patch)
             assert data['data']['amount'] == '10.00'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_id is not None:
                 PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
@@ -168,6 +188,11 @@ class TestPatchPersonalBudgetAmount:
                 None, Variables.month, Variables.year, access_token
             )
             Checking.check_statuscode(result_patch, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_id is not None:
                 PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
@@ -197,6 +222,11 @@ class TestPatchPersonalBudgetAmount:
                 9999999999.101, Variables.month, Variables.year, access_token
             )
             Checking.check_statuscode(result_patch, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_id is not None:
                 PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
@@ -226,6 +256,11 @@ class TestPatchPersonalBudgetAmount:
                 10000000000, Variables.month, Variables.year, access_token
             )
             Checking.check_statuscode(result_patch, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_id is not None:
                 PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
@@ -255,6 +290,11 @@ class TestPatchPersonalBudgetAmount:
                 0, Variables.month, Variables.year, access_token
             )
             Checking.check_statuscode(result_patch, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_id is not None:
                 PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
@@ -284,6 +324,11 @@ class TestPatchPersonalBudgetAmount:
                 -5, Variables.month, Variables.year, access_token
             )
             Checking.check_statuscode(result_patch, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_id is not None:
                 PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
@@ -313,6 +358,11 @@ class TestPatchPersonalBudgetAmount:
                 "", Variables.month, Variables.year, access_token
             )
             Checking.check_statuscode(result_patch, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_id is not None:
                 PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
@@ -342,7 +392,11 @@ class TestPatchPersonalBudgetAmount:
                 "", Variables.month, Variables.year, access_token
             )
             Checking.check_statuscode(result_patch, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             if personal_budget_id is not None:
                 PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
-

@@ -36,6 +36,11 @@ class TestPatchSubcategoryTitle:
             """Проверка значений"""
             data = Checking.get_data(result)
             assert data['data']['title'] == 't'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -67,6 +72,11 @@ class TestPatchSubcategoryTitle:
             """Проверка значений"""
             data = Checking.get_data(result)
             assert data['data']['title'] == 'ttttttttttwwwwwwwww'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -98,6 +108,11 @@ class TestPatchSubcategoryTitle:
             """Проверка значений"""
             data = Checking.get_data(result)
             assert data['data']['title'] == 'ttttttttttwwwwwwwwwq'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -129,6 +144,11 @@ class TestPatchSubcategoryTitle:
             """Проверка значений"""
             data = Checking.get_data(result)
             assert data['data']['title'] == '123456'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -160,6 +180,11 @@ class TestPatchSubcategoryTitle:
             """Проверка значений"""
             data = Checking.get_data(result)
             assert data['data']['title'] == 'фыва'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -191,6 +216,11 @@ class TestPatchSubcategoryTitle:
             """Проверка значений"""
             data = Checking.get_data(result)
             assert data['data']['title'] == 'qwerty'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -222,6 +252,11 @@ class TestPatchSubcategoryTitle:
             """Проверка значений"""
             data = Checking.get_data(result)
             assert data['data']['title'] == 'qwert y'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -253,6 +288,11 @@ class TestPatchSubcategoryTitle:
             """Проверка значений"""
             data = Checking.get_data(result)
             assert data['data']['title'] == 'qwert_y'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -284,6 +324,11 @@ class TestPatchSubcategoryTitle:
             """Проверка значений"""
             data = Checking.get_data(result)
             assert data['data']['title'] == 'qwert-y'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -315,6 +360,11 @@ class TestPatchSubcategoryTitle:
             """Проверка значений"""
             data = Checking.get_data(result)
             assert data['data']['title'] == 'qwert.y'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -342,6 +392,11 @@ class TestPatchSubcategoryTitle:
 
             """Проверка наличия обязательных полей"""
             SubcategoryPayloads.check_req_fields_get_by_id(result, SubcategoryPayloads.get_payloads_by_id)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -366,6 +421,11 @@ class TestPatchSubcategoryTitle:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -390,6 +450,11 @@ class TestPatchSubcategoryTitle:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -414,6 +479,11 @@ class TestPatchSubcategoryTitle:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -438,6 +508,11 @@ class TestPatchSubcategoryTitle:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)
@@ -462,6 +537,11 @@ class TestPatchSubcategoryTitle:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             result_delete = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(result_delete, 204)

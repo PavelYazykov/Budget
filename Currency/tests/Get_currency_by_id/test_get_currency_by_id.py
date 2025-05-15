@@ -35,6 +35,11 @@ class TestGetCurrencyById:
             assert data['data']['code'] == 5
             assert data['data']['full_title'] == 'Name_currency'
             assert data['data']['short_title'] == 'N'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление валюты"""
             result_delete = CurrencyMethods.delete_currency(currency_id, access_token)

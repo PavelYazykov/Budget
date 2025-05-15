@@ -64,8 +64,11 @@ class TestPatchWalletIsArchivedField:
             """Проверка значения поля"""
             data = Checking.get_data(result)
             assert data['data']['is_archived'] is True
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             WalletMethods.delete_wallet_by_id(wallet_id, access_token)
 
@@ -95,8 +98,11 @@ class TestPatchWalletIsArchivedField:
             print(result.json())
             Checking.check_statuscode(result, 200)
 
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             WalletMethods.delete_wallet_by_id(wallet_id, access_token)
 

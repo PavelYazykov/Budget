@@ -6,7 +6,7 @@ from Personal_budget.methods.personal_budget_methods import PersonalBudgetMethod
 from Personal_budget.methods.payloads import Variables
 
 
-@pytest.mark.personal_budget
+@pytest.mark.Personal_budget
 @allure.epic('Delete/api/v1/personal_budget/{personal_budget_id}/ - Удаление персонального бюджета')
 class TestDeletePersonalBudget:
 

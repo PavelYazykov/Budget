@@ -32,6 +32,11 @@ class TestPostMoneyboxCurrencyId:
                 data = Checking.get_data(post_result)
                 assert data['data']['wallet']['currency_id'] == currency_id
                 print('Значение поля currency_id соответствует введенному')
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             with allure.step('Удаление копилки'):

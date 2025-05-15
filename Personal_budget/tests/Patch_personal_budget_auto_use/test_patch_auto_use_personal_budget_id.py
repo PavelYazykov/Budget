@@ -11,7 +11,7 @@ from Personal_budget_auto_use.methods.personal_budget_auto_use_methods import Pe
 from common_methods.variables import AuthVariables
 
 
-@pytest.mark.personal_budget
+@pytest.mark.Personal_budget
 @allure.epic('Patch/api/v1/personal_budget/{personal_budget_id}/ - Редактирование единоразового и регулярного бюджета -'
              'Проверка поля personal_budget_id')
 class TestPatchPersonalBudgePersonalBudgetId:
@@ -64,6 +64,11 @@ class TestPatchPersonalBudgePersonalBudgetId:
             """Проверка значения поля amount"""
             data = Checking.get_data(result_get)
             assert data['data']['amount'] == '1000.00'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -99,6 +104,11 @@ class TestPatchPersonalBudgePersonalBudgetId:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_patch, 404)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -134,6 +144,11 @@ class TestPatchPersonalBudgePersonalBudgetId:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_patch, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -169,6 +184,11 @@ class TestPatchPersonalBudgePersonalBudgetId:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_patch, 404)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -204,6 +224,11 @@ class TestPatchPersonalBudgePersonalBudgetId:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_patch, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -239,6 +264,11 @@ class TestPatchPersonalBudgePersonalBudgetId:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_patch, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -274,6 +304,11 @@ class TestPatchPersonalBudgePersonalBudgetId:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result_patch, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)

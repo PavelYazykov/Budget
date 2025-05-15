@@ -52,6 +52,11 @@ class TestLoginCommonCheck:
             """Проверка наличия обязательных полей"""
             with allure.step('Проверка наличия обязательных полей'):
                 Payloads.check_required_fields(result_login, Payloads.required_fields_login)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)

@@ -45,6 +45,11 @@ class TestResetPasswordCheckPassword:
             """Изменение пароля"""
             result_change = AuthMethods.reset_password(email, 'Aa1!tyhgvooa')
             Checking.check_statuscode(result_change, 200)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -82,6 +87,11 @@ class TestResetPasswordCheckPassword:
                              '1@111111Aa1@111111Aa1@111111'
             )
             Checking.check_statuscode(result_change, 200)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -118,6 +128,11 @@ class TestResetPasswordCheckPassword:
                 email, 'Zx@1 kjgtreqpbd'
             )
             Checking.check_statuscode(result_change, 200)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -154,6 +169,11 @@ class TestResetPasswordCheckPassword:
                 email, 'Zx@1 kjgtreqpbd'
             )
             Checking.check_statuscode(result_change, 200)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -190,6 +210,11 @@ class TestResetPasswordCheckPassword:
                 email, 'Zx@1vbytrew'
             )
             Checking.check_statuscode(result_change, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -227,6 +252,11 @@ class TestResetPasswordCheckPassword:
                              '@111111Aa1@111111Aa1@1111112'
             )
             Checking.check_statuscode(result_change, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -263,6 +293,11 @@ class TestResetPasswordCheckPassword:
                 email, ''
             )
             Checking.check_statuscode(result_change, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -299,6 +334,11 @@ class TestResetPasswordCheckPassword:
                email, None
             )
             Checking.check_statuscode(result_change, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -336,6 +376,11 @@ class TestResetPasswordCheckPassword:
                 email, 'zxcvbnmghqwertyu'
             )
             Checking.check_statuscode(result_change, 400)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -372,6 +417,11 @@ class TestResetPasswordCheckPassword:
                 email, 123456789963852741
             )
             Checking.check_statuscode(result_change, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -406,6 +456,11 @@ class TestResetPasswordCheckPassword:
             """Изменение пароля"""
             result_change = AuthMethods.reset_password_without_password(email)
             Checking.check_statuscode(result_change, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -442,6 +497,11 @@ class TestResetPasswordCheckPassword:
                 email, 'qwertyuiopA@123'
             )
             Checking.check_statuscode(result_change, 400)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)

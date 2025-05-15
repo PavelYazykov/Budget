@@ -36,6 +36,11 @@ class TestPostMoneyboxToDate:
                 data = Checking.get_data(post_result)
                 assert data['data']['to_date'] == to_date
                 print('Значение поля соответствует введенному')
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)

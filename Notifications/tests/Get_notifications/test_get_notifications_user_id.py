@@ -61,7 +61,11 @@ class TestGetNotificationsUserId:
             """Проверка отображения уведомления"""
             data_notifications = Checking.get_data(result)
             assert data_notifications['meta']['total_count'] == 1
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление счета"""
             # if float(data_wallet['data']['amount']) > 0:
@@ -116,7 +120,11 @@ class TestGetNotificationsUserId:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 404)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление счета"""
             # if float(data_wallet['data']['amount']) > 0:
@@ -171,7 +179,11 @@ class TestGetNotificationsUserId:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление счета"""
             # if float(data_wallet['data']['amount']) > 0:
@@ -226,7 +238,11 @@ class TestGetNotificationsUserId:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление счета"""
             # if float(data_wallet['data']['amount']) > 0:
@@ -281,7 +297,11 @@ class TestGetNotificationsUserId:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление счета"""
             # if float(data_wallet['data']['amount']) > 0:
@@ -335,7 +355,11 @@ class TestGetNotificationsUserId:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление счета"""
             # if float(data_wallet['data']['amount']) > 0:
@@ -389,7 +413,11 @@ class TestGetNotificationsUserId:
 
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
-
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление счета"""
             # if float(data_wallet['data']['amount']) > 0:

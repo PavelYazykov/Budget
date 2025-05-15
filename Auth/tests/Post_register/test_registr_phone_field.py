@@ -43,6 +43,11 @@ class TestRegistrationPhoneField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, first_name, middle_name, '89770000000', email, date_of_birth
             )
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)
@@ -71,6 +76,11 @@ class TestRegistrationPhoneField:
             AuthMethods.connect_db_check_user(
                 user_id, last_name, first_name, middle_name, None, email, date_of_birth
             )
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление пользователя из БД"""
             AuthMethods.delete_user(user_id)

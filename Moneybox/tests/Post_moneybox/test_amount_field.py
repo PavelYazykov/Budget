@@ -34,6 +34,11 @@ class TestPostMoneyboxAmount:
                 data = Checking.get_data(post_result)
                 assert data['data']['wallet']['amount'] == '0.00'
                 print('Значение поля amount соответствует введенному')
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             with allure.step('Удаление копилки'):
@@ -81,6 +86,11 @@ class TestPostMoneyboxAmount:
             """Списание средств с копилки"""
             wallet_id = MoneyboxMethods.get_wallet_id(post_result)
             MoneyboxMethods.consumption('5.5', wallet_id, access_token)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             with allure.step('Удаление копилки'):
@@ -108,6 +118,11 @@ class TestPostMoneyboxAmount:
             """Списание средств с копилки"""
             wallet_id = MoneyboxMethods.get_wallet_id(post_result)
             MoneyboxMethods.consumption('5.5', wallet_id, access_token)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             with allure.step('Удаление копилки'):

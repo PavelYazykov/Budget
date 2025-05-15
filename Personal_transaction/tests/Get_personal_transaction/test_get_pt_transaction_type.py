@@ -127,8 +127,11 @@ class TestGetAllPTTransactionType:
                 'Transfer between wallets', access_token
             )
             Checking.check_statuscode(result_get, 200)
-        except AssertionError:
-            raise AssertionError
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id_1, access_token)

@@ -110,6 +110,11 @@ class TestPostAmount:
             data = Checking.get_data(result)
             print(data['data']['amount'])
             assert data['data']['amount'] == '9999999999.99'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
@@ -138,6 +143,11 @@ class TestPostAmount:
             """Проверка статус кода"""
             print('RESULT:', result.json())
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
@@ -165,6 +175,11 @@ class TestPostAmount:
             )
             """Проверка статус кода"""
             Checking.check_statuscode(result, 422)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             """Удаление копилки"""
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)

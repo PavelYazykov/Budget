@@ -31,6 +31,11 @@ class TestCreateSubcategoriesTitle:
 
             """Проверка значения поля title"""
             assert data['data']['title'] == 'd'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
@@ -56,6 +61,11 @@ class TestCreateSubcategoriesTitle:
 
             """Проверка значения поля title"""
             assert data['data']['title'] == 'AssertionAssertionn'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
@@ -81,6 +91,11 @@ class TestCreateSubcategoriesTitle:
 
             """Проверка значения поля title"""
             assert data['data']['title'] == 'AssertionAssertionnn'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
@@ -106,6 +121,11 @@ class TestCreateSubcategoriesTitle:
 
             """Проверка значения поля title"""
             assert data['data']['title'] == '12345'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
@@ -131,6 +151,11 @@ class TestCreateSubcategoriesTitle:
 
             """Проверка значения поля title"""
             assert data['data']['title'] == 'фыва'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
@@ -156,6 +181,11 @@ class TestCreateSubcategoriesTitle:
 
             """Проверка значения поля title"""
             assert data['data']['title'] == 'asdf'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
@@ -181,6 +211,11 @@ class TestCreateSubcategoriesTitle:
 
             """Проверка значения поля title"""
             assert data['data']['title'] == 'фыва фыва'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
@@ -206,6 +241,11 @@ class TestCreateSubcategoriesTitle:
 
             """Проверка значения поля title"""
             assert data['data']['title'] == 'фыва_фыва'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
@@ -231,6 +271,11 @@ class TestCreateSubcategoriesTitle:
 
             """Проверка значения поля title"""
             assert data['data']['title'] == 'фыва-фыва'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
@@ -256,6 +301,11 @@ class TestCreateSubcategoriesTitle:
 
             """Проверка значения поля title"""
             assert data['data']['title'] == 'фыва.фыва'
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
@@ -278,6 +328,11 @@ class TestCreateSubcategoriesTitle:
                 category_id, 'Категория_1', access_token
             )
             Checking.check_statuscode(result_create_2, 400)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
@@ -292,6 +347,7 @@ class TestCreateSubcategoriesTitle:
         )
 
         """Проверка статус кода"""
+        SubcategoryMethods.delete_subcategory_if_bug(result_create, 201, access_token)
         Checking.check_statuscode(result_create, 422)
 
     @allure.description('Проверка поля title - 21  символ')
@@ -305,6 +361,7 @@ class TestCreateSubcategoriesTitle:
         )
 
         """Проверка статус кода"""
+        SubcategoryMethods.delete_subcategory_if_bug(result_create, 201, access_token)
         Checking.check_statuscode(result_create, 422)
 
     @allure.description('Проверка поля title - Пустое поле')
@@ -318,6 +375,7 @@ class TestCreateSubcategoriesTitle:
         )
 
         """Проверка статус кода"""
+        SubcategoryMethods.delete_subcategory_if_bug(result_create, 201, access_token)
         Checking.check_statuscode(result_create, 422)
 
     @allure.description('Проверка поля title - Неверный тип данный integer')
@@ -331,6 +389,7 @@ class TestCreateSubcategoriesTitle:
         )
 
         """Проверка статус кода"""
+        SubcategoryMethods.delete_subcategory_if_bug(result_create, 201, access_token)
         Checking.check_statuscode(result_create, 422)
 
     @allure.description('Проверка поля title - Спецсимволы')
@@ -344,6 +403,7 @@ class TestCreateSubcategoriesTitle:
         )
 
         """Проверка статус кода"""
+        SubcategoryMethods.delete_subcategory_if_bug(result_create, 201, access_token)
         Checking.check_statuscode(result_create, 422)
 
     @allure.description('Проверка поля title - Поле отсутсвует')
@@ -357,4 +417,5 @@ class TestCreateSubcategoriesTitle:
         )
 
         """Проверка статус кода"""
+        SubcategoryMethods.delete_subcategory_if_bug(result_create, 201, access_token)
         Checking.check_statuscode(result_create, 422)

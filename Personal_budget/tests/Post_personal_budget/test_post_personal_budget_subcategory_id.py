@@ -7,7 +7,7 @@ from Personal_budget.methods.payloads import Variables
 from Subcategory.methods.subcategory_methods import SubcategoryMethods
 
 
-@pytest.mark.personal_budget
+@pytest.mark.Personal_budget
 @allure.epic('Post/api/v1/personal_budget/ - Создание нового объекта персонального бюджета - '
              'проверка поля subcategory_id')
 class TestPostPersonalBudgetSubcategoryId:
@@ -40,6 +40,11 @@ class TestPostPersonalBudgetSubcategoryId:
         try:
             """Проверка поля category_id"""
             assert data['data']['subcategory_id'] == subcategory_id
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
@@ -63,6 +68,11 @@ class TestPostPersonalBudgetSubcategoryId:
         try:
             """Проверка поля category_id"""
             assert data['data']['subcategory_id'] is None
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
@@ -85,6 +95,11 @@ class TestPostPersonalBudgetSubcategoryId:
         try:
             """Проверка поля category_id"""
             assert data['data']['category_id'] == Variables.category_id
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 

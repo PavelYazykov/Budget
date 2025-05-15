@@ -28,6 +28,11 @@ class TestCreateSubcategoriesCategoryId:
         try:
             """Проверка наличия обязательных полей"""
             SubcategoryPayloads.check_required_fields_post(result_create, SubcategoryPayloads.post_payloads)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
         finally:
             SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
@@ -40,6 +45,7 @@ class TestCreateSubcategoriesCategoryId:
         result_create = SubcategoryMethods.create_subcategory(1000, 'desc', access_token)
 
         """Проверка статус кода"""
+        SubcategoryMethods.delete_subcategory_if_bug(result_create, 201, access_token)
         Checking.check_statuscode(result_create, 404)
 
     @allure.description('Проверка поля category_id - НЗначение category_id = 0')
@@ -51,6 +57,7 @@ class TestCreateSubcategoriesCategoryId:
         result_create = SubcategoryMethods.create_subcategory(0, 'desc', access_token)
 
         """Проверка статус кода"""
+        SubcategoryMethods.delete_subcategory_if_bug(result_create, 201, access_token)
         Checking.check_statuscode(result_create, 422)
 
     @allure.description('Проверка поля category_id - Значение category_id = отрицательное число')
@@ -62,6 +69,7 @@ class TestCreateSubcategoriesCategoryId:
         result_create = SubcategoryMethods.create_subcategory(0, 'desc', access_token)
 
         """Проверка статус кода"""
+        SubcategoryMethods.delete_subcategory_if_bug(result_create, 201, access_token)
         Checking.check_statuscode(result_create, 422)
 
     @allure.description('Проверка поля category_id - Значение category_id = пустое поле')
@@ -73,6 +81,7 @@ class TestCreateSubcategoriesCategoryId:
         result_create = SubcategoryMethods.create_subcategory('', 'desc', access_token)
 
         """Проверка статус кода"""
+        SubcategoryMethods.delete_subcategory_if_bug(result_create, 201, access_token)
         Checking.check_statuscode(result_create, 422)
 
     @allure.description('Проверка поля category_id - Значение category_id = Null')
@@ -84,6 +93,7 @@ class TestCreateSubcategoriesCategoryId:
         result_create = SubcategoryMethods.create_subcategory(None, 'desc', access_token)
 
         """Проверка статус кода"""
+        SubcategoryMethods.delete_subcategory_if_bug(result_create, 201, access_token)
         Checking.check_statuscode(result_create, 422)
 
     @allure.description('Проверка поля category_id - Поле category_id = отсутствует')
@@ -95,6 +105,7 @@ class TestCreateSubcategoriesCategoryId:
         result_create = SubcategoryMethods.create_subcategory_without_category_id('desc', access_token)
 
         """Проверка статус кода"""
+        SubcategoryMethods.delete_subcategory_if_bug(result_create, 201, access_token)
         Checking.check_statuscode(result_create, 422)
 
     @allure.description('Проверка поля category_id - Неверный тип данных string')
@@ -106,4 +117,5 @@ class TestCreateSubcategoriesCategoryId:
         result_create = SubcategoryMethods.create_subcategory('string', 'desc', access_token)
 
         """Проверка статус кода"""
+        SubcategoryMethods.delete_subcategory_if_bug(result_create, 201, access_token)
         Checking.check_statuscode(result_create, 422)

@@ -6,7 +6,7 @@ from Personal_budget.methods.personal_budget_methods import PersonalBudgetMethod
 from Personal_budget.methods.payloads import Variables, Payloads
 
 
-@pytest.mark.personal_budget
+@pytest.mark.Personal_budget
 @allure.epic('Get/api/v1/personal_budget/{personal_budget_id}/ - Запрос объекта бюджета по id')
 class TestGetPersonalBudgetById:
 
