@@ -53,7 +53,7 @@ class TestPayRegularOutcomeCommon:
         finally:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
-            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id, wallet_id)
 
 
 

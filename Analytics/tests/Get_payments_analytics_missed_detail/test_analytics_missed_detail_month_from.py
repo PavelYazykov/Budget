@@ -157,7 +157,7 @@ class TestAnalyticsMissedDetailMonthFrom:
             """Запрос аналитики"""
             get_analytics = AnalyticsMethods.get_payment_analytics_missed_detail_with_params(
                 20,
-                '?year_from=2025&month_to=12&year_to=2031&regular_payment=true&onetime_payment=true',
+                '?year_from=2024&month_to=12&year_to=2031&regular_payment=true&onetime_payment=true',
                 access_token
             )
 

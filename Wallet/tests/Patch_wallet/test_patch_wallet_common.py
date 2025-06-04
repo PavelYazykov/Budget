@@ -68,7 +68,7 @@ class TestPatchWalletCommon:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id, wallet_id)
 
     @allure.description('Измение счета от копилки чужого пользователя')
     def test_04(self, create_and_delete_wallet):

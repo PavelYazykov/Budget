@@ -214,7 +214,7 @@ class TestMoneyboxCommonPatch:
         finally:
             """Удаление копилки"""
             with allure.step('удаление копилки после теста'):
-                MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
+                MoneyboxMethods.delete_moneybox_from_bd(moneybox_id, wallet_id)
 
     @allure.description('Редактирование чужой копилки')
     def test_13(self, create_moneybox_and_delete):

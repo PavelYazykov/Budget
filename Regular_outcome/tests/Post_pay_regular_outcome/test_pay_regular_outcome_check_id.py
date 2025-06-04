@@ -62,7 +62,7 @@ class TestPayRegularOutcomeIdField:
                     100, 'descr', 'Consumption', '2025-03-09',
                     None, wallet_id, 20, None, access_token
                 )
-            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id, wallet_id)
 
     @allure.description('проверка поля regular_outcome_id - Несуществующий id')
     def test_02(self, auth_fixture):
@@ -91,7 +91,7 @@ class TestPayRegularOutcomeIdField:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id, wallet_id)
 
     @allure.description('проверка поля regular_outcome_id - Отрицательное значение id')
     def test_03(self, auth_fixture):
@@ -120,7 +120,7 @@ class TestPayRegularOutcomeIdField:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id, wallet_id)
 
     @allure.description('проверка поля regular_outcome_id - Значение id = 0')
     def test_04(self, auth_fixture):
@@ -149,7 +149,7 @@ class TestPayRegularOutcomeIdField:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id, wallet_id)
 
     @allure.description('проверка поля regular_outcome_id - Значение id - Пустое поле')
     def test_05(self, auth_fixture):
@@ -178,7 +178,7 @@ class TestPayRegularOutcomeIdField:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id, wallet_id)
 
     @allure.description('проверка поля regular_outcome_id - Значение id - Поле отсутствует')
     def test_06(self, auth_fixture):
@@ -207,7 +207,7 @@ class TestPayRegularOutcomeIdField:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id, wallet_id)
 
     @allure.description('проверка поля regular_outcome_id - Значение id - Null')
     def test_07(self, auth_fixture):
@@ -236,7 +236,7 @@ class TestPayRegularOutcomeIdField:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id, wallet_id)
 
     @allure.description('проверка поля regular_outcome_id - Значение id - Неверный тип данных string')
     def test_08(self, auth_fixture):
@@ -265,4 +265,4 @@ class TestPayRegularOutcomeIdField:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id, wallet_id)

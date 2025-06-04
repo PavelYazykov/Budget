@@ -146,6 +146,7 @@ class TestDeleteMoneybox:
         Checking.check_statuscode(create_result, 201)
         data = Checking.get_data(create_result)
         moneybox_id = data['data']['id']
+        wallet_id = data['data']['wallet']['id']
         try:
             """Delete запрос"""
             result_delete = MoneyboxMethods.delete_moneybox(moneybox_id, access_token)
@@ -160,5 +161,5 @@ class TestDeleteMoneybox:
         finally:
             """Удаление"""
             with allure.step('удаление копилки после теста'):
-                MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
+                MoneyboxMethods.delete_moneybox_from_bd(moneybox_id, wallet_id)
 

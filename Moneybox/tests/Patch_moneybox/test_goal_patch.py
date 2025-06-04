@@ -189,6 +189,7 @@ class TestPatchMoneyboxGoal:
             '2030-12-30', 1000, 'desc', 2, 100, access_token
         )
         moneybox_id = MoneyboxMethods.get_moneybox_id(result_create)
+        wallet_id = MoneyboxMethods.get_wallet_id(result_create)
         try:
             """Patch_moneybox запрос"""
             result_patch = MoneyboxMethods.change_moneybox_only_goal(
@@ -204,6 +205,6 @@ class TestPatchMoneyboxGoal:
                 raise AssertionError from e
         finally:
             """Удаление копилки"""
-            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id, wallet_id)
 
 

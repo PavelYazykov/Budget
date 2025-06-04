@@ -61,15 +61,24 @@ class TestPatchMoneyboxIsArchived:
         """Создание копилки"""
         create_result = MoneyboxMethods.create_moneybox(to_date, goal, name, currency_id, '100', access_token)
         moneybox_id = MoneyboxMethods.get_moneybox_id(create_result)
+        wallet_id = MoneyboxMethods.get_wallet_id(create_result)
+        try:
+            """Patch_moneybox запрос"""
+            with allure.step('Перенос копилки в архив'):
+                result_patch = MoneyboxMethods.change_moneybox(
+                    moneybox_id, to_date, goal, name, currency_id, True, access_token
+                )
 
-        """Patch_moneybox запрос"""
-        with allure.step('Перенос копилки в архив'):
-            result_patch = MoneyboxMethods.change_moneybox(
-                moneybox_id, to_date, goal, name, currency_id, True, access_token
-            )
+            """Проверка статус кода"""
+            Checking.check_statuscode(result_patch, 400)
+        except AssertionError as e:
+            with allure.step(f'Ошибка проверки: {e}'):
+                # Подробное описание ошибки
+                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
+                raise AssertionError from e
+        finally:
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id, wallet_id)
 
-        """Проверка статус кода"""
-        Checking.check_statuscode(result_patch, 400)
 
     @allure.description('Проверка поля is_archived - Возврат копилки из архива')
     def test_04(self, create_moneybox_and_delete):

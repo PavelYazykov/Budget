@@ -30,7 +30,7 @@ class TestAnalyticsCompletedDetailCommon:
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
             'Pavel', 20, subcategory_id, 'month', 100, False,
-            '2025-05-30', access_token,
+            '2025-06-05', access_token,
         )
         Checking.check_statuscode(result, 201)
         data = Checking.get_data(result)
@@ -140,7 +140,7 @@ class TestAnalyticsCompletedDetailCommon:
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
             'Pavel', 20, subcategory_id, 'onetime', 100, False,
-            '2025-05-30', access_token,
+            '2025-06-05', access_token,
         )
         Checking.check_statuscode(result, 201)
         data = Checking.get_data(result)
@@ -196,7 +196,7 @@ class TestAnalyticsCompletedDetailCommon:
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
             'Pavel', 20, subcategory_id, 'onetime', 100, False,
-            '2030-05-30', access_token,
+            '2030-06-30', access_token,
         )
         Checking.check_statuscode(result, 201)
         data = Checking.get_data(result)
@@ -256,7 +256,7 @@ class TestAnalyticsCompletedDetailCommon:
         """Запрос на создание regular_outcome"""
         result = RegularOutcomeMethods.create_regular_outcome(
             'Pavel', 20, subcategory_id, 'month', 100, False,
-            '2030-05-30', access_token,
+            '2030-06-30', access_token,
         )
         Checking.check_statuscode(result, 201)
         data = Checking.get_data(result)

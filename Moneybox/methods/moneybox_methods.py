@@ -439,7 +439,7 @@ class MoneyboxMethods:
                 print(f'Обязательное поле {field} присутствует')
 
     @staticmethod
-    def delete_moneybox_from_bd(moneybox_id):
+    def delete_moneybox_from_bd(moneybox_id, wallet_id):
         with allure.step('Удаление копилки из базы данных'):
             with psycopg2.connect(
                     host=DataBase.host,
@@ -449,7 +449,26 @@ class MoneyboxMethods:
                     port=DataBase.port
             ) as connection:
                 cursor = connection.cursor()
-                cursor.execute(f"""DELETE FROM moneyboxies WHERE id={moneybox_id}""")
+                cursor.execute(f"""DELETE FROM moneyboxies WHERE id='{moneybox_id}'""")
+                connection.commit()
+                cursor.execute(f"""DELETE FROM wallets WHERE id='{wallet_id}'""")
                 connection.commit()
                 print(f'Копилка с id: {moneybox_id} удалена')
+
+    @staticmethod
+    def create_expire_moneybox(moneybox_id):
+        to_date = '2025-05-12'
+        with psycopg2.connect(
+                host=DataBase.host,
+                user=DataBase.user,
+                password=DataBase.password,
+                dbname=DataBase.dbname,
+                port=DataBase.port
+        ) as connection:
+            cursor = connection.cursor()
+            cursor.execute(f"""UPDATE moneyboxies SET to_date='{to_date}'""")
+            connection.commit()
+            cursor.execute(f"""SELECT * FROM moneyboxies WHERE id={moneybox_id}""")
+            print(cursor.fetchone())
+
 

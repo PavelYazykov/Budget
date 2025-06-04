@@ -29,6 +29,7 @@ class TestPostMoneyboxGoal:
         """Post_moneybox запрос"""
         post_result = MoneyboxMethods.create_moneybox(to_date, 1, name, currency_id, amount, access_token)
         moneybox_id = MoneyboxMethods.get_moneybox_id(post_result)
+        wallet_id = MoneyboxMethods.get_wallet_id(post_result)
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
         try:
@@ -45,7 +46,7 @@ class TestPostMoneyboxGoal:
         finally:
             """Удаление копилки"""
             with allure.step('Удаление копилки'):
-                MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
+                MoneyboxMethods.delete_moneybox_from_bd(moneybox_id, wallet_id)
 
     @allure.description('Проверка поля goal - Значение вещественное число = 0.01')
     def test_02(self, auth_fixture):
@@ -56,6 +57,7 @@ class TestPostMoneyboxGoal:
         """Post_moneybox запрос"""
         post_result = MoneyboxMethods.create_moneybox(to_date, 0.01, name, currency_id, amount, access_token)
         moneybox_id = MoneyboxMethods.get_moneybox_id(post_result)
+        wallet_id = MoneyboxMethods.get_wallet_id(post_result)
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
         try:
@@ -72,7 +74,7 @@ class TestPostMoneyboxGoal:
         finally:
             """Удаление копилки"""
             with allure.step('Удаление копилки'):
-                MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
+                MoneyboxMethods.delete_moneybox_from_bd(moneybox_id, wallet_id)
 
     @allure.description('Проверка поля goal - Значение = 0')
     def test_03(self, auth_fixture):

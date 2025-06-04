@@ -30,27 +30,27 @@ class TestGetNotificationsUserId:
         data = Checking.get_data(get_user)
         user_id = data['id']
 
-        # """Создание регулярного персонального бюджета"""
-        # result_create = RegularOutcomeMethods.create_regular_outcome(
-        #     'Pavel', 20, None, 'day', 100, False,
-        #     '2030-12-12', access_token
-        # )
-        # data = Checking.get_data(result_create)
-        # regular_outcome_id = data['data']['id']
+        """Создание регулярного персонального бюджета"""
+        result_create = RegularOutcomeMethods.create_regular_outcome(
+            'Pavel', 20, None, 'day', 100, False,
+            '2030-12-12', access_token
+        )
+        data = Checking.get_data(result_create)
+        regular_outcome_id = data['data']['id']
         try:
-            # """Создание счета"""
-            # create_wallet = WalletMethods.create_wallet(
-            #     'Pavel_wallet', 2, 100, access_token
-            # )
-            # Checking.check_statuscode(create_wallet, 201)
-            # data_wallet = Checking.get_data(create_wallet)
-            # wallet_id = data_wallet['data']['id']
-            #
-            # """Оплата регулярного платежа"""
-            # result_pay = RegularOutcomeMethods.pay_regular_outcome(
-            #     regular_outcome_id, wallet_id, access_token,
-            # )
-            # Checking.check_statuscode(result_pay, 200)
+            """Создание счета"""
+            create_wallet = WalletMethods.create_wallet(
+                'Pavel_wallet', 2, 100, access_token
+            )
+            Checking.check_statuscode(create_wallet, 201)
+            data_wallet = Checking.get_data(create_wallet)
+            wallet_id = data_wallet['data']['id']
+
+            """Оплата регулярного платежа"""
+            result_pay = RegularOutcomeMethods.pay_regular_outcome(
+                regular_outcome_id, wallet_id, access_token,
+            )
+            Checking.check_statuscode(result_pay, 200)
 
             """Запрос списка регулярных платежей"""
             result = NotificationsMethods.get_notifications(user_id, '2030-12-11', access_token)
@@ -68,20 +68,20 @@ class TestGetNotificationsUserId:
                 raise AssertionError from e
         finally:
             """Удаление счета"""
-            # if float(data_wallet['data']['amount']) > 0:
-            #     print(float(data_wallet['data']['amount']))
-            #     PersonalTransactionMethods.create_personal_transaction(
-            #         100, 'pavel', 'Consumption', '2025-03-24',
-            #         None, wallet_id, 20, None, access_token
-            #     )
-            # delete_wallet = WalletMethods.delete_wallet_by_id(wallet_id, access_token)
-            # Checking.check_statuscode(delete_wallet, 204)
-            #
-            # """Удаление регулярного бюджета"""
-            # result_delete = RegularOutcomeMethods.delete_regular_outcome(
-            #     regular_outcome_id, access_token
-            # )
-            # Checking.check_statuscode(result_delete, 204)
+            if float(data_wallet['data']['amount']) > 0:
+                print(float(data_wallet['data']['amount']))
+                PersonalTransactionMethods.create_personal_transaction(
+                    100, 'pavel', 'Consumption', '2025-03-24',
+                    None, wallet_id, 20, None, access_token
+                )
+            delete_wallet = WalletMethods.delete_wallet_by_id(wallet_id, access_token)
+            Checking.check_statuscode(delete_wallet, 204)
+
+            """Удаление регулярного бюджета"""
+            result_delete = RegularOutcomeMethods.delete_regular_outcome(
+                regular_outcome_id, access_token
+            )
+            Checking.check_statuscode(result_delete, 204)
 
     @allure.description('проверка поля user_id - Несуществующее значение user_id')
     def test_02(self, auth_fixture):
@@ -92,27 +92,27 @@ class TestGetNotificationsUserId:
         wallet_id = None
         data_wallet = None
 
-        # """Создание регулярного персонального бюджета"""
-        # result_create = RegularOutcomeMethods.create_regular_outcome(
-        #     'Pavel', 20, None, 'day', 100, False,
-        #     '2030-12-12', access_token
-        # )
-        # data = Checking.get_data(result_create)
-        # regular_outcome_id = data['data']['id']
+        """Создание регулярного персонального бюджета"""
+        result_create = RegularOutcomeMethods.create_regular_outcome(
+            'Pavel', 20, None, 'day', 100, False,
+            '2030-12-12', access_token
+        )
+        data = Checking.get_data(result_create)
+        regular_outcome_id = data['data']['id']
         try:
-            # """Создание счета"""
-            # create_wallet = WalletMethods.create_wallet(
-            #     'Pavel_wallet', 2, 100, access_token
-            # )
-            # Checking.check_statuscode(create_wallet, 201)
-            # data_wallet = Checking.get_data(create_wallet)
-            # wallet_id = data_wallet['data']['id']
-            #
-            # """Оплата регулярного платежа"""
-            # result_pay = RegularOutcomeMethods.pay_regular_outcome(
-            #     regular_outcome_id, wallet_id, access_token,
-            # )
-            # Checking.check_statuscode(result_pay, 200)
+            """Создание счета"""
+            create_wallet = WalletMethods.create_wallet(
+                'Pavel_wallet', 2, 100, access_token
+            )
+            Checking.check_statuscode(create_wallet, 201)
+            data_wallet = Checking.get_data(create_wallet)
+            wallet_id = data_wallet['data']['id']
+
+            """Оплата регулярного платежа"""
+            result_pay = RegularOutcomeMethods.pay_regular_outcome(
+                regular_outcome_id, wallet_id, access_token,
+            )
+            Checking.check_statuscode(result_pay, 200)
 
             """Запрос списка регулярных платежей"""
             result = NotificationsMethods.get_notifications('cb59999c-b112-47bb-a048-c9b4cb234fa1',
@@ -127,20 +127,20 @@ class TestGetNotificationsUserId:
                 raise AssertionError from e
         finally:
             """Удаление счета"""
-            # if float(data_wallet['data']['amount']) > 0:
-            #     print(float(data_wallet['data']['amount']))
-            #     PersonalTransactionMethods.create_personal_transaction(
-            #         100, 'pavel', 'Consumption', '2025-03-24',
-            #         None, wallet_id, 20, None, access_token
-            #     )
-            # delete_wallet = WalletMethods.delete_wallet_by_id(wallet_id, access_token)
-            # Checking.check_statuscode(delete_wallet, 204)
-            #
-            # """Удаление регулярного бюджета"""
-            # result_delete = RegularOutcomeMethods.delete_regular_outcome(
-            #     regular_outcome_id, access_token
-            # )
-            # Checking.check_statuscode(result_delete, 204)
+            if float(data_wallet['data']['amount']) > 0:
+                print(float(data_wallet['data']['amount']))
+                PersonalTransactionMethods.create_personal_transaction(
+                    100, 'pavel', 'Consumption', '2025-03-24',
+                    None, wallet_id, 20, None, access_token
+                )
+            delete_wallet = WalletMethods.delete_wallet_by_id(wallet_id, access_token)
+            Checking.check_statuscode(delete_wallet, 204)
+
+            """Удаление регулярного бюджета"""
+            result_delete = RegularOutcomeMethods.delete_regular_outcome(
+                regular_outcome_id, access_token
+            )
+            Checking.check_statuscode(result_delete, 204)
 
     @allure.description('проверка поля user_id - Неверный тип данных integer')
     def test_03(self, auth_fixture):
@@ -151,27 +151,27 @@ class TestGetNotificationsUserId:
         wallet_id = None
         data_wallet = None
 
-        # """Создание регулярного персонального бюджета"""
-        # result_create = RegularOutcomeMethods.create_regular_outcome(
-        #     'Pavel', 20, None, 'day', 100, False,
-        #     '2030-12-12', access_token
-        # )
-        # data = Checking.get_data(result_create)
-        # regular_outcome_id = data['data']['id']
+        """Создание регулярного персонального бюджета"""
+        result_create = RegularOutcomeMethods.create_regular_outcome(
+            'Pavel', 20, None, 'day', 100, False,
+            '2030-12-12', access_token
+        )
+        data = Checking.get_data(result_create)
+        regular_outcome_id = data['data']['id']
         try:
-            # """Создание счета"""
-            # create_wallet = WalletMethods.create_wallet(
-            #     'Pavel_wallet', 2, 100, access_token
-            # )
-            # Checking.check_statuscode(create_wallet, 201)
-            # data_wallet = Checking.get_data(create_wallet)
-            # wallet_id = data_wallet['data']['id']
-            #
-            # """Оплата регулярного платежа"""
-            # result_pay = RegularOutcomeMethods.pay_regular_outcome(
-            #     regular_outcome_id, wallet_id, access_token,
-            # )
-            # Checking.check_statuscode(result_pay, 200)
+            """Создание счета"""
+            create_wallet = WalletMethods.create_wallet(
+                'Pavel_wallet', 2, 100, access_token
+            )
+            Checking.check_statuscode(create_wallet, 201)
+            data_wallet = Checking.get_data(create_wallet)
+            wallet_id = data_wallet['data']['id']
+
+            """Оплата регулярного платежа"""
+            result_pay = RegularOutcomeMethods.pay_regular_outcome(
+                regular_outcome_id, wallet_id, access_token,
+            )
+            Checking.check_statuscode(result_pay, 200)
 
             """Запрос списка регулярных платежей"""
             result = NotificationsMethods.get_notifications(12345678912345685478996321445,
@@ -186,20 +186,20 @@ class TestGetNotificationsUserId:
                 raise AssertionError from e
         finally:
             """Удаление счета"""
-            # if float(data_wallet['data']['amount']) > 0:
-            #     print(float(data_wallet['data']['amount']))
-            #     PersonalTransactionMethods.create_personal_transaction(
-            #         100, 'pavel', 'Consumption', '2025-03-24',
-            #         None, wallet_id, 20, None, access_token
-            #     )
-            # delete_wallet = WalletMethods.delete_wallet_by_id(wallet_id, access_token)
-            # Checking.check_statuscode(delete_wallet, 204)
-            #
-            # """Удаление регулярного бюджета"""
-            # result_delete = RegularOutcomeMethods.delete_regular_outcome(
-            #     regular_outcome_id, access_token
-            # )
-            # Checking.check_statuscode(result_delete, 204)
+            if float(data_wallet['data']['amount']) > 0:
+                print(float(data_wallet['data']['amount']))
+                PersonalTransactionMethods.create_personal_transaction(
+                    100, 'pavel', 'Consumption', '2025-03-24',
+                    None, wallet_id, 20, None, access_token
+                )
+            delete_wallet = WalletMethods.delete_wallet_by_id(wallet_id, access_token)
+            Checking.check_statuscode(delete_wallet, 204)
+
+            """Удаление регулярного бюджета"""
+            result_delete = RegularOutcomeMethods.delete_regular_outcome(
+                regular_outcome_id, access_token
+            )
+            Checking.check_statuscode(result_delete, 204)
 
     @allure.description('проверка поля user_id - Пустое поле')
     def test_04(self, auth_fixture):
@@ -210,27 +210,27 @@ class TestGetNotificationsUserId:
         wallet_id = None
         data_wallet = None
 
-        # """Создание регулярного персонального бюджета"""
-        # result_create = RegularOutcomeMethods.create_regular_outcome(
-        #     'Pavel', 20, None, 'day', 100, False,
-        #     '2030-12-12', access_token
-        # )
-        # data = Checking.get_data(result_create)
-        # regular_outcome_id = data['data']['id']
+        """Создание регулярного персонального бюджета"""
+        result_create = RegularOutcomeMethods.create_regular_outcome(
+            'Pavel', 20, None, 'day', 100, False,
+            '2030-12-12', access_token
+        )
+        data = Checking.get_data(result_create)
+        regular_outcome_id = data['data']['id']
         try:
-            # """Создание счета"""
-            # create_wallet = WalletMethods.create_wallet(
-            #     'Pavel_wallet', 2, 100, access_token
-            # )
-            # Checking.check_statuscode(create_wallet, 201)
-            # data_wallet = Checking.get_data(create_wallet)
-            # wallet_id = data_wallet['data']['id']
-            #
-            # """Оплата регулярного платежа"""
-            # result_pay = RegularOutcomeMethods.pay_regular_outcome(
-            #     regular_outcome_id, wallet_id, access_token,
-            # )
-            # Checking.check_statuscode(result_pay, 200)
+            """Создание счета"""
+            create_wallet = WalletMethods.create_wallet(
+                'Pavel_wallet', 2, 100, access_token
+            )
+            Checking.check_statuscode(create_wallet, 201)
+            data_wallet = Checking.get_data(create_wallet)
+            wallet_id = data_wallet['data']['id']
+
+            """Оплата регулярного платежа"""
+            result_pay = RegularOutcomeMethods.pay_regular_outcome(
+                regular_outcome_id, wallet_id, access_token,
+            )
+            Checking.check_statuscode(result_pay, 200)
 
             """Запрос списка регулярных платежей"""
             result = NotificationsMethods.get_notifications('',
@@ -245,20 +245,20 @@ class TestGetNotificationsUserId:
                 raise AssertionError from e
         finally:
             """Удаление счета"""
-            # if float(data_wallet['data']['amount']) > 0:
-            #     print(float(data_wallet['data']['amount']))
-            #     PersonalTransactionMethods.create_personal_transaction(
-            #         100, 'pavel', 'Consumption', '2025-03-24',
-            #         None, wallet_id, 20, None, access_token
-            #     )
-            # delete_wallet = WalletMethods.delete_wallet_by_id(wallet_id, access_token)
-            # Checking.check_statuscode(delete_wallet, 204)
-            #
-            # """Удаление регулярного бюджета"""
-            # result_delete = RegularOutcomeMethods.delete_regular_outcome(
-            #     regular_outcome_id, access_token
-            # )
-            # Checking.check_statuscode(result_delete, 204)
+            if float(data_wallet['data']['amount']) > 0:
+                print(float(data_wallet['data']['amount']))
+                PersonalTransactionMethods.create_personal_transaction(
+                    100, 'pavel', 'Consumption', '2025-03-24',
+                    None, wallet_id, 20, None, access_token
+                )
+            delete_wallet = WalletMethods.delete_wallet_by_id(wallet_id, access_token)
+            Checking.check_statuscode(delete_wallet, 204)
+
+            """Удаление регулярного бюджета"""
+            result_delete = RegularOutcomeMethods.delete_regular_outcome(
+                regular_outcome_id, access_token
+            )
+            Checking.check_statuscode(result_delete, 204)
 
     @allure.description('проверка поля user_id - Пустое поле')
     def test_05(self, auth_fixture):
@@ -269,27 +269,27 @@ class TestGetNotificationsUserId:
         wallet_id = None
         data_wallet = None
 
-        # """Создание регулярного персонального бюджета"""
-        # result_create = RegularOutcomeMethods.create_regular_outcome(
-        #     'Pavel', 20, None, 'day', 100, False,
-        #     '2030-12-12', access_token
-        # )
-        # data = Checking.get_data(result_create)
-        # regular_outcome_id = data['data']['id']
+        """Создание регулярного персонального бюджета"""
+        result_create = RegularOutcomeMethods.create_regular_outcome(
+            'Pavel', 20, None, 'day', 100, False,
+            '2030-12-12', access_token
+        )
+        data = Checking.get_data(result_create)
+        regular_outcome_id = data['data']['id']
         try:
-            # """Создание счета"""
-            # create_wallet = WalletMethods.create_wallet(
-            #     'Pavel_wallet', 2, 100, access_token
-            # )
-            # Checking.check_statuscode(create_wallet, 201)
-            # data_wallet = Checking.get_data(create_wallet)
-            # wallet_id = data_wallet['data']['id']
-            #
-            # """Оплата регулярного платежа"""
-            # result_pay = RegularOutcomeMethods.pay_regular_outcome(
-            #     regular_outcome_id, wallet_id, access_token,
-            # )
-            # Checking.check_statuscode(result_pay, 200)
+            """Создание счета"""
+            create_wallet = WalletMethods.create_wallet(
+                'Pavel_wallet', 2, 100, access_token
+            )
+            Checking.check_statuscode(create_wallet, 201)
+            data_wallet = Checking.get_data(create_wallet)
+            wallet_id = data_wallet['data']['id']
+
+            """Оплата регулярного платежа"""
+            result_pay = RegularOutcomeMethods.pay_regular_outcome(
+                regular_outcome_id, wallet_id, access_token,
+            )
+            Checking.check_statuscode(result_pay, 200)
 
             """Запрос списка регулярных платежей"""
             result = NotificationsMethods.get_notifications('',
@@ -304,20 +304,20 @@ class TestGetNotificationsUserId:
                 raise AssertionError from e
         finally:
             """Удаление счета"""
-            # if float(data_wallet['data']['amount']) > 0:
-            #     print(float(data_wallet['data']['amount']))
-            #     PersonalTransactionMethods.create_personal_transaction(
-            #         100, 'pavel', 'Consumption', '2025-03-24',
-            #         None, wallet_id, 20, None, access_token
-            #     )
-            # delete_wallet = WalletMethods.delete_wallet_by_id(wallet_id, access_token)
-            # Checking.check_statuscode(delete_wallet, 204)
-            #
-            # """Удаление регулярного бюджета"""
-            # result_delete = RegularOutcomeMethods.delete_regular_outcome(
-            #     regular_outcome_id, access_token
-            # )
-            # Checking.check_statuscode(result_delete, 204)
+            if float(data_wallet['data']['amount']) > 0:
+                print(float(data_wallet['data']['amount']))
+                PersonalTransactionMethods.create_personal_transaction(
+                    100, 'pavel', 'Consumption', '2025-03-24',
+                    None, wallet_id, 20, None, access_token
+                )
+            delete_wallet = WalletMethods.delete_wallet_by_id(wallet_id, access_token)
+            Checking.check_statuscode(delete_wallet, 204)
+
+            """Удаление регулярного бюджета"""
+            result_delete = RegularOutcomeMethods.delete_regular_outcome(
+                regular_outcome_id, access_token
+            )
+            Checking.check_statuscode(result_delete, 204)
 
     @allure.description('проверка поля user_id - Поле отсутствует')
     def test_06(self, auth_fixture):
@@ -328,27 +328,27 @@ class TestGetNotificationsUserId:
         wallet_id = None
         data_wallet = None
 
-        # """Создание регулярного персонального бюджета"""
-        # result_create = RegularOutcomeMethods.create_regular_outcome(
-        #     'Pavel', 20, None, 'day', 100, False,
-        #     '2030-12-12', access_token
-        # )
-        # data = Checking.get_data(result_create)
-        # regular_outcome_id = data['data']['id']
+        """Создание регулярного персонального бюджета"""
+        result_create = RegularOutcomeMethods.create_regular_outcome(
+            'Pavel', 20, None, 'day', 100, False,
+            '2030-12-12', access_token
+        )
+        data = Checking.get_data(result_create)
+        regular_outcome_id = data['data']['id']
         try:
-            # """Создание счета"""
-            # create_wallet = WalletMethods.create_wallet(
-            #     'Pavel_wallet', 2, 100, access_token
-            # )
-            # Checking.check_statuscode(create_wallet, 201)
-            # data_wallet = Checking.get_data(create_wallet)
-            # wallet_id = data_wallet['data']['id']
-            #
-            # """Оплата регулярного платежа"""
-            # result_pay = RegularOutcomeMethods.pay_regular_outcome(
-            #     regular_outcome_id, wallet_id, access_token,
-            # )
-            # Checking.check_statuscode(result_pay, 200)
+            """Создание счета"""
+            create_wallet = WalletMethods.create_wallet(
+                'Pavel_wallet', 2, 100, access_token
+            )
+            Checking.check_statuscode(create_wallet, 201)
+            data_wallet = Checking.get_data(create_wallet)
+            wallet_id = data_wallet['data']['id']
+
+            """Оплата регулярного платежа"""
+            result_pay = RegularOutcomeMethods.pay_regular_outcome(
+                regular_outcome_id, wallet_id, access_token,
+            )
+            Checking.check_statuscode(result_pay, 200)
 
             """Запрос списка регулярных платежей"""
             result = NotificationsMethods.get_notifications_without_user_id('2030-12-11', access_token)
@@ -362,20 +362,20 @@ class TestGetNotificationsUserId:
                 raise AssertionError from e
         finally:
             """Удаление счета"""
-            # if float(data_wallet['data']['amount']) > 0:
-            #     print(float(data_wallet['data']['amount']))
-            #     PersonalTransactionMethods.create_personal_transaction(
-            #         100, 'pavel', 'Consumption', '2025-03-24',
-            #         None, wallet_id, 20, None, access_token
-            #     )
-            # delete_wallet = WalletMethods.delete_wallet_by_id(wallet_id, access_token)
-            # Checking.check_statuscode(delete_wallet, 204)
-            #
-            # """Удаление регулярного бюджета"""
-            # result_delete = RegularOutcomeMethods.delete_regular_outcome(
-            #     regular_outcome_id, access_token
-            # )
-            # Checking.check_statuscode(result_delete, 204)
+            if float(data_wallet['data']['amount']) > 0:
+                print(float(data_wallet['data']['amount']))
+                PersonalTransactionMethods.create_personal_transaction(
+                    100, 'pavel', 'Consumption', '2025-03-24',
+                    None, wallet_id, 20, None, access_token
+                )
+            delete_wallet = WalletMethods.delete_wallet_by_id(wallet_id, access_token)
+            Checking.check_statuscode(delete_wallet, 204)
+
+            """Удаление регулярного бюджета"""
+            result_delete = RegularOutcomeMethods.delete_regular_outcome(
+                regular_outcome_id, access_token
+            )
+            Checking.check_statuscode(result_delete, 204)
 
     @allure.description('проверка поля user_id - Null')
     def test_07(self, auth_fixture):
@@ -386,27 +386,27 @@ class TestGetNotificationsUserId:
         wallet_id = None
         data_wallet = None
 
-        # """Создание регулярного персонального бюджета"""
-        # result_create = RegularOutcomeMethods.create_regular_outcome(
-        #     'Pavel', 20, None, 'day', 100, False,
-        #     '2030-12-12', access_token
-        # )
-        # data = Checking.get_data(result_create)
-        # regular_outcome_id = data['data']['id']
+        """Создание регулярного персонального бюджета"""
+        result_create = RegularOutcomeMethods.create_regular_outcome(
+            'Pavel', 20, None, 'day', 100, False,
+            '2030-12-12', access_token
+        )
+        data = Checking.get_data(result_create)
+        regular_outcome_id = data['data']['id']
         try:
-            # """Создание счета"""
-            # create_wallet = WalletMethods.create_wallet(
-            #     'Pavel_wallet', 2, 100, access_token
-            # )
-            # Checking.check_statuscode(create_wallet, 201)
-            # data_wallet = Checking.get_data(create_wallet)
-            # wallet_id = data_wallet['data']['id']
-            #
-            # """Оплата регулярного платежа"""
-            # result_pay = RegularOutcomeMethods.pay_regular_outcome(
-            #     regular_outcome_id, wallet_id, access_token,
-            # )
-            # Checking.check_statuscode(result_pay, 200)
+            """Создание счета"""
+            create_wallet = WalletMethods.create_wallet(
+                'Pavel_wallet', 2, 100, access_token
+            )
+            Checking.check_statuscode(create_wallet, 201)
+            data_wallet = Checking.get_data(create_wallet)
+            wallet_id = data_wallet['data']['id']
+
+            """Оплата регулярного платежа"""
+            result_pay = RegularOutcomeMethods.pay_regular_outcome(
+                regular_outcome_id, wallet_id, access_token,
+            )
+            Checking.check_statuscode(result_pay, 200)
 
             """Запрос списка регулярных платежей"""
             result = NotificationsMethods.get_notifications(None, '2030-12-11', access_token)
@@ -420,18 +420,18 @@ class TestGetNotificationsUserId:
                 raise AssertionError from e
         finally:
             """Удаление счета"""
-            # if float(data_wallet['data']['amount']) > 0:
-            #     print(float(data_wallet['data']['amount']))
-            #     PersonalTransactionMethods.create_personal_transaction(
-            #         100, 'pavel', 'Consumption', '2025-03-24',
-            #         None, wallet_id, 20, None, access_token
-            #     )
-            # delete_wallet = WalletMethods.delete_wallet_by_id(wallet_id, access_token)
-            # Checking.check_statuscode(delete_wallet, 204)
-            #
-            # """Удаление регулярного бюджета"""
-            # result_delete = RegularOutcomeMethods.delete_regular_outcome(
-            #     regular_outcome_id, access_token
-            # )
-            # Checking.check_statuscode(result_delete, 204)
+            if float(data_wallet['data']['amount']) > 0:
+                print(float(data_wallet['data']['amount']))
+                PersonalTransactionMethods.create_personal_transaction(
+                    100, 'pavel', 'Consumption', '2025-03-24',
+                    None, wallet_id, 20, None, access_token
+                )
+            delete_wallet = WalletMethods.delete_wallet_by_id(wallet_id, access_token)
+            Checking.check_statuscode(delete_wallet, 204)
+
+            """Удаление регулярного бюджета"""
+            result_delete = RegularOutcomeMethods.delete_regular_outcome(
+                regular_outcome_id, access_token
+            )
+            Checking.check_statuscode(result_delete, 204)
 

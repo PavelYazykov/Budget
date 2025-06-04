@@ -372,6 +372,19 @@ class TestPTCommonCheck:
             )
         Checking.check_statuscode(result, 400)
 
+    @allure.description('Для TBW указать категорию')
+    def test_13(self, create_moneybox_and_delete_for_personal_transaction):
+        """Создание копилки"""
+        moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_personal_transaction
+        """Создание транзакции"""
+        result = PersonalTransactionMethods.create_personal_transaction(
+            amount, description, "Transfer between wallets", transaction_date, 6, wallet_id,
+            category_id_income, None, access_token
+        )
+        """Проверка статус кода"""
+        Checking.check_statuscode(result, 422)
+
+
 
 
 

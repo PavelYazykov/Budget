@@ -27,6 +27,7 @@ class TestPostMoneyboxToDate:
             to_date, goal, name, currency_id, amount, access_token
         )
         moneybox_id = MoneyboxMethods.get_moneybox_id(post_result)
+        wallet_id = MoneyboxMethods.get_wallet_id(post_result)
 
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
@@ -43,7 +44,7 @@ class TestPostMoneyboxToDate:
                 raise AssertionError from e
         finally:
             """Удаление копилки"""
-            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
+            MoneyboxMethods.delete_moneybox_from_bd(moneybox_id, wallet_id)
 
     @allure.description('Проверка поля to_date - Поле отсутствует')
     def test_02(self, auth_fixture):

@@ -24,6 +24,7 @@ class TestPostMoneyboxCurrencyId:
         """Post_moneybox запрос"""
         post_result = MoneyboxMethods.create_moneybox(to_date, goal, name, currency_id, amount, access_token)
         moneybox_id = MoneyboxMethods.get_moneybox_id(post_result)
+        wallet_id = MoneyboxMethods.get_wallet_id(post_result)
         """Проверка статус кода"""
         Checking.check_statuscode(post_result, 201)
         try:
@@ -40,7 +41,7 @@ class TestPostMoneyboxCurrencyId:
         finally:
             """Удаление копилки"""
             with allure.step('Удаление копилки'):
-                MoneyboxMethods.delete_moneybox_from_bd(moneybox_id)
+                MoneyboxMethods.delete_moneybox_from_bd(moneybox_id, wallet_id)
 
     @allure.description('Проверка поля currency_id - Поле отсутствует')
     def test_02(self, auth_fixture):

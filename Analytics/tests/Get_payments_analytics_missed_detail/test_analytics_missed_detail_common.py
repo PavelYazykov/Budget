@@ -15,7 +15,7 @@ from Payment_info.methods.payment_info_methods import PaymentInfoMethods
 class TestAnalyticsMissedDetailCommon:
 
     @allure.description('Запросить аналитику по регулярным платежам без параметров авторизованный пользователь')
-    def test_01(self, create_moneybox_and_delete_for_analytics):
+    def test_01(self, create_moneybox_and_delete_for_analytics):  # Дата текущий месяц
         """Авторизация"""
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_analytics
 
@@ -36,13 +36,13 @@ class TestAnalyticsMissedDetailCommon:
         data = Checking.get_data(create_regular_outcome)
         regular_outcome_id = data['data']['id']
 
-        PaymentInfoMethods.create_regular_outcome('2025-05-05', regular_outcome_id)
+        PaymentInfoMethods.create_regular_outcome('2025-06-03', regular_outcome_id)  # Дата текущий месяц
 
         try:
             """Создание просроченного платежа"""
             PaymentInfoMethods.create_payment_info_in_bd(
-                regular_outcome_id, 10, '2025-05-05', None, False, 111
-            )
+                regular_outcome_id, 10, '2025-06-03', None, False, 111
+            )  # Дата текущий месяц
 
             """Запрос аналитики"""
             get_analytics = AnalyticsMethods.get_payment_analytics_missed_detail(20, access_token)
@@ -121,7 +121,7 @@ class TestAnalyticsMissedDetailCommon:
             Checking.check_statuscode(delete_subcategory, 204)
 
     @allure.description('Запросить аналитику по единоразовым платежам без параметров авторизованный пользователь')
-    def test_03(self, create_moneybox_and_delete_for_analytics):
+    def test_03(self, create_moneybox_and_delete_for_analytics): # Дата текущий месяц
         """Авторизация"""
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_analytics
 
@@ -142,13 +142,13 @@ class TestAnalyticsMissedDetailCommon:
         data = Checking.get_data(create_regular_outcome)
         regular_outcome_id = data['data']['id']
 
-        PaymentInfoMethods.create_regular_outcome('2025-05-05', regular_outcome_id)
+        PaymentInfoMethods.create_regular_outcome('2025-06-03', regular_outcome_id)  # Дата текущий месяц
 
         try:
             """Создание просроченного платежа"""
             PaymentInfoMethods.create_payment_info_in_bd(
-                regular_outcome_id, 10, '2025-05-05', None, False, 111
-            )
+                regular_outcome_id, 10, '2025-06-03', None, False, 111
+            )  # Дата текущий месяц
 
             """Запрос аналитики"""
             get_analytics = AnalyticsMethods.get_payment_analytics_missed_detail(20, access_token)

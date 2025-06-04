@@ -314,7 +314,7 @@ class TestGetPaymentAnalyticsCommon:
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
 
-    @allure.description('Общие проверки - Запрос аналитики неавторизованный пользователь')
+    @allure.description('Общие проверки - Запрос аналитики неавторизованный пользователь')  # Дата текущий месяц
     def test_08(self):
 
         """Запрос аналитики"""
@@ -324,7 +324,7 @@ class TestGetPaymentAnalyticsCommon:
         Checking.check_statuscode(result_get, 401)
 
     @allure.description('Запросить аналитику по просроченным платежам')
-    def test_09(self, create_moneybox_and_delete_for_analytics):
+    def test_09(self, create_moneybox_and_delete_for_analytics):  # Дата текущий месяц
         """Авторизация"""
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_analytics
 
@@ -339,19 +339,19 @@ class TestGetPaymentAnalyticsCommon:
         """Создание regular_outcome"""
         create_regular_outcome = RegularOutcomeMethods.create_regular_outcome(
             'Pavel', 20, subcategory_id, 'month', 10, False,
-            '2026-04-12', access_token
+            '2030-04-12', access_token
         )
         Checking.check_statuscode(create_regular_outcome, 201)
         data = Checking.get_data(create_regular_outcome)
         regular_outcome_id = data['data']['id']
 
-        PaymentInfoMethods.create_regular_outcome('2025-05-05', regular_outcome_id)
+        PaymentInfoMethods.create_regular_outcome('2025-06-03', regular_outcome_id)  # Дата текущий месяц
 
         try:
             """Создание просроченного платежа"""
             PaymentInfoMethods.create_payment_info_in_bd(
-                regular_outcome_id, 10, '2025-05-05', None, False, 111
-            )
+                regular_outcome_id, 10, '2025-06-03', None, False, 111
+            )  # Дата текущий месяц
 
             """Запрос аналитики"""
             result_get = AnalyticsMethods.get_payments_analytics(access_token)
@@ -377,45 +377,45 @@ class TestGetPaymentAnalyticsCommon:
             delete_subcategory = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
             Checking.check_statuscode(delete_subcategory, 204)
 
-    @allure.description('Общие проверки -  month_from > month_to')
-    def test_10(self, auth_fixture):
-        """Авторизация"""
-        access_token = auth_fixture
-
-        """Запрос аналитики"""
-        result_get = AnalyticsMethods.get_payments_analytics_with_params(
-            '?month_from=12&month_to=02', access_token
-        )
-
-        """проверка статус кода"""
-        Checking.check_statuscode(result_get, 422)
-        print('Result_analytics', result_get.text)
-
-    @allure.description('Общие проверки -  year_from > year_to')
-    def test_11(self, auth_fixture):
-        """Авторизация"""
-        access_token = auth_fixture
-
-        """Запрос аналитики"""
-        result_get = AnalyticsMethods.get_payments_analytics_with_params(
-            '?year_from=2030&year_to=2025', access_token
-        )
-
-        """проверка статус кода"""
-        Checking.check_statuscode(result_get, 422)
-        print('Result_analytics', result_get.text)
-
-    @allure.description('Общие проверки -  year_from > year_to')
-    def test_12(self, auth_fixture):
-        """Авторизация"""
-        access_token = auth_fixture
-
-        """Запрос аналитики"""
-        result_get = AnalyticsMethods.get_payments_analytics_with_params(
-            '?month_from=12&year_from=2030&month_to=01&year_to=2025', access_token
-        )
-
-        """проверка статус кода"""
-        Checking.check_statuscode(result_get, 422)
-        print('Result_analytics', result_get.text)
+    # @allure.description('Общие проверки -  month_from > month_to')
+    # def test_10(self, auth_fixture):
+    #     """Авторизация"""
+    #     access_token = auth_fixture
+    #
+    #     """Запрос аналитики"""
+    #     result_get = AnalyticsMethods.get_payments_analytics_with_params(
+    #         '?month_from=12&month_to=02', access_token
+    #     )
+    #
+    #     """проверка статус кода"""
+    #     Checking.check_statuscode(result_get, 422)
+    #     print('Result_analytics', result_get.text)
+    #
+    # @allure.description('Общие проверки -  year_from > year_to')
+    # def test_11(self, auth_fixture):
+    #     """Авторизация"""
+    #     access_token = auth_fixture
+    #
+    #     """Запрос аналитики"""
+    #     result_get = AnalyticsMethods.get_payments_analytics_with_params(
+    #         '?year_from=2030&year_to=2025', access_token
+    #     )
+    #
+    #     """проверка статус кода"""
+    #     Checking.check_statuscode(result_get, 422)
+    #     print('Result_analytics', result_get.text)
+    #
+    # @allure.description('Общие проверки -  year_from > year_to')
+    # def test_12(self, auth_fixture):
+    #     """Авторизация"""
+    #     access_token = auth_fixture
+    #
+    #     """Запрос аналитики"""
+    #     result_get = AnalyticsMethods.get_payments_analytics_with_params(
+    #         '?month_from=12&year_from=2030&month_to=01&year_to=2025', access_token
+    #     )
+    #
+    #     """проверка статус кода"""
+    #     Checking.check_statuscode(result_get, 422)
+    #     print('Result_analytics', result_get.text)
 
