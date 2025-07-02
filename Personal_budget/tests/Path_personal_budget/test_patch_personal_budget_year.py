@@ -45,8 +45,10 @@ class TestPatchPersonalBudgetYear:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля year - Год 2100')
     def test_02(self, auth_fixture):
@@ -82,8 +84,10 @@ class TestPatchPersonalBudgetYear:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля year - Поле отсутствует')
     def test_03(self, auth_fixture):
@@ -119,8 +123,10 @@ class TestPatchPersonalBudgetYear:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля year - Год 2019')
     def test_04(self, auth_fixture):
@@ -152,8 +158,10 @@ class TestPatchPersonalBudgetYear:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля year - Год 2101')
     def test_05(self, auth_fixture):
@@ -185,8 +193,10 @@ class TestPatchPersonalBudgetYear:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля year - Поле в формате гг')
     def test_06(self, auth_fixture):
@@ -218,8 +228,10 @@ class TestPatchPersonalBudgetYear:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля year - Пустое поле')
     def test_07(self, auth_fixture):
@@ -251,8 +263,10 @@ class TestPatchPersonalBudgetYear:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля year - Отрицательный год')
     def test_08(self, auth_fixture):
@@ -284,8 +298,10 @@ class TestPatchPersonalBudgetYear:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля year - Null')
     def test_09(self, auth_fixture):
@@ -317,8 +333,10 @@ class TestPatchPersonalBudgetYear:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля year - Недопустимые символы')
     def test_10(self, auth_fixture):
@@ -350,6 +368,8 @@ class TestPatchPersonalBudgetYear:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 

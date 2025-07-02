@@ -10,7 +10,7 @@ from Wallet.methods.wallet_methods import WalletMethods
 @allure.epic('Post/api/v1/wallet/ - Создание счета, проверка поля amount')
 class TestCreateWalletAmountField:
 
-    @allure.description('Создание счета проверка поля amount - Создание счета со значением "0"')
+    @allure.description('Проверка поля amount - значением = "0"')
     def test_01(self, auth_fixture):
         """Авторизауия"""
         access_token = auth_fixture

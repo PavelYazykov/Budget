@@ -1,5 +1,5 @@
 import datetime
-
+import random
 
 class CommonVariables:
 
@@ -24,27 +24,11 @@ class DataBase:
 class AuthVariables:
     """Авторизация"""
     auth_payloads = 'username=y.pawel_test1@mail.ru&password=Ohranatruda@1'
-    # auth_payloads_2 = 'username=zx5@mail.ru&password=Samsung@9@9@9'
-    # auth_payloads_3 = 'username=pawel_test_1@rambler.ru&password=Ohranatruda@2'
 
     """Верифицированный пользователь_1"""
     email = 'y.pawel_test1@mail.ru'
     password = 'Ohranatruda@1'
     phone = '89260000002'
-    # user_id_verify = '9c05de04-7059-49bc-9bf8-fcc869835245'
-    # verify_user_phone = '9c05de04-7059-49bc-9bf8-fcc869835245'  # id верифицированного пользователя
-
-    # """Верифицированный пользователь_2"""
-    # email_2 = 'pawel_test_1@rambler.ru'
-    # password_2 = 'Ohranatruda@2'
-    # phone_2 = '89260000004'
-    # user_id_verify_2 = 'e896a34b-36ec-4eb4-ba9a-09af22e41863'
-
-    # """Неверифицированный пользователь"""
-    # not_verify_email = 'bmk20284@nowni.com'
-    # not_verify_phone = '89260000004'
-    # user_id_not_verify = '590faefa-472e-448a-a608-dd0c63a23458'
-    # not_verify_phone_user_id = '590faefa-472e-448a-a608-dd0c63a23458'  # id неверифицированного пользователя
 
     """Данные для регистрации пользователя"""
     email_for_create_user = 'qa-a@mail.ru'
@@ -63,7 +47,7 @@ class AuthVariables:
 class MoneyboxVariables:
     to_date = '2030-12-30'
     goal = 1000
-    name = 'Pavel'
+    name = 'Pavel' + str(random.randint(11111, 99999))
     currency_id = 2
     is_archived = False
     amount = 0
@@ -71,6 +55,10 @@ class MoneyboxVariables:
 
 class PersonalTransactionVariables:
     transaction_date = datetime.date.today().isoformat()
+    date_str = str(transaction_date)
+    current_day = date_str[-4:-3]
+    current_month = date_str.split('-')[1]
+    current_year = date_str.split('-')[0]
     amount = 10
     description = 'transaction'
     transaction_type_income = 'Income'

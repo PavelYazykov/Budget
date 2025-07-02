@@ -1,0 +1,10 @@
+Успешно статус код: 200
+ {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5ZjEyM2VhYS1lNWI2LTQzNzgtOTVlOC00OTc5YWIzMzkxZjkiLCJhdWQiOlsiZmFzdGFwaS11c2VyczphdXRoIl0sImV4cCI6MTc0OTk4OTcxMH0.KxtPBUoWLIMLe85hrJmUgprPPTGStYLycdi4GGcCYzI","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5ZjEyM2VhYS1lNWI2LTQzNzgtOTVlOC00OTc5YWIzMzkxZjkiLCJleHAiOjE3NTA4NTAxMTAsImp0aSI6IjNkOTJmMjllLTQ1MTItNDJjZi1hOWViLTAyMDJiNWFhNWQyOCIsImRldmljZSI6IjExMTExIn0.qApninGxiNMVSuujYPqS8nvpvS0FBMguTeD-aUJyLSA","token_type":"bearer"}
+http://localhost:8000/api/v1/moneybox/
+Успешно статус код: 201
+ {"meta":{},"data":{"to_date":"2030-12-12","goal":"1000.00","id":1211,"wallet":{"name":"Pavel_moneybox","currency_id":2,"id":1318,"goal_is_achieved":false,"amount":"0.00","is_archived":false}}}
+Moneybox_id: 1211
+Wallet_id: 1318
+(1318, datetime.date(2025, 5, 12), Decimal('1000.00'), 1211)
+http://localhost:8000/api/v1/moneybox/1211/
+Копилка с id: 1211 удалена

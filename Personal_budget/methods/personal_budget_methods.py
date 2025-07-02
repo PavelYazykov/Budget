@@ -1,6 +1,7 @@
 import allure
 import psycopg2
 
+from Regular_outcome.methods.regular_outcome_methods import RegularOutcomeMethods
 from common_methods.http_methods import HttpMethods
 from common_methods.variables import CommonVariables, DataBase
 from common_methods.checking import Checking
@@ -538,6 +539,13 @@ class PersonalBudgetMethods:
                 personal_budget_id = data['data']['id']
                 PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
                 print(f'Ошибка, статус код: {result.status_code}')
+
+                get_regular_outcome = RegularOutcomeMethods.get_regular_outcome(access_token)
+                data = Checking.get_data(get_regular_outcome)
+                regular_outcome_id = data['data'][0]['id']
+                delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
+                Checking.check_statuscode(delete_regular_outcome, 204)
+
                 raise AssertionError
 
     @staticmethod
@@ -562,5 +570,14 @@ class PersonalBudgetMethods:
                                                                  subcategory_id, personal_budget_auto_use_id,
                                                                  personal_budget_id, amount))
             connection.commit()
+
+    @staticmethod
+    def delete_regular_outcome(access_token):
+        with allure.step('Удаление регулярного списания'):
+            get_regular_outcome = RegularOutcomeMethods.get_regular_outcome(access_token)
+            data = Checking.get_data(get_regular_outcome)
+            regular_outcome_id = data['data'][0]['id']
+            delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
+            Checking.check_statuscode(delete_regular_outcome, 204)
 
 

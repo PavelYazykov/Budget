@@ -186,7 +186,7 @@ class TestPostMoneyboxCommon:
             wallet_id = MoneyboxMethods.get_wallet_id(post_result)
 
             # Проверка статус кода
-            steps_log.append('Проверка, что статус код == 201')
+            steps_log.append('Проверка, что статус код = 201')
             Checking.check_statuscode(post_result, 201)
 
             # Проверка обязательных полей

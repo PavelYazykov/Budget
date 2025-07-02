@@ -5,6 +5,7 @@ from datetime import date
 
 
 class Payloads:
+
     get_payloads = {
         "meta": {},
         "data": [

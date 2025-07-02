@@ -44,7 +44,10 @@ class TestPatchPersonalBudgetCategoryId:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля category_id - Поле отсутствует')
     def test_02(self, auth_fixture):
@@ -78,7 +81,10 @@ class TestPatchPersonalBudgetCategoryId:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля category_id - Null')
     def test_03(self, auth_fixture):
@@ -110,7 +116,10 @@ class TestPatchPersonalBudgetCategoryId:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля category_id - Несуществующий id')
     def test_04(self, auth_fixture):

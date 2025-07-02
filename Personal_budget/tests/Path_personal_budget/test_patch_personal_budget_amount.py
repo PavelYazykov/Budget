@@ -46,8 +46,10 @@ class TestPatchPersonalBudgetAmount:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля amount - Вещественное число')
     def test_02(self, auth_fixture):
@@ -84,8 +86,10 @@ class TestPatchPersonalBudgetAmount:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля amount - Значение 9999999999.99')
     def test_03(self, auth_fixture):
@@ -122,8 +126,10 @@ class TestPatchPersonalBudgetAmount:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля amount - Поле отсутствует')
     def test_04(self, auth_fixture):
@@ -160,8 +166,10 @@ class TestPatchPersonalBudgetAmount:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля amount - Значение Null')
     def test_05(self, auth_fixture):
@@ -194,8 +202,10 @@ class TestPatchPersonalBudgetAmount:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля amount - Значение 9999999999.101')
     def test_06(self, auth_fixture):
@@ -228,8 +238,10 @@ class TestPatchPersonalBudgetAmount:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля amount - Значение 10000000000')
     def test_07(self, auth_fixture):
@@ -262,8 +274,10 @@ class TestPatchPersonalBudgetAmount:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля amount - Значение 0')
     def test_08(self, auth_fixture):
@@ -296,8 +310,10 @@ class TestPatchPersonalBudgetAmount:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля amount - Отрицательное значение')
     def test_09(self, auth_fixture):
@@ -330,8 +346,10 @@ class TestPatchPersonalBudgetAmount:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля amount - Пустое поле')
     def test_10(self, auth_fixture):
@@ -364,8 +382,10 @@ class TestPatchPersonalBudgetAmount:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля amount - Недопустимые символы')
     def test_11(self, auth_fixture):
@@ -398,5 +418,7 @@ class TestPatchPersonalBudgetAmount:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)

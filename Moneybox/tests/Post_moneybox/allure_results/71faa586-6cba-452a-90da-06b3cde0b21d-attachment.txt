@@ -1,0 +1,5 @@
+Успешно статус код: 200
+ {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5ZjEyM2VhYS1lNWI2LTQzNzgtOTVlOC00OTc5YWIzMzkxZjkiLCJhdWQiOlsiZmFzdGFwaS11c2VyczphdXRoIl0sImV4cCI6MTc0OTk4OTcwM30.KDTJpyo9jB17UwHoTkTtR1kmGg9ZdRkxxQQ4zqgPZUI","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5ZjEyM2VhYS1lNWI2LTQzNzgtOTVlOC00OTc5YWIzMzkxZjkiLCJleHAiOjE3NTA4NTAxMDMsImp0aSI6IjQyMjVlZTk0LTg2MGQtNDI0ZC1hODJmLTMwZDI5YzRjYjQ4YiIsImRldmljZSI6IjExMTExIn0.9fSTL49hjrKWbPvykVWlFJJL6lsm9X3II2U5w8GI7BY","token_type":"bearer"}
+http://localhost:8000/api/v1/moneybox/
+Успешно статус код: 400
+ {"errors":{"status":400,"detail":"The goal of accumulation is less or equal than the starting amount"}}

@@ -34,7 +34,7 @@ class TestGetAllPTlinkedRegularOutcome:
 
         """Получние списка транзакций"""
         result_get = PersonalTransactionMethods.get_personal_transaction_with_linked_regular_outcome(
-            'Income', 1, 1, 2024, True, access_token
+            'Income', 16, 6, 2025, True, access_token
         )
 
         """Проверка статус кода"""

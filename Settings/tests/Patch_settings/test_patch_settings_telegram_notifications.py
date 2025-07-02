@@ -18,7 +18,7 @@ class TestPatchSettingsTelegramNotifications:
         """Отправка запроса"""
         result = SettingsMethods.patch_settings_2(
             False, True, True, True, True,
-            True, True, 2, None, None,
+            True, True, 2, None, [1],
             True, True, True, access_token
         )
 
@@ -40,7 +40,7 @@ class TestPatchSettingsTelegramNotifications:
         """Отправка запроса"""
         result = SettingsMethods.patch_settings_2(
             False, True, True, True, True,
-            True, True, 2, None, None,
+            True, True, 2, None, [1],
             False, True, True, access_token
         )
 

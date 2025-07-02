@@ -1,0 +1,3 @@
+http://localhost:8000/api/v1/moneybox/
+Успешно статус код: 401
+ {"detail":"Unauthorized"}

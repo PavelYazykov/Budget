@@ -1,6 +1,7 @@
 import allure
 import pytest
 
+from Personal_transaction.methods.payloads import Payloads
 from Personal_transaction.methods.personal_transaction_methods import PersonalTransactionMethods
 from common_methods.variables import PersonalTransactionVariables
 from common_methods.checking import Checking
@@ -35,6 +36,9 @@ class TestGetAllPTCommon:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_get, 200)
+
+        """Проверка наличия обязательных полей"""
+        Payloads.check_required_fields(result_get, Payloads.get_payloads)
 
     @allure.description('Получение списка всех транзакций  (неавторизованный пользователь)')
     def test_02(self, create_moneybox_and_delete_for_personal_transaction):

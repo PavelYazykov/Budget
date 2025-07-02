@@ -34,7 +34,6 @@ class HttpMethods:
             result = requests.post(url, headers=headers, data=payload, files=files)
         return result
 
-
     @staticmethod
     def post_without_auth(url, body):
         headers = {"Content-type": "application/json"}
@@ -80,4 +79,3 @@ class HttpMethods:
         headers = {"Content-Type": "application/json"}
         result = requests.delete(url, headers=headers)
         return result
-

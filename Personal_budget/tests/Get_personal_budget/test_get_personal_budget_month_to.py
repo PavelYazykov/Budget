@@ -42,7 +42,10 @@ class TestGetPersonalBudgetMonthTo:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля month_to -  Значение = 01')
     def test_02(self, auth_fixture):
@@ -76,7 +79,10 @@ class TestGetPersonalBudgetMonthTo:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля month_to -  Значение = 12')
     def test_03(self, auth_fixture):
@@ -110,7 +116,10 @@ class TestGetPersonalBudgetMonthTo:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля month_to -  Поле отсутствует')
     def test_04(self, auth_fixture):
@@ -141,7 +150,10 @@ class TestGetPersonalBudgetMonthTo:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля month_to -  Вещественное число -> 11.0')
     def test_05(self, auth_fixture):
@@ -175,7 +187,10 @@ class TestGetPersonalBudgetMonthTo:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля month_to -  Значение = 0')
     def test_06(self, auth_fixture):
@@ -206,7 +221,10 @@ class TestGetPersonalBudgetMonthTo:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля month_to -  Значение = 13')
     def test_07(self, auth_fixture):
@@ -237,7 +255,10 @@ class TestGetPersonalBudgetMonthTo:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля month_to -  Отрицательное значение')
     def test_08(self, auth_fixture):
@@ -268,7 +289,10 @@ class TestGetPersonalBudgetMonthTo:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля month_to -  Пустое поле')
     def test_09(self, auth_fixture):
@@ -299,7 +323,10 @@ class TestGetPersonalBudgetMonthTo:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля month_to - Null')
     def test_10(self, auth_fixture):
@@ -330,7 +357,10 @@ class TestGetPersonalBudgetMonthTo:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля month_to - Недопустимые символы')
     def test_11(self, auth_fixture):
@@ -361,4 +391,7 @@ class TestGetPersonalBudgetMonthTo:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)

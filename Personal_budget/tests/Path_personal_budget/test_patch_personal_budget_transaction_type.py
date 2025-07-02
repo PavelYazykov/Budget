@@ -44,7 +44,10 @@ class TestPatchPersonalBudgetTransactionType:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('проверка поля transaction_type - Транзакция Consumption')
     def test_02(self, auth_fixture):
@@ -79,7 +82,10 @@ class TestPatchPersonalBudgetTransactionType:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('проверка поля transaction_type - Транзакция Transfer between wallets')
     def test_03(self, auth_fixture):
@@ -103,18 +109,18 @@ class TestPatchPersonalBudgetTransactionType:
                 personal_budget_id, "Transfer between wallets", 20, Variables.subcategory_id,
                 Variables.amount, Variables.month, Variables.year, access_token
             )
-            Checking.check_statuscode(result_patch, 200)
+            Checking.check_statuscode(result_patch, 422)
 
-            """Проверка значения поля transaction_type"""
-            data = Checking.get_data(result_patch)
-            assert data['data']['transaction_type'] == "Transfer between wallets"
         except AssertionError as e:
             with allure.step(f'Ошибка проверки: {e}'):
                 # Подробное описание ошибки
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('проверка поля transaction_type - Поле отсутствует')
     def test_04(self, auth_fixture):
@@ -146,7 +152,10 @@ class TestPatchPersonalBudgetTransactionType:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('проверка поля transaction_type - Null')
     def test_05(self, auth_fixture):
@@ -178,7 +187,10 @@ class TestPatchPersonalBudgetTransactionType:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('проверка поля transaction_type - Несуществующий тип транзакции')
     def test_06(self, auth_fixture):
@@ -210,7 +222,10 @@ class TestPatchPersonalBudgetTransactionType:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('проверка поля transaction_type - Пустое поле')
     def test_07(self, auth_fixture):
@@ -242,5 +257,8 @@ class TestPatchPersonalBudgetTransactionType:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
             

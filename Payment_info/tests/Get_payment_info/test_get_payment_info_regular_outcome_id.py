@@ -102,7 +102,7 @@ class TestGetPaymentInfoRegularOutcomeId:
 
         """Запрос информации о платеже"""
         get_result = PaymentInfoMethods.get_payment_info_with_params(
-            '?regular_outcome_id=5', access_token
+            '?regular_outcome_id=555', access_token
         )
 
         """Проверка статус кода"""

@@ -55,10 +55,12 @@ class TestPatchPersonalBudgetSubcategoryId:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
-
-            if personal_budget_id is not None:
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
+            """Удаление подкатегории"""
+            if subcategory_id is not None:
                 SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
     @allure.description('Проверка поля subcategory_id - Поле отсутствует')
@@ -93,34 +95,38 @@ class TestPatchPersonalBudgetSubcategoryId:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля subcategory_id - Null')
     def test_03(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
-        """Создание подкатегории"""
-        result_subcategory = SubcategoryMethods.create_subcategory(Variables.category_id, 'Pavel_sub', access_token)
-        Checking.check_statuscode(result_subcategory, 201)
-        data = Checking.get_data(result_subcategory)
-        subcategory_id = data['data']['id']
-
-        """Создание персонального бюджета"""
-        result_create = PersonalBudgetMethods.create_personal_budget(
-            Variables.transaction_type, Variables.category_id, subcategory_id, Variables.amount,
-            Variables.month, Variables.year, Variables.date_reminder, Variables.title, Variables.have_to_remind,
-            Variables.remind_in_days, access_token
-        )
-
-        """Проверка статус кода"""
-        Checking.check_statuscode(result_create, 201)
-        data = Checking.get_data(result_create)
-        personal_budget_id = data['data']['id']
-        print(personal_budget_id)
+        personal_budget_id = None
+        subcategory_id = None
 
         try:
+            """Создание подкатегории"""
+            result_subcategory = SubcategoryMethods.create_subcategory(Variables.category_id, 'Pavel_sub', access_token)
+            Checking.check_statuscode(result_subcategory, 201)
+            data = Checking.get_data(result_subcategory)
+            subcategory_id = data['data']['id']
+
+            """Создание персонального бюджета"""
+            result_create = PersonalBudgetMethods.create_personal_budget(
+                Variables.transaction_type, Variables.category_id, subcategory_id, Variables.amount,
+                Variables.month, Variables.year, Variables.date_reminder, Variables.title, Variables.have_to_remind,
+                Variables.remind_in_days, access_token
+            )
+
+            """Проверка статус кода"""
+            Checking.check_statuscode(result_create, 201)
+            data = Checking.get_data(result_create)
+            personal_budget_id = data['data']['id']
+            print(personal_budget_id)
 
             """Запрос на изменение персонального бюджета"""
             result_patch = PersonalBudgetMethods.change_personal_budget(
@@ -138,10 +144,13 @@ class TestPatchPersonalBudgetSubcategoryId:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета  и регулярного списания"""
             if personal_budget_id is not None:
                 PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+                PersonalBudgetMethods.delete_regular_outcome(access_token)
 
-            if personal_budget_id is not None:
+            """Удаление подкатегории"""
+            if subcategory_id is not None:
                 SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
     @allure.description('Проверка поля subcategory_id - несуществующий id')
@@ -175,8 +184,10 @@ class TestPatchPersonalBudgetSubcategoryId:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля subcategory_id - Отрицательное значение')
     def test_05(self, auth_fixture):
@@ -209,8 +220,10 @@ class TestPatchPersonalBudgetSubcategoryId:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля subcategory_id - Пустое поле')
     def test_06(self, auth_fixture):
@@ -243,8 +256,10 @@ class TestPatchPersonalBudgetSubcategoryId:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля subcategory_id - Неверный тип данных string')
     def test_07(self, auth_fixture):
@@ -277,8 +292,10 @@ class TestPatchPersonalBudgetSubcategoryId:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('Проверка поля subcategory_id - Вещественное число')
     def test_08(self, auth_fixture):
@@ -311,6 +328,8 @@ class TestPatchPersonalBudgetSubcategoryId:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            if personal_budget_id is not None:
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 

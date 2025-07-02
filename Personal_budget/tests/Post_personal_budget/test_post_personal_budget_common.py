@@ -35,7 +35,10 @@ class TestPostPersonalBudgetCommon:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('общие проверки - Создание бюджета с валидными данными (неавторизованный пользователь)')
     def test_02(self):
@@ -160,6 +163,9 @@ class TestPostPersonalBudgetCommon:
         data = Checking.get_data(result_create)
         personal_budget_id = data['data']['id']
 
+        """Удаление регулярного списания"""
+        PersonalBudgetMethods.delete_regular_outcome(access_token)
+
         try:
             """Создание персонального бюджета 2"""
             result_create_2 = PersonalBudgetMethods.create_personal_budget(
@@ -173,12 +179,16 @@ class TestPostPersonalBudgetCommon:
             data_2 = Checking.get_data(result_create_2)
             personal_budget_id_2 = data_2['data']['id']
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id_2, access_token)
+
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
         except AssertionError as e:
             with allure.step(f'Ошибка проверки: {e}'):
                 # Подробное описание ошибки
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
 
     @allure.description('общие проверки - Дата в прошлом')

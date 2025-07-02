@@ -17,27 +17,31 @@ class TestPostPersonalBudgetSubcategoryId:
         """Авторизация"""
         access_token = auth_fixture
 
-        """Создание подкатегории"""
-        result_subcategory = SubcategoryMethods.create_subcategory(
-            30, 'Pavel_subcategory', access_token
-        )
-        Checking.check_statuscode(result_subcategory, 201)
-        data = Checking.get_data(result_subcategory)
-        subcategory_id = data['data']['id']
-        print(subcategory_id)
+        personal_budget_id = None
+        subcategory_id = None
 
-        """Создание персонального бюджета"""
-        result_create = PersonalBudgetMethods.create_personal_budget(
-            Variables.transaction_type, Variables.category_id, subcategory_id, Variables.amount,
-            Variables.month, Variables.year, Variables.date_reminder, Variables.title, Variables.have_to_remind,
-            Variables.remind_in_days, access_token
-        )
-
-        """Проверка статус кода"""
-        Checking.check_statuscode(result_create, 201)
-        data = Checking.get_data(result_create)
-        personal_budget_id = data['data']['id']
         try:
+            """Создание подкатегории"""
+            result_subcategory = SubcategoryMethods.create_subcategory(
+                30, 'Pavel_subcategory', access_token
+            )
+            Checking.check_statuscode(result_subcategory, 201)
+            data = Checking.get_data(result_subcategory)
+            subcategory_id = data['data']['id']
+            print(subcategory_id)
+
+            """Создание персонального бюджета"""
+            result_create = PersonalBudgetMethods.create_personal_budget(
+                Variables.transaction_type, Variables.category_id, subcategory_id, Variables.amount,
+                Variables.month, Variables.year, Variables.date_reminder, Variables.title, Variables.have_to_remind,
+                Variables.remind_in_days, access_token
+            )
+
+            """Проверка статус кода"""
+            Checking.check_statuscode(result_create, 201)
+            data = Checking.get_data(result_create)
+            personal_budget_id = data['data']['id']
+
             """Проверка поля category_id"""
             assert data['data']['subcategory_id'] == subcategory_id
         except AssertionError as e:
@@ -46,8 +50,14 @@ class TestPostPersonalBudgetSubcategoryId:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
-            SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
+            """Удаление персонального бюджета"""
+            if personal_budget_id is not None:
+                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+                PersonalBudgetMethods.delete_regular_outcome(access_token)
+
+            """Удаление подкатегории"""
+            if subcategory_id is not None:
+                SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
 
     @allure.description('проверка поля subcategory_id - Null')
     def test_02(self, auth_fixture):
@@ -74,7 +84,10 @@ class TestPostPersonalBudgetSubcategoryId:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('проверка поля subcategory_id - Поле отсутствует')
     def test_03(self, auth_fixture):
@@ -101,7 +114,10 @@ class TestPostPersonalBudgetSubcategoryId:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('проверка поля subcategory_id - Несуществующий id')
     def test_04(self, auth_fixture):

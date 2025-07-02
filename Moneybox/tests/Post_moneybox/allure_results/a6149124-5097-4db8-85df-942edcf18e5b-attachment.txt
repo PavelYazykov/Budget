@@ -1,0 +1,11 @@
+Успешно статус код: 200
+ {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5ZjEyM2VhYS1lNWI2LTQzNzgtOTVlOC00OTc5YWIzMzkxZjkiLCJhdWQiOlsiZmFzdGFwaS11c2VyczphdXRoIl0sImV4cCI6MTc0OTk4OTcwNH0.qiyi9xBFAigUJ2Wl1H9uImAL4iSI_EfwmZs32Vwpt-I","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5ZjEyM2VhYS1lNWI2LTQzNzgtOTVlOC00OTc5YWIzMzkxZjkiLCJleHAiOjE3NTA4NTAxMDQsImp0aSI6IjZlMmRlM2Q2LTFjYTAtNGRiMS04YWZmLWMwMGY4ZWExNDYxMSIsImRldmljZSI6IjExMTExIn0.Lvdo-ywYi_mBBBvRqc-AygWjRQZLMiNqirD0U8ayQvI","token_type":"bearer"}
+http://localhost:8000/api/v1/moneybox/
+Успешно статус код: 201
+ {"meta":{},"data":{"amount":"1000.00","description":"description","transaction_type":"Income","transaction_date":"2024-12-12","id_wallet_for_transfer":null,"wallet_id":1316,"category_id":30,"subcategory_id":null,"regular_outcome_id":null,"id":2089}}
+Успешно статус код: 201
+ {"meta":{},"data":{"amount":"1000.00","description":"name","transaction_type":"Consumption","transaction_date":"2024-12-12","id_wallet_for_transfer":null,"wallet_id":1316,"category_id":20,"subcategory_id":null,"regular_outcome_id":null,"id":2090}}
+http://localhost:8000/api/v1/moneybox/1209/
+Успешно статус код: 200
+ {"meta":{},"data":{"to_date":"2030-12-30","goal":"1000.00","id":1209,"wallet":{"name":"name","currency_id":2,"id":1316,"goal_is_achieved":true,"amount":"0.00","is_archived":true}}}
+Копилка с id: 1209 удалена

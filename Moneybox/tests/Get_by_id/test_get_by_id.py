@@ -1,5 +1,5 @@
 import time
-
+from Moneybox.methods.payloads import Payloads
 import pytest
 from common_methods.variables import AuthVariables
 from Moneybox.methods.moneybox_methods import MoneyboxMethods
@@ -37,6 +37,9 @@ class TestGetMoneyboxById:
         data = Checking.get_data(result_get)
         assert data['data']['id'] == moneybox_id
         print('id копилки соответствует введенному')
+
+        """Проверка наличия полей в ответе"""
+        Payloads.check_fields_get_by_id(result_get, Payloads.get_by_id_response)
 
     @allure.description('Существующим ID (неавторизованный пользователь)')
     def test_02(self, create_moneybox_and_delete):
@@ -117,7 +120,7 @@ class TestGetMoneyboxById:
         Checking.check_statuscode(result_get, 422)
 
     @allure.description('Получение чужой копилки')
-    def test_09(self, create_moneybox_and_delete):
+    def test_08(self, create_moneybox_and_delete):
         """Создание копилки первого пользователя"""
         moneybox_id_first_user, access_token_first_user = create_moneybox_and_delete
 

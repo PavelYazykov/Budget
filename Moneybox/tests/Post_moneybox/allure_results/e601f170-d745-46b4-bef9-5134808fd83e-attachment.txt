@@ -1,0 +1,9 @@
+Успешно статус код: 200
+ {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5ZjEyM2VhYS1lNWI2LTQzNzgtOTVlOC00OTc5YWIzMzkxZjkiLCJhdWQiOlsiZmFzdGFwaS11c2VyczphdXRoIl0sImV4cCI6MTc0OTk4OTcwM30.KDTJpyo9jB17UwHoTkTtR1kmGg9ZdRkxxQQ4zqgPZUI","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5ZjEyM2VhYS1lNWI2LTQzNzgtOTVlOC00OTc5YWIzMzkxZjkiLCJleHAiOjE3NTA4NTAxMDMsImp0aSI6IjRiY2RhYTE2LWQ0OGYtNGQ5Zi1iYzMzLThmM2I2NTAxNjkyMSIsImRldmljZSI6IjExMTExIn0.WsUSogCNz4dHpLyDPflLk5VG9ph_EWGB8EGmmTqI8rc","token_type":"bearer"}
+http://localhost:8000/api/v1/moneybox/
+Moneybox_id: 1208
+Wallet_id: 1315
+Успешно статус код: 201
+ {"meta":{},"data":{"to_date":"2030-12-30","goal":"1000.00","id":1208,"wallet":{"name":"Pavel14091","currency_id":2,"id":1315,"goal_is_achieved":false,"amount":"0.00","is_archived":false}}}
+Обязательное поле data присутствует
+Копилка с id: 1208 удалена

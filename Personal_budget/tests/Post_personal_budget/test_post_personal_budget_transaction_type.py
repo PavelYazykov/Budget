@@ -36,7 +36,10 @@ class TestPostPersonalBudgetTransactionType:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('проверка поля transaction_type - Транзакция Consumption')
     def test_02(self, auth_fixture):
@@ -63,7 +66,10 @@ class TestPostPersonalBudgetTransactionType:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('проверка поля transaction_type - Транзакция Transfer between wallets')
     def test_03(self, auth_fixture):
@@ -76,19 +82,10 @@ class TestPostPersonalBudgetTransactionType:
             Variables.month, Variables.year, Variables.date_reminder, Variables.title, Variables.have_to_remind,
             Variables.remind_in_days, access_token
         )
-        try:
-            """Проверка статус кода"""
-            Checking.check_statuscode(result_create, 422)
-        except AssertionError as e:
-            with allure.step(f'Ошибка проверки: {e}'):
-                # Подробное описание ошибки
-                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
-                raise AssertionError from e
-        finally:
-            if result_create.status_code == 201:
-                data = Checking.get_data(result_create)
-                personal_budget_id = data['data']['id']
-                PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+
+        """Проверка статус кода"""
+        PersonalBudgetMethods.delete_personal_budget_if_bug(result_create, 201, access_token)
+        Checking.check_statuscode(result_create, 422)
 
     @allure.description('проверка поля transaction_type - Несуществующий тип транзакции')
     def test_04(self, auth_fixture):

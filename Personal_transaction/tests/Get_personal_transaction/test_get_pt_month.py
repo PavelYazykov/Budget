@@ -1,6 +1,7 @@
 import allure
 import pytest
 
+from Personal_transaction.methods.payloads import Payloads
 from Personal_transaction.methods.personal_transaction_methods import PersonalTransactionMethods
 from common_methods.variables import PersonalTransactionVariables
 from common_methods.checking import Checking
@@ -24,7 +25,7 @@ class TestGetAllPTMonthCheck:
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_personal_transaction
         """Создание транзакции"""
         result = PersonalTransactionMethods.create_personal_transaction(
-            amount, description, transaction_type_income, transaction_date, None, wallet_id,
+            amount, description, transaction_type_income, '2025-01-01', None, wallet_id,
             category_id_income, None, access_token
         )
         """Проверка статус кода"""
@@ -32,11 +33,14 @@ class TestGetAllPTMonthCheck:
 
         """Получние списка транзакций"""
         result_get = PersonalTransactionMethods.get_personal_transaction_with_params(
-            'Income', 1, 1, 2024, access_token
+            'Income', 1, 1, 2025, access_token
         )
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_get, 200)
+
+        """Проверка наличия обязательных полей"""
+        Payloads.check_required_fields(result_get, Payloads.get_payloads)
 
     @allure.description('Проверка параметра month - month = 12')
     def test_02(self, create_moneybox_and_delete_for_personal_transaction):
@@ -44,7 +48,7 @@ class TestGetAllPTMonthCheck:
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_personal_transaction
         """Создание транзакции"""
         result = PersonalTransactionMethods.create_personal_transaction(
-            amount, description, transaction_type_income, transaction_date, None, wallet_id,
+            amount, description, transaction_type_income, '2025-12-12', None, wallet_id,
             category_id_income, None, access_token
         )
         """Проверка статус кода"""
@@ -52,11 +56,14 @@ class TestGetAllPTMonthCheck:
 
         """Получние списка транзакций"""
         result_get = PersonalTransactionMethods.get_personal_transaction_with_params(
-            'Income', 1, 12, 2024, access_token
+            'Income', 12, 12, 2025, access_token
         )
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_get, 200)
+
+        """Проверка наличия обязательных полей"""
+        Payloads.check_required_fields(result_get, Payloads.get_payloads)
 
     @allure.description('Проверка параметра month - Поле отсутствует')
     def test_03(self, create_moneybox_and_delete_for_personal_transaction):
@@ -84,7 +91,7 @@ class TestGetAllPTMonthCheck:
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_personal_transaction
         """Создание транзакции"""
         result = PersonalTransactionMethods.create_personal_transaction(
-            amount, description, transaction_type_income, transaction_date, None, wallet_id,
+            amount, description, transaction_type_income, '2025-01-01', None, wallet_id,
             category_id_income, None, access_token
         )
         """Проверка статус кода"""
@@ -92,11 +99,14 @@ class TestGetAllPTMonthCheck:
 
         """Получние списка транзакций"""
         result_get = PersonalTransactionMethods.get_personal_transaction_with_params(
-            'Income', 1, '01', 2024, access_token
+            'Income', 1, '01', 2025, access_token
         )
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_get, 200)
+
+        """Проверка наличия обязательных полей"""
+        Payloads.check_required_fields(result_get, Payloads.get_payloads)
 
     @allure.description('Проверка параметра month - Вещественное число')
     def test_05(self, create_moneybox_and_delete_for_personal_transaction):

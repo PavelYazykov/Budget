@@ -19,29 +19,32 @@ class TestAnalyticsMissedDetailCommon:
         """Авторизация"""
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_analytics
 
+        regular_outcome_id = None
+        subcategory_id = None
+
         """Создание подкатегории"""
-        create_subcategory = SubcategoryMethods.create_subcategory(
-            20, "Pavel_subcategory", access_token
-        )
-        Checking.check_statuscode(create_subcategory, 201)
-        data = Checking.get_data(create_subcategory)
-        subcategory_id = data['data']['id']
-
-        """Создание regular_outcome"""
-        create_regular_outcome = RegularOutcomeMethods.create_regular_outcome(
-            'Pavel', 20, subcategory_id, 'month', 10, False,
-            '2026-04-12', access_token
-        )
-        Checking.check_statuscode(create_regular_outcome, 201)
-        data = Checking.get_data(create_regular_outcome)
-        regular_outcome_id = data['data']['id']
-
-        PaymentInfoMethods.create_regular_outcome('2025-06-03', regular_outcome_id)  # Дата текущий месяц
-
         try:
+            create_subcategory = SubcategoryMethods.create_subcategory(
+                20, "Pavel_subcategory", access_token
+            )
+            Checking.check_statuscode(create_subcategory, 201)
+            data = Checking.get_data(create_subcategory)
+            subcategory_id = data['data']['id']
+
+            """Создание regular_outcome"""
+            create_regular_outcome = RegularOutcomeMethods.create_regular_outcome(
+                'Pavel', 20, subcategory_id, 'month', 10, False,
+                '2026-04-12', access_token
+            )
+            Checking.check_statuscode(create_regular_outcome, 201)
+            data = Checking.get_data(create_regular_outcome)
+            regular_outcome_id = data['data']['id']
+
+            PaymentInfoMethods.create_regular_outcome('2025-06-03', regular_outcome_id)  # Дата текущий месяц
+
             """Создание просроченного платежа"""
             PaymentInfoMethods.create_payment_info_in_bd(
-                regular_outcome_id, 10, '2025-06-03', None, False, 111
+                regular_outcome_id, 10, '2025-06-20', None, False, 111
             )  # Дата текущий месяц
 
             """Запрос аналитики"""
@@ -59,37 +62,41 @@ class TestAnalyticsMissedDetailCommon:
                 raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
-            delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
-            Checking.check_statuscode(delete_regular_outcome, 204)
-
-            delete_subcategory = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
-            Checking.check_statuscode(delete_subcategory, 204)
+            if regular_outcome_id is not None:
+                result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
+                Checking.check_statuscode(result_delete, 204)
+            if subcategory_id is not None:
+                delete_subcategory = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
+                Checking.check_statuscode(delete_subcategory, 204)
 
     @allure.description('Запросить аналитику по регулярным платежам с параметрами авторизованный пользователь')
     def test_02(self, create_moneybox_and_delete_for_analytics):
         """Авторизация"""
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_analytics
 
+        regular_outcome_id = None
+        subcategory_id = None
+
         """Создание подкатегории"""
-        create_subcategory = SubcategoryMethods.create_subcategory(
-            20, "Pavel_subcategory", access_token
-        )
-        Checking.check_statuscode(create_subcategory, 201)
-        data = Checking.get_data(create_subcategory)
-        subcategory_id = data['data']['id']
-
-        """Создание regular_outcome"""
-        create_regular_outcome = RegularOutcomeMethods.create_regular_outcome(
-            'Pavel', 20, subcategory_id, 'month', 10, False,
-            '2026-04-12', access_token
-        )
-        Checking.check_statuscode(create_regular_outcome, 201)
-        data = Checking.get_data(create_regular_outcome)
-        regular_outcome_id = data['data']['id']
-
-        PaymentInfoMethods.create_regular_outcome('2025-05-05', regular_outcome_id)
-
         try:
+            create_subcategory = SubcategoryMethods.create_subcategory(
+                20, "Pavel_subcategory", access_token
+            )
+            Checking.check_statuscode(create_subcategory, 201)
+            data = Checking.get_data(create_subcategory)
+            subcategory_id = data['data']['id']
+
+            """Создание regular_outcome"""
+            create_regular_outcome = RegularOutcomeMethods.create_regular_outcome(
+                'Pavel', 20, subcategory_id, 'month', 10, False,
+                '2026-04-12', access_token
+            )
+            Checking.check_statuscode(create_regular_outcome, 201)
+            data = Checking.get_data(create_regular_outcome)
+            regular_outcome_id = data['data']['id']
+
+            PaymentInfoMethods.create_regular_outcome('2025-05-05', regular_outcome_id)
+
             """Создание просроченного платежа"""
             PaymentInfoMethods.create_payment_info_in_bd(
                 regular_outcome_id, 10, '2025-05-05', None, False, 111
@@ -114,37 +121,41 @@ class TestAnalyticsMissedDetailCommon:
                 raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
-            delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
-            Checking.check_statuscode(delete_regular_outcome, 204)
-
-            delete_subcategory = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
-            Checking.check_statuscode(delete_subcategory, 204)
+            if regular_outcome_id is not None:
+                result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
+                Checking.check_statuscode(result_delete, 204)
+            if subcategory_id is not None:
+                delete_subcategory = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
+                Checking.check_statuscode(delete_subcategory, 204)
 
     @allure.description('Запросить аналитику по единоразовым платежам без параметров авторизованный пользователь')
     def test_03(self, create_moneybox_and_delete_for_analytics): # Дата текущий месяц
         """Авторизация"""
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_analytics
 
+        regular_outcome_id = None
+        subcategory_id = None
+
         """Создание подкатегории"""
-        create_subcategory = SubcategoryMethods.create_subcategory(
-            20, "Pavel_subcategory", access_token
-        )
-        Checking.check_statuscode(create_subcategory, 201)
-        data = Checking.get_data(create_subcategory)
-        subcategory_id = data['data']['id']
-
-        """Создание regular_outcome"""
-        create_regular_outcome = RegularOutcomeMethods.create_regular_outcome(
-            'Pavel', 20, subcategory_id, 'onetime', 10, False,
-            '2026-04-12', access_token
-        )
-        Checking.check_statuscode(create_regular_outcome, 201)
-        data = Checking.get_data(create_regular_outcome)
-        regular_outcome_id = data['data']['id']
-
-        PaymentInfoMethods.create_regular_outcome('2025-06-03', regular_outcome_id)  # Дата текущий месяц
-
         try:
+            create_subcategory = SubcategoryMethods.create_subcategory(
+                20, "Pavel_subcategory", access_token
+            )
+            Checking.check_statuscode(create_subcategory, 201)
+            data = Checking.get_data(create_subcategory)
+            subcategory_id = data['data']['id']
+
+            """Создание regular_outcome"""
+            create_regular_outcome = RegularOutcomeMethods.create_regular_outcome(
+                'Pavel', 20, subcategory_id, 'onetime', 10, False,
+                '2026-04-12', access_token
+            )
+            Checking.check_statuscode(create_regular_outcome, 201)
+            data = Checking.get_data(create_regular_outcome)
+            regular_outcome_id = data['data']['id']
+
+            PaymentInfoMethods.create_regular_outcome('2025-06-03', regular_outcome_id)  # Дата текущий месяц
+
             """Создание просроченного платежа"""
             PaymentInfoMethods.create_payment_info_in_bd(
                 regular_outcome_id, 10, '2025-06-03', None, False, 111
@@ -165,37 +176,41 @@ class TestAnalyticsMissedDetailCommon:
                 raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
-            delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
-            Checking.check_statuscode(delete_regular_outcome, 204)
-
-            delete_subcategory = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
-            Checking.check_statuscode(delete_subcategory, 204)
+            if regular_outcome_id is not None:
+                result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
+                Checking.check_statuscode(result_delete, 204)
+            if subcategory_id is not None:
+                delete_subcategory = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
+                Checking.check_statuscode(delete_subcategory, 204)
 
     @allure.description('Запросить аналитику по единоразовым платежам c параметрами авторизованный пользователь')
     def test_04(self, create_moneybox_and_delete_for_analytics):
         """Авторизация"""
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_analytics
 
+        regular_outcome_id = None
+        subcategory_id = None
+
         """Создание подкатегории"""
-        create_subcategory = SubcategoryMethods.create_subcategory(
-            20, "Pavel_subcategory", access_token
-        )
-        Checking.check_statuscode(create_subcategory, 201)
-        data = Checking.get_data(create_subcategory)
-        subcategory_id = data['data']['id']
-
-        """Создание regular_outcome"""
-        create_regular_outcome = RegularOutcomeMethods.create_regular_outcome(
-            'Pavel', 20, subcategory_id, 'onetime', 10, False,
-            '2026-04-12', access_token
-        )
-        Checking.check_statuscode(create_regular_outcome, 201)
-        data = Checking.get_data(create_regular_outcome)
-        regular_outcome_id = data['data']['id']
-
-        PaymentInfoMethods.create_regular_outcome('2025-05-05', regular_outcome_id)
-
         try:
+            create_subcategory = SubcategoryMethods.create_subcategory(
+                20, "Pavel_subcategory", access_token
+            )
+            Checking.check_statuscode(create_subcategory, 201)
+            data = Checking.get_data(create_subcategory)
+            subcategory_id = data['data']['id']
+
+            """Создание regular_outcome"""
+            create_regular_outcome = RegularOutcomeMethods.create_regular_outcome(
+                'Pavel', 20, subcategory_id, 'onetime', 10, False,
+                '2026-04-12', access_token
+            )
+            Checking.check_statuscode(create_regular_outcome, 201)
+            data = Checking.get_data(create_regular_outcome)
+            regular_outcome_id = data['data']['id']
+
+            PaymentInfoMethods.create_regular_outcome('2025-05-05', regular_outcome_id)
+
             """Создание просроченного платежа"""
             PaymentInfoMethods.create_payment_info_in_bd(
                 regular_outcome_id, 10, '2025-05-05', None, False, 111
@@ -220,37 +235,41 @@ class TestAnalyticsMissedDetailCommon:
                 raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
-            delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
-            Checking.check_statuscode(delete_regular_outcome, 204)
-
-            delete_subcategory = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
-            Checking.check_statuscode(delete_subcategory, 204)
+            if regular_outcome_id is not None:
+                result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
+                Checking.check_statuscode(result_delete, 204)
+            if subcategory_id is not None:
+                delete_subcategory = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
+                Checking.check_statuscode(delete_subcategory, 204)
 
     @allure.description('Запросить аналитику одновременно указав регулярные и единоразовые платежи')
     def test_05(self, create_moneybox_and_delete_for_analytics):
         """Авторизация"""
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_analytics
 
+        regular_outcome_id = None
+        subcategory_id = None
+
         """Создание подкатегории"""
-        create_subcategory = SubcategoryMethods.create_subcategory(
-            20, "Pavel_subcategory", access_token
-        )
-        Checking.check_statuscode(create_subcategory, 201)
-        data = Checking.get_data(create_subcategory)
-        subcategory_id = data['data']['id']
-
-        """Создание regular_outcome"""
-        create_regular_outcome = RegularOutcomeMethods.create_regular_outcome(
-            'Pavel', 20, subcategory_id, 'onetime', 10, False,
-            '2026-04-12', access_token
-        )
-        Checking.check_statuscode(create_regular_outcome, 201)
-        data = Checking.get_data(create_regular_outcome)
-        regular_outcome_id = data['data']['id']
-
-        PaymentInfoMethods.create_regular_outcome('2025-05-05', regular_outcome_id)
-
         try:
+            create_subcategory = SubcategoryMethods.create_subcategory(
+                20, "Pavel_subcategory", access_token
+            )
+            Checking.check_statuscode(create_subcategory, 201)
+            data = Checking.get_data(create_subcategory)
+            subcategory_id = data['data']['id']
+
+            """Создание regular_outcome"""
+            create_regular_outcome = RegularOutcomeMethods.create_regular_outcome(
+                'Pavel', 20, subcategory_id, 'onetime', 10, False,
+                '2026-04-12', access_token
+            )
+            Checking.check_statuscode(create_regular_outcome, 201)
+            data = Checking.get_data(create_regular_outcome)
+            regular_outcome_id = data['data']['id']
+
+            PaymentInfoMethods.create_regular_outcome('2025-05-05', regular_outcome_id)
+
             """Создание просроченного платежа"""
             PaymentInfoMethods.create_payment_info_in_bd(
                 regular_outcome_id, 10, '2025-05-05', None, False, 111
@@ -275,37 +294,41 @@ class TestAnalyticsMissedDetailCommon:
                 raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
-            delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
-            Checking.check_statuscode(delete_regular_outcome, 204)
-
-            delete_subcategory = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
-            Checking.check_statuscode(delete_subcategory, 204)
+            if regular_outcome_id is not None:
+                result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
+                Checking.check_statuscode(result_delete, 204)
+            if subcategory_id is not None:
+                delete_subcategory = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
+                Checking.check_statuscode(delete_subcategory, 204)
 
     @allure.description('Запросить аналитику по платежам указав значение false регулярным и единоразовым платежам')
     def test_06(self, create_moneybox_and_delete_for_analytics):
         """Авторизация"""
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_analytics
 
+        regular_outcome_id = None
+        subcategory_id = None
+
         """Создание подкатегории"""
-        create_subcategory = SubcategoryMethods.create_subcategory(
-            20, "Pavel_subcategory", access_token
-        )
-        Checking.check_statuscode(create_subcategory, 201)
-        data = Checking.get_data(create_subcategory)
-        subcategory_id = data['data']['id']
-
-        """Создание regular_outcome"""
-        create_regular_outcome = RegularOutcomeMethods.create_regular_outcome(
-            'Pavel', 20, subcategory_id, 'onetime', 10, False,
-            '2026-04-12', access_token
-        )
-        Checking.check_statuscode(create_regular_outcome, 201)
-        data = Checking.get_data(create_regular_outcome)
-        regular_outcome_id = data['data']['id']
-
-        PaymentInfoMethods.create_regular_outcome('2025-05-05', regular_outcome_id)
-
         try:
+            create_subcategory = SubcategoryMethods.create_subcategory(
+                20, "Pavel_subcategory", access_token
+            )
+            Checking.check_statuscode(create_subcategory, 201)
+            data = Checking.get_data(create_subcategory)
+            subcategory_id = data['data']['id']
+
+            """Создание regular_outcome"""
+            create_regular_outcome = RegularOutcomeMethods.create_regular_outcome(
+                'Pavel', 20, subcategory_id, 'onetime', 10, False,
+                '2026-04-12', access_token
+            )
+            Checking.check_statuscode(create_regular_outcome, 201)
+            data = Checking.get_data(create_regular_outcome)
+            regular_outcome_id = data['data']['id']
+
+            PaymentInfoMethods.create_regular_outcome('2025-05-05', regular_outcome_id)
+
             """Создание просроченного платежа"""
             PaymentInfoMethods.create_payment_info_in_bd(
                 regular_outcome_id, 10, '2025-05-05', None, False, 111
@@ -327,37 +350,41 @@ class TestAnalyticsMissedDetailCommon:
                 raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
-            delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
-            Checking.check_statuscode(delete_regular_outcome, 204)
-
-            delete_subcategory = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
-            Checking.check_statuscode(delete_subcategory, 204)
+            if regular_outcome_id is not None:
+                result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
+                Checking.check_statuscode(result_delete, 204)
+            if subcategory_id is not None:
+                delete_subcategory = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
+                Checking.check_statuscode(delete_subcategory, 204)
 
     @allure.description('Запросить аналитику по  платежам  неавторизованный пользователь')
     def test_07(self, create_moneybox_and_delete_for_analytics):
         """Авторизация"""
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_analytics
 
+        regular_outcome_id = None
+        subcategory_id = None
+
         """Создание подкатегории"""
-        create_subcategory = SubcategoryMethods.create_subcategory(
-            20, "Pavel_subcategory", access_token
-        )
-        Checking.check_statuscode(create_subcategory, 201)
-        data = Checking.get_data(create_subcategory)
-        subcategory_id = data['data']['id']
-
-        """Создание regular_outcome"""
-        create_regular_outcome = RegularOutcomeMethods.create_regular_outcome(
-            'Pavel', 20, subcategory_id, 'onetime', 10, False,
-            '2026-04-12', access_token
-        )
-        Checking.check_statuscode(create_regular_outcome, 201)
-        data = Checking.get_data(create_regular_outcome)
-        regular_outcome_id = data['data']['id']
-
-        PaymentInfoMethods.create_regular_outcome('2025-05-05', regular_outcome_id)
-
         try:
+            create_subcategory = SubcategoryMethods.create_subcategory(
+                20, "Pavel_subcategory", access_token
+            )
+            Checking.check_statuscode(create_subcategory, 201)
+            data = Checking.get_data(create_subcategory)
+            subcategory_id = data['data']['id']
+
+            """Создание regular_outcome"""
+            create_regular_outcome = RegularOutcomeMethods.create_regular_outcome(
+                'Pavel', 20, subcategory_id, 'onetime', 10, False,
+                '2026-04-12', access_token
+            )
+            Checking.check_statuscode(create_regular_outcome, 201)
+            data = Checking.get_data(create_regular_outcome)
+            regular_outcome_id = data['data']['id']
+
+            PaymentInfoMethods.create_regular_outcome('2025-05-05', regular_outcome_id)
+
             """Создание просроченного платежа"""
             PaymentInfoMethods.create_payment_info_in_bd(
                 regular_outcome_id, 10, '2025-05-05', None, False, 111
@@ -378,10 +405,11 @@ class TestAnalyticsMissedDetailCommon:
                 raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
-            delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
-            Checking.check_statuscode(delete_regular_outcome, 204)
-
-            delete_subcategory = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
-            Checking.check_statuscode(delete_subcategory, 204)
+            if regular_outcome_id is not None:
+                result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
+                Checking.check_statuscode(result_delete, 204)
+            if subcategory_id is not None:
+                delete_subcategory = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
+                Checking.check_statuscode(delete_subcategory, 204)
 
 

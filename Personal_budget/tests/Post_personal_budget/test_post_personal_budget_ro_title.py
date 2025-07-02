@@ -40,7 +40,10 @@ class TestPostPersonalBudgetTitle:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('проверка поля title - 20 символов')
     def test_02(self, auth_fixture):
@@ -66,8 +69,10 @@ class TestPostPersonalBudgetTitle:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            result_delete = PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
-            Checking.check_statuscode(result_delete, 204)
+            """Удаление персонального бюджета"""
+            PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('проверка поля title - Цифры')
     def test_03(self, auth_fixture):
@@ -94,7 +99,10 @@ class TestPostPersonalBudgetTitle:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('проверка поля title - Кирилица')
     def test_04(self, auth_fixture):
@@ -121,7 +129,10 @@ class TestPostPersonalBudgetTitle:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('проверка поля title - Латиница')
     def test_05(self, auth_fixture):
@@ -148,7 +159,10 @@ class TestPostPersonalBudgetTitle:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('проверка поля title - Пробел')
     def test_06(self, auth_fixture):
@@ -175,7 +189,10 @@ class TestPostPersonalBudgetTitle:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('проверка поля title - Нижнее подчеркивание')
     def test_07(self, auth_fixture):
@@ -202,7 +219,10 @@ class TestPostPersonalBudgetTitle:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('проверка поля title - Тире')
     def test_08(self, auth_fixture):
@@ -229,7 +249,10 @@ class TestPostPersonalBudgetTitle:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('проверка поля title - Точка')
     def test_09(self, auth_fixture):
@@ -256,7 +279,10 @@ class TestPostPersonalBudgetTitle:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('проверка поля title - Null')
     def test_10(self, auth_fixture):

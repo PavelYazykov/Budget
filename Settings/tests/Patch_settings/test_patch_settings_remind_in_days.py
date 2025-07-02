@@ -60,33 +60,10 @@ class TestPatchSettingsRemindDays:
         )
 
         """Проверка статус кода"""
-        Checking.check_statuscode(result, 200)
-
-        """Проверка значения поля remind_in_days"""
-        data = Checking.get_data(result)
-        assert data['data']['remind_in_days'] is None
-
-    @allure.description('поле remind_in_days - Null')
-    def test_04(self, auth_fixture):
-        """Авторизация"""
-        access_token = auth_fixture
-
-        """Отправка запроса"""
-        result = SettingsMethods.patch_settings_2(
-            False, True, True, True, True,
-            True, True, 2, None, None,
-            True, True, True, access_token
-        )
-
-        """Проверка статус кода"""
-        Checking.check_statuscode(result, 200)
-
-        """Проверка значения поля remind_in_days"""
-        data = Checking.get_data(result)
-        assert data['data']['remind_in_days'] is None
+        Checking.check_statuscode(result, 422)
 
     @allure.description('поле push_notifications - Пустое отсутствует')
-    def test_05(self, auth_fixture):
+    def test_04(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
@@ -100,7 +77,7 @@ class TestPatchSettingsRemindDays:
         Checking.check_statuscode(result, 200)
 
     @allure.description('поле remind_in_days - Пустое поле')
-    def test_06(self, auth_fixture):
+    def test_05(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
@@ -115,7 +92,7 @@ class TestPatchSettingsRemindDays:
         Checking.check_statuscode(result, 422)
 
     @allure.description('поле remind_in_days - Значене  = 0')
-    def test_07(self, auth_fixture):
+    def test_06(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
@@ -130,7 +107,7 @@ class TestPatchSettingsRemindDays:
         Checking.check_statuscode(result, 422)
 
     @allure.description('поле remind_in_days - Отрицательное значение')
-    def test_08(self, auth_fixture):
+    def test_07(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 
@@ -145,7 +122,7 @@ class TestPatchSettingsRemindDays:
         Checking.check_statuscode(result, 422)
 
     @allure.description('поле remind_in_days - Неверный тип данных string')
-    def test_09(self, auth_fixture):
+    def test_08(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
 

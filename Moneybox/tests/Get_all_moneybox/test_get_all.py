@@ -4,6 +4,7 @@ from Moneybox.methods.moneybox_methods import MoneyboxMethods
 from common_methods.checking import Checking
 import allure
 from common_methods.variables import MoneyboxVariables
+from Moneybox.methods.payloads import Payloads
 to_date = MoneyboxVariables.to_date
 goal = MoneyboxVariables.goal
 name = MoneyboxVariables.name
@@ -28,6 +29,9 @@ class TestGetAllMoneybox:
         """Проверка статус кода"""
         Checking.check_statuscode(result_get, 200)
 
+        """Проверка наличия полей в ответе"""
+        Payloads.check_fields(result_get, Payloads.get_response)
+
     @allure.description('Получение списка всех активных копилок')
     def test_02(self, create_moneybox_and_delete):
 
@@ -39,6 +43,9 @@ class TestGetAllMoneybox:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_get, 200)
+
+        """Проверка наличия полей в ответе"""
+        Payloads.check_fields(result_get, Payloads.get_response)
 
     @allure.description('Получение списка всех архивных копилок')
     def test_03(self, create_moneybox_and_delete):
@@ -57,6 +64,9 @@ class TestGetAllMoneybox:
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_get, 200)
+
+        """Проверка наличия полей в ответе"""
+        Payloads.check_fields(result_get, Payloads.get_response)
 
     @allure.description('Получение списка всех копилок (неавторизованный пользователь)')
     def test_04(self):

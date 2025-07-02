@@ -1,0 +1,5 @@
+Успешно статус код: 200
+ {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5ZjEyM2VhYS1lNWI2LTQzNzgtOTVlOC00OTc5YWIzMzkxZjkiLCJhdWQiOlsiZmFzdGFwaS11c2VyczphdXRoIl0sImV4cCI6MTc0OTk4OTcwNH0.qiyi9xBFAigUJ2Wl1H9uImAL4iSI_EfwmZs32Vwpt-I","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5ZjEyM2VhYS1lNWI2LTQzNzgtOTVlOC00OTc5YWIzMzkxZjkiLCJleHAiOjE3NTA4NTAxMDQsImp0aSI6ImU5YzAxYjFkLTY0YWEtNDIyZC1iYjc1LTU5OTA1Mjg5YzJhMiIsImRldmljZSI6IjExMTExIn0.oRBKLlG75BrrjBxr4vGLYqu3wO6zvKuIOO35hib4J3I","token_type":"bearer"}
+http://localhost:8000/api/v1/moneybox/
+Успешно статус код: 422
+ {"detail":[{"type":"missing","loc":["body"],"msg":"Field required","input":null,"url":"https://errors.pydantic.dev/2.10/v/missing"}]}

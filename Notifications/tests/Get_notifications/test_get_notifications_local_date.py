@@ -21,10 +21,6 @@ class TestGetNotificationsLocalDate:
         """Авторизация"""
         access_token = auth_fixture
 
-        """Инициализация переменных"""
-        wallet_id = None
-        data_wallet = None
-
         """Получение информации о пользователе"""
         get_user = UsersMethods.get_user(access_token)
         data = Checking.get_data(get_user)
@@ -38,19 +34,19 @@ class TestGetNotificationsLocalDate:
         data = Checking.get_data(result_create)
         regular_outcome_id = data['data']['id']
         try:
-            """Создание счета"""
-            create_wallet = WalletMethods.create_wallet(
-                'Pavel_wallet', 2, 100, access_token
-            )
-            Checking.check_statuscode(create_wallet, 201)
-            data_wallet = Checking.get_data(create_wallet)
-            wallet_id = data_wallet['data']['id']
-
-            """Оплата регулярного платежа"""
-            result_pay = RegularOutcomeMethods.pay_regular_outcome(
-                regular_outcome_id, wallet_id, access_token,
-            )
-            Checking.check_statuscode(result_pay, 200)
+            # """Создание счета"""
+            # create_wallet = WalletMethods.create_wallet(
+            #     'Pavel_wallet', 2, 100, access_token
+            # )
+            # Checking.check_statuscode(create_wallet, 201)
+            # data_wallet = Checking.get_data(create_wallet)
+            # wallet_id = data_wallet['data']['id']
+            #
+            # """Оплата регулярного платежа"""
+            # result_pay = RegularOutcomeMethods.pay_regular_outcome(
+            #     regular_outcome_id, wallet_id, access_token,
+            # )
+            # Checking.check_statuscode(result_pay, 200)
 
             """Запрос списка регулярных платежей"""
             result = NotificationsMethods.get_notifications(user_id, '2030-12-11', access_token)
@@ -67,15 +63,15 @@ class TestGetNotificationsLocalDate:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            """Удаление счета"""
-            if float(data_wallet['data']['amount']) > 0:
-                print(float(data_wallet['data']['amount']))
-                PersonalTransactionMethods.create_personal_transaction(
-                    100, 'pavel', 'Consumption', '2025-03-24',
-                    None, wallet_id, 20, None, access_token
-                )
-            delete_wallet = WalletMethods.delete_wallet_by_id(wallet_id, access_token)
-            Checking.check_statuscode(delete_wallet, 204)
+            # """Удаление счета"""
+            # if float(data_wallet['data']['amount']) > 0:
+            #     print(float(data_wallet['data']['amount']))
+            #     PersonalTransactionMethods.create_personal_transaction(
+            #         100, 'pavel', 'Consumption', '2025-03-24',
+            #         None, wallet_id, 20, None, access_token
+            #     )
+            # delete_wallet = WalletMethods.delete_wallet_by_id(wallet_id, access_token)
+            # Checking.check_statuscode(delete_wallet, 204)
 
             """Удаление регулярного бюджета"""
             result_delete = RegularOutcomeMethods.delete_regular_outcome(
@@ -87,10 +83,6 @@ class TestGetNotificationsLocalDate:
     def test_02(self, auth_fixture):
         """Авторизация"""
         access_token = auth_fixture
-
-        """Инициализация переменных"""
-        wallet_id = None
-        data_wallet = None
 
         """Получение информации о пользователе"""
         get_user = UsersMethods.get_user(access_token)
@@ -105,19 +97,19 @@ class TestGetNotificationsLocalDate:
         data = Checking.get_data(result_create)
         regular_outcome_id = data['data']['id']
         try:
-            """Создание счета"""
-            create_wallet = WalletMethods.create_wallet(
-                'Pavel_wallet', 2, 100, access_token
-            )
-            Checking.check_statuscode(create_wallet, 201)
-            data_wallet = Checking.get_data(create_wallet)
-            wallet_id = data_wallet['data']['id']
-
-            """Оплата регулярного платежа"""
-            result_pay = RegularOutcomeMethods.pay_regular_outcome(
-                regular_outcome_id, wallet_id, access_token,
-            )
-            Checking.check_statuscode(result_pay, 200)
+            # """Создание счета"""
+            # create_wallet = WalletMethods.create_wallet(
+            #     'Pavel_wallet', 2, 100, access_token
+            # )
+            # Checking.check_statuscode(create_wallet, 201)
+            # data_wallet = Checking.get_data(create_wallet)
+            # wallet_id = data_wallet['data']['id']
+            #
+            # """Оплата регулярного платежа"""
+            # result_pay = RegularOutcomeMethods.pay_regular_outcome(
+            #     regular_outcome_id, wallet_id, access_token,
+            # )
+            # Checking.check_statuscode(result_pay, 200)
 
             """Запрос списка регулярных платежей"""
             result = NotificationsMethods.get_notifications(user_id, 2030-12-11, access_token)
@@ -130,15 +122,15 @@ class TestGetNotificationsLocalDate:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
-            """Удаление счета"""
-            if float(data_wallet['data']['amount']) > 0:
-                print(float(data_wallet['data']['amount']))
-                PersonalTransactionMethods.create_personal_transaction(
-                    100, 'pavel', 'Consumption', '2025-03-24',
-                    None, wallet_id, 20, None, access_token
-                )
-            delete_wallet = WalletMethods.delete_wallet_by_id(wallet_id, access_token)
-            Checking.check_statuscode(delete_wallet, 204)
+            # """Удаление счета"""
+            # if float(data_wallet['data']['amount']) > 0:
+            #     print(float(data_wallet['data']['amount']))
+            #     PersonalTransactionMethods.create_personal_transaction(
+            #         100, 'pavel', 'Consumption', '2025-03-24',
+            #         None, wallet_id, 20, None, access_token
+            #     )
+            # delete_wallet = WalletMethods.delete_wallet_by_id(wallet_id, access_token)
+            # Checking.check_statuscode(delete_wallet, 204)
 
             """Удаление регулярного бюджета"""
             result_delete = RegularOutcomeMethods.delete_regular_outcome(

@@ -9,6 +9,7 @@ from Personal_budget.methods.payloads import Variables, Payloads
 
 current_date = str(date.today())
 
+
 @pytest.mark.Personal_budget
 @allure.epic('Post/api/v1/personal_budget/ - Создание нового объекта персонального бюджета - '
              'Раздел regular_outcome/проверка поля date_reminder')
@@ -39,7 +40,10 @@ class TestPostPersonalBudgetDateReminder:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('проверка поля date_reminder - Дата уведомления меньше даты платежа')
     def test_02(self, auth_fixture):
@@ -66,7 +70,10 @@ class TestPostPersonalBudgetDateReminder:
                 allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
                 raise AssertionError from e
         finally:
+            """Удаление персонального бюджета"""
             PersonalBudgetMethods.delete_personal_budget(personal_budget_id, access_token)
+            """Удаление регулярного списания"""
+            PersonalBudgetMethods.delete_regular_outcome(access_token)
 
     @allure.description('проверка поля date_reminder - Дата уведомления больше даты платежа')
     def test_03(self, auth_fixture):

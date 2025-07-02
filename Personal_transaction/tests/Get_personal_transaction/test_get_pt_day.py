@@ -1,6 +1,7 @@
 import allure
 import pytest
 
+from Personal_transaction.methods.payloads import Payloads
 from Personal_transaction.methods.personal_transaction_methods import PersonalTransactionMethods
 from common_methods.variables import PersonalTransactionVariables
 from common_methods.checking import Checking
@@ -22,9 +23,10 @@ class TestGetAllPTDayCheck:
     def test_01(self, create_moneybox_and_delete_for_personal_transaction):
         """Создание копилки"""
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_personal_transaction
+
         """Создание транзакции"""
         result = PersonalTransactionMethods.create_personal_transaction(
-            amount, description, transaction_type_income, transaction_date, None, wallet_id,
+            amount, description, transaction_type_income, '2025-05-01', None, wallet_id,
             category_id_income, None, access_token
         )
         """Проверка статус кода"""
@@ -32,11 +34,14 @@ class TestGetAllPTDayCheck:
 
         """Получние списка транзакций"""
         result_get = PersonalTransactionMethods.get_personal_transaction_with_params(
-            'Income', 1, 10, 2024, access_token
+            'Income', 1, 5, 2025, access_token
         )
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_get, 200)
+
+        """Проверка наличия обязательных полей"""
+        Payloads.check_required_fields(result_get, Payloads.get_payloads)
 
     @allure.description('Проверка параметра day - День = 31')
     def test_02(self, create_moneybox_and_delete_for_personal_transaction):
@@ -44,7 +49,7 @@ class TestGetAllPTDayCheck:
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_personal_transaction
         """Создание транзакции"""
         result = PersonalTransactionMethods.create_personal_transaction(
-            amount, description, transaction_type_income, transaction_date, None, wallet_id,
+            amount, description, transaction_type_income, '2025-05-31', None, wallet_id,
             category_id_income, None, access_token
         )
         """Проверка статус кода"""
@@ -52,11 +57,14 @@ class TestGetAllPTDayCheck:
 
         """Получние списка транзакций"""
         result_get = PersonalTransactionMethods.get_personal_transaction_with_params(
-            'Income', 1, 10, 2024, access_token
+            'Income', 31, 5, 2025, access_token
         )
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_get, 200)
+
+        """Проверка наличия обязательных полей"""
+        Payloads.check_required_fields(result_get, Payloads.get_payloads)
 
     @allure.description('Проверка параметра day - Поле отсутствует')
     def test_03(self, create_moneybox_and_delete_for_personal_transaction):
@@ -64,7 +72,7 @@ class TestGetAllPTDayCheck:
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_personal_transaction
         """Создание транзакции"""
         result = PersonalTransactionMethods.create_personal_transaction(
-            amount, description, transaction_type_income, transaction_date, None, wallet_id,
+            amount, description, transaction_type_income, '2025-05-01', None, wallet_id,
             category_id_income, None, access_token
         )
         """Проверка статус кода"""
@@ -72,11 +80,14 @@ class TestGetAllPTDayCheck:
 
         """Получние списка транзакций"""
         result_get = PersonalTransactionMethods.get_personal_transaction_with_params_wd(
-            'Income', 10, 2024, access_token
+            'Income', 5, 2025, access_token
         )
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_get, 200)
+
+        """Проверка наличия обязательных полей"""
+        Payloads.check_required_fields(result_get, Payloads.get_payloads)
 
     @allure.description('Проверка параметра day - Ввод дня в формате (01; 02)')
     def test_04(self, create_moneybox_and_delete_for_personal_transaction):
@@ -84,7 +95,7 @@ class TestGetAllPTDayCheck:
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_personal_transaction
         """Создание транзакции"""
         result = PersonalTransactionMethods.create_personal_transaction(
-            amount, description, transaction_type_income, transaction_date, None, wallet_id,
+            amount, description, transaction_type_income, '2025-05-01', None, wallet_id,
             category_id_income, None, access_token
         )
         """Проверка статус кода"""
@@ -92,11 +103,14 @@ class TestGetAllPTDayCheck:
 
         """Получние списка транзакций"""
         result_get = PersonalTransactionMethods.get_personal_transaction_with_params(
-            'Income', '01', 10, 2024, access_token
+            'Income', '01', 5, 2025, access_token
         )
 
         """Проверка статус кода"""
         Checking.check_statuscode(result_get, 200)
+
+        """Проверка наличия обязательных полей"""
+        Payloads.check_required_fields(result_get, Payloads.get_payloads)
 
     @allure.description('Проверка параметра day - Вещественное число')
     def test_05(self, create_moneybox_and_delete_for_personal_transaction):

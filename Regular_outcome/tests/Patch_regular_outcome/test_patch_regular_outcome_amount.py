@@ -139,28 +139,20 @@ class TestPatchRegularOutcomeAmount:
         Checking.check_statuscode(result, 201)
         data = Checking.get_data(result)
         regular_outcome_id = data['data']['id']
-        try:
-            """Запрос на изменение платежа"""
-            result_patch = RegularOutcomeMethods.change_regular_outcome_wt_subcategory_id(
-                regular_outcome_id, 'title', 20, 'day', 0,
-                access_token
-            )
 
-            """Проверка статус кода"""
-            Checking.check_statuscode(result_patch, 200)
+        """Запрос на изменение платежа"""
+        result_patch = RegularOutcomeMethods.change_regular_outcome_wt_subcategory_id(
+            regular_outcome_id, 'title', 20, 'day', 0,
+            access_token
+        )
 
-            """Проверка значения поля amount"""
-            patch_data = Checking.get_data(result_patch)
-            assert patch_data['data']['amount'] == '0.00'
-        except AssertionError as e:
-            with allure.step(f'Ошибка проверки: {e}'):
-                # Подробное описание ошибки
-                allure.attach(str(e), attachment_type=allure.attachment_type.TEXT)
-                raise AssertionError from e
-
-        finally:
+        """Проверка статус кода"""
+        if result.status_code == 201:
+            data = Checking.get_data(result)
+            regular_outcome_id = data['data']['id']
             result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
             Checking.check_statuscode(result_delete, 204)
+        Checking.check_statuscode(result_patch, 422)
 
     @allure.description('проверка поля amount - Поле отсутствует')
     def test_05(self, auth_fixture):

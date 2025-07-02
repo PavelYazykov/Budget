@@ -20,22 +20,24 @@ class TestGetPaymentAnalyticsCommon:
     def test_01(self, create_moneybox_and_delete_for_analytics):
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_analytics
 
+        regular_outcome_id = None
+
         """Запрос на создание regular_outcome"""
-        result = RegularOutcomeMethods.create_regular_outcome(
-            'Pavel_title', 20, None, 'month', 100, False,
-            '2030-02-17', access_token,
-        )
-        Checking.check_statuscode(result, 201)
-        data = Checking.get_data(result)
-        regular_outcome_id = data['data']['id']
-        print(regular_outcome_id)
-
-        """Оплата регулярного платежа"""
-        result_pay = RegularOutcomeMethods.pay_regular_outcome(regular_outcome_id, wallet_id, access_token)
-        Checking.check_statuscode(result_pay, 200)
-        print('RESULT PAY: ', result_pay.text)
-
         try:
+            result = RegularOutcomeMethods.create_regular_outcome(
+                'Pavel_title', 20, None, 'month', 100, False,
+                '2030-02-17', access_token,
+            )
+            Checking.check_statuscode(result, 201)
+            data = Checking.get_data(result)
+            regular_outcome_id = data['data']['id']
+            print(regular_outcome_id)
+
+            """Оплата регулярного платежа"""
+            result_pay = RegularOutcomeMethods.pay_regular_outcome(regular_outcome_id, wallet_id, access_token)
+            Checking.check_statuscode(result_pay, 200)
+            print('RESULT PAY: ', result_pay.text)
+
             """Запрос аналитики"""
             result_get = AnalyticsMethods.get_payments_analytics(access_token)
 
@@ -52,8 +54,9 @@ class TestGetPaymentAnalyticsCommon:
                 raise AssertionError from e
 
         finally:
-            result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
-            Checking.check_statuscode(result_delete, 204)
+            if regular_outcome_id is not None:
+                result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
+                Checking.check_statuscode(result_delete, 204)
 
     @allure.description(
         'Общие проверки - Запросить аналитику по регулярным платежам без параметров авторизованный пользователь'
@@ -61,22 +64,24 @@ class TestGetPaymentAnalyticsCommon:
     def test_02(self, create_moneybox_and_delete_for_analytics):
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_analytics
 
+        regular_outcome_id = None
+
         """Запрос на создание regular_outcome"""
-        result = RegularOutcomeMethods.create_regular_outcome(
-            'Pavel_title', 20, None, 'month', 100, False,
-            '2030-02-17', access_token,
-        )
-        Checking.check_statuscode(result, 201)
-        data = Checking.get_data(result)
-        regular_outcome_id = data['data']['id']
-        print(regular_outcome_id)
-
-        """Оплата регулярного платежа"""
-        result_pay = RegularOutcomeMethods.pay_regular_outcome(regular_outcome_id, wallet_id, access_token)
-        Checking.check_statuscode(result_pay, 200)
-        print('RESULT PAY: ', result_pay.text)
-
         try:
+            result = RegularOutcomeMethods.create_regular_outcome(
+                'Pavel_title', 20, None, 'month', 100, False,
+                '2030-02-17', access_token,
+            )
+            Checking.check_statuscode(result, 201)
+            data = Checking.get_data(result)
+            regular_outcome_id = data['data']['id']
+            print(regular_outcome_id)
+
+            """Оплата регулярного платежа"""
+            result_pay = RegularOutcomeMethods.pay_regular_outcome(regular_outcome_id, wallet_id, access_token)
+            Checking.check_statuscode(result_pay, 200)
+            print('RESULT PAY: ', result_pay.text)
+
             """Запрос аналитики"""
             result_get = AnalyticsMethods.get_payments_analytics_with_params(
                 '?regular_payment=true',
@@ -96,8 +101,9 @@ class TestGetPaymentAnalyticsCommon:
                 raise AssertionError from e
 
         finally:
-            result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
-            Checking.check_statuscode(result_delete, 204)
+            if regular_outcome_id is not None:
+                result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
+                Checking.check_statuscode(result_delete, 204)
 
     @allure.description(
         'Общие проверки - Запросить аналитику по регулярным платежам с параметрами авторизованный пользователь'
@@ -105,22 +111,24 @@ class TestGetPaymentAnalyticsCommon:
     def test_03(self, create_moneybox_and_delete_for_analytics):
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_analytics
 
+        regular_outcome_id = None
+
         """Запрос на создание regular_outcome"""
-        result = RegularOutcomeMethods.create_regular_outcome(
-            'Pavel_title', 20, None, 'month', 100, False,
-            '2030-02-17', access_token,
-        )
-        Checking.check_statuscode(result, 201)
-        data = Checking.get_data(result)
-        regular_outcome_id = data['data']['id']
-        print(regular_outcome_id)
-
-        """Оплата регулярного платежа"""
-        result_pay = RegularOutcomeMethods.pay_regular_outcome(regular_outcome_id, wallet_id, access_token)
-        Checking.check_statuscode(result_pay, 200)
-        print('RESULT PAY: ', result_pay.text)
-
         try:
+            result = RegularOutcomeMethods.create_regular_outcome(
+                'Pavel_title', 20, None, 'month', 100, False,
+                '2030-02-17', access_token,
+            )
+            Checking.check_statuscode(result, 201)
+            data = Checking.get_data(result)
+            regular_outcome_id = data['data']['id']
+            print(regular_outcome_id)
+
+            """Оплата регулярного платежа"""
+            result_pay = RegularOutcomeMethods.pay_regular_outcome(regular_outcome_id, wallet_id, access_token)
+            Checking.check_statuscode(result_pay, 200)
+            print('RESULT PAY: ', result_pay.text)
+
             """Запрос аналитики"""
             result_get = AnalyticsMethods.get_payments_analytics_with_params(
                 '?month_from=02&year_from=2025&month_to=12&year_to=2030&regular_payment=true',
@@ -141,8 +149,9 @@ class TestGetPaymentAnalyticsCommon:
                 raise AssertionError from e
 
         finally:
-            result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
-            Checking.check_statuscode(result_delete, 204)
+            if regular_outcome_id is not None:
+                result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
+                Checking.check_statuscode(result_delete, 204)
 
     @allure.description(
         'Общие проверки - Запросить аналитику по единоразовым платежам без параметров авторизованный пользователь'
@@ -150,22 +159,24 @@ class TestGetPaymentAnalyticsCommon:
     def test_04(self, create_moneybox_and_delete_for_analytics):
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_analytics
 
+        regular_outcome_id = None
+
         """Запрос на создание regular_outcome"""
-        result = RegularOutcomeMethods.create_regular_outcome(
-            'Pavel_title', 20, None, 'onetime', 100, False,
-            '2030-02-17', access_token,
-        )
-        Checking.check_statuscode(result, 201)
-        data = Checking.get_data(result)
-        regular_outcome_id = data['data']['id']
-        print(regular_outcome_id)
-
-        """Оплата регулярного платежа"""
-        result_pay = RegularOutcomeMethods.pay_regular_outcome(regular_outcome_id, wallet_id, access_token)
-        Checking.check_statuscode(result_pay, 200)
-        print('RESULT PAY: ', result_pay.text)
-
         try:
+            result = RegularOutcomeMethods.create_regular_outcome(
+                'Pavel_title', 20, None, 'onetime', 100, False,
+                '2030-02-17', access_token,
+            )
+            Checking.check_statuscode(result, 201)
+            data = Checking.get_data(result)
+            regular_outcome_id = data['data']['id']
+            print(regular_outcome_id)
+
+            """Оплата регулярного платежа"""
+            result_pay = RegularOutcomeMethods.pay_regular_outcome(regular_outcome_id, wallet_id, access_token)
+            Checking.check_statuscode(result_pay, 200)
+            print('RESULT PAY: ', result_pay.text)
+
             """Запрос аналитики"""
             result_get = AnalyticsMethods.get_payments_analytics_with_params(
                 '?onetime_payment=true',
@@ -186,8 +197,9 @@ class TestGetPaymentAnalyticsCommon:
                 raise AssertionError from e
 
         finally:
-            result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
-            Checking.check_statuscode(result_delete, 204)
+            if regular_outcome_id is not None:
+                result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
+                Checking.check_statuscode(result_delete, 204)
 
     @allure.description(
         'Общие проверки - Запросить аналитику по единоразовым платежам с  параметрами авторизованный пользователь'
@@ -195,22 +207,24 @@ class TestGetPaymentAnalyticsCommon:
     def test_05(self, create_moneybox_and_delete_for_analytics):
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_analytics
 
+        regular_outcome_id = None
+
         """Запрос на создание regular_outcome"""
-        result = RegularOutcomeMethods.create_regular_outcome(
-            'Pavel_title', 20, None, 'day', 100, False,
-            '2030-02-17', access_token,
-        )
-        Checking.check_statuscode(result, 201)
-        data = Checking.get_data(result)
-        regular_outcome_id = data['data']['id']
-        print(regular_outcome_id)
-
-        """Оплата регулярного платежа"""
-        result_pay = RegularOutcomeMethods.pay_regular_outcome(regular_outcome_id, wallet_id, access_token)
-        Checking.check_statuscode(result_pay, 200)
-        print('RESULT PAY: ', result_pay.text)
-
         try:
+            result = RegularOutcomeMethods.create_regular_outcome(
+                'Pavel_title', 20, None, 'day', 100, False,
+                '2030-02-17', access_token,
+            )
+            Checking.check_statuscode(result, 201)
+            data = Checking.get_data(result)
+            regular_outcome_id = data['data']['id']
+            print(regular_outcome_id)
+
+            """Оплата регулярного платежа"""
+            result_pay = RegularOutcomeMethods.pay_regular_outcome(regular_outcome_id, wallet_id, access_token)
+            Checking.check_statuscode(result_pay, 200)
+            print('RESULT PAY: ', result_pay.text)
+
             """Запрос аналитики"""
             result_get = AnalyticsMethods.get_payments_analytics_with_params(
                 '?month_from=02&year_from=2025&month_to=12&year_to=2030&onetime_payment=true',
@@ -231,8 +245,9 @@ class TestGetPaymentAnalyticsCommon:
                 raise AssertionError from e
 
         finally:
-            result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
-            Checking.check_statuscode(result_delete, 204)
+            if regular_outcome_id is not None:
+                result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
+                Checking.check_statuscode(result_delete, 204)
 
     @allure.description(
         'Общие проверки - Запросить аналитику одновременно указав и регулярные и единоразовые платежи'
@@ -240,22 +255,24 @@ class TestGetPaymentAnalyticsCommon:
     def test_06(self, create_moneybox_and_delete_for_analytics):
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_analytics
 
+        regular_outcome_id = None
+
         """Запрос на создание regular_outcome"""
-        result = RegularOutcomeMethods.create_regular_outcome(
-            'Pavel_title', 20, None, 'month', 100, False,
-            '2030-02-17', access_token,
-        )
-        Checking.check_statuscode(result, 201)
-        data = Checking.get_data(result)
-        regular_outcome_id = data['data']['id']
-        print(regular_outcome_id)
-
-        """Оплата регулярного платежа"""
-        result_pay = RegularOutcomeMethods.pay_regular_outcome(regular_outcome_id, wallet_id, access_token)
-        Checking.check_statuscode(result_pay, 200)
-        print('RESULT PAY: ', result_pay.text)
-
         try:
+            result = RegularOutcomeMethods.create_regular_outcome(
+                'Pavel_title', 20, None, 'month', 100, False,
+                '2030-02-17', access_token,
+            )
+            Checking.check_statuscode(result, 201)
+            data = Checking.get_data(result)
+            regular_outcome_id = data['data']['id']
+            print(regular_outcome_id)
+
+            """Оплата регулярного платежа"""
+            result_pay = RegularOutcomeMethods.pay_regular_outcome(regular_outcome_id, wallet_id, access_token)
+            Checking.check_statuscode(result_pay, 200)
+            print('RESULT PAY: ', result_pay.text)
+
             """Запрос аналитики"""
             result_get = AnalyticsMethods.get_payments_analytics_with_params(
                 '?month_from=02&year_from=2025&month_to=12&year_to=2030&regular_payment=true&onetime_payment=true',
@@ -276,8 +293,9 @@ class TestGetPaymentAnalyticsCommon:
                 raise AssertionError from e
 
         finally:
-            result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
-            Checking.check_statuscode(result_delete, 204)
+            if regular_outcome_id is not None:
+                result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
+                Checking.check_statuscode(result_delete, 204)
 
     @allure.description(
         'Общие проверки - Запросить аналитику одновременно указав значение False регулярным и единоразовым платежам'
@@ -285,22 +303,24 @@ class TestGetPaymentAnalyticsCommon:
     def test_07(self, create_moneybox_and_delete_for_analytics):
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_analytics
 
+        regular_outcome_id = None
+
         """Запрос на создание regular_outcome"""
-        result = RegularOutcomeMethods.create_regular_outcome(
-            'Pavel_title', 20, None, 'month', 100, False,
-            '2030-02-17', access_token,
-        )
-        Checking.check_statuscode(result, 201)
-        data = Checking.get_data(result)
-        regular_outcome_id = data['data']['id']
-        print(regular_outcome_id)
-
-        """Оплата регулярного платежа"""
-        result_pay = RegularOutcomeMethods.pay_regular_outcome(regular_outcome_id, wallet_id, access_token)
-        Checking.check_statuscode(result_pay, 200)
-        print('RESULT PAY: ', result_pay.text)
-
         try:
+            result = RegularOutcomeMethods.create_regular_outcome(
+                'Pavel_title', 20, None, 'month', 100, False,
+                '2030-02-17', access_token,
+            )
+            Checking.check_statuscode(result, 201)
+            data = Checking.get_data(result)
+            regular_outcome_id = data['data']['id']
+            print(regular_outcome_id)
+
+            """Оплата регулярного платежа"""
+            result_pay = RegularOutcomeMethods.pay_regular_outcome(regular_outcome_id, wallet_id, access_token)
+            Checking.check_statuscode(result_pay, 200)
+            print('RESULT PAY: ', result_pay.text)
+
             """Запрос аналитики"""
             result_get = AnalyticsMethods.get_payments_analytics_with_params(
                 '?month_from=02&year_from=2025&month_to=12&year_to=2030&regular_payment=false&onetime_payment=false',
@@ -311,8 +331,9 @@ class TestGetPaymentAnalyticsCommon:
             Checking.check_statuscode(result_get, 400)
             print('Result_analytics', result_get.text)
         finally:
-            result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
-            Checking.check_statuscode(result_delete, 204)
+            if regular_outcome_id is not None:
+                result_delete = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
+                Checking.check_statuscode(result_delete, 204)
 
     @allure.description('Общие проверки - Запрос аналитики неавторизованный пользователь')  # Дата текущий месяц
     def test_08(self):
@@ -328,26 +349,29 @@ class TestGetPaymentAnalyticsCommon:
         """Авторизация"""
         moneybox_id, wallet_id, access_token = create_moneybox_and_delete_for_analytics
 
+        subcategory_id = None
+        regular_outcome_id = None
+
         """Создание подкатегории"""
-        create_subcategory = SubcategoryMethods.create_subcategory(
-            20, "Pavel_subcategory", access_token
-        )
-        Checking.check_statuscode(create_subcategory, 201)
-        data = Checking.get_data(create_subcategory)
-        subcategory_id = data['data']['id']
-
-        """Создание regular_outcome"""
-        create_regular_outcome = RegularOutcomeMethods.create_regular_outcome(
-            'Pavel', 20, subcategory_id, 'month', 10, False,
-            '2030-04-12', access_token
-        )
-        Checking.check_statuscode(create_regular_outcome, 201)
-        data = Checking.get_data(create_regular_outcome)
-        regular_outcome_id = data['data']['id']
-
-        PaymentInfoMethods.create_regular_outcome('2025-06-03', regular_outcome_id)  # Дата текущий месяц
-
         try:
+            create_subcategory = SubcategoryMethods.create_subcategory(
+                20, "Pavel_subcategory", access_token
+            )
+            Checking.check_statuscode(create_subcategory, 201)
+            data = Checking.get_data(create_subcategory)
+            subcategory_id = data['data']['id']
+
+            """Создание regular_outcome"""
+            create_regular_outcome = RegularOutcomeMethods.create_regular_outcome(
+                'Pavel', 20, subcategory_id, 'month', 10, False,
+                '2030-04-12', access_token
+            )
+            Checking.check_statuscode(create_regular_outcome, 201)
+            data = Checking.get_data(create_regular_outcome)
+            regular_outcome_id = data['data']['id']
+
+            PaymentInfoMethods.create_regular_outcome('2025-06-03', regular_outcome_id)  # Дата текущий месяц
+
             """Создание просроченного платежа"""
             PaymentInfoMethods.create_payment_info_in_bd(
                 regular_outcome_id, 10, '2025-06-03', None, False, 111
@@ -371,11 +395,12 @@ class TestGetPaymentAnalyticsCommon:
                 raise AssertionError from e
         finally:
             """Удаление регулярного платежа"""
-            delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
-            Checking.check_statuscode(delete_regular_outcome, 204)
-
-            delete_subcategory = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
-            Checking.check_statuscode(delete_subcategory, 204)
+            if regular_outcome_id is not None:
+                delete_regular_outcome = RegularOutcomeMethods.delete_regular_outcome(regular_outcome_id, access_token)
+                Checking.check_statuscode(delete_regular_outcome, 204)
+            if subcategory_id is not None:
+                delete_subcategory = SubcategoryMethods.delete_subcategory(subcategory_id, access_token)
+                Checking.check_statuscode(delete_subcategory, 204)
 
     # @allure.description('Общие проверки -  month_from > month_to')
     # def test_10(self, auth_fixture):
