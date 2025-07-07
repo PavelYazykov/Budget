@@ -4,101 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d210021f-245f-4440-8d3d-d3175e98dcd9" name="Changes" comment="commit_04_06_2025">
-      <change afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/allure_results/1da4093b-39f3-4470-9777-65f79aaced08-result.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/allure_results/1e00f1d8-4670-4ed1-aab3-eb3eba5ede23-attachment.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/allure_results/29b1064c-08ad-41bf-b51b-5db24f670567-attachment.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/allure_results/52008b48-b3ac-4861-a98a-bcb5a34733c0-container.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/allure_results/63d8dc0e-3fba-4b5c-9126-a5f3fbf5546d-result.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/allure_results/68fe6c20-8f2e-4cd4-9571-33871f4c1f9d-result.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/allure_results/6caa2f75-c0de-4d4d-b966-a1b7117576d5-result.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/allure_results/71faa586-6cba-452a-90da-06b3cde0b21d-attachment.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/allure_results/7557e21d-93a3-436f-b958-d6a8938aa76f-result.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/allure_results/86493c3c-1ae2-4642-bb17-bda12a70a534-attachment.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/allure_results/87b4b3e6-b70a-48f8-8fc1-a7f802618b17-container.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/allure_results/8d7b41cf-796f-4f46-b5ad-43f7612c3bbf-result.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/allure_results/a27aaceb-8fb6-40aa-916e-1318508a4b1c-container.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/allure_results/a6149124-5097-4db8-85df-942edcf18e5b-attachment.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/allure_results/a90afdf8-82cc-49ea-b116-da787edd8d6a-attachment.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/allure_results/bc139646-b44f-4b7b-afcd-92c4d53a8b50-container.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/allure_results/bdc55410-a14a-4a47-83c6-cc41e38db81a-attachment.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/allure_results/ce4be254-e1ac-4db7-b6d6-bbeba4872587-result.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/allure_results/e601f170-d745-46b4-bef9-5134808fd83e-attachment.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/allure_results/f17af450-99c4-4cb4-8126-4a8734568032-attachment.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/allure_results/f2b26316-83a5-4ef4-b080-99a3eaa30a1d-container.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/allure_results/f54928e1-c531-427a-b0bf-7e5d4040e426-container.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/allure_results/fa653a2a-26f3-4611-85e3-422084d48cd3-container.json" afterDir="false" />
+    <list default="true" id="d210021f-245f-4440-8d3d-d3175e98dcd9" name="Changes" comment="commit_02.07.2025">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_analytics_payment_analytics/get_payments_analytics_regular_payment.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_analytics_payment_analytics/get_payments_analytics_regular_payment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_analytics_payment_analytics/test_get_payment_analytics_common.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_analytics_payment_analytics/test_get_payment_analytics_common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_analytics_payment_analytics/test_get_payments_analytics_month_from.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_analytics_payment_analytics/test_get_payments_analytics_month_from.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_analytics_payment_analytics/test_payments_analytics_month_to.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_analytics_payment_analytics/test_payments_analytics_month_to.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_analytics_payment_analytics/test_payments_analytics_onetime_payment.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_analytics_payment_analytics/test_payments_analytics_onetime_payment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_analytics_payment_analytics/test_payments_analytics_year_from.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_analytics_payment_analytics/test_payments_analytics_year_from.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_analytics_payment_analytics/test_payments_analytics_year_to.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_analytics_payment_analytics/test_payments_analytics_year_to.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_completed_detail/test_analytics_completed_detail_category_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_completed_detail/test_analytics_completed_detail_category_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_completed_detail/test_analytics_completed_detail_common.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_completed_detail/test_analytics_completed_detail_common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_completed_detail/test_analytics_completed_detail_month_from.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_completed_detail/test_analytics_completed_detail_month_from.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_completed_detail/test_analytics_completed_detail_month_to.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_completed_detail/test_analytics_completed_detail_month_to.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_completed_detail/test_analytics_completed_detail_onetime_payment.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_completed_detail/test_analytics_completed_detail_onetime_payment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_completed_detail/test_analytics_completed_detail_regular_payment.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_completed_detail/test_analytics_completed_detail_regular_payment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_completed_detail/test_analytics_completed_detail_year_from.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_completed_detail/test_analytics_completed_detail_year_from.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_completed_detail/test_analytics_completed_detail_year_to.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_completed_detail/test_analytics_completed_detail_year_to.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_missed_detail/test_analytics_missed_detail_category_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_missed_detail/test_analytics_missed_detail_category_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_missed_detail/test_analytics_missed_detail_common.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_missed_detail/test_analytics_missed_detail_common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_missed_detail/test_analytics_missed_detail_month_from.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_missed_detail/test_analytics_missed_detail_month_from.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_missed_detail/test_analytics_missed_detail_month_to.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_missed_detail/test_analytics_missed_detail_month_to.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_missed_detail/test_analytics_missed_detail_onetime_payment.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_missed_detail/test_analytics_missed_detail_onetime_payment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_missed_detail/test_analytics_missed_detail_regular_payment.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_missed_detail/test_analytics_missed_detail_regular_payment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_missed_detail/test_analytics_missed_detail_year_from.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_missed_detail/test_analytics_missed_detail_year_from.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_missed_detail/test_analytics_missed_detail_year_to.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_missed_detail/test_analytics_missed_detail_year_to.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/methods/payloads.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/methods/payloads.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/Get_all_moneybox/test_get_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Get_all_moneybox/test_get_all.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/Get_by_id/test_get_by_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Get_by_id/test_get_by_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/test_common_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/Moneybox/tests/Post_moneybox/test_common_check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notifications/tests/Get_notifications/test_get_notifications_common.py" beforeDir="false" afterPath="$PROJECT_DIR$/Notifications/tests/Get_notifications/test_get_notifications_common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notifications/tests/Get_notifications/test_get_notifications_local_date.py" beforeDir="false" afterPath="$PROJECT_DIR$/Notifications/tests/Get_notifications/test_get_notifications_local_date.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notifications/tests/Get_notifications/test_get_notifications_user_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Notifications/tests/Get_notifications/test_get_notifications_user_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Payment_info/tests/Get_payment_info/test_get_payment_info_regular_outcome_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Payment_info/tests/Get_payment_info/test_get_payment_info_regular_outcome_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/methods/personal_budget_methods.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/methods/personal_budget_methods.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Get_personal_budget/test_get_personal_budget_common.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Get_personal_budget/test_get_personal_budget_common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Get_personal_budget/test_get_personal_budget_month_from.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Get_personal_budget/test_get_personal_budget_month_from.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Get_personal_budget/test_get_personal_budget_month_to.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Get_personal_budget/test_get_personal_budget_month_to.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Get_personal_budget/test_get_personal_budget_year_from.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Get_personal_budget/test_get_personal_budget_year_from.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Get_personal_budget/test_personal_budget_year_to.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Get_personal_budget/test_personal_budget_year_to.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Get_personal_budget_by_id/test_get_personal_budget_by_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Get_personal_budget_by_id/test_get_personal_budget_by_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Path_personal_budget/test_patch_personal_budget_amount.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Path_personal_budget/test_patch_personal_budget_amount.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Path_personal_budget/test_patch_personal_budget_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Path_personal_budget/test_patch_personal_budget_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Path_personal_budget/test_patch_personal_budget_month.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Path_personal_budget/test_patch_personal_budget_month.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Path_personal_budget/test_patch_personal_budget_subcategory.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Path_personal_budget/test_patch_personal_budget_subcategory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Path_personal_budget/test_patch_personal_budget_transaction_type.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Path_personal_budget/test_patch_personal_budget_transaction_type.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Path_personal_budget/test_patch_personal_budget_year.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Path_personal_budget/test_patch_personal_budget_year.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Path_personal_budget/test_patch_personal_transaction_category_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Path_personal_budget/test_patch_personal_transaction_category_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Path_personal_budget/test_path_personal_budget_common.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Path_personal_budget/test_path_personal_budget_common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Post_personal_budget/test_post_personal_budget_category_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Post_personal_budget/test_post_personal_budget_category_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Post_personal_budget/test_post_personal_budget_common.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Post_personal_budget/test_post_personal_budget_common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Post_personal_budget/test_post_personal_budget_month.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Post_personal_budget/test_post_personal_budget_month.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Post_personal_budget/test_post_personal_budget_ro_date_reminder.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Post_personal_budget/test_post_personal_budget_ro_date_reminder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Post_personal_budget/test_post_personal_budget_ro_have_remind.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Post_personal_budget/test_post_personal_budget_ro_have_remind.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Post_personal_budget/test_post_personal_budget_ro_remind_in_days.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Post_personal_budget/test_post_personal_budget_ro_remind_in_days.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Post_personal_budget/test_post_personal_budget_ro_title.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Post_personal_budget/test_post_personal_budget_ro_title.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Post_personal_budget/test_post_personal_budget_subcategory_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Post_personal_budget/test_post_personal_budget_subcategory_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Post_personal_budget/test_post_personal_budget_transaction_type.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Post_personal_budget/test_post_personal_budget_transaction_type.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Post_personal_budget/test_post_personal_budget_year.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Post_personal_budget/test_post_personal_budget_year.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_budget/tests/Post_personal_budget/test_post_personal_transacrion_amount.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_budget/tests/Post_personal_budget/test_post_personal_transacrion_amount.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/methods/payloads.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/methods/payloads.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/tests/Get_personal_transaction/test_get_linked_to_regular_outcome.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/tests/Get_personal_transaction/test_get_linked_to_regular_outcome.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/tests/Get_personal_transaction/test_get_pt_common_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/tests/Get_personal_transaction/test_get_pt_common_check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/tests/Get_personal_transaction/test_get_pt_day.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/tests/Get_personal_transaction/test_get_pt_day.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/tests/Get_personal_transaction/test_get_pt_month.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/tests/Get_personal_transaction/test_get_pt_month.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Personal_transaction/tests/Get_personal_transaction/test_get_pt_year.py" beforeDir="false" afterPath="$PROJECT_DIR$/Personal_transaction/tests/Get_personal_transaction/test_get_pt_year.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Regular_outcome/tests/Patch_regular_outcome/test_patch_regular_outcome_amount.py" beforeDir="false" afterPath="$PROJECT_DIR$/Regular_outcome/tests/Patch_regular_outcome/test_patch_regular_outcome_amount.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Regular_outcome/tests/Post_regular_outcome/test_post_regular_outcome_amount.py" beforeDir="false" afterPath="$PROJECT_DIR$/Regular_outcome/tests/Post_regular_outcome/test_post_regular_outcome_amount.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_remind_in_days.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_remind_in_days.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_telegram_notifications.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/tests/Patch_settings/test_patch_settings_telegram_notifications.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wallet/tests/Post_create_wallet/test_post_wallet_amount.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/tests/Post_create_wallet/test_post_wallet_amount.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common_methods/http_methods.py" beforeDir="false" afterPath="$PROJECT_DIR$/common_methods/http_methods.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common_methods/variables.py" beforeDir="false" afterPath="$PROJECT_DIR$/common_methods/variables.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1547,19 +1456,19 @@
       <recent name="C:\Users\Pavel\PycharmProjects\Budget_api\Personal_transaction\tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests in tests">
-    <configuration name="Python tests for test_get_notifications_common.TestGetNotificationsCommon" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python tests.Python tests for test_delete.TestDeleteMoneybox">
+    <configuration name="Python tests for test_delete.TestDeleteMoneybox" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Budget_api" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Notifications/tests/Get_notifications" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Moneybox/tests/DELETE" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_get_notifications_common.TestGetNotificationsCommon&quot;" />
+      <option name="_new_target" value="&quot;test_delete.TestDeleteMoneybox&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -1593,18 +1502,18 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests in Get_personal_budget" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests in test_delete.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Budget_api" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Personal_budget/tests/Get_personal_budget" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Moneybox/tests/DELETE" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/Personal_budget/tests/Get_personal_budget&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/Moneybox/tests/DELETE/test_delete.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
@@ -1625,11 +1534,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for test_delete.TestDeleteMoneybox" />
+        <item itemvalue="Python tests.Python tests in test_delete.py" />
         <item itemvalue="Python tests.Python tests in tests" />
         <item itemvalue="Python tests.Python tests for test_post_personal_budget_common.TestPostPersonalBudgetCommon.test_08" />
         <item itemvalue="Python tests.Python tests for test_post_personal_budget_common.TestPostPersonalBudgetCommon.test_01" />
-        <item itemvalue="Python tests.Python tests in Get_personal_budget" />
-        <item itemvalue="Python tests.Python tests for test_get_notifications_common.TestGetNotificationsCommon" />
       </list>
     </recent_temporary>
   </component>
@@ -1648,14 +1557,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1724050586965</updated>
-    </task>
-    <task id="LOCAL-00005" summary="initial_4">
-      <option name="closed" value="true" />
-      <created>1725554088320</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1725554088320</updated>
     </task>
     <task id="LOCAL-00006" summary="initial_5">
       <option name="closed" value="true" />
@@ -2041,7 +1942,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749052912807</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="commit_02.07.2025">
+      <option name="closed" value="true" />
+      <created>1751469779755</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1751469779755</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -2060,7 +1969,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="initial_1" />
     <MESSAGE value="initial_2" />
     <MESSAGE value="initial_3" />
     <MESSAGE value="initial_4" />
@@ -2085,6 +1993,7 @@
     <MESSAGE value="commit_10_05_2025" />
     <MESSAGE value="commit_15_05_2025" />
     <MESSAGE value="commit_04_06_2025" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit_04_06_2025" />
+    <MESSAGE value="commit_02.07.2025" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit_02.07.2025" />
   </component>
 </project>
