@@ -1,0 +1,67 @@
+{
+  "uid" : "93325c1e7e9f8098",
+  "name" : "test_03",
+  "fullName" : "Auth.tests.Post_change_password.test_change_password_common_check.TestCommonCheck#test_03",
+  "historyId" : "4fbe1f0e504614b0ba379765291290e3",
+  "time" : {
+    "start" : 1751902719365,
+    "stop" : 1751902719365,
+    "duration" : 0
+  },
+  "description" : "Запрос со старым access_token",
+  "descriptionHtml" : "<p>Запрос со старым access_token</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Post_change_password Общие проверки"
+  }, {
+    "name" : "tag",
+    "value" : "change_password_common"
+  }, {
+    "name" : "tag",
+    "value" : "Auth"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Auth.tests.Post_change_password"
+  }, {
+    "name" : "suite",
+    "value" : "test_change_password_common_check"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestCommonCheck"
+  }, {
+    "name" : "host",
+    "value" : "e04ddc2c9a9a"
+  }, {
+    "name" : "thread",
+    "value" : "1-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "Auth.tests.Post_change_password.test_change_password_common_check"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "change_password_common", "Auth" ]
+  },
+  "source" : "93325c1e7e9f8098.json",
+  "parameterValues" : [ ]
+}

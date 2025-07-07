@@ -1,114 +1,114 @@
 {
-  "total" : 25,
+  "total" : 55,
   "items" : [ {
-    "uid" : "6367d2f4334e7f3bc46c92916ee0f92d",
-    "name" : "Delete/api/v1/wallet/{wallet_id}/ Удаление кошелька",
+    "uid" : "3b777930c96f30782dff2ff6242ccdd8",
+    "name" : "Patch/users/me Проверка поля email",
     "statistic" : {
-      "failed" : 9,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 2,
-      "unknown" : 0,
-      "total" : 11
-    }
-  }, {
-    "uid" : "246720aff5d99b61004d721598bcfcfb",
-    "name" : "Patch/users/me Проверка поля data_of_birth",
-    "statistic" : {
-      "failed" : 8,
-      "broken" : 0,
+      "failed" : 0,
+      "broken" : 28,
       "skipped" : 0,
       "passed" : 0,
       "unknown" : 0,
-      "total" : 8
+      "total" : 28
     }
   }, {
     "uid" : "748742bec18ce815afd9b6ad66229467",
     "name" : "Delete /api/v1/personal_transaction/{personal_transaction_id}/ Редактирование транзакций, общие проверки",
     "statistic" : {
-      "failed" : 6,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 2,
-      "unknown" : 0,
-      "total" : 8
-    }
-  }, {
-    "uid" : "94c2158c520e4dd77a591af8e61bd75b",
-    "name" : "Patch/api/v1/settings/my/ Настройки пользователя - Проверка поля analytics",
-    "statistic" : {
-      "failed" : 5,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 2,
-      "unknown" : 0,
-      "total" : 7
-    }
-  }, {
-    "uid" : "04a6c55b65de83b9df0590d455c88244",
-    "name" : "Get/api/v1/category/ Получение списка категорий - проверка поля excluded",
-    "statistic" : {
-      "failed" : 5,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 2,
-      "unknown" : 0,
-      "total" : 7
-    }
-  }, {
-    "uid" : "71ad9e4bb2e54b47d4cdf933a58ac23d",
-    "name" : "Post/ remote_logout/device_id Отзыв refresh_token по device_id",
-    "statistic" : {
-      "failed" : 5,
-      "broken" : 0,
+      "failed" : 0,
+      "broken" : 18,
       "skipped" : 0,
       "passed" : 0,
       "unknown" : 0,
-      "total" : 5
+      "total" : 18
     }
   }, {
-    "uid" : "f8318df04b4bacb769c2c201fd7e6f74",
-    "name" : "Patch/api/v1/settings/my/ Настройки пользователя - Проверка поля business_accounting",
+    "uid" : "41c7488bd8605496576f41c6bcd15e65",
+    "name" : "Delete/api/v1/wallet/{wallet_id}/ Удаление wallet",
     "statistic" : {
-      "failed" : 5,
-      "broken" : 0,
+      "failed" : 0,
+      "broken" : 11,
       "skipped" : 0,
       "passed" : 0,
       "unknown" : 0,
-      "total" : 5
+      "total" : 11
     }
   }, {
-    "uid" : "bd118aa428aec429cc9913ec93175314",
-    "name" : "Get/api/v1/analytics/payments_analytics - аналитика исполненных и пропущенных регулярных платежей - общие проверки",
+    "uid" : "81f6dc99f6d5a1a282cb48a03be3ab9f",
+    "name" : "GET/api/v1/personal_budget/ Получение списка всех транзакций - проверка поля day",
     "statistic" : {
-      "failed" : 4,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 1,
-      "unknown" : 0,
-      "total" : 5
-    }
-  }, {
-    "uid" : "cf0249e794462e9ee79332764cff80f4",
-    "name" : "Get/api/v1/subcategory/ - Проверка поля category_id",
-    "statistic" : {
-      "failed" : 4,
-      "broken" : 0,
+      "failed" : 0,
+      "broken" : 11,
       "skipped" : 0,
       "passed" : 0,
       "unknown" : 0,
-      "total" : 4
+      "total" : 11
     }
   }, {
-    "uid" : "eac12b83b18bb9e72a3bbb8b49a0a854",
-    "name" : "Get/api/v1/category/ Получение списка категорий - проверка поля transaction_type",
+    "uid" : "cad14cc72f710e840e30def77d220ae3",
+    "name" : "Post_change_password Проверка поля new_password",
     "statistic" : {
-      "failed" : 4,
-      "broken" : 0,
+      "failed" : 0,
+      "broken" : 10,
       "skipped" : 0,
       "passed" : 0,
       "unknown" : 0,
-      "total" : 4
+      "total" : 10
+    }
+  }, {
+    "uid" : "18670a6fc5f87babff05909699dedaa9",
+    "name" : "Get/api/v1/wallet/  Получение информации о wallet по id",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 10,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 10
+    }
+  }, {
+    "uid" : "6fc1344e4f1ae166c05ff7e0a6dd3244",
+    "name" : "Get/api/v1/analytics/payments_analytics - аналитика исполненных и пропущенных регулярных платежей - проверка поля month_from",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 10,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 10
+    }
+  }, {
+    "uid" : "5364fdd360b6b3b6228270099d79eb7f",
+    "name" : "Patch/api/v1/wallet/{wallet_id}/ Редактирование wallet - Проверка поля currency_id",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 10,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 10
+    }
+  }, {
+    "uid" : "3353c93d92342013f311c5fa07bf1542",
+    "name" : "Get/api/v1/analytics/payments_analytics - аналитика исполненных и пропущенных регулярных платежей - проверка поля month_to",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 10,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 10
+    }
+  }, {
+    "uid" : "c091d1cb27f35659bdd817b47bf97750",
+    "name" : "Patch/api/v1/subcategory/ - Редактирование подкатегории по id - Проверка поля title",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 10,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 10
     }
   } ]
 }

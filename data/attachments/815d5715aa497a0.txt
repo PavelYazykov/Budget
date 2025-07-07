@@ -1,9 +1,0 @@
-Успешно статус код: 200
- {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5YzA1ZGUwNC03MDU5LTQ5YmMtOWJmOC1mY2M4Njk4MzUyNDUiLCJhdWQiOlsiZmFzdGFwaS11c2VyczphdXRoIl0sImV4cCI6MTc0MDA3Mjk3M30.498b9zsMxZ_FO08Kkmi1jOAWvnFBcJTe5HHIj3DpDBA","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5YzA1ZGUwNC03MDU5LTQ5YmMtOWJmOC1mY2M4Njk4MzUyNDUiLCJleHAiOjE3NDA5MzMzNzMsImp0aSI6ImU4MWFhZDIyLThlNWYtNDM4Ny1iY2FkLTJkNTQzZmQ4YmEwMCIsImRldmljZSI6IjExMTExIn0.MZFOSNBHXfJiLAs46n2VjxFN2gkLJXkFiMgtnQzeBco","token_type":"bearer"}
-Успешно статус код: 201
- {"meta":{},"data":{"name":"w_2","currency_id":2,"id":831,"goal_is_achieved":false,"amount":"0.00","is_archived":false}}
-Wallet c id 831 удален
-Успешно статус код: 204
- 
-Успешно статус код: 403
- {"errors":{"status":403,"detail":"This record does not exist/this record belongs to another user"}}

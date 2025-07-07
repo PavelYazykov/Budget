@@ -1,5 +1,0 @@
-Успешно статус код: 200
- {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5YzA1ZGUwNC03MDU5LTQ5YmMtOWJmOC1mY2M4Njk4MzUyNDUiLCJhdWQiOlsiZmFzdGFwaS11c2VyczphdXRoIl0sImV4cCI6MTc0MDA3Mjk3M30.498b9zsMxZ_FO08Kkmi1jOAWvnFBcJTe5HHIj3DpDBA","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5YzA1ZGUwNC03MDU5LTQ5YmMtOWJmOC1mY2M4Njk4MzUyNDUiLCJleHAiOjE3NDA5MzMzNzMsImp0aSI6IjI3YjRiNjg0LWFmODctNDhkNS1iYmRkLWY1YmYzNDlmMTZmYiIsImRldmljZSI6IjExMTExIn0.BzWPQKgOkoJP1YU31tpRJKT07xIric48akQtTMJsbjQ","token_type":"bearer"}
-Успешно статус код: 200
- {"meta":{},"data":{"id":2,"personal_accounting":true,"business_accounting":false,"analytics":true,"use_subcategories":true,"use_quantity":true,"push_notifications":true,"email_notifications":true,"telegram_notifications":false,"default_currency_id":2,"user_id":"9c05de04-7059-49bc-9bf8-fcc869835245","excluded_categories":null,"remind_in_days":null,"registration_consent":true,"telegram_consent":true}}
-Все поля присутствуют

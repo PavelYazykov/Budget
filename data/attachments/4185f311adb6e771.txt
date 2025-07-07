@@ -1,4 +1,0 @@
-Успешно статус код: 200
- {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5YzA1ZGUwNC03MDU5LTQ5YmMtOWJmOC1mY2M4Njk4MzUyNDUiLCJhdWQiOlsiZmFzdGFwaS11c2VyczphdXRoIl0sImV4cCI6MTc0MDA3Mjk4Mn0.fMmV2soyPvbUlvGk7KqwMrZeGYq-AbKmznrxqUtlEbA","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5YzA1ZGUwNC03MDU5LTQ5YmMtOWJmOC1mY2M4Njk4MzUyNDUiLCJleHAiOjE3NDA5MzMzODIsImp0aSI6IjgyZGUxZDlmLTNiYmYtNDcxZi1iODI0LTFlNDcyNTQ4MWIwMyIsImRldmljZSI6IjExMTExIn0.TxkdpGUovuGW5DaF4thgeOzeV9wuDbeKi1P6AodkK6k","token_type":"bearer"}
-Успешно статус код: 403
- {"errors":{"status":403,"detail":"The device does not exist or is occupied by another user"}}
