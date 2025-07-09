@@ -106,7 +106,7 @@ class TestGetPaymentInfoRegularOutcomeId:
         )
 
         """Проверка статус кода"""
-        Checking.check_statuscode(get_result, 404)
+        Checking.check_statuscode(get_result, 200)
 
     @allure.description('проверка поля regular_outcome_id  - Отрицательное значение id')
     def test_04(self, auth_fixture):

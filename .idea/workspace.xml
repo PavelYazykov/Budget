@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d210021f-245f-4440-8d3d-d3175e98dcd9" name="Changes" comment="commit_02.07.2025">
+    <list default="true" id="d210021f-245f-4440-8d3d-d3175e98dcd9" name="Changes" comment="commit_07.07.2025">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_missed_detail/test_analytics_missed_detail_month_to.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_missed_detail/test_analytics_missed_detail_month_to.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_missed_detail/test_analytics_missed_detail_year_to.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analytics/tests/Get_payments_analytics_missed_detail/test_analytics_missed_detail_year_to.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Auth/tests/Post_forgot_password/test_forgot_password_email_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/tests/Post_forgot_password/test_forgot_password_email_field.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Payment_info/tests/Get_payment_info/test_get_payment_info_regular_outcome_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/Payment_info/tests/Get_payment_info/test_get_payment_info_regular_outcome_id.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common_methods/variables.py" beforeDir="false" afterPath="$PROJECT_DIR$/common_methods/variables.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,6 +230,7 @@
     &quot;Python tests.Python tests for test_forgot_password_common_check.TestCommonCheck.test_06.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests for test_forgot_password_common_check.TestForgotPasswordCommonCheck.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests for test_forgot_password_common_check.TestForgotPasswordCommonCheck.test_03.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_forgot_password_email_field.TestForgotPasswordEmailField.test_04.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests for test_get_active_sessions.TestGetActiveSessions.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests for test_get_active_sessions.TestGetActiveSessions.test_01.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests for test_get_active_sessions.TestGetActiveSessions.test_02.executor&quot;: &quot;Run&quot;,
@@ -307,6 +309,7 @@
     &quot;Python tests.Python tests for test_get_payments_analytics_month_from.TestGetPaymentAnalyticsMonthFrom.test_08.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests for test_get_personal_budget_auto_use.TestGetPersonalBudget.test_01.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests for test_get_personal_budget_auto_use.TestGetPersonalBudget.test_02.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_get_personal_budget_auto_use_by_id.TestGetAutoUseById.test_02.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests for test_get_personal_budget_by_id.TestGetPersonalBudgetById.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests for test_get_personal_budget_by_id.TestGetPersonalBudgetById.test_01.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests for test_get_personal_budget_by_id.TestGetPersonalBudgetById.test_02.executor&quot;: &quot;Run&quot;,
@@ -796,6 +799,8 @@
     &quot;Python tests.Python tests for test_payments_analytics_year_from.TestGetPaymentAnalyticsYearFrom.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests for test_payments_analytics_year_from.TestGetPaymentAnalyticsYearFrom.test_01.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests for test_payments_analytics_year_to.TestGetPaymentAnalyticsYearTo.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_personal_budget_auto_use_date_reminder.TestPostAutoUsDateReminder.test_03.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_personal_budget_auto_use_date_reminder.TestPostAutoUsDateReminder.test_12.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests for test_personal_budget_year_to.TestGetPersonalBudgetYearTo.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests for test_personal_budget_year_to.TestGetPersonalBudgetYearTo.test_01.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests for test_personal_budget_year_to.TestGetPersonalBudgetYearTo.test_02.executor&quot;: &quot;Run&quot;,
@@ -1456,89 +1461,89 @@
       <recent name="C:\Users\Pavel\PycharmProjects\Budget_api\Personal_transaction\tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for test_delete.TestDeleteMoneybox">
-    <configuration name="Python tests for test_delete.TestDeleteMoneybox" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python tests.Python tests for test_get_personal_budget_auto_use_by_id.TestGetAutoUseById.test_02">
+    <configuration name="Python tests for test_get_payment_info_regular_outcome_id.TestGetPaymentInfoRegularOutcomeId.test_03" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Budget_api" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Moneybox/tests/DELETE" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Payment_info/tests/Get_payment_info" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_delete.TestDeleteMoneybox&quot;" />
+      <option name="_new_target" value="&quot;test_get_payment_info_regular_outcome_id.TestGetPaymentInfoRegularOutcomeId.test_03&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_post_personal_budget_common.TestPostPersonalBudgetCommon.test_01" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_get_personal_budget_auto_use_by_id.TestGetAutoUseById.test_02" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Budget_api" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Personal_budget/tests/Post_personal_budget" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Personal_budget_auto_use/tests/Get_personal_budget_auto_use_by_id" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_post_personal_budget_common.TestPostPersonalBudgetCommon.test_01&quot;" />
+      <option name="_new_target" value="&quot;test_get_personal_budget_auto_use_by_id.TestGetAutoUseById.test_02&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_post_personal_budget_common.TestPostPersonalBudgetCommon.test_08" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_personal_budget_auto_use_date_reminder.TestPostAutoUsDateReminder.test_03" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Budget_api" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Personal_budget/tests/Post_personal_budget" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Personal_budget_auto_use/tests/Post_personal_budget_auto_use" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_post_personal_budget_common.TestPostPersonalBudgetCommon.test_08&quot;" />
+      <option name="_new_target" value="&quot;test_personal_budget_auto_use_date_reminder.TestPostAutoUsDateReminder.test_03&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests in test_delete.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_personal_budget_auto_use_date_reminder.TestPostAutoUsDateReminder.test_12" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Budget_api" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Moneybox/tests/DELETE" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Personal_budget_auto_use/tests/Post_personal_budget_auto_use" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/Moneybox/tests/DELETE/test_delete.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <option name="_new_target" value="&quot;test_personal_budget_auto_use_date_reminder.TestPostAutoUsDateReminder.test_12&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests in tests" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_reset_password_check_email.TestResetPasswordCheckEmail.test_04" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Budget_api" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Personal_budget/tests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Auth/tests/Post_reset_password" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/Personal_budget/tests&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <option name="_new_target" value="&quot;test_reset_password_check_email.TestResetPasswordCheckEmail.test_04&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests for test_delete.TestDeleteMoneybox" />
-        <item itemvalue="Python tests.Python tests in test_delete.py" />
-        <item itemvalue="Python tests.Python tests in tests" />
-        <item itemvalue="Python tests.Python tests for test_post_personal_budget_common.TestPostPersonalBudgetCommon.test_08" />
-        <item itemvalue="Python tests.Python tests for test_post_personal_budget_common.TestPostPersonalBudgetCommon.test_01" />
+        <item itemvalue="Python tests.Python tests for test_get_personal_budget_auto_use_by_id.TestGetAutoUseById.test_02" />
+        <item itemvalue="Python tests.Python tests for test_personal_budget_auto_use_date_reminder.TestPostAutoUsDateReminder.test_12" />
+        <item itemvalue="Python tests.Python tests for test_personal_budget_auto_use_date_reminder.TestPostAutoUsDateReminder.test_03" />
+        <item itemvalue="Python tests.Python tests for test_get_payment_info_regular_outcome_id.TestGetPaymentInfoRegularOutcomeId.test_03" />
+        <item itemvalue="Python tests.Python tests for test_reset_password_check_email.TestResetPasswordCheckEmail.test_04" />
       </list>
     </recent_temporary>
   </component>
@@ -1557,14 +1562,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1724050586965</updated>
-    </task>
-    <task id="LOCAL-00006" summary="initial_5">
-      <option name="closed" value="true" />
-      <created>1725554840649</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1725554840649</updated>
     </task>
     <task id="LOCAL-00007" summary="initial_6">
       <option name="closed" value="true" />
@@ -1950,7 +1947,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751469779755</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="commit_07.07.2025">
+      <option name="closed" value="true" />
+      <created>1751901457114</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1751901457114</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -1969,7 +1974,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="initial_2" />
     <MESSAGE value="initial_3" />
     <MESSAGE value="initial_4" />
     <MESSAGE value="initial_5" />
@@ -1994,6 +1998,7 @@
     <MESSAGE value="commit_15_05_2025" />
     <MESSAGE value="commit_04_06_2025" />
     <MESSAGE value="commit_02.07.2025" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit_02.07.2025" />
+    <MESSAGE value="commit_07.07.2025" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit_07.07.2025" />
   </component>
 </project>

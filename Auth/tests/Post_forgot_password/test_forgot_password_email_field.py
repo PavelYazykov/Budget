@@ -53,7 +53,7 @@ class TestForgotPasswordEmailField:
         )
         Checking.check_statuscode(create_result, 201)
         data, user_id = AuthMethods.get_id(create_result)
-        time.sleep(20)
+        time.sleep(5)
         try:
             """Запрос кода"""
             result = AuthMethods.forgot_password(not_verify_email)

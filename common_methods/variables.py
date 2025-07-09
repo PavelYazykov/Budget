@@ -1,10 +1,12 @@
 import datetime
 import random
 
+
 class CommonVariables:
 
     # base_url = 'https://budget-test.god-it.ru/api'
-    base_url = 'http://localhost:8000'
+    # base_url = 'http://localhost:8000'
+    base_url = 'http://api:8000'
 
 
 class DataBase:
